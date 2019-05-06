@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0B46471C-C060-E534-961E-530D952DD9D1" name="EquipoPartido">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 16:00:03 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Equipo_id" id="8996F8E5-35AC-983C-EF52-DDDB9DC422B0">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 16:00:03 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3D475D84-5A2C-8017-802D-A6BBAC458782" referredColumn="09E43F67-9B08-6D85-0DE5-9DAA802ED4ED"/>
+</associations>
+</Column>
+<Column name="Partido_id" id="3AD34D28-062B-1FA6-FFAF-BCA6C465D344">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 16:00:03 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="10C774AE-61FD-0127-5F1F-3FC886C08C20" referredColumn="09AD5D06-3978-FDE3-9B16-43F596DCFD70"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="367226D3-11D8-6FF8-2263-B9707FDE2C74" name="EquipoPartido_PK">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 16:00:03 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8996F8E5-35AC-983C-EF52-DDDB9DC422B0"/>
+<colUsage columnID="3AD34D28-062B-1FA6-FFAF-BCA6C465D344"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="67858D2E-AC32-D38A-AE89-54831F3BC1A7" name="EquipoPartido_Equipo_FK">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 16:00:03 UTC</createdTime>
+<generatorID>0019D811-7897-3E42-5BA5-B7C2BA340146</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8996F8E5-35AC-983C-EF52-DDDB9DC422B0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="119B2BF8-725E-9BE6-CD3F-0FA28AB02B15" name="EquipoPartido_Partido_FK">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 16:00:03 UTC</createdTime>
+<generatorID>0019D811-7897-3E42-5BA5-B7C2BA340146</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3AD34D28-062B-1FA6-FFAF-BCA6C465D344"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

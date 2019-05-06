@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6629AEF3-F297-27B9-1618-C74E412B01B1" name="Presidente">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:13:43 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="75A0B9DB-6E0C-6AEB-65B5-59E51AD5E225" value="true"/>
+<item key="1DCD3527-C887-6AF2-A7EB-CA0097DA489B" value="true"/>
+<item key="A019C4FF-E2CE-70C9-5244-3A7D9EDEBF83" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_presidente" id="697153D4-DD51-6A0B-D39A-54FC27475CA4">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:13:47 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="75A0B9DB-6E0C-6AEB-65B5-59E51AD5E225" value="true"/>
+<item key="1DCD3527-C887-6AF2-A7EB-CA0097DA489B" value="true"/>
+<item key="A019C4FF-E2CE-70C9-5244-3A7D9EDEBF83" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="ECB57BA6-6550-BAFE-A2C5-432F6BEC708C">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:14:02 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="75A0B9DB-6E0C-6AEB-65B5-59E51AD5E225" value="true"/>
+<item key="1DCD3527-C887-6AF2-A7EB-CA0097DA489B" value="true"/>
+<item key="A019C4FF-E2CE-70C9-5244-3A7D9EDEBF83" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="apellido" id="6BE7E7AF-BB46-09EE-C64F-6A923A503A4C">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:14:17 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="75A0B9DB-6E0C-6AEB-65B5-59E51AD5E225" value="true"/>
+<item key="1DCD3527-C887-6AF2-A7EB-CA0097DA489B" value="true"/>
+<item key="A019C4FF-E2CE-70C9-5244-3A7D9EDEBF83" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_equipo" id="67B8AAAF-B9B6-4E96-0355-2E64D7832E82">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:35:50 UTC</createdTime>
+<generatorID>6E727A13-C10F-6B2A-37EE-3E4351730ABD</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="75A0B9DB-6E0C-6AEB-65B5-59E51AD5E225" value="true"/>
+<item key="1DCD3527-C887-6AF2-A7EB-CA0097DA489B" value="true"/>
+<item key="A019C4FF-E2CE-70C9-5244-3A7D9EDEBF83" value="true"/>
+</engineerTo>
+<referedAttribute>0A20A81E-2E8D-01E2-26EF-72515F768AEB</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="B65FC578-915F-5B3E-701A-A322BE121FA2" name="Dueño PK">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:13:58 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="75A0B9DB-6E0C-6AEB-65B5-59E51AD5E225" value="true"/>
+<item key="1DCD3527-C887-6AF2-A7EB-CA0097DA489B" value="true"/>
+<item key="A019C4FF-E2CE-70C9-5244-3A7D9EDEBF83" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>697153D4-DD51-6A0B-D39A-54FC27475CA4</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

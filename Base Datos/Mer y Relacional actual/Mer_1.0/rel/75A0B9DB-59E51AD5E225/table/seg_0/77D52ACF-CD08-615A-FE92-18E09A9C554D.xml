@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="77D52ACF-CD08-615A-FE92-18E09A9C554D" name="Sesion">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 16:00:03 UTC</createdTime>
+<generatorID>24177097-4093-576F-4115-1E53866F0172</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="6C477C29-0AF3-F2EF-D49F-C37058F4E360">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 16:00:03 UTC</createdTime>
+<generatorID>F8E4F372-7BF2-EA30-2493-C29290DE6816</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="usuario" id="E22750AA-E259-14D7-391C-39DFC5475513">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 16:00:03 UTC</createdTime>
+<generatorID>A87B1468-6842-FBCD-5304-AF0120E13A33</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="contraseña" id="5268EC58-B7DB-385C-E754-F657FF65F2CE">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 16:00:03 UTC</createdTime>
+<generatorID>AFA09003-2D89-27B5-304F-B8AB2BD4B848</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo" id="4987A48B-FC50-8D45-7EE6-55F77E8075E5">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 16:00:03 UTC</createdTime>
+<generatorID>CB076EAA-6211-8AA1-FEF9-C8E7B6B87FA2</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="907358E3-EEF2-3CDD-146B-7A667D385D07" name="Sesion_PK">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 16:00:03 UTC</createdTime>
+<generatorID>422B8724-20C9-A449-AFCC-0CDE5C034A7A</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6C477C29-0AF3-F2EF-D49F-C37058F4E360"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
