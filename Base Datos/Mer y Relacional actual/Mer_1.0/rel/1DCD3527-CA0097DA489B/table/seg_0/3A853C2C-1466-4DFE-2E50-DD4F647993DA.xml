@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3A853C2C-1466-4DFE-2E50-DD4F647993DA" name="Clasificacion">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 10:03:09 UTC</createdTime>
+<generatorID>8BED4ABA-8B67-6CFE-4F31-097226318551</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_liga" id="336513EC-6C57-DA63-76E2-663AB20E5028">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 10:03:09 UTC</createdTime>
+<generatorID>BC95B13D-B4D2-F895-AA5B-4E58FF9F06D4</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="6C50DF1B-482B-D602-508E-9BE131D6F39E">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 10:03:09 UTC</createdTime>
+<generatorID>AEB8F30D-C837-CDBE-7C27-A3CD1DB0150A</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Equipo_id_equipo" id="5D71696B-64D7-D089-9226-1BC7ECA67844">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 10:03:09 UTC</createdTime>
+<generatorID>B98EB589-2D83-4910-839C-5A4AF811BF4F</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="76451F2C-3384-0F21-3B15-858529D35D5D" referredColumn="B8550473-3CF7-8A59-A251-8677ED35132B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D3BDED64-8036-9D0B-D4F5-D241786FB106" name="Clasificacion_PK">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 10:03:09 UTC</createdTime>
+<generatorID>CC41A3B5-109C-9F6C-D028-A42072E21757</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="336513EC-6C57-DA63-76E2-663AB20E5028"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CA869856-7441-1AC9-A4F7-AD3FBDDA89EC" name="Clasificacion_Equipo_FK">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 10:03:09 UTC</createdTime>
+<generatorID>7D694F2F-00DD-242A-52E5-ACCA08E23E66</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5D71696B-64D7-D089-9226-1BC7ECA67844"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

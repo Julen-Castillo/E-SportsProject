@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="547A131E-14F4-A883-20E2-64CB8A948550" name="Equipo">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 08:56:10 UTC</createdTime>
+<generatorID>B9307490-F307-8558-144A-3844F01F2311</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_equipo" id="D8E53934-0D39-ECC0-8E36-40C161D7A7E2">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 08:56:10 UTC</createdTime>
+<generatorID>0A20A81E-2E8D-01E2-26EF-72515F768AEB</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="56B9AAEF-23A6-61AA-F3E5-26EF6FF06069">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 08:56:10 UTC</createdTime>
+<generatorID>1F9A0C39-DFB3-7E50-3D00-1ADCCF2AA94A</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="presupuesto" id="2D521A75-DD8A-2A44-963A-B64FFC5A4765">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 08:56:10 UTC</createdTime>
+<generatorID>89EF694F-D4ED-EF16-A66B-8BEE8D4B67BE</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="puntos" id="66D77D4A-0B19-4FC6-8A76-71F08BC3088C">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 10:01:09 UTC</createdTime>
+<generatorID>B1E792B7-3A42-59AB-C4C9-F216DE4F56F9</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="37D78859-7EEF-8399-F951-0FE914309080" name="Equipo_PK">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 08:56:10 UTC</createdTime>
+<generatorID>6C7744C5-4FB5-D57B-1FFC-4D4C13854C4B</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D8E53934-0D39-ECC0-8E36-40C161D7A7E2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
