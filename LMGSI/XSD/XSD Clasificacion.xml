@@ -13,7 +13,7 @@
         <xs:sequence>
             <xs:element name="nombre" type="xs:string"/>
             <xs:element name="puntos" type="xs:integer"/>
-            <xs:element name="ranking" type="xs:integer"/>
         </xs:sequence>
+        <xs:attribute name="ranking" type="xs:integer"/>
     </xs:complexType>
 </xs:schema>
