@@ -78,6 +78,18 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="titularidad" id="48C2A340-0C65-480B-609B-11F972F5A719">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 17:56:58 UTC</createdTime>
+<generatorID>85E8F32A-3815-840E-B816-3035B7920001</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 <Column name="Equipo_id_equipo" id="8098E238-1FB8-6B7B-B9FC-4AAD87E784E2">
 <createdBy>Adrian</createdBy>
 <createdTime>2019-05-07 16:37:56 UTC</createdTime>
@@ -92,18 +104,6 @@
 <associations>
 <colAssociation fkAssociation="72485A0F-B994-9C3F-1F11-93D92542C629" referredColumn="70E83EE6-034A-3E49-7637-A6D2F209EACE"/>
 </associations>
-</Column>
-<Column name="titularidad" id="48C2A340-0C65-480B-609B-11F972F5A719">
-<createdBy>Adrian</createdBy>
-<createdTime>2019-05-07 17:56:58 UTC</createdTime>
-<generatorID>85E8F32A-3815-840E-B816-3035B7920001</generatorID>
-<ownerDesignName>Mer_1.0</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT006</logicalDatatype>
-<dataTypeSize>1</dataTypeSize>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
