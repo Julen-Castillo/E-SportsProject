@@ -43,6 +43,10 @@
 <bounds x="472" y="288" width="78" height="23"/>
 <comment>Presidir</comment>
 </OView>
+<OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="74D1C8BA-44EC-2CC4-2B2D-0A319CD9A5AD" otype="Entity" vid="E0979457-478E-E0B9-E5CA-C0FFA013C865">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="958" y="403" width="204" height="115"/>
+</OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="79EA21F4-454B-569D-8774-E3C0EE31DB96" otype="Entity" vid="9E66C1B5-42F9-CECB-BFE7-74EC45EADED6">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
 <bounds x="675" y="35" width="249" height="218"/>
@@ -54,7 +58,7 @@
 </OView>
 <OView class="oracle.dbtools.crest.swingui.TVNote" oid="93E425E2-7D25-5126-200C-9DD97D8C6447" otype="Note" vid="381E0F14-FE61-8398-7B1E-75D8B97E4242">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="49" y="208" width="151" height="65"/>
+<bounds x="49" y="208" width="151" height="52"/>
 <comment>El salario minimo de los jugadores tiene que ser mayor que el SMI</comment>
 </OView>
 <OView class="oracle.dbtools.crest.swingui.TVNote" oid="96237BBE-1293-1B77-C845-854F3F06AD6B" otype="Note" vid="C8A6D82F-5BFF-2833-E48B-21C4FEB440CA">
@@ -69,6 +73,11 @@
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="AB92A21E-BEB4-C5E7-391E-A5E396824A3F" otype="Entity" vid="27450C3B-CC2D-6B80-7996-3D5867EA506B">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
 <bounds x="1012" y="46" width="170" height="110"/>
+</OView>
+<OView class="oracle.dbtools.crest.swingui.TVNote" oid="ABA6E192-5568-5CDA-B652-B7E6240ECAD4" otype="Note" vid="3214811F-A208-FB91-621B-F2DDDCB82EAA">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="1109" y="282" width="75" height="31"/>
+<comment>Pertenecer</comment>
 </OView>
 <OView class="oracle.dbtools.crest.swingui.TVNote" oid="AC1423EA-165C-6B7F-EF37-AC4F29C8C6DC" otype="Note" vid="68D83B71-AB4F-15D3-384D-E41DD02B69DD">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
@@ -104,6 +113,11 @@
 <bounds x="245" y="35" width="85" height="29"/>
 <comment>Pertenecer&lt;br/&gt;</comment>
 </OView>
+<OView class="oracle.dbtools.crest.swingui.TVNote" oid="FCFA2417-8180-0649-BF97-BD252DADB6E6" otype="Note" vid="41035E0B-A8B3-FC32-41D3-CA8B90E577A6">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="973" y="528" width="194" height="38"/>
+<comment>en_curso es un boolean para saber si la liga ha comenzado o no.</comment>
+</OView>
 </objectViews>
 <connectors>
 <Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="0019D811-7897-3E42-5BA5-B7C2BA340146" otype="Relation" vid_source="5C790274-9282-FB2B-01EB-0A6D6A58BA47" vid_target="9E66C1B5-42F9-CECB-BFE7-74EC45EADED6">
@@ -128,6 +142,14 @@
 <points>
 <point x="466" y="108"/>
 <point x="466" y="336"/>
+</points>
+</Connector>
+<Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="A909390E-C034-7857-E7CE-4297BCB368B3" otype="Relation" vid_source="E0979457-478E-E0B9-E5CA-C0FFA013C865" vid_target="27450C3B-CC2D-6B80-7996-3D5867EA506B">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<lineWidth>1</lineWidth>
+<points>
+<point x="1097" y="403"/>
+<point x="1097" y="156"/>
 </points>
 </Connector>
 <Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="D77D9538-B8B6-139F-6C22-7CA5ED024B01" otype="Relation" vid_source="5C790274-9282-FB2B-01EB-0A6D6A58BA47" vid_target="F7E6D678-633E-B8B6-A032-614C46DA93BF">
