@@ -1,4 +1,4 @@
-<!DOCTYPE clasificacion [
+<!DOCTYPE jornadas [
 <!ELEMENT jornadas (jornada)>
 	<!ELEMENT jornada (partidos)>
 		<!ATTLIST jornada id CDATA #REQUIRED>
