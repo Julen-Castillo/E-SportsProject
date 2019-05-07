@@ -1,5 +1,5 @@
 -- Generado por Oracle SQL Developer Data Modeler 17.2.0.188.1059
---   en:        2019-05-07 18:58:09 CEST
+--   en:        2019-05-07 20:29:50 CEST
 --   sitio:      Oracle Database 11g
 --   tipo:      Oracle Database 11g
 
@@ -12,6 +12,8 @@ DROP TABLE equipopartido CASCADE CONSTRAINTS;
 DROP TABLE jornada CASCADE CONSTRAINTS;
 
 DROP TABLE jugador CASCADE CONSTRAINTS;
+
+DROP TABLE liga CASCADE CONSTRAINTS;
 
 DROP TABLE partido CASCADE CONSTRAINTS;
 
@@ -38,7 +40,8 @@ ALTER TABLE equipopartido ADD CONSTRAINT equipopartido_pk PRIMARY KEY ( equipo_i
 CREATE TABLE jornada (
     id_jornada     INTEGER NOT NULL,
     fecha_inicio   DATE NOT NULL,
-    fecha_fin      DATE NOT NULL
+    fecha_fin      DATE NOT NULL,
+    liga_id_liga   INTEGER NOT NULL
 );
 
 ALTER TABLE jornada ADD CONSTRAINT jornada_pk PRIMARY KEY ( id_jornada );
@@ -50,10 +53,21 @@ CREATE TABLE jugador (
     nickname           VARCHAR2(20 CHAR) NOT NULL,
     posicion           VARCHAR2(20 CHAR) NOT NULL,
     sueldo             INTEGER NOT NULL,
+    titularidad        CHAR(1) NOT NULL,
     equipo_id_equipo   INTEGER NOT NULL
 );
 
 ALTER TABLE jugador ADD CONSTRAINT jugador_pk PRIMARY KEY ( id_jugador );
+
+CREATE TABLE liga (
+    id_liga        INTEGER NOT NULL,
+    nombre         VARCHAR2(20 CHAR) NOT NULL,
+    fecha_inicio   DATE NOT NULL,
+    fecha_fin      DATE,
+    en_curso       CHAR(1) NOT NULL
+);
+
+ALTER TABLE liga ADD CONSTRAINT liga_pk PRIMARY KEY ( id_liga );
 
 CREATE TABLE partido (
     id_partido               INTEGER NOT NULL,
@@ -61,8 +75,8 @@ CREATE TABLE partido (
     id_equipo_visitante      INTEGER NOT NULL,
     vencedor                 INTEGER,
     tipo                     VARCHAR2(20 CHAR) NOT NULL,
-    fecha_inicio             TIMESTAMP NOT NULL,
-    fecha_fin                TIMESTAMP,
+    fecha_inicio             DATE NOT NULL,
+    fecha_fin                DATE,
     kills_equipo_local       INTEGER,
     kills_equipo_visitante   INTEGER,
     oro_equipo_local         INTEGER,
@@ -99,6 +113,10 @@ ALTER TABLE equipopartido
     ADD CONSTRAINT equipopartido_partido_fk FOREIGN KEY ( partido_id_partido )
         REFERENCES partido ( id_partido );
 
+ALTER TABLE jornada
+    ADD CONSTRAINT jornada_liga_fk FOREIGN KEY ( liga_id_liga )
+        REFERENCES liga ( id_liga );
+
 ALTER TABLE jugador
     ADD CONSTRAINT jugador_equipo_fk FOREIGN KEY ( equipo_id_equipo )
         REFERENCES equipo ( id_equipo );
@@ -119,9 +137,9 @@ ALTER TABLE presidente
 
 -- Informe de Resumen de Oracle SQL Developer Data Modeler: 
 -- 
--- CREATE TABLE                             7
+-- CREATE TABLE                             8
 -- CREATE INDEX                             0
--- ALTER TABLE                             13
+-- ALTER TABLE                             15
 -- CREATE VIEW                              0
 -- ALTER VIEW                               0
 -- CREATE PACKAGE                           0

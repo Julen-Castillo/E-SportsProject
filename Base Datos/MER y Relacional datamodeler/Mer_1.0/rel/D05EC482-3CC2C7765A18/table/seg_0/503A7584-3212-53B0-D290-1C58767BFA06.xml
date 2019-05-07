@@ -41,6 +41,21 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="Liga_id_liga" id="E32C2609-9F70-4C0B-8316-6872F1E2F522">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 17:56:58 UTC</createdTime>
+<generatorID>12CC58A5-9B61-A052-B81B-E4142F9E0E90</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FAD05DA2-2091-A194-307F-B622622AB473" referredColumn="128294C6-F126-F53C-8168-2EC97ECE669F"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="68ED253F-D592-D994-A6B4-022EF916D65C" name="Jornada_PK">
@@ -53,6 +68,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="FEDE9942-DB5F-0814-F37F-04AAEEAC4007"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="70E9B1E5-A3D7-78AB-FA87-BCD7D9BAADB3" name="Jornada_Liga_FK">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 17:56:59 UTC</createdTime>
+<generatorID>A909390E-C034-7857-E7CE-4297BCB368B3</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E32C2609-9F70-4C0B-8316-6872F1E2F522"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

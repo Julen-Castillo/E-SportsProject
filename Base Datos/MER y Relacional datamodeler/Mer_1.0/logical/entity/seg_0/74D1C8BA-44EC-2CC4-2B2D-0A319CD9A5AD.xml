@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="AB92A21E-BEB4-C5E7-391E-A5E396824A3F" name="Jornada">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="74D1C8BA-44EC-2CC4-2B2D-0A319CD9A5AD" name="Liga">
 <createdBy>Adrian</createdBy>
-<createdTime>2019-05-05 15:14:38 UTC</createdTime>
+<createdTime>2019-05-07 17:43:53 UTC</createdTime>
 <ownerDesignName>Mer_1.0</ownerDesignName>
 <engineerTo>
 <item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="id_jornada" id="29105DEA-03E0-9022-A468-122DE9FD34DF">
+<Attribute name="id_liga" id="397E562D-80A7-53CB-49FB-DF5F45D57538">
 <createdBy>Adrian</createdBy>
-<createdTime>2019-05-05 15:14:46 UTC</createdTime>
+<createdTime>2019-05-07 17:43:59 UTC</createdTime>
 <ownerDesignName>Mer_1.0</ownerDesignName>
 <engineerTo>
 <item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
@@ -27,49 +27,62 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="fecha inicio" id="C3D70F58-4022-9306-B069-31DA03638746">
+<Attribute name="nombre" id="0CFE7A9C-E9F8-A16E-BB2E-712A90444999">
 <createdBy>Adrian</createdBy>
-<createdTime>2019-05-05 15:15:37 UTC</createdTime>
+<createdTime>2019-05-07 17:44:55 UTC</createdTime>
 <ownerDesignName>Mer_1.0</ownerDesignName>
 <engineerTo>
 <item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha_inicio" id="05110355-25C1-38DF-2082-21B79F6EB728">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 17:44:13 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="fecha fin" id="3B7A1EC1-EFC7-6F96-800F-118EF3AAE181">
+<Attribute name="fecha_fin" id="EB8C24FF-2122-D1C4-12FA-E381A38E340F">
 <createdBy>Adrian</createdBy>
-<createdTime>2019-05-05 15:15:56 UTC</createdTime>
+<createdTime>2019-05-07 17:44:40 UTC</createdTime>
 <ownerDesignName>Mer_1.0</ownerDesignName>
 <engineerTo>
 <item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
+<logicalDatatype>LOGDT008</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_liga" id="12CC58A5-9B61-A052-B81B-E4142F9E0E90">
+<Attribute name="en_curso" id="2384DF0D-E159-C657-5542-085AF7077E8F">
 <createdBy>Adrian</createdBy>
-<createdTime>2019-05-07 17:54:27 UTC</createdTime>
-<generatorID>A909390E-C034-7857-E7CE-4297BCB368B3</generatorID>
+<createdTime>2019-05-07 17:45:37 UTC</createdTime>
 <ownerDesignName>Mer_1.0</ownerDesignName>
 <engineerTo>
 <item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
 </engineerTo>
-<referedAttribute>397E562D-80A7-53CB-49FB-DF5F45D57538</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="476F5BB5-F44E-F66C-13EA-D3246DAEE8E9" name="Jornada PK">
+<identifier id="490823BC-2413-0607-F3B4-AF8AA62A58BF" name="Liga PK">
 <createdBy>Adrian</createdBy>
-<createdTime>2019-05-05 15:15:07 UTC</createdTime>
+<createdTime>2019-05-07 17:44:11 UTC</createdTime>
 <ownerDesignName>Mer_1.0</ownerDesignName>
 <shouldEngineer>false</shouldEngineer>
 <engineerTo>
@@ -77,7 +90,7 @@
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>29105DEA-03E0-9022-A468-122DE9FD34DF</attributeRef>
+<attributeRef>397E562D-80A7-53CB-49FB-DF5F45D57538</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>
