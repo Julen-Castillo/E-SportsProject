@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Ser mvp" directorySegmentName="seg_0" id="FF407FF2-18F4-F0BD-E8EA-93FC3144EABE">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 15:53:13 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="F2261732-FDEE-8776-C304-900FB468BAC6" value="true"/>
+</engineerTo>
+<sourcePk>E5D0B7D7-3C33-3DDB-0B17-B7D9BD00BDC9</sourcePk>
+<targetPk>7A0F0668-B0A1-74F1-C96E-984E1CF7DA86</targetPk>
+<identifying>false</identifying>
+<nameOnSource>mvp</nameOnSource>
+<nameOnTarget>mvp</nameOnTarget>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>79EA21F4-454B-569D-8774-E3C0EE31DB96</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>96AF6762-77BF-35DE-D73A-40914974AE2D</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

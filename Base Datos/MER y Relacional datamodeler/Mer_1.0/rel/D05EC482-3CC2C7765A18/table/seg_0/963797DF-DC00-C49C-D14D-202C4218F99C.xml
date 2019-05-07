@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="963797DF-DC00-C49C-D14D-202C4218F99C" name="Presidente">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>6629AEF3-F297-27B9-1618-C74E412B01B1</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_presidente" id="B941B7BC-18D9-E15F-24DA-D9F90A629FFD">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>697153D4-DD51-6A0B-D39A-54FC27475CA4</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="C0CC33BE-0465-41BB-A630-277B978B7C8E">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>ECB57BA6-6550-BAFE-A2C5-432F6BEC708C</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="apellido" id="E4327068-F878-90A9-A72E-F6181E356E29">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>6BE7E7AF-BB46-09EE-C64F-6A923A503A4C</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Equipo_id_equipo" id="151238B5-9248-77D9-39CB-2222CDB0B6D8">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>67B8AAAF-B9B6-4E96-0355-2E64D7832E82</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="57FBA1EA-DDFD-A360-003D-2A713E50797C" referredColumn="70E83EE6-034A-3E49-7637-A6D2F209EACE"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="ABC95349-BA58-5BE1-323C-57BCE6BA0ED7" name="Presidente_PK">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>B65FC578-915F-5B3E-701A-A322BE121FA2</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B941B7BC-18D9-E15F-24DA-D9F90A629FFD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="277AB948-A3F6-F73E-B57D-097A25813464" name="Presidente_Equipo_FK">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>6E727A13-C10F-6B2A-37EE-3E4351730ABD</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="151238B5-9248-77D9-39CB-2222CDB0B6D8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
