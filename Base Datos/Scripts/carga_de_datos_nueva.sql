@@ -17,10 +17,13 @@ INSERT INTO EQUIPO VALUES (6,'mamecorp',200000,5);
 
 /* Inserts de la tabla ESTADISTICAS */
 
+/*Insert de la tabla LIGA*/
+
+INSERT INTO LIGA VALUES (1,'MameCorp league', SYSDATE,SYSDATE+5,1);
 
 /* Inserts de la tabla JORNADA */ 
 
-INSERT INTO JORNADA VALUES (1,SYSDATE,SYSDATE+5);
+INSERT INTO JORNADA VALUES (1,SYSDATE,SYSDATE+5,1);
 
 
 /* Inserts de la tabla JUGADOR */
