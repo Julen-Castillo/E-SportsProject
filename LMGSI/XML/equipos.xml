@@ -1,0 +1,42 @@
+<<?xml version="1.0" encoding="UTF-8"?>
+
+	<equipos>
+		<equipo id="1">
+			<nombre> Fnatic </nombre>
+			<ciudad> London </ciudad>
+			<entrenador> Julen Casti </entrenador>
+			<presidente> Adrian </presidente>
+				<jugadores> 
+					<jugador id="1">
+						<nombre> Tim Lipovsek </nombre>
+						<nickname> Nemesis </nickname>
+						<posicion> Midlane </posicion>
+						<pais> Eslovenia </pais>
+					</jugador>
+					<jugador id="2">
+						<nombre>Gabriël Rau </nombre>
+						<nickname> Bwipo </nickname>
+						<posicion> Toplane </posicion>
+						<pais> Belgica </pais>
+					</jugador>
+					<jugador id="3">
+						<nombre> Mads Brock-Pedersen </nombre>
+						<nickname> Broxah </nickname>
+						<posicion> Jungler </posicion>
+						<pais> Dinamarca </pais>
+					</jugador>
+					<jugador id="4">
+						<nombre> Zdravets Galabov </nombre>
+						<nickname> Hylissang </nickname>
+						<posicion> Support </posicion>
+						<pais> Bulgaria </pais>
+					</jugador>
+					<jugador id="5">
+						<nombre> Martin Larsson </nombre>
+						<nickname> Rekkles </nickname>
+						<posicion> Midlane </posicion>
+						<pais> Suecia </pais>
+					</jugador>
+				</jugadores>
+		</equipo>
+	</equipos>
