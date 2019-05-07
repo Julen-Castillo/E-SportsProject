@@ -5,22 +5,22 @@
     <!-- JORNADA -->
     <xs:complexType name="tipo_jornadas">
         <xs:sequence>
-            <xs:element name="jornada" type="tipo_jornada"/>
+            <xs:element name="jornada" type="tipo_jornada" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:attribute name="id" type="xs:integer"/>
     </xs:complexType>
-    <!-- INSIDE JORNADA -->
+    <!-- PARTIDOS -->
     <xs:complexType name="tipo_jornada">
         <xs:sequence>
-            <xs:element name="fecha_inicio" type=""/>
-            <xs:element name="fecha_fin" type=""/>
             <xs:element name="partidos" type="tipo_partidos"/>
         </xs:sequence>
+        <xs:attribute name="fecha_inicio" type="xs:date"/>
+        <xs:attribute name="fecha_fin" type="xs:date"/>
     </xs:complexType>
-    <!-- INSIDE PARTIDOS -->
+    <!-- PARTIDO -->
     <xs:complexType name="tipo_partidos">
         <xs:sequence>
-            <xs:element name="partido" type="tipo_partido"/>
+            <xs:element name="partido" type="tipo_partido" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:attribute name="id" type="xs:integer"/>
     </xs:complexType>
@@ -35,6 +35,7 @@
             <xs:element name="ciudad" type="xs:string"/>
             <xs:element name="estadio" type="xs:string"/>
             <xs:element name="ganador" type="xs:string"/>
+            <xs:element name="resultado" type="xs:string"/>
             <xs:element name="mvp" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
