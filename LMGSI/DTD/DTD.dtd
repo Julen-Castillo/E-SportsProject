@@ -1,0 +1,25 @@
+<!DOCTYPE clasificacion [
+<!ELEMENT jornadas (jornada)>
+	<!ELEMENT jornada (partidos)>
+		<!ATTLIST jornada id CDATA #REQUIRED>
+		<!ATTLIST jornada fecha_inicio CDATA #REQUIRED>
+		<!ATTLIST jornada fecha_fin CDATA #REQUIRED>
+		
+		<!ELEMENT partidos (partido)+>
+			<!ELEMENT partido (local,encuentro,visitante,fecha,hora,ciudad,estadio,resultado,ganador,mvp)>
+			<!ATTLIST partido id CDATA #REQUIRED>
+				<!ELEMENT local (#PCDATA)>
+				<!ELEMENT encuentro (LIGA|AMISTOSO)>
+				<!ELEMENT visitante (#PCDATA)>
+				<!ELEMENT fecha (DATE)>
+				<!ELEMENT hora (#PCDATA)>
+				<!ELEMENT ciudad (#PCDATA)>
+				<!ELEMENT estadio (#PCDATA)>
+				<!ELEMENT resultado (#PCDATA)>
+				<!ELEMENT ganador (#PCDATA)>
+				<!ELEMENT mvp (#PCDATA)>
+	
+			]>	
+			
+			
+		
