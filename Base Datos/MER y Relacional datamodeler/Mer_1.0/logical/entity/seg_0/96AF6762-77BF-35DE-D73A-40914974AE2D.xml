@@ -1,0 +1,123 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="96AF6762-77BF-35DE-D73A-40914974AE2D" name="Jugador">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:08:34 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="F2261732-FDEE-8776-C304-900FB468BAC6" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_jugador" id="929A9498-93E2-B68F-CC25-86588BF0D850">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:09:48 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="F2261732-FDEE-8776-C304-900FB468BAC6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="C60591AD-4B52-104D-6F5F-6240C6F29CE3">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:10:09 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="F2261732-FDEE-8776-C304-900FB468BAC6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="apellido" id="03C6CF1D-AF98-C786-F4DA-40633F56337E">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:10:35 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="F2261732-FDEE-8776-C304-900FB468BAC6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nickname" id="2FF5D638-4B48-77B1-2176-AB54796D342C">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:11:20 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="F2261732-FDEE-8776-C304-900FB468BAC6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="posicion" id="5BC5B36D-1AF8-4457-B540-5AB6C11A0975">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:11:34 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="F2261732-FDEE-8776-C304-900FB468BAC6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="sueldo" id="B7A52F10-D7EB-4277-3F16-E20FD854EC79">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:13:18 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="F2261732-FDEE-8776-C304-900FB468BAC6" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_equipo" id="4AE27ACF-D26D-4ECE-C5A5-81F84F10C183">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:33:00 UTC</createdTime>
+<generatorID>D77D9538-B8B6-139F-6C22-7CA5ED024B01</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="F2261732-FDEE-8776-C304-900FB468BAC6" value="true"/>
+</engineerTo>
+<referedAttribute>0A20A81E-2E8D-01E2-26EF-72515F768AEB</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="7A0F0668-B0A1-74F1-C96E-984E1CF7DA86" name="Jugador PK">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:10:01 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="F2261732-FDEE-8776-C304-900FB468BAC6" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>929A9498-93E2-B68F-CC25-86588BF0D850</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
