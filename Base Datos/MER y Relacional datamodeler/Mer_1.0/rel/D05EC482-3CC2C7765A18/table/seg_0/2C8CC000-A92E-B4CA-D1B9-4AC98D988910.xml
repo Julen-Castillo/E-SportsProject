@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2C8CC000-A92E-B4CA-D1B9-4AC98D988910" name="Usuario">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>24177097-4093-576F-4115-1E53866F0172</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_usuario" id="36919C20-DCEE-2522-5EC4-48039456BBFF">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>F8E4F372-7BF2-EA30-2493-C29290DE6816</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="EE1C4133-09B7-93D9-AA80-670186A8B9BC">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>A87B1468-6842-FBCD-5304-AF0120E13A33</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="password" id="59E09BFE-0410-FD9C-30D8-08AEB190D1F8">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>AFA09003-2D89-27B5-304F-B8AB2BD4B848</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo" id="1A191336-9A42-D5A9-C3D5-844D211B2431">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>CB076EAA-6211-8AA1-FEF9-C8E7B6B87FA2</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="84B2F297-7ABE-ED1B-C53A-3B871386D14C" name="Usuario_PK">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>422B8724-20C9-A449-AFCC-0CDE5C034A7A</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="36919C20-DCEE-2522-5EC4-48039456BBFF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

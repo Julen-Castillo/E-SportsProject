@@ -1,0 +1,206 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="96A35294-4C70-9CAE-8B3E-3FEA7E43690A" name="Partido">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>79EA21F4-454B-569D-8774-E3C0EE31DB96</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_partido" id="3D061FF8-E9EE-E9D8-09EE-C64D4E7992CD">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>E2CFE5C1-12BE-36F8-F9DE-B3505C027695</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_equipo_local" id="B4F8BF02-72FD-CCA5-E0FF-CB54F8672584">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>E33F2095-F2BE-1C47-95AF-E18F11385681</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_equipo_visitante" id="1ECFCDA1-813E-41D0-BB10-FA44F4C6828D">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>EB84B52F-BA64-79DA-4CEC-D0B5D2ED8EEA</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="vencedor" id="11A7F94B-14AD-F6F1-FF7B-9CC372F4B5B6">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>D8CCFC34-E700-F14D-AF02-040207FE4448</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo" id="F7FE9009-E57B-2F5D-928E-8EEC132F8E05">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>F609972C-DC6E-4B03-5A85-645FF88FD1C4</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_inicio" id="2A133A29-CBA9-11FB-0A2A-F2B1455D566D">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>70BB2110-246D-74EE-87D2-4B23A86CD6AB</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_fin" id="E5F60EEB-212D-FFD7-9131-F00714381C46">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>ABA7D8BB-9EE3-50DC-04E8-103D60218FC1</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="kills_equipo_local" id="CB1539C0-4857-181C-66E7-BB64973B684F">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>98CF6693-88C1-B120-6269-D9F360EE134B</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="kills_equipo_visitante" id="EE6FB6B0-2424-C3C1-ABB6-D42898C95161">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>3F0FD747-590D-E5D1-4C90-DF8B901DD6A3</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="oro_equipo_local" id="9AEE40E7-31F8-FE30-4989-C138FCB51265">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>0838D165-4980-EB83-D70B-38CD9F1EFBB6</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="oro_equipo_visitante" id="D635DEB0-5892-1A28-D2B5-7C4DFE686799">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>2E75D8FA-0631-C730-AC9B-E94C551B6C74</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Jornada_id_jornada" id="AB9327AC-DA5F-7B1C-EE0F-047C730E4585">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>B4DBF1AC-67EB-4CEA-4A36-6EAEE6129878</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="36A86D35-CD38-F79D-7775-1BBC032E30C7" referredColumn="FEDE9942-DB5F-0814-F37F-04AAEEAC4007"/>
+</associations>
+</Column>
+<Column name="mvp" id="D379B8D5-63FD-FA43-3508-DF426E03ED9B">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>09D74597-FF09-0561-0EAF-597F2804A462</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="66546355-D613-52FD-2970-B1FCB789D868" referredColumn="5A282923-D91E-8561-E47C-F7D3D55B2872"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1FD922AE-B53B-92C8-74F1-8B9DAF3928A7" name="Partido_PK">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>E5D0B7D7-3C33-3DDB-0B17-B7D9BD00BDC9</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3D061FF8-E9EE-E9D8-09EE-C64D4E7992CD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CC8E2CFE-117A-D465-1309-E6E30B4FA146" name="Partido_Jornada_FK">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>59D6B011-EC6F-577D-1A9A-F285AB7DF10E</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AB9327AC-DA5F-7B1C-EE0F-047C730E4585"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BC2318B0-070E-823B-A94B-52BC0E765640" name="Partido_Jugador_FK">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 16:37:56 UTC</createdTime>
+<generatorID>FF407FF2-18F4-F0BD-E8EA-93FC3144EABE</generatorID>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D379B8D5-63FD-FA43-3508-DF426E03ED9B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
