@@ -1,4 +1,7 @@
-/*SCRIPT DE CARGA DE DATOS A LA BASE DE DATOS E-SPORTS || MAMECORP COMPANY */
+--INSERT INTO table_name
+--VALUES (value1, value2, value3, ...); 
+
+
 
 /* Inserts de la tabla EQUIPO */
 
@@ -8,6 +11,20 @@ INSERT INTO EQUIPO VALUES (3,'cloud9',160000,0);
 INSERT INTO EQUIPO VALUES (4,'tsm',150000,0);
 INSERT INTO EQUIPO VALUES (5,'thunderx3 baskonia',50000,0);
 INSERT INTO EQUIPO VALUES (6,'mamecorp',200000,5);
+
+/* Inserts de la tabla EQUIPOPARTIDO */
+
+
+/* Inserts de la tabla ESTADISTICAS */
+
+/*Insert de la tabla LIGA*/
+
+INSERT INTO LIGA VALUES (1,'MameCorp league', SYSDATE,SYSDATE+5,1);
+
+/* Inserts de la tabla JORNADA */ 
+
+INSERT INTO JORNADA VALUES (1,SYSDATE,SYSDATE+5,1);
+
 
 /* Inserts de la tabla JUGADOR */
 
@@ -53,46 +70,3 @@ INSERT INTO JUGADOR VALUES (25,'alejandro','gonzalez','darkside','adcarry',1000,
 INSERT INTO JUGADOR VALUES (26,'julen','castillo','castiskate','midlane',3000,1,6);
 INSERT INTO JUGADOR VALUES (27,'adrian','danlos','godskater','toplane',3000,1,6);
 INSERT INTO JUGADOR VALUES (28,'julen','prieto','peto','jungler',3000,1,6);
-
-/*Insert de la tabla PRESIDENTE*/
-
-INSERT INTO PRESIDENTE VALUES(1,'sam','mathews',1);
-INSERT INTO PRESIDENTE VALUES(2,'sung','min ha',2);
-INSERT INTO PRESIDENTE VALUES(3,'jack','etienne',3);
-INSERT INTO PRESIDENTE VALUES(4,'andy','dinh',4);
-INSERT INTO PRESIDENTE VALUES(5,'jose antonio','querejeta',5);
-INSERT INTO PRESIDENTE VALUES(6,'eric','con c',6);
-
-
-
-/*Insert de la tabla LIGA*/
-
-INSERT INTO LIGA VALUES (1,'MameCorp league', SYSDATE,SYSDATE,1);
-
-/* Inserts de la tabla JORNADA */ 
-
-INSERT INTO JORNADA VALUES (1,SYSDATE,SYSDATE+7,1);
-
-/* Inserts de la tabla PARTIDO */
-
-INSERT INTO PARTIDO VALUES (1,1,2,1,0,SYSDATE,SYSDATE + 2595/86400,15,20,230000,250000);
-
-
-/*ALTERAR EL SYSDATE PARA QUE MUESTRE HORAS24:MINUTOS:SEGUNDOS  */
-
-ALTER SESSION SET nls_date_format = 'dd-mm-yyyy hh24:mi:ss';
-
---SUMAR 40 MINUTOS
---sysdate + 40 / 1440
-
---SUMAR 15 SEGUNDOS
---sysdate + 15 / 86400
-
---43 MINUTOS 15 SEGUNDOS
---SYSDATE + 2595/86400
-
-/* Inserts de la tabla USUARIO */
-
-INSERT INTO USUARIO VALUES(1,'mamecorp','mamecorp','admin');
-INSERT INTO USUARIO VALUES(2,'user','user','user');
-
