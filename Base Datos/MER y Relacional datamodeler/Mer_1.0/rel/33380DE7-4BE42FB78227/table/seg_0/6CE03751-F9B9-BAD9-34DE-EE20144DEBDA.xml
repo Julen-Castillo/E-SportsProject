@@ -1,16 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B3A3B654-6CDC-6FDB-E648-2AD8F1FFE218" name="Liga">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6CE03751-F9B9-BAD9-34DE-EE20144DEBDA" name="Liga">
 <createdBy>Adrian</createdBy>
-<createdTime>2019-05-07 17:56:58 UTC</createdTime>
+<createdTime>2019-05-08 07:30:04 UTC</createdTime>
 <generatorID>74D1C8BA-44EC-2CC4-2B2D-0A319CD9A5AD</generatorID>
 <ownerDesignName>Mer_1.0</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="id_liga" id="128294C6-F126-F53C-8168-2EC97ECE669F">
+<Column name="id_liga" id="C854318D-5B91-854D-4EA9-81741C13398B">
 <createdBy>Adrian</createdBy>
-<createdTime>2019-05-07 17:56:58 UTC</createdTime>
+<createdTime>2019-05-08 07:30:04 UTC</createdTime>
 <generatorID>397E562D-80A7-53CB-49FB-DF5F45D57538</generatorID>
 <ownerDesignName>Mer_1.0</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -19,9 +19,9 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="nombre" id="51335718-11E9-0DC5-0D89-E0FF7BA6C73D">
+<Column name="nombre" id="0735DB66-D2FC-B1EE-B8EA-0FC0282738FA">
 <createdBy>Adrian</createdBy>
-<createdTime>2019-05-07 17:56:58 UTC</createdTime>
+<createdTime>2019-05-08 07:30:04 UTC</createdTime>
 <generatorID>0CFE7A9C-E9F8-A16E-BB2E-712A90444999</generatorID>
 <ownerDesignName>Mer_1.0</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -31,9 +31,9 @@
 <ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="fecha_inicio" id="900BDCCF-A0DB-96E4-3BC5-641648B28D3E">
+<Column name="fecha_inicio" id="AAC79826-0308-CC32-610E-23288B25C6F1">
 <createdBy>Adrian</createdBy>
-<createdTime>2019-05-07 17:56:58 UTC</createdTime>
+<createdTime>2019-05-08 07:30:04 UTC</createdTime>
 <generatorID>05110355-25C1-38DF-2082-21B79F6EB728</generatorID>
 <ownerDesignName>Mer_1.0</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -42,9 +42,9 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="fecha_fin" id="EB51E40E-6CAA-35F5-AFF4-F769C7D6EA70">
+<Column name="fecha_fin" id="30E31826-0F39-1429-BA71-3A0C7FF8F55B">
 <createdBy>Adrian</createdBy>
-<createdTime>2019-05-07 17:56:58 UTC</createdTime>
+<createdTime>2019-05-08 07:30:04 UTC</createdTime>
 <generatorID>EB8C24FF-2122-D1C4-12FA-E381A38E340F</generatorID>
 <ownerDesignName>Mer_1.0</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -54,9 +54,9 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="en_curso" id="BBD48842-3C2F-22D4-32C5-D0CFB71AE763">
+<Column name="en_curso" id="55A9754F-F5D5-690B-1325-62476349A00E">
 <createdBy>Adrian</createdBy>
-<createdTime>2019-05-07 17:56:58 UTC</createdTime>
+<createdTime>2019-05-08 07:30:04 UTC</createdTime>
 <generatorID>2384DF0D-E159-C657-5542-085AF7077E8F</generatorID>
 <ownerDesignName>Mer_1.0</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -68,16 +68,16 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="7EE8394C-F7BF-815D-4962-30F6380C2209" name="Liga_PK">
+<ind_PK_UK id="95064FDF-90E7-7EC4-BBB6-57AA51B8CAD6" name="Liga_PK">
 <createdBy>Adrian</createdBy>
-<createdTime>2019-05-07 17:56:58 UTC</createdTime>
+<createdTime>2019-05-08 07:30:04 UTC</createdTime>
 <generatorID>490823BC-2413-0607-F3B4-AF8AA62A58BF</generatorID>
 <ownerDesignName>Mer_1.0</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="128294C6-F126-F53C-8168-2EC97ECE669F"/>
+<colUsage columnID="C854318D-5B91-854D-4EA9-81741C13398B"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
