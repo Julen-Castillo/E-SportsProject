@@ -1,0 +1,133 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Partido" directorySegmentName="seg_0" id="5EEB646F-80A9-D7BA-E273-7D1AB1E34FAF">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-08 07:18:18 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>B9307490-F307-8558-144A-3844F01F2311</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>AB92A21E-BEB4-C5E7-391E-A5E396824A3F</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<attribute name="equipo_visitante" id="AFE60FF7-AA40-2EEF-CD4A-1F784EE127AE">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-08 07:28:52 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</attribute>
+<attribute name="vencedor" id="8293C66F-673D-9C3E-E34E-B4D9ABD074A8">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-08 07:25:18 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</attribute>
+<attribute name="tipo" id="00F5EFC0-AF0B-CD0B-91F5-36D19C3E6B76">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-08 07:27:01 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</attribute>
+<attribute name="fecha_inicio" id="44994094-1488-B506-0ABB-C381106AAA18">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-08 07:27:23 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</attribute>
+<attribute name="fecha_fin" id="9CB19ABE-BD7C-B5BD-4412-6D3D7F443438">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-08 07:27:40 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</attribute>
+<attribute name="kills_equipo_local" id="8E64CF6A-85B2-0564-F847-3B2487FD0C1B">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-08 07:27:50 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</attribute>
+<attribute name="kills_equipo_visitante" id="2EF12E0C-1C15-F181-68BA-FDD866908F2F">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-08 07:28:08 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</attribute>
+<attribute name="oro_equipo_local" id="F05085A4-EAEC-C8D3-FF89-58E11B412C65">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-08 07:28:23 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</attribute>
+<attribute name="oro_equipo_visitante" id="6CA1876D-68DA-7046-C1D1-EC4CACB350E1">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-08 07:28:36 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</attribute>
+</attributes>
+</Relation>

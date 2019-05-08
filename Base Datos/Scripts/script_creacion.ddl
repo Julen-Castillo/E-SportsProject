@@ -1,13 +1,11 @@
 -- Generado por Oracle SQL Developer Data Modeler 17.2.0.188.1059
---   en:        2019-05-07 20:29:50 CEST
+--   en:        2019-05-08 09:34:14 CEST
 --   sitio:      Oracle Database 11g
 --   tipo:      Oracle Database 11g
 
 
 
 DROP TABLE equipo CASCADE CONSTRAINTS;
-
-DROP TABLE equipopartido CASCADE CONSTRAINTS;
 
 DROP TABLE jornada CASCADE CONSTRAINTS;
 
@@ -29,13 +27,6 @@ CREATE TABLE equipo (
 );
 
 ALTER TABLE equipo ADD CONSTRAINT equipo_pk PRIMARY KEY ( id_equipo );
-
-CREATE TABLE equipopartido (
-    equipo_id_equipo     INTEGER NOT NULL,
-    partido_id_partido   INTEGER NOT NULL
-);
-
-ALTER TABLE equipopartido ADD CONSTRAINT equipopartido_pk PRIMARY KEY ( equipo_id_equipo,partido_id_partido );
 
 CREATE TABLE jornada (
     id_jornada     INTEGER NOT NULL,
@@ -70,22 +61,22 @@ CREATE TABLE liga (
 ALTER TABLE liga ADD CONSTRAINT liga_pk PRIMARY KEY ( id_liga );
 
 CREATE TABLE partido (
-    id_partido               INTEGER NOT NULL,
-    id_equipo_local          INTEGER NOT NULL,
-    id_equipo_visitante      INTEGER NOT NULL,
-    vencedor                 INTEGER,
-    tipo                     VARCHAR2(20 CHAR) NOT NULL,
+    equipo_id_equipo         INTEGER NOT NULL,
+    jornada_id_jornada       INTEGER NOT NULL,
+    equipo_visitante         INTEGER NOT NULL,
+    vencedor                 INTEGER NOT NULL,
+    tipo                     CHAR 
+--  WARNING: CHAR size not specified 
+     NOT NULL,
     fecha_inicio             DATE NOT NULL,
     fecha_fin                DATE,
     kills_equipo_local       INTEGER,
     kills_equipo_visitante   INTEGER,
     oro_equipo_local         INTEGER,
-    oro_equipo_visitante     INTEGER,
-    jornada_id_jornada       INTEGER NOT NULL,
-    mvp                      INTEGER NOT NULL
+    oro_equipo_visitante     INTEGER
 );
 
-ALTER TABLE partido ADD CONSTRAINT partido_pk PRIMARY KEY ( id_partido );
+ALTER TABLE partido ADD CONSTRAINT partido_pk PRIMARY KEY ( equipo_id_equipo,jornada_id_jornada );
 
 CREATE TABLE presidente (
     id_presidente      INTEGER NOT NULL,
@@ -105,14 +96,6 @@ CREATE TABLE usuario (
 
 ALTER TABLE usuario ADD CONSTRAINT usuario_pk PRIMARY KEY ( id_usuario );
 
-ALTER TABLE equipopartido
-    ADD CONSTRAINT equipopartido_equipo_fk FOREIGN KEY ( equipo_id_equipo )
-        REFERENCES equipo ( id_equipo );
-
-ALTER TABLE equipopartido
-    ADD CONSTRAINT equipopartido_partido_fk FOREIGN KEY ( partido_id_partido )
-        REFERENCES partido ( id_partido );
-
 ALTER TABLE jornada
     ADD CONSTRAINT jornada_liga_fk FOREIGN KEY ( liga_id_liga )
         REFERENCES liga ( id_liga );
@@ -122,12 +105,12 @@ ALTER TABLE jugador
         REFERENCES equipo ( id_equipo );
 
 ALTER TABLE partido
-    ADD CONSTRAINT partido_jornada_fk FOREIGN KEY ( jornada_id_jornada )
-        REFERENCES jornada ( id_jornada );
+    ADD CONSTRAINT partido_equipo_fk FOREIGN KEY ( equipo_id_equipo )
+        REFERENCES equipo ( id_equipo );
 
 ALTER TABLE partido
-    ADD CONSTRAINT partido_jugador_fk FOREIGN KEY ( mvp )
-        REFERENCES jugador ( id_jugador );
+    ADD CONSTRAINT partido_jornada_fk FOREIGN KEY ( jornada_id_jornada )
+        REFERENCES jornada ( id_jornada );
 
 ALTER TABLE presidente
     ADD CONSTRAINT presidente_equipo_fk FOREIGN KEY ( equipo_id_equipo )
@@ -137,9 +120,9 @@ ALTER TABLE presidente
 
 -- Informe de Resumen de Oracle SQL Developer Data Modeler: 
 -- 
--- CREATE TABLE                             8
+-- CREATE TABLE                             7
 -- CREATE INDEX                             0
--- ALTER TABLE                             15
+-- ALTER TABLE                             12
 -- CREATE VIEW                              0
 -- ALTER VIEW                               0
 -- CREATE PACKAGE                           0
@@ -175,4 +158,4 @@ ALTER TABLE presidente
 -- ORDS ENABLE OBJECT                       0
 -- 
 -- ERRORS                                   0
--- WARNINGS                                 0
+-- WARNINGS                                 1
