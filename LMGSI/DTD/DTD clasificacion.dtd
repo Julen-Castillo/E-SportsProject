@@ -1,0 +1,8 @@
+<!DOCTYPE clasificacion [
+	<!ELEMENT clasificacion (equipos)>
+		<!ELEMENT equipos (equipo)>
+			<!ELEMENT equipo (nombre,puntos,ranking)>
+				<!ATTLIST equipo ranking CDATA #REQUIRED>
+				<!ELEMENT nombre (#PCDATA)>
+				<!ELEMENT puntos (#PCDATA)>
+			
