@@ -13,3 +13,7 @@ BEGIN
         END LOOP;    
 END generar_calendario;
 
+
+--variable jornadas
+--comienzo liga
+
