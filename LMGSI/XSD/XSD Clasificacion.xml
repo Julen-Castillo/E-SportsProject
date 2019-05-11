@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xlmns:xs="http://www.w3.org/2001/XMLSchema">
 	<!-- CLASIFICACION -->
-	<xs:element name="clasificacion" type="tipo_clasificacion"/>
+    <xs:element name="clasificacion" type="tipo_clasificacion"/>
+    
+    <xs:complexType name="tipo_clasificacion">
+        <xs:attribute name="fecha_actualización" type="xs:date" use="required"/>
+    </xs:complexType>
     <!-- EQUIPOS -->
     <xs:complexType name="tipo_clasificacion">
         <xs:sequence>
@@ -14,6 +18,7 @@
             <xs:element name="nombre" type="xs:string"/>
             <xs:element name="puntos" type="xs:integer"/>
         </xs:sequence>
-        <xs:attribute name="ranking" type="xs:integer"/>
+        <xs:attribute name="ranking" type="xs:integer" use="required"/>
     </xs:complexType>
 </xs:schema>
+
