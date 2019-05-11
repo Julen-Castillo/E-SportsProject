@@ -7,7 +7,6 @@
         <xs:sequence>
             <xs:element name="jornada" type="tipo_jornada"/>
         </xs:sequence>
-        <xs:attribute name="id" type="xs:integer"/>
     </xs:complexType>
     <!-- INSIDE JORNADA -->
     <xs:complexType name="tipo_jornada">
@@ -16,13 +15,13 @@
             <xs:element name="fecha_fin" type=""/>
             <xs:element name="partidos" type="tipo_partidos"/>
         </xs:sequence>
+        <xs:attribute name="id" type="xs:integer" use="required"/>
     </xs:complexType>
     <!-- INSIDE PARTIDOS -->
     <xs:complexType name="tipo_partidos">
         <xs:sequence>
             <xs:element name="partido" type="tipo_partido"/>
         </xs:sequence>
-        <xs:attribute name="id" type="xs:integer"/>
     </xs:complexType>
     <!-- INSIDE PARTIDO -->
     <xs:complexType name="tipo_partido">
@@ -37,6 +36,7 @@
             <xs:element name="ganador" type="xs:string"/>
             <xs:element name="mvp" type="xs:string"/>
         </xs:sequence>
+        <xs:attribute name="id" type="xs:integer" use="required"/>
     </xs:complexType>
 
     <!-- DEFINIR RESTRICCION TIPO ENCUENTRO -->

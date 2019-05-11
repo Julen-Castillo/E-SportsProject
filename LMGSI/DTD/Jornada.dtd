@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <!DOCTYPE jornadas [
 <!ELEMENT jornadas (jornada)>
 	<!ELEMENT jornada (partidos)>
@@ -18,8 +19,7 @@
 				<!ELEMENT resultado (#PCDATA)>
 				<!ELEMENT ganador (#PCDATA)>
 				<!ELEMENT mvp (#PCDATA)>
-	
-			]>	
+]>	
 			
 			
 		
