@@ -109,12 +109,12 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/vistas/Mamecorp (1).png"/>
+          <Image iconType="3" name="/imgVentanaCategoria/Mamecorp logo.png"/>
         </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="1220" y="340" width="630" height="350"/>
+          <AbsoluteConstraints x="1230" y="340" width="630" height="350"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -130,7 +130,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/vistas/Jornada.png"/>
+          <Image iconType="3" name="/imgVentanaCategoria/Jornada.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="   JORNADAS"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -159,7 +159,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/vistas/equipo (1).png"/>
+          <Image iconType="3" name="/imgVentanaCategoria/Equipo.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="    EQUIPOS"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -188,7 +188,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/vistas/309035-64.png"/>
+          <Image iconType="3" name="/imgVentanaCategoria/jugadoresports (1).png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="   JUGADORES"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -217,7 +217,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/vistas/Partido.png"/>
+          <Image iconType="3" name="/imgVentanaCategoria/Partido.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="    PARTIDOS"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -243,7 +243,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/img/1608962-64.png"/>
+          <Image iconType="3" name="/imgVentanaCategoria/Icono liga.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="        LIGA"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -273,7 +273,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/img/presidentes.png"/>
+          <Image iconType="3" name="/imgVentanaCategoria/Presidentes.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="  PRESIDENTES"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -293,7 +293,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/img/COPAnueva.png"/>
+          <Image iconType="3" name="/imgVentanaCategoria/FondoCategoria.png"/>
         </Property>
       </Properties>
       <Constraints>
