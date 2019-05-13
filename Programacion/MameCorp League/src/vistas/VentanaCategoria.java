@@ -50,13 +50,13 @@ public class VentanaCategoria extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Roboto Condensed Light", 0, 60)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Mamecorp (1).png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 340, 630, 350));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Mamecorp logo.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 340, 630, 350));
 
         bModulos.setBackground(new java.awt.Color(0, 102, 102));
         bModulos.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bModulos.setForeground(new java.awt.Color(255, 255, 255));
-        bModulos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Jornada.png"))); // NOI18N
+        bModulos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Jornada.png"))); // NOI18N
         bModulos.setText("   JORNADAS");
         bModulos.setBorder(null);
         bModulos.setOpaque(false);
@@ -70,7 +70,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bPuestos.setBackground(new java.awt.Color(0, 102, 102));
         bPuestos.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bPuestos.setForeground(new java.awt.Color(255, 255, 255));
-        bPuestos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/equipo (1).png"))); // NOI18N
+        bPuestos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Equipo.png"))); // NOI18N
         bPuestos.setText("    EQUIPOS");
         bPuestos.setBorder(null);
         bPuestos.setOpaque(false);
@@ -84,7 +84,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bIngenieros.setBackground(new java.awt.Color(0, 102, 102));
         bIngenieros.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bIngenieros.setForeground(new java.awt.Color(255, 255, 255));
-        bIngenieros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/309035-64.png"))); // NOI18N
+        bIngenieros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/jugadoresports (1).png"))); // NOI18N
         bIngenieros.setText("   JUGADORES");
         bIngenieros.setBorder(null);
         bIngenieros.setOpaque(false);
@@ -98,7 +98,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bMisiones.setBackground(new java.awt.Color(0, 102, 102));
         bMisiones.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bMisiones.setForeground(new java.awt.Color(255, 255, 255));
-        bMisiones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Partido.png"))); // NOI18N
+        bMisiones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Partido.png"))); // NOI18N
         bMisiones.setText("    PARTIDOS");
         bMisiones.setBorder(null);
         bMisiones.setOpaque(false);
@@ -111,7 +111,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
 
         bTipos1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bTipos1.setForeground(new java.awt.Color(255, 255, 255));
-        bTipos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1608962-64.png"))); // NOI18N
+        bTipos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Icono liga.png"))); // NOI18N
         bTipos1.setText("        LIGA");
         bTipos1.setBorder(null);
         bTipos1.setOpaque(false);
@@ -130,7 +130,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bPresidente.setBackground(new java.awt.Color(0, 102, 102));
         bPresidente.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bPresidente.setForeground(new java.awt.Color(255, 255, 255));
-        bPresidente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/presidentes.png"))); // NOI18N
+        bPresidente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Presidentes.png"))); // NOI18N
         bPresidente.setText("  PRESIDENTES");
         bPresidente.setBorder(null);
         bPresidente.setOpaque(false);
@@ -141,7 +141,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         });
         getContentPane().add(bPresidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 500, 290, 70));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/COPAnueva.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/FondoCategoria.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-260, -630, 3500, 2650));
 
         jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
