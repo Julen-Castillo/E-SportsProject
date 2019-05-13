@@ -1,7 +1,6 @@
 package vistas;
 
-import java.awt.Color;
-import main.MainEsports;
+import java.awt.ComponentOrientation;
 
 /**
  *
@@ -14,8 +13,12 @@ public class VentanaCategoria extends javax.swing.JFrame {
      * Creates new form VentanaCategoria
      */
     public VentanaCategoria() {
+        setUndecorated(true);
         initComponents();
-        setLocationRelativeTo(null);
+        setAlwaysOnTop(rootPaneCheckingEnabled);
+        setExtendedState(MAXIMIZED_BOTH);
+        setVisible(true);
+        
     }
 
     /**
@@ -36,13 +39,16 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bPresidente = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        jMenuCategoria = new javax.swing.JMenu();
         miTipos = new javax.swing.JMenuItem();
         miModulos = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         miMisiones = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        miPuestos = new javax.swing.JMenuItem();
-        miIngenieros = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         miSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,6 +65,10 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bModulos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Jornada.png"))); // NOI18N
         bModulos.setText("   JORNADAS");
         bModulos.setBorder(null);
+        bModulos.setBorderPainted(false);
+        bModulos.setContentAreaFilled(false);
+        bModulos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bModulos.setFocusPainted(false);
         bModulos.setOpaque(false);
         bModulos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +83,9 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bPuestos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Equipo.png"))); // NOI18N
         bPuestos.setText("    EQUIPOS");
         bPuestos.setBorder(null);
+        bPuestos.setContentAreaFilled(false);
+        bPuestos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bPuestos.setFocusPainted(false);
         bPuestos.setOpaque(false);
         bPuestos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,9 +97,12 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bIngenieros.setBackground(new java.awt.Color(0, 102, 102));
         bIngenieros.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bIngenieros.setForeground(new java.awt.Color(255, 255, 255));
-        bIngenieros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/jugadoresports (1).png"))); // NOI18N
+        bIngenieros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/JugadorEsports.png"))); // NOI18N
         bIngenieros.setText("   JUGADORES");
         bIngenieros.setBorder(null);
+        bIngenieros.setContentAreaFilled(false);
+        bIngenieros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bIngenieros.setFocusPainted(false);
         bIngenieros.setOpaque(false);
         bIngenieros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +117,9 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bMisiones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Partido.png"))); // NOI18N
         bMisiones.setText("    PARTIDOS");
         bMisiones.setBorder(null);
+        bMisiones.setContentAreaFilled(false);
+        bMisiones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bMisiones.setFocusPainted(false);
         bMisiones.setOpaque(false);
         bMisiones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,12 +128,15 @@ public class VentanaCategoria extends javax.swing.JFrame {
         });
         getContentPane().add(bMisiones, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 230, 60));
 
+        bTipos1.setBackground(new java.awt.Color(255, 255, 255));
         bTipos1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bTipos1.setForeground(new java.awt.Color(255, 255, 255));
         bTipos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Icono liga.png"))); // NOI18N
         bTipos1.setText("        LIGA");
         bTipos1.setBorder(null);
-        bTipos1.setOpaque(false);
+        bTipos1.setContentAreaFilled(false);
+        bTipos1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bTipos1.setFocusPainted(false);
         bTipos1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 bTipos1MouseMoved(evt);
@@ -133,6 +155,9 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bPresidente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Presidentes.png"))); // NOI18N
         bPresidente.setText("  PRESIDENTES");
         bPresidente.setBorder(null);
+        bPresidente.setContentAreaFilled(false);
+        bPresidente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bPresidente.setFocusPainted(false);
         bPresidente.setOpaque(false);
         bPresidente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,9 +171,10 @@ public class VentanaCategoria extends javax.swing.JFrame {
 
         jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
 
-        jMenu1.setText("Modulos");
+        jMenuCategoria.setText("Categoria");
+        jMenuCategoria.setBorderPainted(false);
 
-        miTipos.setText("Tipos de modulos");
+        miTipos.setText("Liga");
         miTipos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 miTiposMouseClicked(evt);
@@ -159,47 +185,62 @@ public class VentanaCategoria extends javax.swing.JFrame {
                 miTiposActionPerformed(evt);
             }
         });
-        jMenu1.add(miTipos);
+        jMenuCategoria.add(miTipos);
 
-        miModulos.setText("Modulos");
+        miModulos.setText("Jornadas");
         miModulos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miModulosActionPerformed(evt);
             }
         });
-        jMenu1.add(miModulos);
+        jMenuCategoria.add(miModulos);
 
-        jMenuBar1.add(jMenu1);
+        jMenuItem2.setText("Partidos");
+        jMenuCategoria.add(jMenuItem2);
 
-        miMisiones.setText("Misiones");
+        jMenuItem3.setText("Equipos");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenuCategoria.add(jMenuItem3);
+
+        jMenuItem4.setText("Jugadores");
+        jMenuCategoria.add(jMenuItem4);
+
+        jMenuItem1.setText("Presidentes");
+        jMenuCategoria.add(jMenuItem1);
+
+        jMenuBar1.add(jMenuCategoria);
+
+        miMisiones.setText("Cuentas");
+        miMisiones.setBorderPainted(false);
         miMisiones.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 miMisionesMouseClicked(evt);
             }
         });
+
+        jMenuItem6.setText("Administradores");
+        miMisiones.add(jMenuItem6);
+
+        jMenuItem5.setText("Usuarios");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        miMisiones.add(jMenuItem5);
+
         jMenuBar1.add(miMisiones);
 
-        jMenu4.setText("Ingenieros");
-
-        miPuestos.setText("Puestos");
-        miPuestos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miPuestosActionPerformed(evt);
-            }
-        });
-        jMenu4.add(miPuestos);
-
-        miIngenieros.setText("Ingenieros");
-        miIngenieros.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miIngenierosActionPerformed(evt);
-            }
-        });
-        jMenu4.add(miIngenieros);
-
-        jMenuBar1.add(jMenu4);
-
         miSalir.setText("Salir");
+        miSalir.setBorderPainted(false);
+        miSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        miSalir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        miSalir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        miSalir.setInheritsPopupMenu(true);
         miSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 miSalirMouseClicked(evt);
@@ -228,12 +269,8 @@ public class VentanaCategoria extends javax.swing.JFrame {
         
     }//GEN-LAST:event_bIngenierosActionPerformed
 
-    private void miPuestosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miPuestosActionPerformed
-        
-    }//GEN-LAST:event_miPuestosActionPerformed
-
     private void miSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miSalirMouseClicked
-       
+       System.exit(0);
     }//GEN-LAST:event_miSalirMouseClicked
 
     private void miTiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miTiposMouseClicked
@@ -252,10 +289,6 @@ public class VentanaCategoria extends javax.swing.JFrame {
         
     }//GEN-LAST:event_miMisionesMouseClicked
 
-    private void miIngenierosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miIngenierosActionPerformed
-        
-    }//GEN-LAST:event_miIngenierosActionPerformed
-
     private void bTipos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTipos1ActionPerformed
         
     }//GEN-LAST:event_bTipos1ActionPerformed
@@ -267,6 +300,14 @@ public class VentanaCategoria extends javax.swing.JFrame {
     private void bTipos1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bTipos1MouseMoved
    
     }//GEN-LAST:event_bTipos1MouseMoved
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -312,13 +353,16 @@ public class VentanaCategoria extends javax.swing.JFrame {
     private javax.swing.JButton bTipos1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem miIngenieros;
+    private javax.swing.JMenu jMenuCategoria;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenu miMisiones;
     private javax.swing.JMenuItem miModulos;
-    private javax.swing.JMenuItem miPuestos;
     private javax.swing.JMenu miSalir;
     private javax.swing.JMenuItem miTipos;
     // End of variables declaration//GEN-END:variables
