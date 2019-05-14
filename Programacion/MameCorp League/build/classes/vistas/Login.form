@@ -28,7 +28,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imgVentanaCategoria/Mamecorp White.png"/>
+          <Image iconType="3" name="/vistas/Imgs/ImgLogin/Mamecorp White.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -95,7 +95,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imgVentanaCategoria/fondologin (2).jpg"/>
+          <Image iconType="3" name="/vistas/Imgs/ImgLogin/fondologin (2).jpg"/>
         </Property>
       </Properties>
       <Constraints>

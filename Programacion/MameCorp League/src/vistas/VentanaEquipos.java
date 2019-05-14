@@ -125,7 +125,7 @@ public class VentanaEquipos extends javax.swing.JFrame {
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, -140, 400, 1310);
 
-        lFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/EquipoFondo.png"))); // NOI18N
+        lFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgEquipo/EquipoFondo.png"))); // NOI18N
         lFondo.setText("jLabel6");
         getContentPane().add(lFondo);
         lFondo.setBounds(-380, -170, 2350, 1400);

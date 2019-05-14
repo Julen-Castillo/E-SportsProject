@@ -76,7 +76,7 @@ public class VentanaPresidente extends javax.swing.JFrame {
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, 0, 510, 1080);
 
-        lFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/PresidenteFondo.png"))); // NOI18N
+        lFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgPresidente/PresidenteFondo.png"))); // NOI18N
         getContentPane().add(lFondo);
         lFondo.setBounds(-90, -100, 2560, 1440);
 

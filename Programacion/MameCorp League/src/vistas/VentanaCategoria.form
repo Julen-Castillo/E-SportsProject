@@ -12,7 +12,6 @@
         <Menu class="javax.swing.JMenu" name="jMenuCategoria">
           <Properties>
             <Property name="text" type="java.lang.String" value="Categoria"/>
-            <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="miLiga">
@@ -68,7 +67,6 @@
         <Menu class="javax.swing.JMenu" name="jMenuCuentas">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cuentas"/>
-            <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="miAdministradores">
@@ -109,7 +107,6 @@
         <Menu class="javax.swing.JMenu" name="jMenuSalir">
           <Properties>
             <Property name="text" type="java.lang.String" value="Salir"/>
-            <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor Por defecto"/>
             </Property>
@@ -179,7 +176,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imgVentanaCategoria/Jornada.png"/>
+          <Image iconType="3" name="/vistas/Imgs/imgVentanaCategoria/Jornada.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="   JORNADAS"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -213,7 +210,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imgVentanaCategoria/Equipo.png"/>
+          <Image iconType="3" name="/vistas/Imgs/imgVentanaCategoria/Equipo.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="    EQUIPOS"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -246,7 +243,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imgVentanaCategoria/JugadorEsports.png"/>
+          <Image iconType="3" name="/vistas/Imgs/imgVentanaCategoria/JugadorEsports.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="   JUGADORES"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -279,7 +276,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imgVentanaCategoria/Partido.png"/>
+          <Image iconType="3" name="/vistas/Imgs/imgVentanaCategoria/Partido.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="    PARTIDOS"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -312,7 +309,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imgVentanaCategoria/Presidentes.png"/>
+          <Image iconType="3" name="/vistas/Imgs/imgVentanaCategoria/Presidentes.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="  PRESIDENTES"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -345,7 +342,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imgVentanaCategoria/Icono liga.png"/>
+          <Image iconType="3" name="/vistas/Imgs/imgVentanaCategoria/Icono liga.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="        LIGA"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -379,7 +376,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imgVentanaCategoria/Alta.png"/>
+          <Image iconType="3" name="/vistas/Imgs/imgVentanaCategoria/Alta.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="       ALTA"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -412,7 +409,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imgVentanaCategoria/Modify.png"/>
+          <Image iconType="3" name="/vistas/Imgs/imgVentanaCategoria/Modify.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="   MODIFICAR"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -445,7 +442,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imgVentanaCategoria/Baja.png"/>
+          <Image iconType="3" name="/vistas/Imgs/imgVentanaCategoria/Baja.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="         BAJA"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -478,7 +475,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imgVentanaCategoria/Consultar.png"/>
+          <Image iconType="3" name="/vistas/Imgs/imgVentanaCategoria/Consultar.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="   CONSULTAR"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -534,7 +531,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imgVentanaCategoria/FondoCategoria.png"/>
+          <Image iconType="3" name="/vistas/Imgs/imgVentanaCategoria/FondoCategoria.png"/>
         </Property>
       </Properties>
       <Constraints>

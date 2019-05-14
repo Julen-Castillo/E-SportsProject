@@ -112,7 +112,7 @@
     <Component class="javax.swing.JLabel" name="lFondo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imgVentanaCategoria/PresidenteFondo.png"/>
+          <Image iconType="3" name="/vistas/Imgs/ImgPresidente/PresidenteFondo.png"/>
         </Property>
       </Properties>
       <Constraints>

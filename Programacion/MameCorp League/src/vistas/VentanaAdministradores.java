@@ -114,7 +114,7 @@ public class VentanaAdministradores extends javax.swing.JFrame {
 
         getContentPane().add(panelOpaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 1110));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVentanaAdministradores/admin.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgVentanaAdministradores/admin.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2030, 1080));
 
         jMenuVolver.setText("Volver");

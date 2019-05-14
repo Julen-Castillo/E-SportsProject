@@ -65,7 +65,7 @@ public class VentanaUsuarios extends javax.swing.JFrame {
         bVisualizarJornadas.setBackground(new java.awt.Color(0, 102, 102));
         bVisualizarJornadas.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bVisualizarJornadas.setForeground(new java.awt.Color(255, 255, 255));
-        bVisualizarJornadas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Jornada.png"))); // NOI18N
+        bVisualizarJornadas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/Jornada.png"))); // NOI18N
         bVisualizarJornadas.setText("   JORNADAS");
         bVisualizarJornadas.setBorder(null);
         bVisualizarJornadas.setBorderPainted(false);
@@ -82,7 +82,7 @@ public class VentanaUsuarios extends javax.swing.JFrame {
         bVisualizarEquipos.setBackground(new java.awt.Color(0, 102, 102));
         bVisualizarEquipos.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bVisualizarEquipos.setForeground(new java.awt.Color(255, 255, 255));
-        bVisualizarEquipos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Equipo.png"))); // NOI18N
+        bVisualizarEquipos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/Equipo.png"))); // NOI18N
         bVisualizarEquipos.setText("    EQUIPOS");
         bVisualizarEquipos.setBorder(null);
         bVisualizarEquipos.setContentAreaFilled(false);
@@ -98,7 +98,7 @@ public class VentanaUsuarios extends javax.swing.JFrame {
         bVisualizarJugadores.setBackground(new java.awt.Color(0, 102, 102));
         bVisualizarJugadores.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bVisualizarJugadores.setForeground(new java.awt.Color(255, 255, 255));
-        bVisualizarJugadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/JugadorEsports.png"))); // NOI18N
+        bVisualizarJugadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/Jugador.png"))); // NOI18N
         bVisualizarJugadores.setText("   JUGADORES");
         bVisualizarJugadores.setBorder(null);
         bVisualizarJugadores.setContentAreaFilled(false);
@@ -114,7 +114,7 @@ public class VentanaUsuarios extends javax.swing.JFrame {
         bVisualizarPresidentes.setBackground(new java.awt.Color(0, 102, 102));
         bVisualizarPresidentes.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bVisualizarPresidentes.setForeground(new java.awt.Color(255, 255, 255));
-        bVisualizarPresidentes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Presidentes.png"))); // NOI18N
+        bVisualizarPresidentes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/Presidentes.png"))); // NOI18N
         bVisualizarPresidentes.setText("  PRESIDENTES");
         bVisualizarPresidentes.setBorder(null);
         bVisualizarPresidentes.setContentAreaFilled(false);
@@ -130,7 +130,7 @@ public class VentanaUsuarios extends javax.swing.JFrame {
         bVisualizarLiga.setBackground(new java.awt.Color(255, 255, 255));
         bVisualizarLiga.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bVisualizarLiga.setForeground(new java.awt.Color(255, 255, 255));
-        bVisualizarLiga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Icono liga.png"))); // NOI18N
+        bVisualizarLiga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/Icono liga.png"))); // NOI18N
         bVisualizarLiga.setText("        LIGA");
         bVisualizarLiga.setBorder(null);
         bVisualizarLiga.setContentAreaFilled(false);
@@ -158,7 +158,7 @@ public class VentanaUsuarios extends javax.swing.JFrame {
         jLabel5.setText("jLabel3:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1638, 40, 110, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/FondoCategoria.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/FondoCategoria.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-260, -630, 3500, 2650));
 
         jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
