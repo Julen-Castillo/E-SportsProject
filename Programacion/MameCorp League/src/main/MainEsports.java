@@ -14,9 +14,9 @@ public class MainEsports {
     
     public static void main(String[] args) throws SQLException {
     
-        //vCategoria = new VentanaCategoria();
+        vCategoria = new VentanaCategoria();
         //vAdmin = new VentanaAdministradores();
-        vUsuario = new VentanaUsuarios();
+        //vUsuario = new VentanaUsuarios();
         
 
     }
