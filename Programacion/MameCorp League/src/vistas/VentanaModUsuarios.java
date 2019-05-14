@@ -47,14 +47,14 @@ public class VentanaModUsuarios extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel4.setText("USUARIO");
 
-        bAceptar.setBackground(new java.awt.Color(83, 175, 226));
-        bAceptar.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        bAceptar.setForeground(new java.awt.Color(255, 255, 255));
         bAceptar.setText("VOLVER");
+        bAceptar.setBackground(new java.awt.Color(83, 175, 226));
         bAceptar.setBorder(null);
         bAceptar.setContentAreaFilled(false);
         bAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bAceptar.setFocusPainted(false);
+        bAceptar.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        bAceptar.setForeground(new java.awt.Color(255, 255, 255));
         bAceptar.setOpaque(true);
         bAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,7 +72,7 @@ public class VentanaModUsuarios extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpacoLayout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelOpacoLayout.createSequentialGroup()
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -99,9 +99,9 @@ public class VentanaModUsuarios extends javax.swing.JFrame {
                 .addGap(69, 69, 69))
         );
 
-        getContentPane().add(panelOpaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 1110));
+        getContentPane().add(panelOpaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 1110));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVentanaAdministradores/admin.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgVentanaAdministradores/admin.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2030, 1080));
 
         jMenuVolver.setText("Volver");

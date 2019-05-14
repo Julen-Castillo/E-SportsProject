@@ -33,50 +33,42 @@ public class VentanaPresidente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         panelOpaco = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
         lFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(270, 660, 200, 20);
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(270, 710, 200, 20);
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(270, 760, 200, 20);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabel1.setText("PRESIDENTE");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(110, 150, 510, 160);
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("ID PRESIDENTE");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(126, 663, 113, 17);
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setText("NOMBRE");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(130, 710, 100, 17);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setText("APELLIDO");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(130, 760, 130, 17);
 
         panelOpaco.setLayout(null);
-        getContentPane().add(panelOpaco);
-        panelOpaco.setBounds(0, 0, 510, 1080);
 
-        lFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/PresidenteFondo.png"))); // NOI18N
+        jLabel1.setText("PRESIDENTE");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        panelOpaco.add(jLabel1);
+        jLabel1.setBounds(30, 40, 510, 160);
+
+        jLabel3.setText("NOMBRE");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        panelOpaco.add(jLabel3);
+        jLabel3.setBounds(40, 200, 100, 17);
+        panelOpaco.add(jTextField3);
+        jTextField3.setBounds(130, 200, 200, 20);
+
+        jLabel4.setText("APELLIDO");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        panelOpaco.add(jLabel4);
+        jLabel4.setBounds(40, 270, 130, 17);
+        panelOpaco.add(jTextField4);
+        jTextField4.setBounds(130, 270, 200, 20);
+
+        getContentPane().add(panelOpaco);
+        panelOpaco.setBounds(0, 0, 400, 1080);
+
+        lFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgPresidente/PresidenteFondo.png"))); // NOI18N
         getContentPane().add(lFondo);
         lFondo.setBounds(-90, -100, 2560, 1440);
 
@@ -120,10 +112,8 @@ public class VentanaPresidente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel lFondo;

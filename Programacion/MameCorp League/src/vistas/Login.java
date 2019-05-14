@@ -47,7 +47,7 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Mamecorp White.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgLogin/Mamecorp White.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 250, 210));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -70,7 +70,7 @@ public class Login extends javax.swing.JFrame {
 
         pFondoLogin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         pFondoLogin.setForeground(new java.awt.Color(255, 255, 255));
-        pFondoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/fondologin (2).jpg"))); // NOI18N
+        pFondoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgLogin/fondologin (2).jpg"))); // NOI18N
         getContentPane().add(pFondoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 1340, 580));
 
         pack();

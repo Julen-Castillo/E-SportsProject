@@ -44,16 +44,28 @@ public class VentanaAdministradores extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        panelOpaco.setLayout(null);
+
         jTextField1.setBorder(null);
+        panelOpaco.add(jTextField1);
+        jTextField1.setBounds(151, 313, 178, 26);
 
         jPasswordField1.setBorder(null);
+        panelOpaco.add(jPasswordField1);
+        jPasswordField1.setBounds(151, 445, 178, 25);
 
         jLabel2.setText("NOMBRE");
+        panelOpaco.add(jLabel2);
+        jLabel2.setBounds(57, 319, 42, 14);
 
         jLabel3.setText("PASSWORD");
+        panelOpaco.add(jLabel3);
+        jLabel3.setBounds(57, 450, 57, 14);
 
-        jLabel4.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel4.setText("ADMINISTRADOR");
+        jLabel4.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        panelOpaco.add(jLabel4);
+        jLabel4.setBounds(108, 102, 206, 75);
 
         bAceptar.setBackground(new java.awt.Color(83, 175, 226));
         bAceptar.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -69,52 +81,12 @@ public class VentanaAdministradores extends javax.swing.JFrame {
                 bAceptarActionPerformed(evt);
             }
         });
+        panelOpaco.add(bAceptar);
+        bAceptar.setBounds(199, 986, 179, 55);
 
-        javax.swing.GroupLayout panelOpacoLayout = new javax.swing.GroupLayout(panelOpaco);
-        panelOpaco.setLayout(panelOpacoLayout);
-        panelOpacoLayout.setHorizontalGroup(
-            panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOpacoLayout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpacoLayout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
-                .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpacoLayout.createSequentialGroup()
-                        .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(37, 37, 37)
-                        .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(91, 91, 91))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpacoLayout.createSequentialGroup()
-                        .addComponent(bAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42))))
-        );
-        panelOpacoLayout.setVerticalGroup(
-            panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOpacoLayout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(136, 136, 136)
-                .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(106, 106, 106)
-                .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 516, Short.MAX_VALUE)
-                .addComponent(bAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69))
-        );
+        getContentPane().add(panelOpaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 1110));
 
-        getContentPane().add(panelOpaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 1110));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVentanaAdministradores/admin.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgVentanaAdministradores/admin.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2030, 1080));
 
         jMenuVolver.setText("Volver");
