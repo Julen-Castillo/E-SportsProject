@@ -30,7 +30,6 @@ public class VentanaCategoria extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
         bJornadas = new javax.swing.JButton();
         bEquipos = new javax.swing.JButton();
         bJugadores = new javax.swing.JButton();
@@ -59,14 +58,10 @@ public class VentanaCategoria extends javax.swing.JFrame {
         miEliminar = new javax.swing.JMenuItem();
         jMenuVolver = new javax.swing.JMenu();
         jMenuSalir = new javax.swing.JMenu();
+        jmLogOut = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Roboto Condensed Light", 0, 60)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Mamecorp logo.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 340, 630, 350));
 
         bJornadas.setBackground(new java.awt.Color(0, 102, 102));
         bJornadas.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -341,6 +336,15 @@ public class VentanaCategoria extends javax.swing.JFrame {
                 jMenuSalirMouseClicked(evt);
             }
         });
+
+        jmLogOut.setText("LogOut");
+        jmLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmLogOutActionPerformed(evt);
+            }
+        });
+        jMenuSalir.add(jmLogOut);
+
         jMenuBar1.add(jMenuSalir);
 
         setJMenuBar(jMenuBar1);
@@ -350,6 +354,8 @@ public class VentanaCategoria extends javax.swing.JFrame {
 
     private void bJornadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJornadasActionPerformed
         ocultarBotonesYMostrarCrud();
+        //this.dispose();
+        
     }//GEN-LAST:event_bJornadasActionPerformed
 
     private void bPartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPartidosActionPerformed
@@ -358,10 +364,14 @@ public class VentanaCategoria extends javax.swing.JFrame {
 
     private void bEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEquiposActionPerformed
        ocultarBotonesYMostrarCrud();
+       this.dispose();
+       ControladorVista.mostrarVentanaEquipos();
     }//GEN-LAST:event_bEquiposActionPerformed
 
     private void bJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJugadoresActionPerformed
         ocultarBotonesYMostrarCrud();
+        this.dispose();
+        ControladorVista.mostrarVentanaJugador();
     }//GEN-LAST:event_bJugadoresActionPerformed
 
     private void jMenuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSalirMouseClicked
@@ -382,6 +392,8 @@ public class VentanaCategoria extends javax.swing.JFrame {
 
     private void bPresidentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPresidentesActionPerformed
         ocultarBotonesYMostrarCrud();
+        this.dispose();
+        ControladorVista.mostrarVentanaPresidente();
     }//GEN-LAST:event_bPresidentesActionPerformed
 
     private void miEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miEquiposActionPerformed
@@ -394,6 +406,9 @@ public class VentanaCategoria extends javax.swing.JFrame {
 
     private void bLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLigaActionPerformed
         ocultarBotonesYMostrarCrud();
+        this.dispose();
+        ControladorVista.mostrarVentanaLiga();
+        
     }//GEN-LAST:event_bLigaActionPerformed
 
     private void bBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBajaActionPerformed
@@ -428,6 +443,12 @@ public class VentanaCategoria extends javax.swing.JFrame {
     private void miAdministradoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAdministradoresActionPerformed
         ocultarBotonesYMostrarCrud();
     }//GEN-LAST:event_miAdministradoresActionPerformed
+
+    private void jmLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmLogOutActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        ControladorVista.mostrarLogin();
+    }//GEN-LAST:event_jmLogOutActionPerformed
     
     public final void disableCRUD(){
         bAlta.setVisible(false);
@@ -505,7 +526,6 @@ public class VentanaCategoria extends javax.swing.JFrame {
     private javax.swing.JButton bPartidos;
     private javax.swing.JButton bPresidentes;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuBar jMenuBar1;
@@ -514,6 +534,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuSalir;
     private javax.swing.JMenu jMenuUsuarios;
     private javax.swing.JMenu jMenuVolver;
+    private javax.swing.JMenuItem jmLogOut;
     private javax.swing.JMenuItem miAdministradores;
     private javax.swing.JMenuItem miConsultar;
     private javax.swing.JMenuItem miEliminar;

@@ -22,7 +22,7 @@ public class VentanaLiga extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
-        panelOpaco.setBackground(new Color(255,255,255,190));
+        panelOpaco.setBackground(new Color(39,43,57,190));
     }
 
     /**
@@ -55,11 +55,13 @@ public class VentanaLiga extends javax.swing.JFrame {
 
         jLabel1.setText("LIGA");
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         panelOpaco.add(jLabel1);
         jLabel1.setBounds(100, 280, 170, 120);
 
         jLabel6.setText("NOMBRE DE LIGA");
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         panelOpaco.add(jLabel6);
         jLabel6.setBounds(10, 420, 150, 17);
         panelOpaco.add(jTextField3);
@@ -67,6 +69,7 @@ public class VentanaLiga extends javax.swing.JFrame {
 
         jLabel8.setText("FECHA DE INICIO");
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         panelOpaco.add(jLabel8);
         jLabel8.setBounds(10, 470, 140, 17);
         panelOpaco.add(datePicker1);
@@ -74,6 +77,7 @@ public class VentanaLiga extends javax.swing.JFrame {
 
         jLabel9.setText("FECHA DE FIN");
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         panelOpaco.add(jLabel9);
         jLabel9.setBounds(10, 520, 170, 17);
         panelOpaco.add(datePicker2);
@@ -81,6 +85,7 @@ public class VentanaLiga extends javax.swing.JFrame {
 
         jLabel5.setText("LIGA EN CURSO");
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         panelOpaco.add(jLabel5);
         jLabel5.setBounds(10, 580, 130, 17);
         panelOpaco.add(jCheckBox1);
@@ -88,7 +93,7 @@ public class VentanaLiga extends javax.swing.JFrame {
 
         bLimpiar.setText("LIMPIAR");
         panelOpaco.add(bLimpiar);
-        bLimpiar.setBounds(10, 630, 73, 23);
+        bLimpiar.setBounds(10, 630, 110, 23);
 
         bInsertar.setText("INSERTAR");
         panelOpaco.add(bInsertar);

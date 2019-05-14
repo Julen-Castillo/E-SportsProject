@@ -21,7 +21,7 @@ public class VentanaEquipos extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
-        panelOpaco.setBackground(new Color(255,255,255,190));
+        panelOpaco.setBackground(new Color(2,91,136,190));
     }
 
     /**
