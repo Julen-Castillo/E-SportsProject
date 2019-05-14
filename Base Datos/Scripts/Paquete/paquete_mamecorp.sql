@@ -1,22 +1,21 @@
 /*CABECERA DEL PAQUETE */
 
 CREATE OR REPLACE PACKAGE paquete_mamecorp AS
-	FUNCTION FUNCTION_COUNT_JUG_EQUIPO 
+	FUNCTION FUNCTION_COUNT_JUG_EQUIPO (ID_EQUIPO IN EQUIPO.ID_EQUIPO%TYPE)
+   
 		RETURN NUMBER;
+        
 
-	PROCEDURE generar_calendario (
-		v_dias_next_jornada NUMBER := 0, --variable que incrementa en 7 tras cada jornada. La utilizamos para establecer la fecha de la siguiente jornada.
-		v_num_jornadas NUMBER:= 0, --contador de jornadas
-		v_increment_id_jornada NUMBER := 1, --id jornada autoincremental
-		v_jornadas_totales NUMBER := 10,
-		v_f_inicio_liga DATE,
-		v_f_fin_liga LIGA.FECHA_FIN%TYPE);
+	PROCEDURE generar_calendario;
   
-  
-	PROCEDURE procedimiento_info_equipo (
-        c_info_equipo CURSOR, 
-		v_info c_info_equipo%ROWTYPE,
-		v_num_jugadores NUMBER);
+    CURSOR c_info_equipo is  SELECT E.ID_EQUIPO, E.NOMBRE, E.PRESUPUESTO, E.PUNTOS, P.ID_PRESIDENTE, P.NOMBRE AS PRESIDENTE
+		    FROM EQUIPO E, PRESIDENTE P
+		    WHERE P.EQUIPO_ID_EQUIPO(+) = E.ID_EQUIPO;   
+    
+	PROCEDURE procedimiento_info_equipo;
+        --c_info_equipo CURSOR,
+	
+        
 END paquete_mamecorp;
 
 
@@ -33,20 +32,14 @@ CREATE OR REPLACE PACKAGE BODY paquete_mamecorp AS
 		RETURN(NUM_JUGADORES );
 		END FUNCTION_COUNT_JUG_EQUIPO;
 
-		--LLAMADA A LA FUNCION
-		DECLARE
-		jugadores_msg NUMBER(2);
-		BEGIN
-		    jugadores_msg := FUNCTION_COUNT_JUG_EQUIPO(6);
-		    DBMS_OUTPUT.PUT_LINE(jugadores_msg);
-		END FUNCTION_COUNT_JUG_EQUIPO;
 
+	
 
 	PROCEDURE generar_calendario IS
-		v_dias_next_jornada NUMBER(2) := 0; --variable que incrementa en 7 tras cada jornada. La utilizamos para establecer la fecha de la siguiente jornada.
-		v_num_jornadas NUMBER(2) := 0; --contador de jornadas
-		v_increment_id_jornada NUMBER(2) := 1; --id jornada autoincremental
-		v_jornadas_totales NUMBER(2) := 10;
+		v_dias_next_jornada NUMBER := 0; --variable que incrementa en 7 tras cada jornada. La utilizamos para establecer la fecha de la siguiente jornada.
+		v_num_jornadas NUMBER := 0; --contador de jornadas
+		v_increment_id_jornada NUMBER := 1; --id jornada autoincremental
+		v_jornadas_totales NUMBER := 10;
 		v_f_inicio_liga DATE;
 		v_f_fin_liga LIGA.FECHA_FIN%TYPE;
 		BEGIN
@@ -72,14 +65,14 @@ CREATE OR REPLACE PACKAGE BODY paquete_mamecorp AS
 		    WHERE ID_LIGA = 1;
 	END generar_calendario;
 
-
+   
 	PROCEDURE procedimiento_info_equipo IS
 		CURSOR c_info_equipo IS
 		    SELECT E.ID_EQUIPO, E.NOMBRE, E.PRESUPUESTO, E.PUNTOS, P.ID_PRESIDENTE, P.NOMBRE AS PRESIDENTE
 		    FROM EQUIPO E, PRESIDENTE P
 		    WHERE P.EQUIPO_ID_EQUIPO(+) = E.ID_EQUIPO;   
 		v_info c_info_equipo%ROWTYPE;
-		v_num_jugadores NUMBER(2);
+		v_num_jugadores NUMBER;
 		BEGIN
 		    OPEN c_info_equipo;
 		    LOOP
@@ -93,3 +86,20 @@ CREATE OR REPLACE PACKAGE BODY paquete_mamecorp AS
 
 	END paquete_mamecorp;
 
+--PRUEBA DE PAQUETE 
+
+/* DECLARE
+jugadores_msg NUMBER(2);
+BEGIN
+    jugadores_msg := paquete_mamecorp.FUNCTION_COUNT_JUG_EQUIPO(10);
+    DBMS_OUTPUT.PUT_LINE(jugadores_msg);
+END;
+
+
+BEGIN
+paquete_mamecorp.generar_calendario;
+END;
+
+select * from jornada;
+
+*/
