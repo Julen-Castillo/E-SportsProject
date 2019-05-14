@@ -120,7 +120,7 @@ public class VentanaLiga extends javax.swing.JFrame {
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, -230, 530, 1430);
 
-        lFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/LigaFondo.jpg"))); // NOI18N
+        lFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgLiga/LigaFondo.jpg"))); // NOI18N
         getContentPane().add(lFondo);
         lFondo.setBounds(-320, -250, 2560, 1440);
 
@@ -134,7 +134,7 @@ public class VentanaLiga extends javax.swing.JFrame {
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        MainEsports.lanzarVentanaCategoria();
+      //  MainEsports.lanzarVentanaCategoria();
     }//GEN-LAST:event_bVolverActionPerformed
 
     /**

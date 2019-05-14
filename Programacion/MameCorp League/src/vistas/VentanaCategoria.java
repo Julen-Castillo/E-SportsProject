@@ -71,7 +71,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bJornadas.setBackground(new java.awt.Color(0, 102, 102));
         bJornadas.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bJornadas.setForeground(new java.awt.Color(255, 255, 255));
-        bJornadas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Jornada.png"))); // NOI18N
+        bJornadas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/Jornada.png"))); // NOI18N
         bJornadas.setText("   JORNADAS");
         bJornadas.setBorder(null);
         bJornadas.setBorderPainted(false);
@@ -88,7 +88,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bEquipos.setBackground(new java.awt.Color(0, 102, 102));
         bEquipos.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bEquipos.setForeground(new java.awt.Color(255, 255, 255));
-        bEquipos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Equipo.png"))); // NOI18N
+        bEquipos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/Equipo.png"))); // NOI18N
         bEquipos.setText("    EQUIPOS");
         bEquipos.setBorder(null);
         bEquipos.setContentAreaFilled(false);
@@ -104,7 +104,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bJugadores.setBackground(new java.awt.Color(0, 102, 102));
         bJugadores.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bJugadores.setForeground(new java.awt.Color(255, 255, 255));
-        bJugadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/JugadorEsports.png"))); // NOI18N
+        bJugadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/JugadorEsports.png"))); // NOI18N
         bJugadores.setText("   JUGADORES");
         bJugadores.setBorder(null);
         bJugadores.setContentAreaFilled(false);
@@ -120,7 +120,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bPartidos.setBackground(new java.awt.Color(0, 102, 102));
         bPartidos.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bPartidos.setForeground(new java.awt.Color(255, 255, 255));
-        bPartidos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Partido.png"))); // NOI18N
+        bPartidos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/Partido.png"))); // NOI18N
         bPartidos.setText("    PARTIDOS");
         bPartidos.setBorder(null);
         bPartidos.setContentAreaFilled(false);
@@ -136,7 +136,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bPresidentes.setBackground(new java.awt.Color(0, 102, 102));
         bPresidentes.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bPresidentes.setForeground(new java.awt.Color(255, 255, 255));
-        bPresidentes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Presidentes.png"))); // NOI18N
+        bPresidentes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/Presidentes.png"))); // NOI18N
         bPresidentes.setText("  PRESIDENTES");
         bPresidentes.setBorder(null);
         bPresidentes.setContentAreaFilled(false);
@@ -152,7 +152,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bLiga.setBackground(new java.awt.Color(255, 255, 255));
         bLiga.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bLiga.setForeground(new java.awt.Color(255, 255, 255));
-        bLiga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Icono liga.png"))); // NOI18N
+        bLiga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/Icono liga.png"))); // NOI18N
         bLiga.setText("        LIGA");
         bLiga.setBorder(null);
         bLiga.setContentAreaFilled(false);
@@ -173,7 +173,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bAlta.setBackground(new java.awt.Color(255, 255, 255));
         bAlta.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bAlta.setForeground(new java.awt.Color(255, 255, 255));
-        bAlta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Alta.png"))); // NOI18N
+        bAlta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/Alta.png"))); // NOI18N
         bAlta.setText("       ALTA");
         bAlta.setBorder(null);
         bAlta.setContentAreaFilled(false);
@@ -189,7 +189,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bModificar.setBackground(new java.awt.Color(255, 255, 255));
         bModificar.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bModificar.setForeground(new java.awt.Color(255, 255, 255));
-        bModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Modify.png"))); // NOI18N
+        bModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/Modify.png"))); // NOI18N
         bModificar.setText("   MODIFICAR");
         bModificar.setBorder(null);
         bModificar.setContentAreaFilled(false);
@@ -205,7 +205,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bBaja.setBackground(new java.awt.Color(255, 255, 255));
         bBaja.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bBaja.setForeground(new java.awt.Color(255, 255, 255));
-        bBaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Baja.png"))); // NOI18N
+        bBaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/Baja.png"))); // NOI18N
         bBaja.setText("         BAJA");
         bBaja.setBorder(null);
         bBaja.setContentAreaFilled(false);
@@ -221,7 +221,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bConsultar.setBackground(new java.awt.Color(255, 255, 255));
         bConsultar.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         bConsultar.setForeground(new java.awt.Color(255, 255, 255));
-        bConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/Consultar.png"))); // NOI18N
+        bConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/Consultar.png"))); // NOI18N
         bConsultar.setText("   CONSULTAR");
         bConsultar.setBorder(null);
         bConsultar.setContentAreaFilled(false);
@@ -244,13 +244,12 @@ public class VentanaCategoria extends javax.swing.JFrame {
         jLabel5.setText("jLabel3:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1638, 40, 110, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/FondoCategoria.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/FondoCategoria.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-260, -630, 3500, 2650));
 
         jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
 
         jMenuCategoria.setText("Categoria");
-        jMenuCategoria.setBorderPainted(false);
 
         miLiga.setText("Liga");
         miLiga.addActionListener(new java.awt.event.ActionListener() {
@@ -303,7 +302,6 @@ public class VentanaCategoria extends javax.swing.JFrame {
         jMenuBar1.add(jMenuCategoria);
 
         jMenuCuentas.setText("Cuentas");
-        jMenuCuentas.setBorderPainted(false);
 
         miAdministradores.setText("Administradores");
         miAdministradores.addActionListener(new java.awt.event.ActionListener() {
@@ -334,7 +332,6 @@ public class VentanaCategoria extends javax.swing.JFrame {
         jMenuBar1.add(jMenuVolver);
 
         jMenuSalir.setText("Salir");
-        jMenuSalir.setBorderPainted(false);
         jMenuSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jMenuSalir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jMenuSalir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

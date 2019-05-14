@@ -113,7 +113,7 @@ public class VentanaJugador extends javax.swing.JFrame {
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, -330, 400, 1430);
 
-        lFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgVentanaCategoria/JugadorFondo.jpg"))); // NOI18N
+        lFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgJugador/JugadorFondo.jpg"))); // NOI18N
         lFondo.setText("jugador");
         getContentPane().add(lFondo);
         lFondo.setBounds(-130, -10, 2050, 1140);
