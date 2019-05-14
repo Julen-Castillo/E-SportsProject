@@ -3,14 +3,14 @@ package main;
 import java.sql.SQLException;
 import vistas.VentanaAdministradores;
 import vistas.VentanaCategoria;
-import vistas.VentanaUsuarios;
+import vistas.VentanaModUsuarios;
 
 
 public class MainEsports {
 
     private static VentanaCategoria vCategoria;
     private static VentanaAdministradores vAdmin;
-    private static VentanaUsuarios vUsuario;
+    private static VentanaModUsuarios vUsuario;
     
     public static void main(String[] args) throws SQLException {
     
