@@ -1,3 +1,10 @@
 /Programacion/MameCorp League/dist/
 /Programacion/MameCorp League/build/
 /Programacion/MameCorp League/nbproject/private/
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
