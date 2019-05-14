@@ -46,6 +46,8 @@ public class VentanaLiga extends javax.swing.JFrame {
         jCheckBox1 = new javax.swing.JCheckBox();
         bLimpiar = new javax.swing.JButton();
         bInsertar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         lFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -98,6 +100,17 @@ public class VentanaLiga extends javax.swing.JFrame {
         bInsertar.setText("INSERTAR");
         panelOpaco.add(bInsertar);
         bInsertar.setBounds(260, 630, 100, 23);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/Mamecorp logo.png"))); // NOI18N
+        panelOpaco.add(jLabel2);
+        jLabel2.setBounds(-60, 740, 460, 290);
+
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/bVolver.png"))); // NOI18N
+        jButton1.setFocusPainted(false);
+        jButton1.setOpaque(false);
+        panelOpaco.add(jButton1);
+        jButton1.setBounds(30, 1080, 90, 80);
 
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, -230, 400, 1430);
@@ -152,8 +165,10 @@ public class VentanaLiga extends javax.swing.JFrame {
     private javax.swing.JButton bLimpiar;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
