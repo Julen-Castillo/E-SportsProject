@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<clasificacion id="fecha_actualizacion">
+		<equipos>
+			<equipo ranking="1">
+				<nombre> </nombre>
+				<puntos> </puntos>
+			</equipo>
+		</equipos>
+	</clasificacion>

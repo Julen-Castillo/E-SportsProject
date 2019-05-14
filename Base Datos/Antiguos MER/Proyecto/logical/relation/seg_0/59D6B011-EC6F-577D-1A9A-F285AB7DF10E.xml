@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Partido Jornada FK" directorySegmentName="seg_0" id="59D6B011-EC6F-577D-1A9A-F285AB7DF10E">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:37:39 UTC</createdTime>
+<ownerDesignName>Proyecto</ownerDesignName>
+<engineerTo>
+<item key="ED749BF2-2572-7EF3-D6A7-D77CEBE47464" value="true"/>
+</engineerTo>
+<sourcePk>476F5BB5-F44E-F66C-13EA-D3246DAEE8E9</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>AB92A21E-BEB4-C5E7-391E-A5E396824A3F</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>79EA21F4-454B-569D-8774-E3C0EE31DB96</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

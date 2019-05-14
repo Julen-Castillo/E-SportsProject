@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="74D1C8BA-44EC-2CC4-2B2D-0A319CD9A5AD" name="Liga">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 17:43:53 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_liga" id="397E562D-80A7-53CB-49FB-DF5F45D57538">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 17:43:59 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="0CFE7A9C-E9F8-A16E-BB2E-712A90444999">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 17:44:55 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha_inicio" id="05110355-25C1-38DF-2082-21B79F6EB728">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 17:44:13 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha_fin" id="EB8C24FF-2122-D1C4-12FA-E381A38E340F">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 17:44:40 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="en_curso" id="2384DF0D-E159-C657-5542-085AF7077E8F">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 17:45:37 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<engineerTo>
+<item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="490823BC-2413-0607-F3B4-AF8AA62A58BF" name="Liga PK">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-07 17:44:11 UTC</createdTime>
+<ownerDesignName>Mer_1.0</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="D05EC482-2ECF-A5C3-C059-3CC2C7765A18" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>397E562D-80A7-53CB-49FB-DF5F45D57538</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

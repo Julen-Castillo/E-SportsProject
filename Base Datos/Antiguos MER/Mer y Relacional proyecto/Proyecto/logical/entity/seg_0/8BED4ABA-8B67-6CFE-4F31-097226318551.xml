@@ -1,0 +1,82 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8BED4ABA-8B67-6CFE-4F31-097226318551" name="Clasificacion">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 09:56:17 UTC</createdTime>
+<ownerDesignName>Proyecto</ownerDesignName>
+<engineerTo>
+<item key="75A0B9DB-6E0C-6AEB-65B5-59E51AD5E225" value="true"/>
+<item key="1DCD3527-C887-6AF2-A7EB-CA0097DA489B" value="true"/>
+<item key="A019C4FF-E2CE-70C9-5244-3A7D9EDEBF83" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_liga" id="BC95B13D-B4D2-F895-AA5B-4E58FF9F06D4">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 09:56:49 UTC</createdTime>
+<ownerDesignName>Proyecto</ownerDesignName>
+<engineerTo>
+<item key="75A0B9DB-6E0C-6AEB-65B5-59E51AD5E225" value="true"/>
+<item key="1DCD3527-C887-6AF2-A7EB-CA0097DA489B" value="true"/>
+<item key="A019C4FF-E2CE-70C9-5244-3A7D9EDEBF83" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="AEB8F30D-C837-CDBE-7C27-A3CD1DB0150A">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 09:57:02 UTC</createdTime>
+<ownerDesignName>Proyecto</ownerDesignName>
+<engineerTo>
+<item key="75A0B9DB-6E0C-6AEB-65B5-59E51AD5E225" value="true"/>
+<item key="1DCD3527-C887-6AF2-A7EB-CA0097DA489B" value="true"/>
+<item key="A019C4FF-E2CE-70C9-5244-3A7D9EDEBF83" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_equipo" id="B98EB589-2D83-4910-839C-5A4AF811BF4F">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 09:58:34 UTC</createdTime>
+<generatorID>7D694F2F-00DD-242A-52E5-ACCA08E23E66</generatorID>
+<ownerDesignName>Proyecto</ownerDesignName>
+<engineerTo>
+<item key="75A0B9DB-6E0C-6AEB-65B5-59E51AD5E225" value="true"/>
+<item key="1DCD3527-C887-6AF2-A7EB-CA0097DA489B" value="true"/>
+<item key="A019C4FF-E2CE-70C9-5244-3A7D9EDEBF83" value="true"/>
+</engineerTo>
+<referedAttribute>0A20A81E-2E8D-01E2-26EF-72515F768AEB</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="CC41A3B5-109C-9F6C-D028-A42072E21757" name="Clasificacion PK">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 09:57:00 UTC</createdTime>
+<ownerDesignName>Proyecto</ownerDesignName>
+<engineerTo>
+<item key="75A0B9DB-6E0C-6AEB-65B5-59E51AD5E225" value="true"/>
+<item key="1DCD3527-C887-6AF2-A7EB-CA0097DA489B" value="true"/>
+<item key="A019C4FF-E2CE-70C9-5244-3A7D9EDEBF83" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>BC95B13D-B4D2-F895-AA5B-4E58FF9F06D4</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

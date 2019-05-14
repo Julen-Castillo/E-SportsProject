@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE clasificacion [
+	<!ELEMENT clasificacion (equipos)>
+		<!ATTLIST jornada fecha_actualización CDATA #REQUIRED>
+		
+		<!ELEMENT equipos (equipo)>
+			<!ELEMENT equipo (nombre,puntos,ranking)>
+				<!ATTLIST equipo ranking CDATA #REQUIRED>
+				<!ELEMENT nombre (#PCDATA)>
+				<!ELEMENT puntos (#PCDATA)>
+]>			

@@ -1,0 +1,16 @@
+NOMBRE DE CARPETA	DESCRIPCION:
+
+			En la carpeta "Diagrama de Clases" encontraremos una carpeta con los diagramas de clases antiguos y 
+DIAGRAMA DE CLASES:	tambien encontraremos todos los archivos adjuntos a imagenes de los diagramas de clase del reto, los archivos que empiezan por "." 
+			son los archivos que crea "Visual Padigm" encriptados.
+
+			
+			En la carpeta "Diagrama de Secuencias" encontraremos una carpeta con los diagramas de secuencias antiguos y tambien encontraremos
+DIAGRAMA DE SECUENCIAS: los archivos adjuntos a imagenes con los diagramas de secuencia del reto, los archivos que empiezan por "." son archivos encriptados
+			creador por "Visual Paradigm".
+
+
+ACTA DIARIA:		En el archivo de "Acta Diaria" Encontraremos un hypervinculo a "Google Drive" en el que nos llevara a un Documento de texto de drive
+			con toda la informacion de las actas diarias de "Mamecorp" con su respectiva informacion de la metodologia "SCRUM".
+
+
