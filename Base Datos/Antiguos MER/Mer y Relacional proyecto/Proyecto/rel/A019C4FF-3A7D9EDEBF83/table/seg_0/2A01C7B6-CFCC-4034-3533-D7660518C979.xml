@@ -1,0 +1,126 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2A01C7B6-CFCC-4034-3533-D7660518C979" name="Estadisticas">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 08:56:10 UTC</createdTime>
+<generatorID>78DA5D96-2CDD-5F0A-F424-85E050E86C18</generatorID>
+<ownerDesignName>Proyecto</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_estadistica" id="A23A4067-95FC-4CD2-897E-6E6666F2DF42">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 08:56:10 UTC</createdTime>
+<generatorID>4C0931A4-18CE-98FE-F8F0-F8241EAEFDBB</generatorID>
+<ownerDesignName>Proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tiempo_partida" id="A9FBDCED-E88E-F971-03F0-8F074B56280C">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 08:56:10 UTC</createdTime>
+<generatorID>8BED863E-0D8E-EBEF-4C55-7EB3A0032A88</generatorID>
+<ownerDesignName>Proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="kills_equipo_local" id="A01EF3C5-E8FE-64B6-F609-79AEBE9B3883">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 08:56:10 UTC</createdTime>
+<generatorID>CC420EFB-0CAF-C2CF-CEDE-7B0D500BBB4E</generatorID>
+<ownerDesignName>Proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="kills_equipo_visitante" id="F6B6D825-5091-E7AA-7138-DAC5E905DC18">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 08:56:10 UTC</createdTime>
+<generatorID>62E2671D-73D5-D7AD-C442-CB65EA2F26EB</generatorID>
+<ownerDesignName>Proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="oro_equipo_local" id="81EA4268-79FA-739D-BCD0-B4871BCDE127">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 08:56:10 UTC</createdTime>
+<generatorID>A1A8A36D-692A-BA2A-3ABE-4FCB3A9C14FF</generatorID>
+<ownerDesignName>Proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="oro_equipo_visitante" id="1B49658A-C905-75F3-C22A-CA8669914102">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 08:56:10 UTC</createdTime>
+<generatorID>F570C700-5DF3-AA2F-A07D-4A1094433039</generatorID>
+<ownerDesignName>Proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mvp" id="00C6C304-7BD7-0BAA-347B-9313EB8A705F">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 08:56:10 UTC</createdTime>
+<generatorID>61AA9CA0-E7AE-E145-C843-1FA5BC616BE6</generatorID>
+<ownerDesignName>Proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Partido_id_partido" id="701AC1C4-3753-B72D-4F55-16A07F7DCD7F">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 08:56:10 UTC</createdTime>
+<generatorID>11D5A7BE-5855-19DA-BA57-B47F710C2F24</generatorID>
+<ownerDesignName>Proyecto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E8CEA4C6-17D2-A6A4-1E9D-3BB782150687" name="Estadisticas_PK">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 08:56:10 UTC</createdTime>
+<generatorID>40054F6A-EBF8-322B-40A5-0928ADDC6A0D</generatorID>
+<ownerDesignName>Proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A23A4067-95FC-4CD2-897E-6E6666F2DF42"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6B13C6FD-4983-A7F5-4F91-07FFB42359B0" name="Estadisticas__IDX">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-06 08:56:10 UTC</createdTime>
+<ownerDesignName>Proyecto</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>0922AF86-32B6-6496-AC9C-F222EEC63621</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="701AC1C4-3753-B72D-4F55-16A07F7DCD7F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
