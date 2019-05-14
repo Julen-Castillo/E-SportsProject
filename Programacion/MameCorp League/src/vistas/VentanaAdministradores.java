@@ -35,60 +35,83 @@ public class VentanaAdministradores extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        bAceptar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuVolver = new javax.swing.JMenu();
+        jMenuSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Nombre");
+        panelOpaco.setLayout(null);
 
-        jLabel3.setText("Password");
+        jTextField1.setBorder(null);
+        panelOpaco.add(jTextField1);
+        jTextField1.setBounds(151, 313, 178, 26);
 
-        jLabel4.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jPasswordField1.setBorder(null);
+        panelOpaco.add(jPasswordField1);
+        jPasswordField1.setBounds(151, 445, 178, 25);
+
+        jLabel2.setText("NOMBRE");
+        panelOpaco.add(jLabel2);
+        jLabel2.setBounds(57, 319, 42, 14);
+
+        jLabel3.setText("PASSWORD");
+        panelOpaco.add(jLabel3);
+        jLabel3.setBounds(57, 450, 57, 14);
+
         jLabel4.setText("ADMINISTRADOR");
+        jLabel4.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        panelOpaco.add(jLabel4);
+        jLabel4.setBounds(108, 102, 206, 75);
 
-        javax.swing.GroupLayout panelOpacoLayout = new javax.swing.GroupLayout(panelOpaco);
-        panelOpaco.setLayout(panelOpacoLayout);
-        panelOpacoLayout.setHorizontalGroup(
-            panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpacoLayout.createSequentialGroup()
-                .addContainerGap(56, Short.MAX_VALUE)
-                .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addGap(37, 37, 37)
-                .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(91, 91, 91))
-            .addGroup(panelOpacoLayout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panelOpacoLayout.setVerticalGroup(
-            panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOpacoLayout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(136, 136, 136)
-                .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(106, 106, 106)
-                .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(629, Short.MAX_VALUE))
-        );
+        bAceptar.setBackground(new java.awt.Color(83, 175, 226));
+        bAceptar.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        bAceptar.setForeground(new java.awt.Color(255, 255, 255));
+        bAceptar.setText("ACEPTAR");
+        bAceptar.setBorder(null);
+        bAceptar.setContentAreaFilled(false);
+        bAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bAceptar.setFocusPainted(false);
+        bAceptar.setOpaque(true);
+        bAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAceptarActionPerformed(evt);
+            }
+        });
+        panelOpaco.add(bAceptar);
+        bAceptar.setBounds(199, 986, 179, 55);
 
-        getContentPane().add(panelOpaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 1110));
+        getContentPane().add(panelOpaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 1110));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVentanaAdministradores/adminFondo1.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2030, 1110));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgVentanaAdministradores/admin.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2030, 1080));
+
+        jMenuVolver.setText("Volver");
+        jMenuBar1.add(jMenuVolver);
+
+        jMenuSalir.setText("Salir");
+        jMenuSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuSalirMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenuSalir);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSalirMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jMenuSalirMouseClicked
+
+    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
+
+    }//GEN-LAST:event_bAceptarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,10 +149,14 @@ public class VentanaAdministradores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bAceptar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenuSalir;
+    private javax.swing.JMenu jMenuVolver;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelOpaco;
