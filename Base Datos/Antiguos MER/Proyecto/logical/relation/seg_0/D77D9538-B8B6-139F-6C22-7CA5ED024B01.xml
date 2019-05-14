@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Jugador Equipo FK" directorySegmentName="seg_0" id="D77D9538-B8B6-139F-6C22-7CA5ED024B01">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:33:00 UTC</createdTime>
+<ownerDesignName>Proyecto</ownerDesignName>
+<engineerTo>
+<item key="ED749BF2-2572-7EF3-D6A7-D77CEBE47464" value="true"/>
+</engineerTo>
+<sourcePk>6C7744C5-4FB5-D57B-1FFC-4D4C13854C4B</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>B9307490-F307-8558-144A-3844F01F2311</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>96AF6762-77BF-35DE-D73A-40914974AE2D</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

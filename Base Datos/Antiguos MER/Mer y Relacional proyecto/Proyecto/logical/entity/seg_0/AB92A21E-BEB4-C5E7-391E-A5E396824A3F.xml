@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="AB92A21E-BEB4-C5E7-391E-A5E396824A3F" name="Jornada">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:14:38 UTC</createdTime>
+<ownerDesignName>Proyecto</ownerDesignName>
+<engineerTo>
+<item key="75A0B9DB-6E0C-6AEB-65B5-59E51AD5E225" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_jornada" id="29105DEA-03E0-9022-A468-122DE9FD34DF">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:14:46 UTC</createdTime>
+<ownerDesignName>Proyecto</ownerDesignName>
+<engineerTo>
+<item key="75A0B9DB-6E0C-6AEB-65B5-59E51AD5E225" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="numero" id="AD920A79-1EAA-C647-55F9-463246856C87">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:15:15 UTC</createdTime>
+<ownerDesignName>Proyecto</ownerDesignName>
+<engineerTo>
+<item key="75A0B9DB-6E0C-6AEB-65B5-59E51AD5E225" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha inicio" id="C3D70F58-4022-9306-B069-31DA03638746">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:15:37 UTC</createdTime>
+<ownerDesignName>Proyecto</ownerDesignName>
+<engineerTo>
+<item key="75A0B9DB-6E0C-6AEB-65B5-59E51AD5E225" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha fin" id="3B7A1EC1-EFC7-6F96-800F-118EF3AAE181">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:15:56 UTC</createdTime>
+<ownerDesignName>Proyecto</ownerDesignName>
+<engineerTo>
+<item key="75A0B9DB-6E0C-6AEB-65B5-59E51AD5E225" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="476F5BB5-F44E-F66C-13EA-D3246DAEE8E9" name="Jornada PK">
+<createdBy>Adrian</createdBy>
+<createdTime>2019-05-05 15:15:07 UTC</createdTime>
+<ownerDesignName>Proyecto</ownerDesignName>
+<engineerTo>
+<item key="75A0B9DB-6E0C-6AEB-65B5-59E51AD5E225" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>29105DEA-03E0-9022-A468-122DE9FD34DF</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
