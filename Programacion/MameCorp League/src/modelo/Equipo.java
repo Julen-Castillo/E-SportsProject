@@ -25,6 +25,14 @@ public class Equipo {
     public Equipo() {
     }
 
+    public Equipo(String nombre, int presupuesto, int puntos) {
+        this.nombre = nombre;
+        this.presupuesto = presupuesto;
+        this.puntos = puntos;
+    }
+    
+    
+
     public int getIdEquipo() {
         return idEquipo;
     }
