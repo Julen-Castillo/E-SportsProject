@@ -18,8 +18,10 @@ public class GenericoDB {
 public static void conectar(){
     try {
         Class.forName("oracle.jdbc.driver.OracleDriver");
-        String url="jdbc:oracle:thin:@SrvOracle:1521:orcl";
-        con = DriverManager.getConnection(url,"eqdaw01","eqdaw01");
+        //String url="jdbc:oracle:thin:@SrvOracle:1521:orcl";
+        String url="jdbc:oracle:thin:oracle_clase:1521:db12102";
+        //con = DriverManager.getConnection(url,"eqdaw01","eqdaw01");
+       con = DriverManager.getConnection(url,"sys","oracle");
       
 
     } catch (Exception e){

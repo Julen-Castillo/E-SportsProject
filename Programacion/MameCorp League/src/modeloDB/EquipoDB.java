@@ -16,21 +16,23 @@ public class EquipoDB {
         
         gdb = new GenericoDB();    
     }
-    public void insertarEquipo(String nombre,int presupuesto,int puntos) throws Exception{
+    public int insertarEquipo(Equipo e) throws Exception{
         
         gdb.conectar();
         
         String plantilla = "insert into equipos values (?,?,?)";
         PreparedStatement sentenciaPre = gdb.getCon().prepareStatement(plantilla);
         
-        sentenciaPre.setString(0, nombre);
-        sentenciaPre.setInt(1, presupuesto);
-        sentenciaPre.setInt(2, puntos);
+        sentenciaPre.setString(0, e.getNombre());
+        sentenciaPre.setInt(1, e.getPresupuesto());
+        sentenciaPre.setInt(2, e.getPuntos());
         
         int insercion = sentenciaPre.executeUpdate();
         System.out.println(insercion);
         
        gdb.cerrarCon();
+       
+       return insercion;
     }
     public void modificarEquipo(int id_equipo,String nombre,int presupuesto,int puntos) throws Exception{
     
