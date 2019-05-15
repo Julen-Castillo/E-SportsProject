@@ -22,7 +22,7 @@ public class VentanaLiga extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
-        panelOpaco.setBackground(new Color(255,255,255,190));
+        panelOpaco.setBackground(new Color(39,43,57,190));
     }
 
     /**
@@ -46,6 +46,8 @@ public class VentanaLiga extends javax.swing.JFrame {
         jCheckBox1 = new javax.swing.JCheckBox();
         bLimpiar = new javax.swing.JButton();
         bInsertar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         lFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -55,11 +57,13 @@ public class VentanaLiga extends javax.swing.JFrame {
 
         jLabel1.setText("LIGA");
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         panelOpaco.add(jLabel1);
         jLabel1.setBounds(100, 280, 170, 120);
 
         jLabel6.setText("NOMBRE DE LIGA");
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         panelOpaco.add(jLabel6);
         jLabel6.setBounds(10, 420, 150, 17);
         panelOpaco.add(jTextField3);
@@ -67,6 +71,7 @@ public class VentanaLiga extends javax.swing.JFrame {
 
         jLabel8.setText("FECHA DE INICIO");
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         panelOpaco.add(jLabel8);
         jLabel8.setBounds(10, 470, 140, 17);
         panelOpaco.add(datePicker1);
@@ -74,6 +79,7 @@ public class VentanaLiga extends javax.swing.JFrame {
 
         jLabel9.setText("FECHA DE FIN");
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         panelOpaco.add(jLabel9);
         jLabel9.setBounds(10, 520, 170, 17);
         panelOpaco.add(datePicker2);
@@ -81,6 +87,7 @@ public class VentanaLiga extends javax.swing.JFrame {
 
         jLabel5.setText("LIGA EN CURSO");
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         panelOpaco.add(jLabel5);
         jLabel5.setBounds(10, 580, 130, 17);
         panelOpaco.add(jCheckBox1);
@@ -88,11 +95,22 @@ public class VentanaLiga extends javax.swing.JFrame {
 
         bLimpiar.setText("LIMPIAR");
         panelOpaco.add(bLimpiar);
-        bLimpiar.setBounds(10, 630, 73, 23);
+        bLimpiar.setBounds(10, 630, 110, 23);
 
         bInsertar.setText("INSERTAR");
         panelOpaco.add(bInsertar);
         bInsertar.setBounds(260, 630, 100, 23);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/Mamecorp logo.png"))); // NOI18N
+        panelOpaco.add(jLabel2);
+        jLabel2.setBounds(-60, 740, 460, 290);
+
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/bVolver.png"))); // NOI18N
+        jButton1.setFocusPainted(false);
+        jButton1.setOpaque(false);
+        panelOpaco.add(jButton1);
+        jButton1.setBounds(30, 1080, 90, 80);
 
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, -230, 400, 1430);
@@ -147,8 +165,10 @@ public class VentanaLiga extends javax.swing.JFrame {
     private javax.swing.JButton bLimpiar;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
