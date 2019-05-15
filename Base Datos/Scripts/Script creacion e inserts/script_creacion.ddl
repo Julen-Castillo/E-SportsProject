@@ -108,6 +108,27 @@ ALTER TABLE presidente
         REFERENCES equipo ( id_equipo );
         
         --TRIGGERS
+        
+        --TRIGGER MUTANTE JUGADOR
+CREATE OR REPLACE TRIGGER TRIGGER_MUTANTE
+AFTER INSERT OR UPDATE ON JUGADOR
+FOR EACH ROW
+BEGIN 
+    PAQUETE_MUTANTE.CODIGOEQUIPO := :NEW.EQUIPO_ID_EQUIPO;
+    PAQUETE_MUTANTE.SUELDOJUGADOR := :NEW.SUELDO;
+END;
+
+/
+--TRIGGER MUTANTE EQUIPO
+
+CREATE OR REPLACE TRIGGER TRIGGER_MUTANTE_EQUIPO
+AFTER INSERT OR UPDATE ON EQUIPO
+FOR EACH ROW
+BEGIN 
+    PAQUETE_MUTANTE.PRESUPUESTOEQUIPO := :NEW.PRESUPUESTO;
+END;
+
+/
 
 CREATE OR REPLACE TRIGGER TRIGGER_5_TITULARES
 BEFORE INSERT OR UPDATE ON JUGADOR
@@ -272,7 +293,7 @@ v_count_jugadores NUMBER(3);
 
 BEGIN
     SELECT COUNT(*) AS "NUMERO JUGADORES" INTO v_count_jugadores FROM jugador
-    WHERE equipo_id_equipo = (:new.equipo_id_equipo);
+    WHERE equipo_id_equipo = (PAQUETE_MUTANTE.CODIGOEQUIPO);
 
     IF(v_count_jugadores >= v_max_jugadores) THEN
         raise_application_error(-20000, 'El numero de jugadores por equipo no puede ser superior a 6');
@@ -287,7 +308,7 @@ FOR EACH ROW
 DECLARE
 v_max_presupuesto NUMBER(6) := 200000;
 BEGIN
-    IF(:new.presupuesto >= v_max_presupuesto) THEN
+    IF(PAQUETE_MUTANTE.PRESUPUESTOEQUIPO >= v_max_presupuesto) THEN
         raise_application_error(-20002, 'El presupuesto del equipo no puede ser superior a 200k');
     END IF;  
 END MAX_PRESUPUESTO_EQUIPO;
@@ -300,12 +321,13 @@ FOR EACH ROW
 DECLARE
 v_smi NUMBER(4) := 900;
 BEGIN
-    IF(:new.sueldo <= v_smi) THEN
+    IF(PAQUETE_MUTANTE.SUELDOJUGADOR <= v_smi) THEN
         raise_application_error(-20001, 'El salario del jugador debe ser superior al SMI');
     END IF;  
 END SALARIO_MIN_JUGADOR;   
 
 /
+
 
 CREATE OR REPLACE VIEW vista_estadisticas AS
     SELECT FECHA_INICIO "HORA INICIO", ROUND(FECHA_FIN - FECHA_INICIO, 2)*1440 "TIEMPO PARTIDA", KILLS_EQUIPO_LOCAL, KILLS_EQUIPO_VISITANTE, ORO_EQUIPO_LOCAL, ORO_EQUIPO_VISITANTE

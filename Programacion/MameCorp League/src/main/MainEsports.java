@@ -14,9 +14,9 @@ public class MainEsports {
     public static void main(String[] args) throws SQLException {
     
         //La linea de abajo está comentada porque todavia no está implementado el login
-        //ControladorVista.mostrarLogin();
+       // ControladorVista.mostrarVentanaVisualizarLiga();
        
-       ControladorVista.mostrarVentanaCategoria();
+      ControladorVista.mostrarVentanaCategoria();
         
 
     }

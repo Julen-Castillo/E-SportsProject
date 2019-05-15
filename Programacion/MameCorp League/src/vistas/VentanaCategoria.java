@@ -7,7 +7,8 @@ import java.awt.ComponentOrientation;
  * @author N3Essential
  */
 public class VentanaCategoria extends javax.swing.JFrame {
-
+        
+    private String operacionActiva;
     
     /**
      * Creates new form VentanaCategoria
@@ -19,6 +20,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         setExtendedState(MAXIMIZED_BOTH);
         disableCRUD();
         setVisible(true); 
+       
     }
 
     /**
@@ -353,25 +355,30 @@ public class VentanaCategoria extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bJornadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJornadasActionPerformed
+        operacionActiva = "jornada";
         ocultarBotonesYMostrarCrud();
         //this.dispose();
         
     }//GEN-LAST:event_bJornadasActionPerformed
 
     private void bPartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPartidosActionPerformed
+        operacionActiva = "partido";
         ocultarBotonesYMostrarCrud();
     }//GEN-LAST:event_bPartidosActionPerformed
 
     private void bEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEquiposActionPerformed
-       ocultarBotonesYMostrarCrud();
-       this.dispose();
-       ControladorVista.mostrarVentanaEquipos();
+       operacionActiva = "equipo";
+        ocultarBotonesYMostrarCrud();
+      // this.dispose();
+     //  ControladorVista.mostrarVentanaEquipos();
     }//GEN-LAST:event_bEquiposActionPerformed
 
     private void bJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJugadoresActionPerformed
+        
+        operacionActiva = "jugador";
         ocultarBotonesYMostrarCrud();
-        this.dispose();
-        ControladorVista.mostrarVentanaJugador();
+        //this.dispose();
+       // ControladorVista.mostrarVentanaJugador();
     }//GEN-LAST:event_bJugadoresActionPerformed
 
     private void jMenuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSalirMouseClicked
@@ -391,9 +398,10 @@ public class VentanaCategoria extends javax.swing.JFrame {
     }//GEN-LAST:event_bModificarActionPerformed
 
     private void bPresidentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPresidentesActionPerformed
+        operacionActiva = "presidente";
         ocultarBotonesYMostrarCrud();
-        this.dispose();
-        ControladorVista.mostrarVentanaPresidente();
+      //  this.dispose();
+       // ControladorVista.mostrarVentanaPresidente();
     }//GEN-LAST:event_bPresidentesActionPerformed
 
     private void miEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miEquiposActionPerformed
@@ -405,9 +413,10 @@ public class VentanaCategoria extends javax.swing.JFrame {
     }//GEN-LAST:event_bLigaMouseMoved
 
     private void bLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLigaActionPerformed
+       operacionActiva = "liga";
         ocultarBotonesYMostrarCrud();
-        this.dispose();
-        ControladorVista.mostrarVentanaLiga();
+       // this.dispose();
+        //ControladorVista.mostrarVentanaLiga();
         
     }//GEN-LAST:event_bLigaActionPerformed
 
@@ -420,7 +429,42 @@ public class VentanaCategoria extends javax.swing.JFrame {
     }//GEN-LAST:event_bConsultarActionPerformed
 
     private void bAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAltaActionPerformed
-        // TODO add your handling code here:
+            
+        this.dispose();
+       if (operacionActiva.equals("liga")){
+            ControladorVista.mostrarVentanaLiga();   
+       }
+       else {
+           if (operacionActiva.equals("jugador")){
+               ControladorVista.mostrarVentanaJugador();
+           }
+           else {
+               if (operacionActiva.equals("presidente")){
+                   ControladorVista.mostrarVentanaPresidente();
+               }
+               else {
+                 if  (operacionActiva.equals("equipo")){
+                    ControladorVista.mostrarVentanaEquipos();
+               }
+                 else {
+                     if (operacionActiva.equals("jornada")){
+                     // ControladorVista.blablabla
+                 }
+                     else {
+                         
+                         if (operacionActiva.equals("partido")){
+                             // ControladorVista.blablabla
+                         }
+                     }
+                     
+                 }
+                     
+               }
+           }
+   
+       }
+       
+        
     }//GEN-LAST:event_bAltaActionPerformed
 
     private void jMenuVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuVolverMouseClicked
