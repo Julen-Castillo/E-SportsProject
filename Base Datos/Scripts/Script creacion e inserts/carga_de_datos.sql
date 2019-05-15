@@ -7,6 +7,8 @@ INSERT INTO EQUIPO (nombre,presupuesto,puntos)  VALUES ('tsm',150000,0);
 INSERT INTO EQUIPO (nombre,presupuesto,puntos)  VALUES ('thunderx3 baskonia',50000,0);
 INSERT INTO EQUIPO (nombre,presupuesto,puntos)  VALUES ('mamecorp',200000,5);
 
+COMMIT;
+
 
 /* Inserts de la tabla JUGADOR */
 
@@ -53,6 +55,7 @@ INSERT INTO JUGADOR(nombre,apellido,nickname,posicion,sueldo,titularidad,equipo_
 INSERT INTO JUGADOR(nombre,apellido,nickname,posicion,sueldo,titularidad,equipo_id_equipo) VALUES ('adrian','danlos','godskater','toplane',3000,1,6);
 INSERT INTO JUGADOR(nombre,apellido,nickname,posicion,sueldo,titularidad,equipo_id_equipo) VALUES ('julen','prieto','peto','jungler',3000,1,6);
 
+COMMIT;
 
 --INSERT PRESIDENTES
 INSERT INTO PRESIDENTE (nombre,apellido,equipo_id_equipo)VALUES('sam','mathews',1);
@@ -62,17 +65,23 @@ INSERT INTO PRESIDENTE (nombre,apellido,equipo_id_equipo)VALUES('andy','dinh',4)
 INSERT INTO PRESIDENTE (nombre,apellido,equipo_id_equipo)VALUES('jose antonio','querejeta',5);
 INSERT INTO PRESIDENTE (nombre,apellido,equipo_id_equipo)VALUES('eric','con c',6);
 
+COMMIT;
 
 --INSERT LIGA
 INSERT INTO LIGA (nombre,fecha_inicio,fecha_fin,en_curso) VALUES ('MameCorp league', SYSDATE,SYSDATE,1);
 
+COMMIT;
+
 --INSERT JORNADA 
 INSERT INTO JORNADA (FECHA_INICIO,FECHA_FIN,LIGA_ID_LIGA) VALUES (SYSDATE,SYSDATE+7,1);
+
+COMMIT;
 
 --INSERT USUARIOS
 
 INSERT INTO USUARIO(nombre,password,tipo) VALUES('mamecorp','mamecorp','admin');
 INSERT INTO USUARIO(nombre,password,tipo) VALUES('user','user','user');
 
+COMMIT;
 
 
