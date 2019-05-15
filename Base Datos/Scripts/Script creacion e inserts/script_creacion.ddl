@@ -1,10 +1,3 @@
--- Generado por Oracle SQL Developer Data Modeler 17.2.0.188.1059
---   en:        2019-05-08 09:34:14 CEST
---   sitio:      Oracle Database 11g
---   tipo:      Oracle Database 11g
-
-
-
 DROP TABLE equipo CASCADE CONSTRAINTS;
 
 DROP TABLE jornada CASCADE CONSTRAINTS;
@@ -20,7 +13,7 @@ DROP TABLE presidente CASCADE CONSTRAINTS;
 DROP TABLE usuario CASCADE CONSTRAINTS;
 
 CREATE TABLE equipo (
-    id_equipo     INTEGER NOT NULL,
+    id_equipo     NUMBER GENERATED ALWAYS AS IDENTITY, 
     nombre        VARCHAR2(20 CHAR) NOT NULL,
     presupuesto   INTEGER NOT NULL,
     puntos        INTEGER NOT NULL
@@ -29,7 +22,7 @@ CREATE TABLE equipo (
 ALTER TABLE equipo ADD CONSTRAINT equipo_pk PRIMARY KEY ( id_equipo );
 
 CREATE TABLE jornada (
-    id_jornada     INTEGER NOT NULL,
+    id_jornada     NUMBER GENERATED ALWAYS AS IDENTITY, 
     fecha_inicio   DATE NOT NULL,
     fecha_fin      DATE NOT NULL,
     liga_id_liga   INTEGER NOT NULL
@@ -38,7 +31,7 @@ CREATE TABLE jornada (
 ALTER TABLE jornada ADD CONSTRAINT jornada_pk PRIMARY KEY ( id_jornada );
 
 CREATE TABLE jugador (
-    id_jugador         INTEGER NOT NULL,
+    id_jugador         NUMBER GENERATED ALWAYS AS IDENTITY, 
     nombre             VARCHAR2(20 CHAR) NOT NULL,
     apellido           VARCHAR2(20 CHAR) NOT NULL,
     nickname           VARCHAR2(20 CHAR) NOT NULL,
@@ -51,7 +44,7 @@ CREATE TABLE jugador (
 ALTER TABLE jugador ADD CONSTRAINT jugador_pk PRIMARY KEY ( id_jugador );
 
 CREATE TABLE liga (
-    id_liga        INTEGER NOT NULL,
+    id_liga        NUMBER GENERATED ALWAYS AS IDENTITY, 
     nombre         VARCHAR2(20 CHAR) NOT NULL,
     fecha_inicio   DATE NOT NULL,
     fecha_fin      DATE,
@@ -65,9 +58,7 @@ CREATE TABLE partido (
     jornada_id_jornada       INTEGER NOT NULL,
     equipo_visitante         INTEGER NOT NULL,
     vencedor                 INTEGER NOT NULL,
-    tipo                     CHAR 
---  WARNING: CHAR size not specified 
-     NOT NULL,
+    tipo                     CHAR(1),
     fecha_inicio             DATE NOT NULL,
     fecha_fin                DATE,
     kills_equipo_local       INTEGER,
@@ -79,7 +70,7 @@ CREATE TABLE partido (
 ALTER TABLE partido ADD CONSTRAINT partido_pk PRIMARY KEY ( equipo_id_equipo,jornada_id_jornada );
 
 CREATE TABLE presidente (
-    id_presidente      INTEGER NOT NULL,
+    id_presidente      NUMBER GENERATED ALWAYS AS IDENTITY, 
     nombre             VARCHAR2(20 CHAR) NOT NULL,
     apellido           VARCHAR2(20 CHAR) NOT NULL,
     equipo_id_equipo   INTEGER NOT NULL
@@ -88,7 +79,7 @@ CREATE TABLE presidente (
 ALTER TABLE presidente ADD CONSTRAINT presidente_pk PRIMARY KEY ( id_presidente );
 
 CREATE TABLE usuario (
-    id_usuario   INTEGER NOT NULL,
+    id_usuario   NUMBER GENERATED ALWAYS AS IDENTITY, 
     nombre       VARCHAR2(20 CHAR) NOT NULL,
     password     VARCHAR2(20 CHAR) NOT NULL,
     tipo         VARCHAR2(20 CHAR) NOT NULL
@@ -118,44 +109,3 @@ ALTER TABLE presidente
 
 
 
--- Informe de Resumen de Oracle SQL Developer Data Modeler: 
--- 
--- CREATE TABLE                             7
--- CREATE INDEX                             0
--- ALTER TABLE                             12
--- CREATE VIEW                              0
--- ALTER VIEW                               0
--- CREATE PACKAGE                           0
--- CREATE PACKAGE BODY                      0
--- CREATE PROCEDURE                         0
--- CREATE FUNCTION                          0
--- CREATE TRIGGER                           0
--- ALTER TRIGGER                            0
--- CREATE COLLECTION TYPE                   0
--- CREATE STRUCTURED TYPE                   0
--- CREATE STRUCTURED TYPE BODY              0
--- CREATE CLUSTER                           0
--- CREATE CONTEXT                           0
--- CREATE DATABASE                          0
--- CREATE DIMENSION                         0
--- CREATE DIRECTORY                         0
--- CREATE DISK GROUP                        0
--- CREATE ROLE                              0
--- CREATE ROLLBACK SEGMENT                  0
--- CREATE SEQUENCE                          0
--- CREATE MATERIALIZED VIEW                 0
--- CREATE SYNONYM                           0
--- CREATE TABLESPACE                        0
--- CREATE USER                              0
--- 
--- DROP TABLESPACE                          0
--- DROP DATABASE                            0
--- 
--- REDACTION POLICY                         0
--- 
--- ORDS DROP SCHEMA                         0
--- ORDS ENABLE SCHEMA                       0
--- ORDS ENABLE OBJECT                       0
--- 
--- ERRORS                                   0
--- WARNINGS                                 1
