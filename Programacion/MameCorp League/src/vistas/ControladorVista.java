@@ -21,6 +21,7 @@ public class ControladorVista {
     private static VentanaUsuarios vUsuarios;
     private static VentanaVisualizarLiga vVisualizarLiga;
     private static Login vLogin;
+    
     /**
      * Ejemplo: con este metodo creamos la ventana vAdmin
      * y mostramos la ventana, para ello la ponemos en visible
