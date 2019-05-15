@@ -16,7 +16,7 @@ public class VentanaAdministradores extends javax.swing.JFrame {
         initComponents();
         setAlwaysOnTop(rootPaneCheckingEnabled);
         setExtendedState(MAXIMIZED_BOTH);
-        panelOpaco.setBackground(new Color(255,255,255,190));
+        panelOpaco.setBackground(new Color(4,20,57,190));
         setVisible(true);
     }
 
