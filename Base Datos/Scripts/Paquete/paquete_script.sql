@@ -18,8 +18,7 @@ CREATE OR REPLACE PACKAGE BODY paquete_mamecorp AS
 	FUNCTION FUNCTION_COUNT_JUG_EQUIPO (ID_EQUIPO IN EQUIPO.ID_EQUIPO%TYPE)
 	RETURN NUMBER
 		AS
-		NUM_JUGADORES NUMBER;
-        DECLARE 
+		NUM_JUGADORES NUMBER; 
         e_equipo_not_found EXCEPTION;
 		BEGIN
 		    SELECT COUNT(*) INTO NUM_JUGADORES 
@@ -27,6 +26,7 @@ CREATE OR REPLACE PACKAGE BODY paquete_mamecorp AS
 		    WHERE Equipo_id_equipo = id_equipo;
             IF SQL%NOTFOUND THEN
             RAISE e_equipo_not_found;
+            end if;
 		RETURN(NUM_JUGADORES);
     EXCEPTION 
         WHEN e_equipo_not_found THEN
@@ -85,5 +85,5 @@ CREATE OR REPLACE PACKAGE BODY paquete_mamecorp AS
 		    EXIT WHEN c_info_equipo%notfound;
 		    END LOOP;
 		    CLOSE c_info_equipo;
-		END;
+		END procedimiento_info_equipo;
 	END paquete_mamecorp;
