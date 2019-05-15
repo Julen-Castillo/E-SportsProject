@@ -16,11 +16,15 @@ public class Jornada {
     
     private int idJornada;
     private LocalDate fechaInicio;
-    private LocalDate fechafIN;
-    private int idLiga;
+    private LocalDate fechaFin;
     
     private ArrayList<Partido> listaPartidos;
-    private Liga L;
+    private Liga oLiga;
+
+    public Jornada(LocalDate fechaInicio, LocalDate fechaFin) {
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+    }
 
     public Jornada() {
     }
@@ -41,20 +45,12 @@ public class Jornada {
         this.fechaInicio = fechaInicio;
     }
 
-    public LocalDate getFechafIN() {
-        return fechafIN;
+    public LocalDate getFechaFin() {
+        return fechaFin;
     }
 
-    public void setFechafIN(LocalDate fechafIN) {
-        this.fechafIN = fechafIN;
-    }
-
-    public int getIdLiga() {
-        return idLiga;
-    }
-
-    public void setIdLiga(int idLiga) {
-        this.idLiga = idLiga;
+    public void setFechaFin(LocalDate fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
     public ArrayList<Partido> getListaPartidos() {
@@ -65,13 +61,15 @@ public class Jornada {
         this.listaPartidos = listaPartidos;
     }
 
-    public Liga getL() {
-        return L;
+    public Liga getoLiga() {
+        return oLiga;
     }
 
-    public void setL(Liga L) {
-        this.L = L;
+    public void setoLiga(Liga oLiga) {
+        this.oLiga = oLiga;
     }
+
+   
     
     
     
