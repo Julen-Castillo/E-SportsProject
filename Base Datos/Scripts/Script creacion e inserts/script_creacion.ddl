@@ -107,15 +107,19 @@ ALTER TABLE presidente
     ADD CONSTRAINT presidente_equipo_fk FOREIGN KEY ( equipo_id_equipo )
         REFERENCES equipo ( id_equipo );
         
-        --TRIGGERS
-        
-        --TRIGGER MUTANTE JUGADOR
-CREATE OR REPLACE TRIGGER TRIGGER_MUTANTE
+
+--TRIGGERS
+
+--TRIGGER MUTANTE JUGADOR
+CREATE OR REPLACE TRIGGER TRIGGER_MUTANTE_JUGADOR
 AFTER INSERT OR UPDATE ON JUGADOR
 FOR EACH ROW
-BEGIN 
+BEGIN
+    PAQUETE_MUTANTE.TITULARIDAD_NEW := :NEW.TITULARIDAD;
+    PAQUETE_MUTANTE.TITULARIDAD_OLD := :OLD.TITULARIDAD;
     PAQUETE_MUTANTE.CODIGOEQUIPO := :NEW.EQUIPO_ID_EQUIPO;
     PAQUETE_MUTANTE.SUELDOJUGADOR := :NEW.SUELDO;
+    PAQUETE_MUTANTE.SUELDOJUGADOR_OLD := :OLD.SUELDO;
 END;
 
 /
@@ -131,27 +135,26 @@ END;
 /
 
 CREATE OR REPLACE TRIGGER TRIGGER_5_TITULARES
-BEFORE INSERT OR UPDATE ON JUGADOR
-FOR EACH ROW
+AFTER INSERT OR UPDATE ON JUGADOR --ES MUTANTE
 DECLARE
 v_num_titulares NUMBER(2);
 BEGIN
     SELECT COUNT(*)
     INTO v_num_titulares
     FROM JUGADOR
-    WHERE titularidad = 1;
+    WHERE titularidad = 1
+    AND equipo_id_equipo = PAQUETE_MUTANTE.CODIGOEQUIPO;
     IF INSERTING THEN
-        IF(v_num_titulares >= 5 AND :new.titularidad = 1) THEN
+        IF(v_num_titulares > 5 AND PAQUETE_MUTANTE.TITULARIDAD_NEW = 1) THEN
             RAISE_APPLICATION_ERROR(-20008, 'Solo puede haber 5 titulares en la plantilla');
         END IF;
     ELSIF UPDATING THEN
-        IF(v_num_titulares = 5 AND :old.titularidad = 0 AND :new.titularidad = 1) THEN
+        IF(v_num_titulares = 5 AND PAQUETE_MUTANTE.TITULARIDAD_OLD = 0 AND PAQUETE_MUTANTE.TITULARIDAD_NEW = 1) THEN
             RAISE_APPLICATION_ERROR(-20008, 'Solo puede haber 5 titulares en la plantilla');
         END IF;
     END IF;    
 END TRIGGER_5_TITULARES;
 
---ELSIF NOT TESTED, WORKS WITH IF
 
 /
 
@@ -165,18 +168,15 @@ BEGIN
     INTO v_sueldo_total_jug
     FROM JUGADOR
     WHERE EQUIPO_ID_EQUIPO = :new.ID_EQUIPO;
-    IF UPDATING THEN
-        IF(v_sueldo_total_jug > :new.presupuesto) THEN
-            RAISE_APPLICATION_ERROR(-20009, 'El equipo no tiene suficiente prespuesto como para pagar a sus jugadores');
-        END IF;
+    IF(v_sueldo_total_jug > :new.presupuesto) THEN
+        RAISE_APPLICATION_ERROR(-20009, 'El equipo no tiene suficiente prespuesto como para pagar a sus jugadores');
     END IF;
 END TRIGGER_EQU_PRES_MEN_SAL_JUG;
 
 /
 
 CREATE OR REPLACE TRIGGER TRIGGER_PRES_EQ_MEN_SAL_JUG
-BEFORE INSERT OR UPDATE ON JUGADOR
-FOR EACH ROW
+AFTER INSERT OR UPDATE ON JUGADOR --ES MUTANTE
 DECLARE
 v_sueldo_total_jug NUMBER(9);
 v_presupuesto_equipo equipo.presupuesto%TYPE;
@@ -184,20 +184,23 @@ BEGIN
     SELECT SUM(SUELDO)
     INTO v_sueldo_total_jug
     FROM JUGADOR
-    WHERE EQUIPO_ID_EQUIPO = :new.EQUIPO_ID_EQUIPO;
+    WHERE EQUIPO_ID_EQUIPO = PAQUETE_MUTANTE.CODIGOEQUIPO;
     SELECT PRESUPUESTO
     INTO v_presupuesto_equipo
     FROM EQUIPO
-    WHERE ID_EQUIPO = :new.EQUIPO_ID_EQUIPO; 
+    WHERE ID_EQUIPO = PAQUETE_MUTANTE.CODIGOEQUIPO; 
     IF INSERTING THEN
-        IF(v_sueldo_total_jug + :new.sueldo > v_presupuesto_equipo) THEN
+        IF(v_sueldo_total_jug + PAQUETE_MUTANTE.SUELDOJUGADOR > v_presupuesto_equipo) THEN
             RAISE_APPLICATION_ERROR(-20009, 'El equipo no tiene suficiente prespuesto como para pagar a este jugador');
         END IF;
     ELSIF UPDATING THEN
-        IF(v_sueldo_total_jug - :old.sueldo + :new.sueldo > v_presupuesto_equipo) THEN
+        IF(v_sueldo_total_jug - PAQUETE_MUTANTE.SUELDOJUGADOR_OLD + PAQUETE_MUTANTE.SUELDOJUGADOR > v_presupuesto_equipo) THEN
             RAISE_APPLICATION_ERROR(-20009, 'El equipo no tiene suficiente prespuesto como para pagar a este jugador');
         END IF;
     END IF;
+    EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+    v_sueldo_total_jug := 0;
 END TRIGGER_PRES_EQ_MEN_SAL_JUG;
 
 /
@@ -285,16 +288,13 @@ END TRIGGER_LIGA_NO_JUGADORES;
 /
 
 CREATE OR REPLACE TRIGGER MAX_JUGADOR
-BEFORE INSERT OR UPDATE ON Jugador
-FOR EACH ROW
+AFTER INSERT OR UPDATE ON JUGADOR --ES MUTANTE
 DECLARE
 v_max_jugadores NUMBER(1) := 6;
 v_count_jugadores NUMBER(3);
-
 BEGIN
     SELECT COUNT(*) AS "NUMERO JUGADORES" INTO v_count_jugadores FROM jugador
     WHERE equipo_id_equipo = (PAQUETE_MUTANTE.CODIGOEQUIPO);
-
     IF(v_count_jugadores >= v_max_jugadores) THEN
         raise_application_error(-20000, 'El numero de jugadores por equipo no puede ser superior a 6');
     END IF;  
@@ -316,12 +316,12 @@ END MAX_PRESUPUESTO_EQUIPO;
 /
 
 CREATE OR REPLACE TRIGGER SALARIO_MIN_JUGADOR
-BEFORE INSERT OR UPDATE ON Jugador
+BEFORE INSERT OR UPDATE ON JUGADOR 
 FOR EACH ROW
 DECLARE
 v_smi NUMBER(4) := 900;
 BEGIN
-    IF(PAQUETE_MUTANTE.SUELDOJUGADOR <= v_smi) THEN
+    IF(:NEW.SUELDO <= v_smi) THEN
         raise_application_error(-20001, 'El salario del jugador debe ser superior al SMI');
     END IF;  
 END SALARIO_MIN_JUGADOR;   
