@@ -9,7 +9,8 @@ Integrantes del equipo:
   
   - Adrian Danlos https://github.com/AdrianDanlos
   
+Estamos desarrollando una programa que gestione una liga E-Sports de League of Legends con todos sus elementos: Jugadores, Equipos, Jornadas, Partidos.... Donde el usuario podrá realizar todo tipo de consultas y acceder a estadísticas detalladas.
 
-
+License: Open Source.
   
   
