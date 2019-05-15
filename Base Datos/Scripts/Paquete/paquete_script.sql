@@ -2,20 +2,14 @@
 
 CREATE OR REPLACE PACKAGE paquete_mamecorp AS
 	FUNCTION FUNCTION_COUNT_JUG_EQUIPO (ID_EQUIPO IN EQUIPO.ID_EQUIPO%TYPE)
-   
 		RETURN NUMBER;
         
-
 	PROCEDURE generar_calendario;
-  
     CURSOR c_info_equipo is  SELECT E.ID_EQUIPO, E.NOMBRE, E.PRESUPUESTO, E.PUNTOS, P.ID_PRESIDENTE, P.NOMBRE AS PRESIDENTE
 		    FROM EQUIPO E, PRESIDENTE P
-		    WHERE P.EQUIPO_ID_EQUIPO(+) = E.ID_EQUIPO;   
-    
-	PROCEDURE procedimiento_info_equipo;
-        --c_info_equipo CURSOR,
-	
-        
+		    WHERE P.EQUIPO_ID_EQUIPO(+) = E.ID_EQUIPO;  
+            
+	PROCEDURE procedimiento_info_equipo; 
 END paquete_mamecorp;
 
 
@@ -24,13 +18,22 @@ CREATE OR REPLACE PACKAGE BODY paquete_mamecorp AS
 	FUNCTION FUNCTION_COUNT_JUG_EQUIPO (ID_EQUIPO IN EQUIPO.ID_EQUIPO%TYPE)
 	RETURN NUMBER
 		AS
-		NUM_JUGADORES NUMBER;
+		NUM_JUGADORES NUMBER; 
+        e_equipo_not_found EXCEPTION;
 		BEGIN
 		    SELECT COUNT(*) INTO NUM_JUGADORES 
 		    FROM JUGADOR
 		    WHERE Equipo_id_equipo = id_equipo;
-		RETURN(NUM_JUGADORES );
-		END FUNCTION_COUNT_JUG_EQUIPO;
+            IF SQL%NOTFOUND THEN
+            RAISE e_equipo_not_found;
+            end if;
+		RETURN(NUM_JUGADORES);
+    EXCEPTION 
+        WHEN e_equipo_not_found THEN
+            RAISE_APPLICATION_ERROR(-20021, 'El equipo no existe');
+        WHEN VALUE_ERROR THEN
+            RAISE_APPLICATION_ERROR(-06502, 'El tipo de dato a introducir es un numero de equipo');
+	END FUNCTION_COUNT_JUG_EQUIPO;
 
 
 	
@@ -82,24 +85,5 @@ CREATE OR REPLACE PACKAGE BODY paquete_mamecorp AS
 		    EXIT WHEN c_info_equipo%notfound;
 		    END LOOP;
 		    CLOSE c_info_equipo;
-		END;
-
+		END procedimiento_info_equipo;
 	END paquete_mamecorp;
-
---PRUEBA DE PAQUETE 
-
-/* DECLARE
-jugadores_msg NUMBER(2);
-BEGIN
-    jugadores_msg := paquete_mamecorp.FUNCTION_COUNT_JUG_EQUIPO(10);
-    DBMS_OUTPUT.PUT_LINE(jugadores_msg);
-END;
-
-
-BEGIN
-paquete_mamecorp.generar_calendario;
-END;
-
-select * from jornada;
-
-*/
