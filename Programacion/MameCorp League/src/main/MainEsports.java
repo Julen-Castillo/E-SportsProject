@@ -48,5 +48,13 @@ public class MainEsports {
         
 
     }  
-    
-}
+    /* public static int insertarPresidente(String nombrePresidente, String apellidoPresidente,Equipo equipoPresidente) throws Exception {
+       
+        Presidente p = new Presidente(nombrePresidente,apellidoPresidente,equipoPresidente);
+        PresidenteDB presidenteDB = new PresidenteDB();
+       
+        return presidenteDB.insertarPresi(p);
+  
+    }
+      */
+} 
