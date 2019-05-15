@@ -20,11 +20,18 @@ public class Liga {
     private LocalDate fechaFin;
     private boolean enCurso;
 
+    private ArrayList<Jornada> listaJornadas;
+
+    public Liga(String nombre, LocalDate fechaInicio, LocalDate fechaFin, boolean enCurso, ArrayList<Jornada> listaJornadas) {
+        this.nombre = nombre;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.enCurso = enCurso;
+        this.listaJornadas = listaJornadas;
+    }
+  
     public Liga() {
     }
-    
-    
-    private ArrayList<Equipo> listaEquipos;
 
     public int getIdLiga() {
         return idLiga;
@@ -66,13 +73,16 @@ public class Liga {
         this.enCurso = enCurso;
     }
 
-    public ArrayList<Equipo> getListaEquipos() {
-        return listaEquipos;
+    public ArrayList<Jornada> getListaJornadas() {
+        return listaJornadas;
     }
 
-    public void setListaEquipos(ArrayList<Equipo> listaEquipos) {
-        this.listaEquipos = listaEquipos;
+    public void setListaJornadas(ArrayList<Jornada> listaJornadas) {
+        this.listaJornadas = listaJornadas;
     }
+    
+
+    
     
     
     
