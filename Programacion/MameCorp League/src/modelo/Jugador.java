@@ -19,13 +19,24 @@ public class Jugador {
     private int sueldo;
     private boolean titularidad;
     
-    private Equipo E;
-    private Partido P;
+    private Equipo oEquipo;
 
-    public Jugador() {
+    public Jugador(int idJugador, String nombre, String apellido, String nickname, String posicion, int sueldo, boolean titularidad, Equipo oEquipo) {
+        this.idJugador = idJugador;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.nickname = nickname;
+        this.posicion = posicion;
+        this.sueldo = sueldo;
+        this.titularidad = titularidad;
+        this.oEquipo = oEquipo;
     }
 
     
+    
+    public Jugador() {
+    }
+
     public int getIdJugador() {
         return idJugador;
     }
@@ -82,21 +93,16 @@ public class Jugador {
         this.titularidad = titularidad;
     }
 
-    public Equipo getE() {
-        return E;
+    public Equipo getoEquipo() {
+        return oEquipo;
     }
 
-    public void setE(Equipo E) {
-        this.E = E;
+    public void setoEquipo(Equipo oEquipo) {
+        this.oEquipo = oEquipo;
     }
 
-    public Partido getP() {
-        return P;
-    }
-
-    public void setP(Partido P) {
-        this.P = P;
-    }
+    
+    
     
     
     

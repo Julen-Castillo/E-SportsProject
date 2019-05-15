@@ -14,13 +14,18 @@ public class Presidente {
     private int idPresidente;
     private String nombre;
     private String apellido;
-    private int idEquipo;
-    
-    private Equipo E;
+   
+    private Equipo oEquipo;
+
+    public Presidente(String nombre, String apellido, Equipo oEquipo) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.oEquipo = oEquipo;
+    }
 
     public Presidente() {
     }
-    
+
     public int getIdPresidente() {
         return idPresidente;
     }
@@ -45,21 +50,15 @@ public class Presidente {
         this.apellido = apellido;
     }
 
-    public int getIdEquipo() {
-        return idEquipo;
+    public Equipo getoEquipo() {
+        return oEquipo;
     }
 
-    public void setIdEquipo(int idEquipo) {
-        this.idEquipo = idEquipo;
+    public void setoEquipo(Equipo oEquipo) {
+        this.oEquipo = oEquipo;
     }
-
-    public Equipo getE() {
-        return E;
-    }
-
-    public void setE(Equipo E) {
-        this.E = E;
-    }
+    
+    
     
     
 }
