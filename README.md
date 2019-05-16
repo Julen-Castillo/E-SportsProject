@@ -11,6 +11,7 @@ Integrantes del equipo:
   
 Estamos desarrollando una programa que gestione una liga E-Sports de League of Legends con todos sus elementos: Jugadores, Equipos, Jornadas, Partidos.... Donde el usuario podrá realizar todo tipo de consultas y acceder a estadísticas detalladas.
 
-License: Open Source.
-  
-  
+DeadLine 23/05/2019
+```diff
+ License: Open Source.
+```
