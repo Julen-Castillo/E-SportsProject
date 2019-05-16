@@ -6,7 +6,11 @@
 package vistas;
 
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import main.MainEsports;
 
 /**
  *
@@ -35,12 +39,14 @@ public class VentanaEquipos extends javax.swing.JFrame {
 
         panelOpaco = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        tfNombre = new javax.swing.JTextField();
+        tfPresupuesto = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tfPuntos = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        bLimpiar = new javax.swing.JButton();
+        bInsertar = new javax.swing.JButton();
         lFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,10 +58,10 @@ public class VentanaEquipos extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         panelOpaco.add(jLabel3);
         jLabel3.setBounds(20, 300, 100, 17);
-        panelOpaco.add(jTextField3);
-        jTextField3.setBounds(160, 300, 200, 20);
-        panelOpaco.add(jTextField4);
-        jTextField4.setBounds(160, 340, 200, 20);
+        panelOpaco.add(tfNombre);
+        tfNombre.setBounds(160, 300, 200, 20);
+        panelOpaco.add(tfPresupuesto);
+        tfPresupuesto.setBounds(160, 340, 200, 20);
 
         jLabel4.setText("PRESUPUESTO");
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -66,13 +72,31 @@ public class VentanaEquipos extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         panelOpaco.add(jLabel5);
         jLabel5.setBounds(20, 380, 70, 17);
-        panelOpaco.add(jTextField1);
-        jTextField1.setBounds(160, 380, 200, 20);
+        panelOpaco.add(tfPuntos);
+        tfPuntos.setBounds(160, 380, 200, 20);
 
         jLabel2.setText("EQUIPO");
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         panelOpaco.add(jLabel2);
         jLabel2.setBounds(70, 150, 340, 140);
+
+        bLimpiar.setText("Limpiar");
+        bLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bLimpiarActionPerformed(evt);
+            }
+        });
+        panelOpaco.add(bLimpiar);
+        bLimpiar.setBounds(20, 440, 65, 23);
+
+        bInsertar.setText("Insertar");
+        bInsertar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bInsertarActionPerformed(evt);
+            }
+        });
+        panelOpaco.add(bInsertar);
+        bInsertar.setBounds(290, 440, 71, 23);
 
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, -140, 400, 1310);
@@ -84,6 +108,35 @@ public class VentanaEquipos extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimpiarActionPerformed
+    /**
+     * Con el bLimpiar borramos todos los datos que se han tecleado en los 
+     * labels de esta ventana, dejandolos asi en blanco.
+     */   
+    //BONTON LIMPIAR
+        tfNombre.setText("");
+        tfPresupuesto.setText("");
+        tfPuntos.setText(""); 
+    
+    }//GEN-LAST:event_bLimpiarActionPerformed
+
+    private void bInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInsertarActionPerformed
+        try {
+           
+            int insercion= MainEsports.insertarEquipos(tfNombre.getText(),Integer.parseInt(tfPresupuesto.getText()),Integer.parseInt(tfPuntos.getText()));
+            
+            if(insercion > 0){
+                JOptionPane.showMessageDialog(this,"Linea insertada correctamente");
+            }else{
+                JOptionPane.showMessageDialog(this,"ERROR AL INSERTAR");
+            }
+            
+        } catch (Exception ex) {
+            System.out.println("Error");
+        }
+        
+    }//GEN-LAST:event_bInsertarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,14 +174,16 @@ public class VentanaEquipos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bInsertar;
+    private javax.swing.JButton bLimpiar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel lFondo;
     private javax.swing.JPanel panelOpaco;
+    private javax.swing.JTextField tfNombre;
+    private javax.swing.JTextField tfPresupuesto;
+    private javax.swing.JTextField tfPuntos;
     // End of variables declaration//GEN-END:variables
 }

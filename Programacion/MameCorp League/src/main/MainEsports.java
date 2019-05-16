@@ -28,17 +28,33 @@ public class MainEsports {
 
     }
     public static void consultarEquipos() throws Exception{
-        EquipoDB equipoBD = new EquipoDB();
+        EquipoDB equipoDB = new EquipoDB();
 
-        ArrayList<Equipo> listaEquipos = equipoBD.consultarTodos();
+        ArrayList<Equipo> listaEquipos = equipoDB.consultarTodos();
 
         for(int x=0; x < listaEquipos.size() ;x++){
             Equipo e = listaEquipos.get(x);
             
             System.out.println("nombre " + e.getNombre() + " presupuesto " + e.getPresupuesto()+ " puntos " + e.getPuntos() + "\n");
         }   
-    
-    
+
     }
+    public static int insertarEquipos(String nombre,int presupuesto,int puntos) throws Exception{
     
-}
+        Equipo e = new Equipo(nombre,presupuesto,puntos);
+        EquipoDB equipoDB = new EquipoDB();
+        
+        return equipoDB.insertarEquipo(e);
+        
+
+    }  
+    /* public static int insertarPresidente(String nombrePresidente, String apellidoPresidente,Equipo equipoPresidente) throws Exception {
+       
+        Presidente p = new Presidente(nombrePresidente,apellidoPresidente,equipoPresidente);
+        PresidenteDB presidenteDB = new PresidenteDB();
+       
+        return presidenteDB.insertarPresi(p);
+  
+    }
+      */
+} 
