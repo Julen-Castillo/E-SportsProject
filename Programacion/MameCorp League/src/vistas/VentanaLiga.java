@@ -18,7 +18,7 @@ public class VentanaLiga extends javax.swing.JFrame {
     /**
      * Creates new form VentanaInsertarLiga
      */
-    public VentanaLiga() {
+    public VentanaLiga(String operacionActiva) {
         initComponents();
         setLocationRelativeTo(null);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
