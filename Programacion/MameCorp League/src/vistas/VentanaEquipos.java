@@ -148,7 +148,7 @@ public class VentanaEquipos extends javax.swing.JFrame {
             }
             
         } catch (Exception ex) {
-            System.out.println("Error");
+            System.out.println(ex.getClass() + ex.getMessage());
         }
         
     }//GEN-LAST:event_bInsertarActionPerformed
