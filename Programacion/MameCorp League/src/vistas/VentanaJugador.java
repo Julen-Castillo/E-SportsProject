@@ -14,6 +14,7 @@ import main.MainEsports;
  * @author PETO
  */
 public class VentanaJugador extends javax.swing.JFrame {
+  private String operacion;
 
     /**
      * Creates new form VentanaJugador
@@ -23,11 +24,31 @@ public class VentanaJugador extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(255,255,255,190));
+        operacion = operacionActiva;
+        mostrarOocultarfields();
     }
+   
     public VentanaJugador() {
         initComponents();
     }
-
+public void mostrarOocultarfields(){
+    if (operacion.equals("modificar")) {
+        
+        tfNombre.setEnabled(false);
+        tfApellido.setEnabled(false);
+        
+    }
+    else { if (operacion.equals("baja")){
+        tfSueldo.setEnabled(false);
+        tfTitularidad.setEnabled(false);
+        tfNombre.setEnabled(false);
+        tfApellido.setEnabled(false);
+        cbPosicion.setEnabled(false);
+        
+    }
+    }
+    
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -51,7 +72,7 @@ public class VentanaJugador extends javax.swing.JFrame {
         tfNick = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         bAceptar = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbPosicion = new javax.swing.JComboBox<>();
         lFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -64,14 +85,14 @@ public class VentanaJugador extends javax.swing.JFrame {
         panelOpaco.add(jLabel3);
         jLabel3.setBounds(20, 670, 100, 20);
         panelOpaco.add(tfSueldo);
-        tfSueldo.setBounds(150, 950, 200, 24);
+        tfSueldo.setBounds(150, 950, 200, 20);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("APELLIDO");
         panelOpaco.add(jLabel4);
         jLabel4.setBounds(20, 740, 130, 17);
         panelOpaco.add(tfTitularidad);
-        tfTitularidad.setBounds(150, 1020, 200, 24);
+        tfTitularidad.setBounds(150, 1020, 200, 20);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("NICKNAME");
@@ -83,26 +104,26 @@ public class VentanaJugador extends javax.swing.JFrame {
         panelOpaco.add(jLabel7);
         jLabel7.setBounds(20, 890, 80, 17);
         panelOpaco.add(tfNombre);
-        tfNombre.setBounds(150, 670, 200, 24);
+        tfNombre.setBounds(150, 670, 200, 20);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("SUELDO");
         panelOpaco.add(jLabel8);
         jLabel8.setBounds(30, 960, 80, 17);
         panelOpaco.add(tfApellido);
-        tfApellido.setBounds(150, 740, 200, 24);
+        tfApellido.setBounds(150, 740, 200, 20);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("TITULARIDAD");
         panelOpaco.add(jLabel9);
         jLabel9.setBounds(20, 1020, 100, 30);
         panelOpaco.add(tfNick);
-        tfNick.setBounds(150, 810, 200, 24);
+        tfNick.setBounds(150, 810, 200, 20);
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 48)); // NOI18N
         jLabel1.setText("JUGADOR");
         panelOpaco.add(jLabel1);
-        jLabel1.setBounds(80, 420, 220, 170);
+        jLabel1.setBounds(80, 420, 280, 170);
 
         bAceptar.setBackground(new java.awt.Color(0, 40, 135));
         bAceptar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -110,7 +131,7 @@ public class VentanaJugador extends javax.swing.JFrame {
         bAceptar.setText("ACEPTAR");
         bAceptar.setBorder(null);
         bAceptar.setContentAreaFilled(false);
-        bAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bAceptar.setFocusPainted(false);
         bAceptar.setOpaque(true);
         bAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -121,9 +142,9 @@ public class VentanaJugador extends javax.swing.JFrame {
         panelOpaco.add(bAceptar);
         bAceptar.setBounds(210, 1120, 160, 50);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toplaner", "Jungler", "Midlaner", "Ad Carry", "Support" }));
-        panelOpaco.add(jComboBox1);
-        jComboBox1.setBounds(150, 880, 200, 26);
+        cbPosicion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toplaner", "Jungler", "Midlaner", "Ad Carry", "Support" }));
+        panelOpaco.add(cbPosicion);
+        cbPosicion.setBounds(150, 880, 200, 20);
 
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, -330, 400, 1430);
@@ -170,10 +191,12 @@ public class VentanaJugador extends javax.swing.JFrame {
         /* Create and display the form */
        
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAceptar;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cbPosicion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

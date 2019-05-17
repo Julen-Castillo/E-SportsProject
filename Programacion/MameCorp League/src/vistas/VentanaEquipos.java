@@ -17,6 +17,7 @@ import main.MainEsports;
  * @author PETO
  */
 public class VentanaEquipos extends javax.swing.JFrame {
+    private String operacion;
 
     /**
      * Creates new form VentanaEquipos
@@ -26,6 +27,8 @@ public class VentanaEquipos extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(2,91,136,190));
+        operacion = operacionActiva;
+        mostrarOocultarfields();
     }
     public VentanaEquipos(){
         initComponents();
@@ -90,7 +93,7 @@ public class VentanaEquipos extends javax.swing.JFrame {
             }
         });
         panelOpaco.add(bLimpiar);
-        bLimpiar.setBounds(20, 440, 65, 23);
+        bLimpiar.setBounds(20, 440, 90, 23);
 
         bInsertar.setText("Insertar");
         bInsertar.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +102,7 @@ public class VentanaEquipos extends javax.swing.JFrame {
             }
         });
         panelOpaco.add(bInsertar);
-        bInsertar.setBounds(290, 440, 71, 23);
+        bInsertar.setBounds(261, 440, 100, 23);
 
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, -140, 400, 1310);
@@ -111,7 +114,16 @@ public class VentanaEquipos extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+   public void mostrarOocultarfields(){
+       
+       if(operacion.equals("baja")){
+           tfPresupuesto.setEnabled(false);
+           tfPuntos.setEnabled(false);
+       }
+      
+       
+   }
+    
     private void bLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimpiarActionPerformed
     /**
      * Con el bLimpiar borramos todos los datos que se han tecleado en los 
