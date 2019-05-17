@@ -6,6 +6,7 @@
 package vistas;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import main.MainEsports;
@@ -17,12 +18,15 @@ import modelo.Equipo;
  */
 public class VentanaPresidente extends javax.swing.JFrame {
      private Equipo e;
+       private ArrayList<Equipo> listaEquipos;
     
- public VentanaPresidente(String operacionActiva) {
+ public VentanaPresidente(String operacionActiva) throws Exception {
         initComponents();
         setLocationRelativeTo(null);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(180,102,24,190));
+        llenarComboBox();
+        
     }
 
       public VentanaPresidente() {
@@ -93,7 +97,6 @@ public class VentanaPresidente extends javax.swing.JFrame {
         panelOpaco.add(jLabel2);
         jLabel2.setBounds(40, 330, 70, 20);
 
-        cbEquipoPresidente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         panelOpaco.add(cbEquipoPresidente);
         cbEquipoPresidente.setBounds(130, 330, 200, 20);
 
@@ -132,8 +135,18 @@ public class VentanaPresidente extends javax.swing.JFrame {
        catch (Exception e){
            System.out.println("Error");
        }*/
+      
     }//GEN-LAST:event_bAceptarActionPerformed
-
+ public  void llenarComboBox() throws Exception{
+        listaEquipos = new ArrayList();
+        
+       listaEquipos = MainEsports.consultarEquipoSinPresidente();
+        for (int x = 0; x < listaEquipos.size(); x++) {
+            
+            cbEquipoPresidente.addItem(listaEquipos.get(x).getNombre());
+        }
+        
+    }
     /**
      * @param args the command line arguments
      */

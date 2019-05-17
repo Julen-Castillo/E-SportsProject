@@ -34,7 +34,7 @@ public static void conectar(){
 public static Connection getCon(){
     return con;
 }
-public void cerrarCon()throws Exception{
+public static void cerrarCon()throws Exception{
     con.close();
 }    
 }
