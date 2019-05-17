@@ -1,14 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modeloDB;
 
-/**
- *
- * @author 1gdaw03
- */
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import modelo.Sesion;
+
+
 public class SesionDB {
+
+
+    private static ResultSet resultado;
+    private static PreparedStatement sentenciaPre;
+
+     public SesionDB() {
+         
+       
+    }
+    
+    public static Sesion consultarUsuario(String usuario, String password) throws Exception{
+        System.out.println(usuario);
+        System.out.println(password);
+        GenericoDB.conectar();
+         String plantilla = "select * from sesion where USUARIO = ? and PASSWORD = ?";
+         sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
+         
+          sentenciaPre.setString(1,usuario);
+          sentenciaPre.setString(2,password);
+         
+          Sesion oSesion = new Sesion();
+          resultado = sentenciaPre.executeQuery();
+          if(resultado.next()){
+              oSesion.setNombreUsuario(resultado.getString("USUARIO"));
+              oSesion.setPassword(resultado.getString("PASSWORD"));
+              oSesion.setTipoUsuario(resultado.getString("TIPO"));
+              GenericoDB.cerrarCon();
+              return oSesion;
+          }
+          GenericoDB.cerrarCon();
+          return null;
+        
+    }
     
 }

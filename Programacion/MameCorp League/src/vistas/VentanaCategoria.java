@@ -9,6 +9,7 @@ import java.awt.ComponentOrientation;
 public class VentanaCategoria extends javax.swing.JFrame {
         
     private String operacionActiva;
+    private String opcionActiva;
     
     /**
      * Creates new form VentanaCategoria
@@ -394,7 +395,25 @@ public class VentanaCategoria extends javax.swing.JFrame {
     }//GEN-LAST:event_miJornadasActionPerformed
 
     private void bModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bModificarActionPerformed
-        
+            this.dispose();
+       if (operacionActiva.equals("liga")){
+            ControladorVista.mostrarVentanaLiga("modificar");   
+       }
+       else {
+           if (operacionActiva.equals("jugador")){
+               ControladorVista.mostrarVentanaJugador("modificar");
+           }
+           else {
+               if (operacionActiva.equals("presidente")){
+                   ControladorVista.mostrarVentanaPresidente("modificar");
+               }
+               else {
+                 if  (operacionActiva.equals("equipo")){
+                    ControladorVista.mostrarVentanaEquipos("modificar");
+               }
+               }
+           }
+       }
     }//GEN-LAST:event_bModificarActionPerformed
 
     private void bPresidentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPresidentesActionPerformed
@@ -421,7 +440,26 @@ public class VentanaCategoria extends javax.swing.JFrame {
     }//GEN-LAST:event_bLigaActionPerformed
 
     private void bBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBajaActionPerformed
-        // TODO add your handling code here:
+           this.dispose();
+       if (operacionActiva.equals("liga")){
+            ControladorVista.mostrarVentanaLiga("baja");   
+       }
+       else {
+           if (operacionActiva.equals("jugador")){
+               ControladorVista.mostrarVentanaJugador("baja");
+           }
+           else {
+               if (operacionActiva.equals("presidente")){
+                   ControladorVista.mostrarVentanaPresidente("baja");
+               }
+               else {
+                 if  (operacionActiva.equals("equipo")){
+                    ControladorVista.mostrarVentanaEquipos("baja");
+               }
+               }
+           }
+       }
+    
     }//GEN-LAST:event_bBajaActionPerformed
 
     private void bConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConsultarActionPerformed
@@ -432,19 +470,19 @@ public class VentanaCategoria extends javax.swing.JFrame {
             
         this.dispose();
        if (operacionActiva.equals("liga")){
-            ControladorVista.mostrarVentanaLiga();   
+            ControladorVista.mostrarVentanaLiga("alta");   
        }
        else {
            if (operacionActiva.equals("jugador")){
-               ControladorVista.mostrarVentanaJugador();
+               ControladorVista.mostrarVentanaJugador("alta");
            }
            else {
                if (operacionActiva.equals("presidente")){
-                   ControladorVista.mostrarVentanaPresidente();
+                   ControladorVista.mostrarVentanaPresidente("alta");
                }
                else {
                  if  (operacionActiva.equals("equipo")){
-                    ControladorVista.mostrarVentanaEquipos();
+                    ControladorVista.mostrarVentanaEquipos("alta");
                }
                  else {
                      if (operacionActiva.equals("jornada")){

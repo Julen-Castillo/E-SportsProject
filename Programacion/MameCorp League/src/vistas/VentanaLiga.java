@@ -18,7 +18,7 @@ public class VentanaLiga extends javax.swing.JFrame {
     /**
      * Creates new form VentanaInsertarLiga
      */
-    public VentanaLiga() {
+    public VentanaLiga(String operacionActiva) {
         initComponents();
         setLocationRelativeTo(null);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -152,12 +152,8 @@ public class VentanaLiga extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaLiga().setVisible(true);
-            }
-        });
+      
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

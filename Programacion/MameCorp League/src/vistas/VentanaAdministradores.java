@@ -19,6 +19,8 @@ public class VentanaAdministradores extends javax.swing.JFrame {
         panelOpaco.setBackground(new Color(4,20,57,190));
         setVisible(true);
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

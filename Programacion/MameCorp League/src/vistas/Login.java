@@ -6,6 +6,11 @@
 package vistas;
 
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import main.MainEsports;
+import modelo.Sesion;
 
 /**
  *
@@ -16,9 +21,11 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    private static Sesion oSesion;
     public Login() {
         initComponents();
         setLocationRelativeTo(null);
+        
 
         
     }
@@ -41,8 +48,10 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
+        tfPassword = new javax.swing.JPasswordField();
+        tfNombre = new javax.swing.JTextField();
+        bEntrar = new javax.swing.JButton();
+        bRegistrarUsuario = new javax.swing.JButton();
         pFondoLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,20 +63,44 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre de usuario:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Contraseña:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, 210, 30));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, -1, -1));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        tfPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                tfPasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 210, 30));
+        getContentPane().add(tfPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 210, 30));
+
+        tfNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNombreActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tfNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 210, 30));
+
+        bEntrar.setText("Entrar");
+        bEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEntrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, -1, -1));
+
+        bRegistrarUsuario.setBackground(new java.awt.Color(0, 0, 0));
+        bRegistrarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        bRegistrarUsuario.setText("¿Aún no tienes cuenta?");
+        bRegistrarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRegistrarUsuarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bRegistrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 490, -1, -1));
 
         pFondoLogin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         pFondoLogin.setForeground(new java.awt.Color(255, 255, 255));
@@ -77,9 +110,46 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void tfNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_tfNombreActionPerformed
+
+    private void bRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarUsuarioActionPerformed
+        /**
+         * Al hacer click en este botón, abrimos el formulario para crear usuarios
+         */
+        ControladorVista.mostrarVentanaRegistroUsuarios();
+    }//GEN-LAST:event_bRegistrarUsuarioActionPerformed
+
+    private void bEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEntrarActionPerformed
+        try {
+            /**
+             * Si el usuario hace click en este botón  el programa comprueba que
+             * el usuario y la contraseña tecleadas existen en la base de datos.
+             */
+            
+            oSesion = MainEsports.comprobarLogin(tfNombre.getText(),String.valueOf(tfPassword.getPassword()));
+           
+            if(oSesion == null){
+                JOptionPane.showMessageDialog(this,"Usuario o contraseña incorrectos");
+            }else{
+                if(oSesion.getTipoUsuario().equals("administrador")){
+                    this.dispose();
+                    ControladorVista.mostrarVentanaCategoria();
+                }else{
+                    this.dispose();
+                    ControladorVista.mostrarVentanaUsuarios();
+                }
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getClass() + ex.getMessage());
+            
+        }
+    }//GEN-LAST:event_bEntrarActionPerformed
+
+    private void tfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,11 +187,13 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bEntrar;
+    private javax.swing.JButton bRegistrarUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel pFondoLogin;
+    private javax.swing.JTextField tfNombre;
+    private javax.swing.JPasswordField tfPassword;
     // End of variables declaration//GEN-END:variables
 }

@@ -20,12 +20,12 @@ public class EquipoDB {
         
         gdb.conectar();
         
-        String plantilla = "insert into equipos values (?,?,?)";
+        String plantilla = "insert into equipo (nombre,presupuesto,puntos)values (?,?,?)";
         PreparedStatement sentenciaPre = gdb.getCon().prepareStatement(plantilla);
         
-        sentenciaPre.setString(0, e.getNombre());
-        sentenciaPre.setInt(1, e.getPresupuesto());
-        sentenciaPre.setInt(2, e.getPuntos());
+        sentenciaPre.setString(1, e.getNombre());
+        sentenciaPre.setInt(2, e.getPresupuesto());
+        sentenciaPre.setInt(3, e.getPuntos());
         
         int insercion = sentenciaPre.executeUpdate();
         System.out.println(insercion);
@@ -91,5 +91,31 @@ public class EquipoDB {
         
         return listaEquipos; 
     }
+    
+     public ArrayList<Equipo> consultarEquipoSinPresidente() throws Exception{
+        
+        
+        gdb.conectar(); 
+        
+        Statement sentencia = gdb.getCon().createStatement();
+        
+        resultado = sentencia.executeQuery("select * from equipo where id_equipo not in (select equipo_id_equipo from presidente)");
+        
+        ArrayList<Equipo> listaEquipos = new ArrayList<>();
+        while(resultado.next()){
+            Equipo e = new Equipo();
+            
+            e.setIdEquipo(resultado.getInt("id_equipo"));
+            e.setNombre(resultado.getString("nombre"));
+            e.setPresupuesto(resultado.getInt("presupuesto"));
+            e.setPuntos(resultado.getInt("puntos"));
+            
+            listaEquipos.add(e);
+        }
+        
+        gdb.cerrarCon();
+        
+        return listaEquipos; 
+     }
     
 }

@@ -24,6 +24,7 @@ public class Sesion {
 
     public Sesion() {
     }
+    
 
     public int getIdUsuario() {
         return idUsuario;
@@ -56,7 +57,8 @@ public class Sesion {
     public void setTipoUsuario(String tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
-    
+
+
     
     
     
