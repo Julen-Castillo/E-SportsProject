@@ -16,6 +16,8 @@ public class MainEsports {
     private static VentanaModUsuarios vUsuario;
     private static Connection con;
     
+    private static Sesion oSesion;
+    
     
     public static void main(String[] args) throws SQLException {
     
@@ -44,8 +46,7 @@ public class MainEsports {
         Equipo e = new Equipo(nombre,presupuesto,puntos);
         EquipoDB equipoDB = new EquipoDB();
         
-        return equipoDB.insertarEquipo(e);
-        
+        return equipoDB.insertarEquipo(e);  
 
     }  
     /* public static int insertarPresidente(String nombrePresidente, String apellidoPresidente,Equipo equipoPresidente) throws Exception {
@@ -57,4 +58,11 @@ public class MainEsports {
   
     }
       */
+    
+    public static Sesion comprobarLogin(String nombre,String password) throws Exception{
+    
+        oSesion = SesionDB.consultarUsuario();
+        
+        return oSesion;
+    }
 } 
