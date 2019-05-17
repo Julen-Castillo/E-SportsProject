@@ -73,7 +73,7 @@ public class ControladorVista {
     public static void OcultarVentanaModUsuarios(){
         vModUsuarios.dispose();
     }
-    public static void mostrarVentanaPresidente(String operacionActiva){
+    public static void mostrarVentanaPresidente(String operacionActiva) throws Exception{
         vModPresidente = new VentanaPresidente(operacionActiva);
         vModPresidente.setVisible(true);
     }
