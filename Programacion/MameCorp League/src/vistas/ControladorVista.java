@@ -21,6 +21,7 @@ public class ControladorVista {
     private static VentanaUsuarios vUsuarios;
     private static VentanaVisualizarLiga vVisualizarLiga;
     private static Login vLogin;
+    private static VentanaRegistroUsuarios vRegistroUsuarios;
     
     /**
      * Ejemplo: con este metodo creamos la ventana vAdmin
@@ -99,6 +100,13 @@ public class ControladorVista {
     }
     public static void OcultarLogin(){
         vLogin.dispose();
+    }
+    public static void mostrarVentanaRegistroUsuarios(){
+        vRegistroUsuarios = new VentanaRegistroUsuarios();
+        vRegistroUsuarios.setVisible(true);
+    }
+        public static void OcultarVentanaRegistroUsuarios(){
+        vRegistroUsuarios.dispose();
     }
 
     
