@@ -395,7 +395,25 @@ public class VentanaCategoria extends javax.swing.JFrame {
     }//GEN-LAST:event_miJornadasActionPerformed
 
     private void bModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bModificarActionPerformed
-        
+            this.dispose();
+       if (operacionActiva.equals("liga")){
+            ControladorVista.mostrarVentanaLiga("modificar");   
+       }
+       else {
+           if (operacionActiva.equals("jugador")){
+               ControladorVista.mostrarVentanaJugador("modificar");
+           }
+           else {
+               if (operacionActiva.equals("presidente")){
+                   ControladorVista.mostrarVentanaPresidente("modificar");
+               }
+               else {
+                 if  (operacionActiva.equals("equipo")){
+                    ControladorVista.mostrarVentanaEquipos("modificar");
+               }
+               }
+           }
+       }
     }//GEN-LAST:event_bModificarActionPerformed
 
     private void bPresidentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPresidentesActionPerformed
@@ -422,7 +440,26 @@ public class VentanaCategoria extends javax.swing.JFrame {
     }//GEN-LAST:event_bLigaActionPerformed
 
     private void bBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBajaActionPerformed
-        
+           this.dispose();
+       if (operacionActiva.equals("liga")){
+            ControladorVista.mostrarVentanaLiga("baja");   
+       }
+       else {
+           if (operacionActiva.equals("jugador")){
+               ControladorVista.mostrarVentanaJugador("baja");
+           }
+           else {
+               if (operacionActiva.equals("presidente")){
+                   ControladorVista.mostrarVentanaPresidente("baja");
+               }
+               else {
+                 if  (operacionActiva.equals("equipo")){
+                    ControladorVista.mostrarVentanaEquipos("baja");
+               }
+               }
+           }
+       }
+    
     }//GEN-LAST:event_bBajaActionPerformed
 
     private void bConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConsultarActionPerformed
