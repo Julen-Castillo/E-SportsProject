@@ -69,6 +69,12 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Contraseña:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, -1, -1));
+
+        tfPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfPasswordActionPerformed(evt);
+            }
+        });
         getContentPane().add(tfPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 210, 30));
 
         tfNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -122,8 +128,9 @@ public class Login extends javax.swing.JFrame {
              * el usuario y la contraseña tecleadas existen en la base de datos.
              */
             
-            oSesion = MainEsports.comprobarLogin(tfNombre.getText(),tfPassword.toString());
-            if(oSesion ==null){
+            oSesion = MainEsports.comprobarLogin(tfNombre.getText(),String.valueOf(tfPassword.getPassword()));
+           
+            if(oSesion == null){
                 JOptionPane.showMessageDialog(this,"Usuario o contraseña incorrectos");
             }else{
                 if(oSesion.getTipoUsuario().equals("administrador")){
@@ -133,12 +140,16 @@ public class Login extends javax.swing.JFrame {
                     this.dispose();
                     ControladorVista.mostrarVentanaUsuarios();
                 }
-            
             }
         } catch (Exception ex) {
+            System.out.println(ex.getClass() + ex.getMessage());
             
         }
     }//GEN-LAST:event_bEntrarActionPerformed
+
+    private void tfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfPasswordActionPerformed
 
     /**
      * @param args the command line arguments

@@ -92,4 +92,30 @@ public class EquipoDB {
         return listaEquipos; 
     }
     
+     public ArrayList<Equipo> consultarEquipoSinPresidente() throws Exception{
+        
+        
+        gdb.conectar(); 
+        
+        Statement sentencia = gdb.getCon().createStatement();
+        
+        resultado = sentencia.executeQuery("select * from equipo where id_equipo not in (select equipo_id_equipo from presidente)");
+        
+        ArrayList<Equipo> listaEquipos = new ArrayList<>();
+        while(resultado.next()){
+            Equipo e = new Equipo();
+            
+            e.setIdEquipo(resultado.getInt("id_equipo"));
+            e.setNombre(resultado.getString("nombre"));
+            e.setPresupuesto(resultado.getInt("presupuesto"));
+            e.setPuntos(resultado.getInt("puntos"));
+            
+            listaEquipos.add(e);
+        }
+        
+        gdb.cerrarCon();
+        
+        return listaEquipos; 
+     }
+    
 }
