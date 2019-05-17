@@ -18,11 +18,14 @@ public class VentanaJugador extends javax.swing.JFrame {
     /**
      * Creates new form VentanaJugador
      */
-    public VentanaJugador() {
+    public VentanaJugador(String operacionActiva) {
         initComponents();
         setLocationRelativeTo(null);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(255,255,255,190));
+    }
+    public VentanaJugador() {
+        initComponents();
     }
 
     /**
@@ -134,7 +137,7 @@ public class VentanaJugador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-        MainEsports.insertarJugadores();
+    //    MainEsports.insertarJugadores();
     }//GEN-LAST:event_bAceptarActionPerformed
 
     /**
@@ -165,11 +168,7 @@ public class VentanaJugador extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaJugador().setVisible(true);
-            }
-        });
+       
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

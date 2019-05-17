@@ -21,11 +21,14 @@ public class VentanaEquipos extends javax.swing.JFrame {
     /**
      * Creates new form VentanaEquipos
      */
-    public VentanaEquipos() {
+    public VentanaEquipos(String operacionActiva) {
         initComponents();
         setLocationRelativeTo(null);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(2,91,136,190));
+    }
+    public VentanaEquipos(){
+        initComponents();
     }
 
     /**
