@@ -46,7 +46,7 @@
                           <Group type="102" attributes="0">
                               <Component id="bVolver" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                              <Component id="bRegistrar" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="tfRepeatPassword" alignment="0" max="32767" attributes="0"/>
                           <Component id="tfPassword" alignment="0" max="32767" attributes="0"/>
@@ -78,7 +78,7 @@
                   <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="bVolver" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="bRegistrar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" pref="199" max="-2" attributes="0"/>
@@ -141,10 +141,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bVolverActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="bRegistrar">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#xa1;Registrate!"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bRegistrarActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

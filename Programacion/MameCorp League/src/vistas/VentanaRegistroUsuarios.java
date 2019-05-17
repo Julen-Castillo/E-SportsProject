@@ -6,6 +6,7 @@
 package vistas;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -41,7 +42,7 @@ public class VentanaRegistroUsuarios extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         tfRepeatPassword = new javax.swing.JPasswordField();
         bVolver = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        bRegistrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,7 +69,12 @@ public class VentanaRegistroUsuarios extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("¡Registrate!");
+        bRegistrar.setText("¡Registrate!");
+        bRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRegistrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelOpacoLayout = new javax.swing.GroupLayout(panelOpaco);
         panelOpaco.setLayout(panelOpacoLayout);
@@ -85,7 +91,7 @@ public class VentanaRegistroUsuarios extends javax.swing.JFrame {
                         .addGroup(panelOpacoLayout.createSequentialGroup()
                             .addComponent(bVolver)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2))
+                            .addComponent(bRegistrar))
                         .addComponent(tfRepeatPassword, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(tfPassword, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(tfNombre, javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,7 +118,7 @@ public class VentanaRegistroUsuarios extends javax.swing.JFrame {
                 .addGap(61, 61, 61)
                 .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bVolver)
-                    .addComponent(jButton2))
+                    .addComponent(bRegistrar))
                 .addGap(174, 174, 174)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(190, Short.MAX_VALUE))
@@ -137,6 +143,17 @@ public class VentanaRegistroUsuarios extends javax.swing.JFrame {
         this.dispose();
         ControladorVista.mostrarLogin();
     }//GEN-LAST:event_bVolverActionPerformed
+
+    private void bRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarActionPerformed
+        /**
+         * Si el usuario pulsa este botón, comprobamos que las contraseñas coincidan
+         *y que el nombre de usuario no exista en nuestra bbdd
+         */
+        if(!tfPassword.equals(tfRepeatPassword)){
+            JOptionPane.showMessageDialog(this,"Las contraseñas no coinciden");
+        }
+        
+    }//GEN-LAST:event_bRegistrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,8 +191,8 @@ public class VentanaRegistroUsuarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bRegistrar;
     private javax.swing.JButton bVolver;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
