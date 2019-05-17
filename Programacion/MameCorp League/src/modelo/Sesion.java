@@ -11,28 +11,34 @@ package modelo;
  */
 public class Sesion {
     
-    private int idSesion;
-    private String usuario;
+    private int idUsuario;
+    private String nombreUsuario;
     private String password;
     private String tipoUsuario;
 
+    public Sesion(String nombreUsuario, String password, String tipoUsuario) {
+        this.nombreUsuario = nombreUsuario;
+        this.password = password;
+        this.tipoUsuario = tipoUsuario;
+    }
+
     public Sesion() {
     }
-    
-    public int getIdSesion() {
-        return idSesion;
+
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setIdSesion(int idSesion) {
-        this.idSesion = idSesion;
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
     public String getPassword() {
@@ -50,6 +56,8 @@ public class Sesion {
     public void setTipoUsuario(String tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
+    
+    
     
     
     

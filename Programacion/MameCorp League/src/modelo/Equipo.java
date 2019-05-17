@@ -18,12 +18,19 @@ public class Equipo {
     private int presupuesto;
     private int puntos;
     
-    private Jugador J;
+    private ArrayList<Jugador> listaJugadores;
     private ArrayList<Presidente> listaPresidentes;
     private ArrayList<Partido> listaPartidos;
 
     public Equipo() {
     }
+
+    public Equipo(String nombre, int presupuesto, int puntos) {
+        this.nombre = nombre;
+        this.presupuesto = presupuesto;
+        this.puntos = puntos;
+    }
+    
 
     public int getIdEquipo() {
         return idEquipo;
@@ -57,13 +64,14 @@ public class Equipo {
         this.puntos = puntos;
     }
 
-    public Jugador getJ() {
-        return J;
+    public ArrayList<Jugador> getListaJugadores() {
+        return listaJugadores;
     }
 
-    public void setJ(Jugador J) {
-        this.J = J;
+    public void setListaJugadores(ArrayList<Jugador> listaJugadores) {
+        this.listaJugadores = listaJugadores;
     }
+
 
     public ArrayList<Presidente> getListaPresidentes() {
         return listaPresidentes;

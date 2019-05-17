@@ -7,13 +7,16 @@ package vistas;
 
 import java.awt.Color;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import main.MainEsports;
+import modelo.Equipo;
 
 /**
  *
  * @author PETO
  */
 public class VentanaPresidente extends javax.swing.JFrame {
-
+     private Equipo e;
     /**
      * Creates new form VentanaPresidente
      */
@@ -36,9 +39,12 @@ public class VentanaPresidente extends javax.swing.JFrame {
         panelOpaco = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        tfNombrePresidente = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        tfApellidoPresidente = new javax.swing.JTextField();
+        bAceptar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        cbEquipoPresidente = new javax.swing.JComboBox<>();
         lFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -55,15 +61,33 @@ public class VentanaPresidente extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         panelOpaco.add(jLabel3);
         jLabel3.setBounds(40, 200, 100, 17);
-        panelOpaco.add(jTextField3);
-        jTextField3.setBounds(130, 200, 200, 20);
+        panelOpaco.add(tfNombrePresidente);
+        tfNombrePresidente.setBounds(130, 200, 200, 20);
 
-        jLabel4.setText("APELLIDO");
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setText("APELLIDO");
         panelOpaco.add(jLabel4);
         jLabel4.setBounds(40, 270, 130, 17);
-        panelOpaco.add(jTextField4);
-        jTextField4.setBounds(130, 270, 200, 20);
+        panelOpaco.add(tfApellidoPresidente);
+        tfApellidoPresidente.setBounds(130, 270, 200, 20);
+
+        bAceptar.setText("Aceptar");
+        bAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAceptarActionPerformed(evt);
+            }
+        });
+        panelOpaco.add(bAceptar);
+        bAceptar.setBounds(200, 390, 73, 23);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("EQUIPO");
+        panelOpaco.add(jLabel2);
+        jLabel2.setBounds(40, 330, 70, 20);
+
+        cbEquipoPresidente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        panelOpaco.add(cbEquipoPresidente);
+        cbEquipoPresidente.setBounds(130, 330, 200, 20);
 
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, 0, 400, 1080);
@@ -74,6 +98,26 @@ public class VentanaPresidente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
+      
+        Equipo e = new Equipo();
+       // e.setIdEquipo(cbEquipoPresidente.getSelectedIndex);
+      /*   
+        try {
+     
+     int insercion =  MainEsports.insertarPresidente(tfNombrePresidente.getText(),tfApellidoPresidente.getText(),tfEquipoPresidente.getText());
+     
+      if(insercion > 0){
+                JOptionPane.showMessageDialog(this,"Linea insertada correctamente");
+            }else{
+                JOptionPane.showMessageDialog(this,"ERROR AL INSERTAR");
+            }
+       }
+       catch (Exception e){
+           System.out.println("Error");
+       }*/
+    }//GEN-LAST:event_bAceptarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,12 +155,15 @@ public class VentanaPresidente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bAceptar;
+    private javax.swing.JComboBox<String> cbEquipoPresidente;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel lFondo;
     private javax.swing.JPanel panelOpaco;
+    private javax.swing.JTextField tfApellidoPresidente;
+    private javax.swing.JTextField tfNombrePresidente;
     // End of variables declaration//GEN-END:variables
 }
