@@ -20,12 +20,12 @@ public class EquipoDB {
         
         gdb.conectar();
         
-        String plantilla = "insert into equipos values (?,?,?)";
+        String plantilla = "insert into equipo (nombre,presupuesto,puntos)values (?,?,?)";
         PreparedStatement sentenciaPre = gdb.getCon().prepareStatement(plantilla);
         
-        sentenciaPre.setString(0, e.getNombre());
-        sentenciaPre.setInt(1, e.getPresupuesto());
-        sentenciaPre.setInt(2, e.getPuntos());
+        sentenciaPre.setString(1, e.getNombre());
+        sentenciaPre.setInt(2, e.getPresupuesto());
+        sentenciaPre.setInt(3, e.getPuntos());
         
         int insercion = sentenciaPre.executeUpdate();
         System.out.println(insercion);
