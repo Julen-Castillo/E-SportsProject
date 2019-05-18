@@ -143,6 +143,9 @@ public class VentanaEquipos extends javax.swing.JFrame {
             
             if(insercion > 0){
                 JOptionPane.showMessageDialog(this,"Linea insertada correctamente");
+                tfNombre.setText("");
+                tfPresupuesto.setText("");
+                tfPuntos.setText(""); 
             }else{
                 JOptionPane.showMessageDialog(this,"ERROR AL INSERTAR");
             }

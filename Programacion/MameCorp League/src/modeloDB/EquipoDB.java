@@ -41,24 +41,24 @@ public class EquipoDB {
         String plantilla = "update equipos set nombre=?,presupuesto=?,puntos=? where id_equipo=?";
         PreparedStatement sentenciaPre = gdb.getCon().prepareStatement(plantilla);
         
-        sentenciaPre.setString(0, nombre);
-        sentenciaPre.setInt(1, presupuesto);
-        sentenciaPre.setInt(2, puntos);
-        sentenciaPre.setInt(3, id_equipo);
+        sentenciaPre.setString(1, nombre);
+        sentenciaPre.setInt(2, presupuesto);
+        sentenciaPre.setInt(3, puntos);
+        sentenciaPre.setInt(4, id_equipo);
     
         int update = sentenciaPre.executeUpdate();
         System.out.println(update);
         
         gdb.cerrarCon();
     }
-    public void borrarEquipo(int id_equipo) throws Exception{
+    public void borrarEquipo(String nombre) throws Exception{
     
         gdb.conectar();
         
-        String plantilla = "delete from equipos where id_equipo=?";
+        String plantilla = "delete from equipos where nombre=?";
         PreparedStatement sentenciaPre = gdb.getCon().prepareStatement(plantilla);
         
-        sentenciaPre.setInt(0, id_equipo);
+        sentenciaPre.setString(1, nombre);
         
         int delete = sentenciaPre.executeUpdate();
         System.out.println(delete);        
