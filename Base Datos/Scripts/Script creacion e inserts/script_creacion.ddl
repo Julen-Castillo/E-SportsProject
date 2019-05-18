@@ -247,14 +247,14 @@ IF (v_num_jornada = 0) THEN --Dado que vamos a crear todas las jornadas a la vez
                             --Una vez insertada la primera los requisitos de jugadores por equipo se van a cumplir por lo que no hace falta volver a disparar el trigger.
     SELECT COUNT(*) INTO v_num_equipos  --Select para coger la cantidad de equipos
     FROM equipo;
-    LOOP --loop para saber cuantos jugadores hay por cada equipo y aplicar la restriccion
+    WHILE v_id_equipo <= v_num_equipos LOOP --loop para saber cuantos jugadores hay por cada equipo y aplicar la restriccion
         SELECT COUNT(*) INTO v_count_jugador  
         FROM jugador
         WHERE equipo_id_equipo = (v_id_equipo); -- Select para coger la cantidad de jugadores por cada equipo
-        v_id_equipo := v_id_equipo + 1;
         IF (v_count_jugador < 2) THEN 
         RAISE_APPLICATION_ERROR(-20003,'Los equipos tienen que tener minimo dos jugadores');
         END IF; 
+        v_id_equipo := v_id_equipo + 1;
     END LOOP;
 END IF;
 END;
@@ -273,7 +273,7 @@ BEGIN
     SELECT en_curso INTO v_estado_liga FROM liga; --Almacenamos el estado de la liga (boolean en_curso)
     IF(v_estado_liga = 0) THEN --Si la liga no ha comenzado ejecutamos lo siguiente
         SELECT COUNT(*) INTO v_count_equipos FROM EQUIPO; --Almacenamos los equipos que hay
-        LOOP --Iteramos a través de todos los equipos para determinar si algun equipo está vacío.
+        WHILE v_id_equipo <= v_count_equipos LOOP --Iteramos a través de todos los equipos para determinar si algun equipo está vacío.
             SELECT COUNT(*) INTO v_count_jugadores --Almacenamos el numero de jugadores de cada equipo
             FROM JUGADOR 
             WHERE equipo_id_equipo = v_id_equipo; 
