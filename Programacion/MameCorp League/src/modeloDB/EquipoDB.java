@@ -73,7 +73,7 @@ public class EquipoDB {
         
         Statement sentencia = gdb.getCon().createStatement();
         
-        resultado = sentencia.executeQuery("select * from equipos");
+        resultado = sentencia.executeQuery("select * from equipo");
         
         ArrayList<Equipo> listaEquipos = new ArrayList<>();
         while(resultado.next()){
