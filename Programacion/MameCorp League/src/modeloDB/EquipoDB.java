@@ -66,7 +66,7 @@ public class EquipoDB {
         gdb.cerrarCon();   
     }
     
-    public ArrayList<Equipo> consultarTodos() throws Exception{
+    public static ArrayList<Equipo> consultarTodos() throws Exception{
         
         
         gdb.conectar(); 
