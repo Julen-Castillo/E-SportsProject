@@ -40,5 +40,22 @@ public class SesionDB {
           return null;
         
     }
+    public static int insertarAdministrador(String nombre,String password) throws SQLException, Exception{
+         GenericoDB.conectar();
+         
+         String plantilla = "insert into sesion (nombre,password) values(?,?,'administrador')";
+         sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
+        
+          sentenciaPre.setString(1,nombre);
+          sentenciaPre.setString(2,password);
+          
+        int insercion = sentenciaPre.executeUpdate();
+        System.out.println(insercion);
+        
+        GenericoDB.cerrarCon();
+       
+        return insercion;
+    }
+    
     
 }
