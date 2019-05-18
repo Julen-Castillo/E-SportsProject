@@ -34,6 +34,9 @@ public class MainEsports {
     private static boolean EquipoEstaticoEsLocal = true; //Variable para conocer si estamos en los partidos de ida o vuelta.
     private static int numeroJornada = 1; //Variabla para trackear en que jornada nos encontramos
     private static Partido oPartido;
+    private static Jornada oJornada;
+    
+    
     
     
     public static void main(String[] args) throws SQLException, Exception {
@@ -177,25 +180,32 @@ public class MainEsports {
     }
     
 
-    public static void crearPartidos(){
+    public static void crearPartidos() throws Exception{
         //Creamos los emparejamientos
+        
         //PRIMER PARTIDO
         partido1 = new ArrayList();
         partido1.add(oEquipoEstatico); //primer equipo de la lista
         partido1.add(jornadaAnterior.get(posicionUltimoEquipoArray)); //lo emparejamos con el ultimo equipo del array
         System.out.println(partido1.get(0).getNombre() + " VS " + partido1.get(1).getNombre()); // 1 vs 6
         
-        oPartido = new Partido();
         
-        //Set datos partido 1
+        oPartido = new Partido();
+        oJornada = new Jornada();
+        
+        //SET DATOS PARTIDO 1
         //Para el primer partido de cada jornada nos es irrelevante saber si corresponde a la ida o la vuelta.
         if(EquipoEstaticoEsLocal){
             oPartido.setEquipoLocal(partido1.get(0));
             oPartido.setEquipoVisitante(partido1.get(1));
-            //getoJornada where id = numeroJornada
-            //oPartido.setoJornada(oJornada);
-            //listaPartidos.add(oPartido);
+            oJornada = JornadaDB.getObjetoJornada(numeroJornada);
+            oPartido.setoJornada(oJornada);      
             //insert lista partidos
+            PartidoDB.insertarPartido(oPartido);
+            
+            
+            
+            
             //Cambiamos el valor del bolean EquipoEstaticoEsLocal. Si esta jornada ha sido local la siguiente será visitante o viceversa. 
             EquipoEstaticoEsLocal = !EquipoEstaticoEsLocal;
         }
@@ -219,7 +229,7 @@ public class MainEsports {
         
         oPartido = new Partido();
         
-        //Set datos partido 2
+        //SET DATOS PARTIDO 2
         if(primeraVuelta){
             oPartido.setEquipoLocal(partido2.get(1));
             oPartido.setEquipoVisitante(partido2.get(0));
@@ -244,7 +254,7 @@ public class MainEsports {
         
         oPartido = new Partido();
         
-        //Set datos partido 3
+        //SET DATOS PARTIDO 3
         if(primeraVuelta){
             oPartido.setEquipoLocal(partido3.get(0));
             oPartido.setEquipoVisitante(partido3.get(1));
@@ -261,5 +271,10 @@ public class MainEsports {
             //listaPartidos.add(oPartido);
             //insert lista partidos
         }
+    }
+    
+    public static int randomWinner(){
+        int range = (1 - 0) + 1; 
+        return (int)(Math.random() * range) + 0;
     }
 } 
