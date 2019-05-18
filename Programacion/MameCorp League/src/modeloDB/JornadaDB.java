@@ -5,10 +5,43 @@
  */
 package modeloDB;
 
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import modelo.Jornada;
+
 /**
  *
  * @author 1gdaw03
  */
 public class JornadaDB {
     
+    private static ResultSet resultado;
+    
+    public static Jornada getObjetoJornada(int numeroJornada) throws SQLException, Exception{
+        
+        GenericoDB.conectar(); 
+        
+        String plantilla = "select * from jornada where id_jornada = ?";
+        PreparedStatement ps = GenericoDB.getCon().prepareStatement(plantilla);
+        
+        ps.setInt(1, numeroJornada);
+        resultado = ps.executeQuery();
+        
+        if(resultado.next()){
+            Jornada oJornada = new Jornada();
+            
+            oJornada.setIdJornada(resultado.getInt("id_jornada"));
+            oJornada.setFechaInicio(resultado.getDate("fecha_inicio").toLocalDate());
+            oJornada.setFechaFin(resultado.getDate("fecha_fin").toLocalDate());
+            oJornada.setIdJornada(resultado.getInt("liga_id_liga"));
+            
+            GenericoDB.cerrarCon();
+            return oJornada;
+        }
+        
+        GenericoDB.cerrarCon();
+        return null;       
+    }
 }

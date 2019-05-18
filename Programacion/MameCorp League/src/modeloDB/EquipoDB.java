@@ -66,14 +66,14 @@ public class EquipoDB {
         gdb.cerrarCon();   
     }
     
-    public ArrayList<Equipo> consultarTodos() throws Exception{
+    public static ArrayList<Equipo> consultarTodos() throws Exception{
         
         
         gdb.conectar(); 
         
         Statement sentencia = gdb.getCon().createStatement();
         
-        resultado = sentencia.executeQuery("select * from equipos");
+        resultado = sentencia.executeQuery("select * from equipo");
         
         ArrayList<Equipo> listaEquipos = new ArrayList<>();
         while(resultado.next()){
