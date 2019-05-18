@@ -19,9 +19,8 @@ public class SesionDB {
     }
     
     public static Sesion consultarUsuario(String usuario, String password) throws Exception{
-        System.out.println(usuario);
-        System.out.println(password);
-        GenericoDB.conectar();
+       
+         GenericoDB.conectar();
          String plantilla = "select * from sesion where USUARIO = ? and PASSWORD = ?";
          sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
          

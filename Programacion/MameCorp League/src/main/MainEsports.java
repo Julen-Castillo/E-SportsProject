@@ -17,6 +17,7 @@ public class MainEsports {
     private static Connection con;
     
     private static Sesion oSesion;
+    private static Jugador oJugador;
     
     
     public static void main(String[] args) throws SQLException {
@@ -79,5 +80,18 @@ public class MainEsports {
         oSesion = SesionDB.consultarUsuario(nombre,password);
         
         return oSesion;
+    }
+    
+    public static Jugador darBajaJugador(String nick) throws Exception{
+       oJugador = JugadorDB.consultarJugador(nick);
+       if (oJugador == null){
+           
+           return null;
+       }
+       else {
+           String jugador = oJugador.getNickname();
+       }
+       
+       return oJugador;    
     }
 } 
