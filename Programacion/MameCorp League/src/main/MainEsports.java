@@ -2,6 +2,7 @@ package main;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import modelo.*;
 import modeloDB.*;
@@ -35,6 +36,7 @@ public class MainEsports {
     private static int numeroJornada = 1; //Variabla para trackear en que jornada nos encontramos
     private static Partido oPartido;
     private static Jornada oJornada;
+    private static Liga oLiga;
     
 <<<<<<< HEAD
     public static void main(String[] args) throws SQLException {
@@ -58,7 +60,7 @@ public class MainEsports {
         // ControladorVista.mostrarVentanaVisualizarLiga();
         GenericoDB.conectar();
         con =  GenericoDB.getCon();
-        if(con != null){
+        if(con != null){           
             crearRoundRobinEmparejamientos();
             ControladorVista.mostrarLogin();
         }
@@ -173,6 +175,7 @@ public class MainEsports {
                 primeraVuelta = false;
             }
             //Pasamos a la siguiente jornada por lo que actualizamos el numero de jornada en el que nos encontramos.
+            System.out.println("FIN DE LA JORNADA NUMEROOOOOOOO: " + numeroJornada);
             numeroJornada++;
         }
     }
@@ -180,7 +183,7 @@ public class MainEsports {
     
     
     public static void crearArrayNextJornada(){
-        //Creamos la siguiente jornada
+        //Creamos la siguiente jornada, rotando las posiciones de los equipos en el array
         jornadaActual = new ArrayList();
         jornadaActual.add(jornadaAnterior.get(posicionUltimoEquipoArray)); //Pasamos el ultimo equipo de la jornada anterior a la primera posicion
         
@@ -220,14 +223,19 @@ public class MainEsports {
         if(EquipoEstaticoEsLocal){
             oPartido.setEquipoLocal(partido1.get(0));
             oPartido.setEquipoVisitante(partido1.get(1));
+            //Obtenemos el objeto de la liga para meterlo dentro del objeto jornada
+            oLiga = LigaDB.getObjetoLiga();
+            //Obtenemos el objeto de la jornada actual
             oJornada = JornadaDB.getObjetoJornada(numeroJornada);
-            oPartido.setoJornada(oJornada);      
-            //insert lista partidos
+            oJornada.setoLiga(oLiga);
+            oPartido.setoJornada(oJornada);
+            //Asignamos un ganador aleatorio
+            int winner = randomWinner();
+            oPartido.setEquipoVencedor(partido1.get(winner));            
+            System.out.println("INSERTO LA JORNADA NUMEROOOOOO: " + oPartido.getoJornada().getIdJornada());
+            //Insert partido
             PartidoDB.insertarPartido(oPartido);
-            
-            
-            
-            
+
             //Cambiamos el valor del bolean EquipoEstaticoEsLocal. Si esta jornada ha sido local la siguiente será visitante o viceversa. 
             EquipoEstaticoEsLocal = !EquipoEstaticoEsLocal;
         }

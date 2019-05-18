@@ -31,13 +31,13 @@ public class JornadaDB {
         
         if(resultado.next()){
             Jornada oJornada = new Jornada();
-            
+            System.out.println("METO CON RESULTADOOOOOO EEEEEL: " + resultado.getInt("id_jornada"));
             oJornada.setIdJornada(resultado.getInt("id_jornada"));
             oJornada.setFechaInicio(resultado.getDate("fecha_inicio").toLocalDate());
             oJornada.setFechaFin(resultado.getDate("fecha_fin").toLocalDate());
-            oJornada.setIdJornada(resultado.getInt("liga_id_liga"));
             
             GenericoDB.cerrarCon();
+            System.out.println("jornada en dbbbbbbbbbbbb " + oJornada.getIdJornada());
             return oJornada;
         }
         
