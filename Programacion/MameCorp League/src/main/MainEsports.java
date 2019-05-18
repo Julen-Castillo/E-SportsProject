@@ -38,20 +38,7 @@ public class MainEsports {
     private static Jornada oJornada;
     private static Liga oLiga;
     
-<<<<<<< HEAD
-    public static void main(String[] args) throws SQLException {
-        
-        //La linea de abajo está comentada porque todavia no está implementado el login
-       // ControladorVista.mostrarVentanaVisualizarLiga();
-       GenericoDB.conectar();
-          con =  GenericoDB.getCon();
-          if(con != null)
-         ControladorVista.mostrarLogin();
-          //ControladorVista.mostrarVentanaAdministradores();
-     
 
-=======
-    
     
     
     public static void main(String[] args) throws SQLException, Exception {
@@ -64,7 +51,6 @@ public class MainEsports {
             crearRoundRobinEmparejamientos();
             ControladorVista.mostrarLogin();
         }
->>>>>>> development
     }
     
     public static void consultarEquipos() throws Exception{
