@@ -119,6 +119,7 @@ public class Login extends javax.swing.JFrame {
          * Al hacer click en este botón, abrimos el formulario para crear usuarios
          */
         ControladorVista.mostrarVentanaRegistroUsuarios();
+        this.dispose();
     }//GEN-LAST:event_bRegistrarUsuarioActionPerformed
 
     private void bEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEntrarActionPerformed

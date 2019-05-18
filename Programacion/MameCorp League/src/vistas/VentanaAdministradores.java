@@ -1,6 +1,10 @@
 package vistas;
 
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import main.MainEsports;
 
 /**
  *
@@ -32,8 +36,8 @@ public class VentanaAdministradores extends javax.swing.JFrame {
     private void initComponents() {
 
         panelOpaco = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        tfNombre = new javax.swing.JTextField();
+        tfPassword = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -48,13 +52,13 @@ public class VentanaAdministradores extends javax.swing.JFrame {
 
         panelOpaco.setLayout(null);
 
-        jTextField1.setBorder(null);
-        panelOpaco.add(jTextField1);
-        jTextField1.setBounds(151, 313, 178, 26);
+        tfNombre.setBorder(null);
+        panelOpaco.add(tfNombre);
+        tfNombre.setBounds(151, 313, 178, 26);
 
-        jPasswordField1.setBorder(null);
-        panelOpaco.add(jPasswordField1);
-        jPasswordField1.setBounds(151, 445, 178, 25);
+        tfPassword.setBorder(null);
+        panelOpaco.add(tfPassword);
+        tfPassword.setBounds(151, 445, 178, 25);
 
         jLabel2.setText("NOMBRE");
         panelOpaco.add(jLabel2);
@@ -112,7 +116,22 @@ public class VentanaAdministradores extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuSalirMouseClicked
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-
+        try {
+            int insercion = MainEsports.insertarAdministrador(tfNombre.getText(),String.valueOf(tfPassword.getPassword()));
+            
+            
+            if(insercion > 0){
+                JOptionPane.showMessageDialog(this,"Linea insertada correctamente");
+                tfNombre.setText("");
+                tfPassword.setText(""); 
+            }else{
+                JOptionPane.showMessageDialog(this,"ERROR AL INSERTAR");
+            }
+            
+            
+        } catch (Exception ex) {
+            System.out.println("Excepcion " + ex.getMessage());
+        }
     }//GEN-LAST:event_bAceptarActionPerformed
 
     /**
@@ -159,8 +178,8 @@ public class VentanaAdministradores extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuSalir;
     private javax.swing.JMenu jMenuVolver;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelOpaco;
+    private javax.swing.JTextField tfNombre;
+    private javax.swing.JPasswordField tfPassword;
     // End of variables declaration//GEN-END:variables
 }

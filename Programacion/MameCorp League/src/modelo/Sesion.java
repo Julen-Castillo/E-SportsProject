@@ -16,14 +16,16 @@ public class Sesion {
     private String password;
     private String tipoUsuario;
 
-    public Sesion(String nombreUsuario, String password, String tipoUsuario) {
+    public Sesion(String nombreUsuario, String password) {
         this.nombreUsuario = nombreUsuario;
         this.password = password;
-        this.tipoUsuario = tipoUsuario;
+
     }
 
     public Sesion() {
     }
+
+  
     
 
     public int getIdUsuario() {
