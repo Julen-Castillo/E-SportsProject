@@ -44,6 +44,7 @@ public void mostrarOocultarfields(){
         tfNombre.setEnabled(false);
         tfApellido.setEnabled(false);
         cbPosicion.setEnabled(false);
+        MainEsports.darBajaJugador(tfNick.getText());
         
     }
     }

@@ -1,6 +1,8 @@
 package vistas;
 
 import java.awt.ComponentOrientation;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -405,7 +407,11 @@ public class VentanaCategoria extends javax.swing.JFrame {
            }
            else {
                if (operacionActiva.equals("presidente")){
-                   ControladorVista.mostrarVentanaPresidente("modificar");
+                   try {
+                       ControladorVista.mostrarVentanaPresidente("modificar");
+                   } catch (Exception ex) {
+                       Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+                   }
                }
                else {
                  if  (operacionActiva.equals("equipo")){
@@ -450,7 +456,11 @@ public class VentanaCategoria extends javax.swing.JFrame {
            }
            else {
                if (operacionActiva.equals("presidente")){
-                   ControladorVista.mostrarVentanaPresidente("baja");
+                   try {
+                       ControladorVista.mostrarVentanaPresidente("baja");
+                   } catch (Exception ex) {
+                       Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+                   }
                }
                else {
                  if  (operacionActiva.equals("equipo")){
@@ -478,7 +488,11 @@ public class VentanaCategoria extends javax.swing.JFrame {
            }
            else {
                if (operacionActiva.equals("presidente")){
-                   ControladorVista.mostrarVentanaPresidente("alta");
+                   try {
+                       ControladorVista.mostrarVentanaPresidente("alta");
+                   } catch (Exception ex) {
+                       Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+                   }
                }
                else {
                  if  (operacionActiva.equals("equipo")){
