@@ -88,7 +88,7 @@ public class MainEsports {
     }
     public static int insertarAdministrador(String nombre,String password) throws Exception{
     
-        Sesion oSesion = new Sesion(nombre,password);
+        oSesion = new Sesion(nombre,password);
         SesionDB sesionDB = new SesionDB();
         
         return SesionDB.insertarAdministrador(nombre,password);
@@ -126,6 +126,9 @@ public class MainEsports {
     
     
     public static void crearRoundRobinEmparejamientos() throws Exception{
+        //Obtenemos el objeto de la liga para meterlo dentro del objeto jornada posteriormente
+        oLiga = LigaDB.getObjetoLiga();
+        
         //Obtenemos todos los equipos de la liga
         listaEquipos = EquipoDB.consultarTodos();
         
@@ -161,7 +164,7 @@ public class MainEsports {
                 primeraVuelta = false;
             }
             //Pasamos a la siguiente jornada por lo que actualizamos el numero de jornada en el que nos encontramos.
-            System.out.println("FIN DE LA JORNADA NUMEROOOOOOOO: " + numeroJornada);
+            System.out.println("FIN DE LA JORNADA NUMERO: " + numeroJornada);
             numeroJornada++;
         }
     }
@@ -179,12 +182,12 @@ public class MainEsports {
         }
         
         //Array de la jornada anterior
-        System.out.println("Jornada anterior");
+        System.out.println("Array Jornada Anterior");
         for(int i = 0; i < listaEquipos.size(); i++){
             System.out.println(jornadaAnterior.get(i).getIdEquipo());
         }
         //Array de la nueva jornada
-        System.out.println("Jornada actual");
+        System.out.println("Array Jornada Actual");
         for(int i = 0; i < listaEquipos.size(); i++){
             System.out.println(jornadaActual.get(i).getIdEquipo());
         }     
@@ -192,101 +195,92 @@ public class MainEsports {
     
 
     public static void crearPartidos() throws Exception{
-        //Creamos los emparejamientos
+        System.out.println("PARTIDOS");
+        //Obtenemos el objeto de la jornada actual para meterlo dentro del objeto partido
+        oJornada = JornadaDB.getObjetoJornada(numeroJornada);
         
-        //PRIMER PARTIDO
+        //PARTIDO 1
         partido1 = new ArrayList();
         partido1.add(oEquipoEstatico); //primer equipo de la lista
         partido1.add(jornadaAnterior.get(posicionUltimoEquipoArray)); //lo emparejamos con el ultimo equipo del array
         System.out.println(partido1.get(0).getNombre() + " VS " + partido1.get(1).getNombre()); // 1 vs 6
-        
-        
-        oPartido = new Partido();
-        oJornada = new Jornada();
+
         
         //SET DATOS PARTIDO 1
+        oPartido = new Partido();
+        
         //Para el primer partido de cada jornada nos es irrelevante saber si corresponde a la ida o la vuelta.
         if(EquipoEstaticoEsLocal){
             oPartido.setEquipoLocal(partido1.get(0));
             oPartido.setEquipoVisitante(partido1.get(1));
-            //Obtenemos el objeto de la liga para meterlo dentro del objeto jornada
-            oLiga = LigaDB.getObjetoLiga();
-            //Obtenemos el objeto de la jornada actual
-            oJornada = JornadaDB.getObjetoJornada(numeroJornada);
-            oJornada.setoLiga(oLiga);
-            oPartido.setoJornada(oJornada);
-            //Asignamos un ganador aleatorio
-            int winner = randomWinner();
-            oPartido.setEquipoVencedor(partido1.get(winner));            
-            System.out.println("INSERTO LA JORNADA NUMEROOOOOO: " + oPartido.getoJornada().getIdJornada());
-            //Insert partido
-            PartidoDB.insertarPartido(oPartido);
-
-            //Cambiamos el valor del bolean EquipoEstaticoEsLocal. Si esta jornada ha sido local la siguiente será visitante o viceversa. 
-            EquipoEstaticoEsLocal = !EquipoEstaticoEsLocal;
         }
         else{
             oPartido.setEquipoLocal(partido1.get(1));
-            oPartido.setEquipoVisitante(partido1.get(0));
-            //getoJornada where id = numeroJornada
-            //oPartido.setoJornada(oJornada);
-            //listaPartidos.add(oPartido);
-            //insert lista partidos
-            //Cambiamos el valor del bolean EquipoEstaticoEsLocal. Si esta jornada ha sido local la siguiente será visitante o viceversa. 
-            EquipoEstaticoEsLocal = !EquipoEstaticoEsLocal;
+            oPartido.setEquipoVisitante(partido1.get(0));   
         }
+        oPartido.setEquipoVencedor(partido1.get(randomWinner()));            
+        insertPartidos();
+        updatePuntosEquipo();
 
         
-        //SEGUNDO PARTIDO
+        //PARTIDO 2
         partido2 = new ArrayList();
         partido2.add(jornadaAnterior.get(0)); //segundo equipo de la lista (es el primero del array)
         partido2.add(jornadaAnterior.get(posicionUltimoEquipoArray - 1)); //lo emparejamos contra el penultimo 
         System.out.println(partido2.get(0).getNombre() + " VS " + partido2.get(1).getNombre()); // 2 vs 5
-        
-        oPartido = new Partido();
+
         
         //SET DATOS PARTIDO 2
+        oPartido = new Partido();
+        
         if(primeraVuelta){
             oPartido.setEquipoLocal(partido2.get(1));
-            oPartido.setEquipoVisitante(partido2.get(0));
-            //getoJornada where id = numeroJornada
-            //oPartido.setoJornada(oJornada);
-            //listaPartidos.add(oPartido);
-            //insert lista partidos
+            oPartido.setEquipoVisitante(partido2.get(0));      
         }
         else{
             oPartido.setEquipoLocal(partido2.get(0));
             oPartido.setEquipoVisitante(partido2.get(1));
-            //getoJornada where id = numeroJornada
-            //oPartido.setoJornada(oJornada);
-            //listaPartidos.add(oPartido);
-            //insert lista partidos
         }
+        oPartido.setEquipoVencedor(partido2.get(randomWinner()));            
+        insertPartidos();
+        updatePuntosEquipo();
         
+        //PARTIDO 3
         partido3 = new ArrayList();
         partido3.add(jornadaAnterior.get(1)); //tercer equipo de la lista (es el segundo del array)
         partido3.add(jornadaAnterior.get(posicionUltimoEquipoArray - 2)); //lo emparejamos contra el antepenultimo
         System.out.println(partido3.get(0).getNombre() + " VS " + partido3.get(1).getNombre()); // 3 vs 4
-        
-        oPartido = new Partido();
+
         
         //SET DATOS PARTIDO 3
+        oPartido = new Partido();
+        
         if(primeraVuelta){
             oPartido.setEquipoLocal(partido3.get(0));
             oPartido.setEquipoVisitante(partido3.get(1));
-            //getoJornada where id = numeroJornada
-            //oPartido.setoJornada(oJornada);
-            //listaPartidos.add(oPartido);
-            //insert lista partidos
         }
         else{
             oPartido.setEquipoLocal(partido3.get(1));
             oPartido.setEquipoVisitante(partido3.get(0));
-            //getoJornada where id = numeroJornada
-            //oPartido.setoJornada(oJornada);
-            //listaPartidos.add(oPartido);
-            //insert lista partidos
         }
+        oPartido.setEquipoVencedor(partido1.get(randomWinner()));            
+        insertPartidos();
+        updatePuntosEquipo();
+    }
+    
+    
+    public static void insertPartidos() throws Exception{
+        oJornada.setoLiga(oLiga);
+        oPartido.setoJornada(oJornada);
+        //Insert partido
+        PartidoDB.insertarPartido(oPartido);
+
+        //Cambiamos el valor del bolean EquipoEstaticoEsLocal. Si esta jornada ha sido local la siguiente será visitante o viceversa. 
+        EquipoEstaticoEsLocal = !EquipoEstaticoEsLocal;
+    }
+    
+    public static void updatePuntosEquipo() throws Exception{
+        EquipoDB.updatePuntosEquipo(oPartido);
     }
     
     public static int randomWinner(){
