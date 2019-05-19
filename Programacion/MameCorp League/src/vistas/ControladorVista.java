@@ -54,7 +54,7 @@ public class ControladorVista {
     public static void OcultarVentanaEquipos(){
         vEquipos.dispose();
     }
-    public static void mostrarVentanaJugador(String operacionActiva){
+    public static void mostrarVentanaJugador(String operacionActiva) throws Exception{
         vJugador = new VentanaJugador(operacionActiva);
         vJugador.setVisible(true);
     } 
