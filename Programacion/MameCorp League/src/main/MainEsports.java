@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import modelo.*;
 import modeloDB.*;
 import vistas.*;
@@ -124,9 +125,19 @@ public class MainEsports {
        }
        else {
            String jugador = oJugador.getNickname();
+           JugadorDB.darBajaJugador(jugador);
        }
        
        return oJugador;    
+    }
+    public static Jugador modificarJugador(String nick,int sueldo,boolean titularidad, String posicion) throws Exception{
+        
+        oJugador = JugadorDB.modificarJugador(nick,sueldo,titularidad,posicion);
+        if (oJugador == null){
+        JOptionPane.showMessageDialog(null, "Este jugador no exisate");
+            return null;
+        }
+        return null;
     }
     
     

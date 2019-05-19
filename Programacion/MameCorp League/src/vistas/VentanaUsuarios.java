@@ -1,5 +1,8 @@
 package vistas;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author N3Essential
@@ -222,7 +225,11 @@ public class VentanaUsuarios extends javax.swing.JFrame {
 
     private void bJornadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJornadasActionPerformed
         operacionActiva = "jornada";
-        ControladorVista.mostrarVentanaVisualizarJornada();
+        try {
+            ControladorVista.mostrarVentanaVisualizarJornada();
+        } catch (Exception ex) {
+            Logger.getLogger(VentanaUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
     }//GEN-LAST:event_bJornadasActionPerformed
     

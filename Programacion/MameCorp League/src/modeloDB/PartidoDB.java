@@ -58,9 +58,9 @@ public class PartidoDB {
         
         while(resultado.next()){
             oPartido = new Partido();
-            oPartido.setEquipoLocal(resultado.getInt("equipo_id_equipo"));
+          //  oPartido.setEquipoLocal(resultado.getInt("equipo_id_equipo"));
             
-            select de ese equipo
+          //  select de ese equipo
 
             
             listaPartidos.add(oPartido);
