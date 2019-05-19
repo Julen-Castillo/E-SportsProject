@@ -105,10 +105,7 @@ public class MainEsports {
       */
 
     public static Sesion comprobarLogin(String nombre,String password) throws Exception{
-    
-        oSesion = SesionDB.consultarUsuario(nombre,password);
-        
-        return oSesion;
+        return SesionDB.consultarUsuario(nombre,password);
     }
     
     public static Jugador darBajaJugador(String nick) throws Exception{

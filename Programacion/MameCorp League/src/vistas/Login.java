@@ -22,19 +22,11 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     private static Sesion oSesion;
+    
     public Login() {
         initComponents();
         setLocationRelativeTo(null);
-        
-
-        
     }
-
-
-    
-     
-    
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -70,6 +62,7 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setText("Contraseña:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, -1, -1));
 
+        tfPassword.setBorder(null);
         tfPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfPasswordActionPerformed(evt);
@@ -77,6 +70,7 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(tfPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 210, 30));
 
+        tfNombre.setBorder(null);
         tfNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfNombreActionPerformed(evt);
