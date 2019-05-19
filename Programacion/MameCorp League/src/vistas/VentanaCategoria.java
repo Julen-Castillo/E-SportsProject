@@ -47,6 +47,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bConsultar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        bLogOut = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuCategoria = new javax.swing.JMenu();
@@ -63,7 +64,6 @@ public class VentanaCategoria extends javax.swing.JFrame {
         miEliminar = new javax.swing.JMenuItem();
         jMenuVolver = new javax.swing.JMenu();
         jMenuSalir = new javax.swing.JMenu();
-        jmLogOut = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -76,7 +76,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bJornadas.setBorder(null);
         bJornadas.setBorderPainted(false);
         bJornadas.setContentAreaFilled(false);
-        bJornadas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bJornadas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bJornadas.setFocusPainted(false);
         bJornadas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,7 +92,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bEquipos.setText("    EQUIPOS");
         bEquipos.setBorder(null);
         bEquipos.setContentAreaFilled(false);
-        bEquipos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bEquipos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bEquipos.setFocusPainted(false);
         bEquipos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +108,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bJugadores.setText("   JUGADORES");
         bJugadores.setBorder(null);
         bJugadores.setContentAreaFilled(false);
-        bJugadores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bJugadores.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bJugadores.setFocusPainted(false);
         bJugadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +124,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bPartidos.setText("    PARTIDOS");
         bPartidos.setBorder(null);
         bPartidos.setContentAreaFilled(false);
-        bPartidos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bPartidos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bPartidos.setFocusPainted(false);
         bPartidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,7 +140,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bPresidentes.setText("  PRESIDENTES");
         bPresidentes.setBorder(null);
         bPresidentes.setContentAreaFilled(false);
-        bPresidentes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bPresidentes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bPresidentes.setFocusPainted(false);
         bPresidentes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,7 +156,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bLiga.setText("        LIGA");
         bLiga.setBorder(null);
         bLiga.setContentAreaFilled(false);
-        bLiga.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bLiga.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bLiga.setFocusPainted(false);
         bLiga.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -177,7 +177,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bAlta.setText("       ALTA");
         bAlta.setBorder(null);
         bAlta.setContentAreaFilled(false);
-        bAlta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bAlta.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bAlta.setFocusPainted(false);
         bAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,7 +193,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bModificar.setText("   MODIFICAR");
         bModificar.setBorder(null);
         bModificar.setContentAreaFilled(false);
-        bModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bModificar.setFocusPainted(false);
         bModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,7 +209,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bBaja.setText("         BAJA");
         bBaja.setBorder(null);
         bBaja.setContentAreaFilled(false);
-        bBaja.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bBaja.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bBaja.setFocusPainted(false);
         bBaja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,7 +225,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bConsultar.setText("   CONSULTAR");
         bConsultar.setBorder(null);
         bConsultar.setContentAreaFilled(false);
-        bConsultar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bConsultar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bConsultar.setFocusPainted(false);
         bConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -243,6 +243,14 @@ public class VentanaCategoria extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("jLabel3:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1638, 40, 110, -1));
+
+        bLogOut.setText("Log Out!");
+        bLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bLogOutActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1750, 130, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/FondoCategoria.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-260, -630, 3500, 2650));
@@ -341,15 +349,6 @@ public class VentanaCategoria extends javax.swing.JFrame {
                 jMenuSalirMouseClicked(evt);
             }
         });
-
-        jmLogOut.setText("LogOut");
-        jmLogOut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmLogOutActionPerformed(evt);
-            }
-        });
-        jMenuSalir.add(jmLogOut);
-
         jMenuBar1.add(jMenuSalir);
 
         setJMenuBar(jMenuBar1);
@@ -383,10 +382,6 @@ public class VentanaCategoria extends javax.swing.JFrame {
         //this.dispose();
        // ControladorVista.mostrarVentanaJugador();
     }//GEN-LAST:event_bJugadoresActionPerformed
-
-    private void jMenuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSalirMouseClicked
-       System.exit(0);
-    }//GEN-LAST:event_jMenuSalirMouseClicked
 
     private void miLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miLigaActionPerformed
         bLiga.doClick();
@@ -540,11 +535,17 @@ public class VentanaCategoria extends javax.swing.JFrame {
         ocultarBotonesYMostrarCrud();
     }//GEN-LAST:event_miAdministradoresActionPerformed
 
-    private void jmLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmLogOutActionPerformed
-        // TODO add your handling code here:
+    private void jMenuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSalirMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jMenuSalirMouseClicked
+
+    private void bLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLogOutActionPerformed
+        /**
+         * El botón de LogOut devuelve al usuario a la ventana de LogIn
+         */
         this.dispose();
         ControladorVista.mostrarLogin();
-    }//GEN-LAST:event_jmLogOutActionPerformed
+    }//GEN-LAST:event_bLogOutActionPerformed
     
     public final void disableCRUD(){
         bAlta.setVisible(false);
@@ -618,6 +619,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
     private javax.swing.JButton bJornadas;
     private javax.swing.JButton bJugadores;
     private javax.swing.JButton bLiga;
+    private javax.swing.JButton bLogOut;
     private javax.swing.JButton bModificar;
     private javax.swing.JButton bPartidos;
     private javax.swing.JButton bPresidentes;
@@ -630,7 +632,6 @@ public class VentanaCategoria extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuSalir;
     private javax.swing.JMenu jMenuUsuarios;
     private javax.swing.JMenu jMenuVolver;
-    private javax.swing.JMenuItem jmLogOut;
     private javax.swing.JMenuItem miAdministradores;
     private javax.swing.JMenuItem miConsultar;
     private javax.swing.JMenuItem miEliminar;

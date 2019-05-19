@@ -6,6 +6,7 @@
 package vistas;
 
 import java.awt.Color;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,7 +21,8 @@ public class VentanaRegistroUsuarios extends javax.swing.JFrame {
     public VentanaRegistroUsuarios() {
         initComponents();
         setLocationRelativeTo(null);
-         panelOpaco.setBackground(new Color(5,0,25,190));
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        panelOpaco.setBackground(new Color(5,0,25,190));
     }
 
     /**
@@ -51,15 +53,19 @@ public class VentanaRegistroUsuarios extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgLogin/Mamecorp White.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("REGISTRO DE USUARIO");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Nombre de usuario:");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Contraseña:");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Repite la contraseña");
 
         bVolver.setText("No quiero registrarme");
