@@ -33,7 +33,7 @@ public class PartidoDB {
          
         int insercion = ps.executeUpdate();
         
-        GenericoDB.cerrarCon();
+        //GenericoDB.cerrarCon(); //Desactivada por problemas tecnicos
 
         return insercion;
     }

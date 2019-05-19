@@ -13,12 +13,16 @@ public class VentanaUsuarios extends javax.swing.JFrame {
      * Creates new form VentanaCategoria
      */
     public VentanaUsuarios() {
+        System.out.println("entro en constructor ventana user");
         setUndecorated(true);
+        System.out.println("undecorated done");
         initComponents();
+        System.out.println("init c done");
         setAlwaysOnTop(rootPaneCheckingEnabled);
+        System.out.println("set done");
         setExtendedState(MAXIMIZED_BOTH);
-        
-        setVisible(true); 
+        System.out.println("set ex done");
+        //setVisible(true); 
     }
 
     /**
@@ -314,8 +318,6 @@ public class VentanaUsuarios extends javax.swing.JFrame {
    
     
     public void ocultarBotonesYMostrarCrud(){
-      
-        
         bVisualizarLiga.setVisible(false);
         bVisualizarJornadas.setVisible(false);
        
