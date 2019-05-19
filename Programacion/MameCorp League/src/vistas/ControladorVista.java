@@ -20,6 +20,8 @@ public class ControladorVista {
     private static VentanaPresidente vModPresidente;
     private static VentanaUsuarios vUsuarios;
     private static VentanaVisualizarLiga vVisualizarLiga;
+    private static VentanaVisualizarJornada vVisualizarJornada;
+    private static VentanaVisualizarEquipos vVisualizarEquipos;
     private static Login vLogin;
     private static VentanaRegistroUsuarios vRegistroUsuarios;
     
@@ -84,8 +86,17 @@ public class ControladorVista {
         vUsuarios = new VentanaUsuarios();
         vUsuarios.setVisible(true);
     }
+    
     public static void OcultarVentanaUsuarios(){
         vUsuarios.dispose();
+    }
+    public static void mostrarVentanaVisualizarJornada() throws Exception{
+        vVisualizarJornada = new VentanaVisualizarJornada();
+        vVisualizarJornada.setVisible(true);
+    }
+    public static void mostrarVentanaVisualizarEquipos(){
+        vVisualizarEquipos = new VentanaVisualizarEquipos();
+        vVisualizarEquipos.setVisible(true);
     }
     public static void mostrarVentanaVisualizarLiga(){
         vVisualizarLiga = new VentanaVisualizarLiga();
@@ -93,6 +104,9 @@ public class ControladorVista {
     }
     public static void OcultarVentanaVisualizarLiga(){
         vVisualizarLiga.dispose();
+    }
+    public static void OcultarVentanaVisualizarJornada(){
+        vVisualizarJornada.dispose();
     }
     public static void mostrarLogin(){
         vLogin = new Login();

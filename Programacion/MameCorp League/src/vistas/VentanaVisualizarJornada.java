@@ -6,19 +6,53 @@
 package vistas;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import main.MainEsports;
+import modelo.Jornada;
+import modelo.Partido;
 
 /**
  *
  * @author 1gdaw03
  */
 public class VentanaVisualizarJornada extends javax.swing.JFrame {
+    
 
+    private static ArrayList<Partido> listaPartidos;
+    private static ArrayList<Jornada> listaJornadas;
+    
     /**
      * Creates new form VentanaVisualizarJornada
+     * @throws java.lang.Exception
      */
-    public VentanaVisualizarJornada() {
+    public VentanaVisualizarJornada() throws Exception {
+        setUndecorated(true);
         initComponents();
+        setAlwaysOnTop(rootPaneCheckingEnabled);
+        setExtendedState(MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(39, 118, 173,150));
+        llenarComboBoxJornadas();
+        //consultarPartidos();
+        setDatosPrimeraJornada();
+    }
+    
+    public void llenarComboBoxJornadas() throws Exception{
+        listaJornadas = MainEsports.consultarJornadas();
+        
+        //Llenamos la combo box
+        for(int i = 0; i < listaJornadas.size(); i++){
+            cbJornada.addItem("Jornada" + listaJornadas.get(i).getIdJornada());
+        }
+    }
+    
+    public void consultarPartidos() throws Exception{
+        listaPartidos = MainEsports.consultarPartidos();
+    }
+    
+    public void setDatosPrimeraJornada() throws Exception{
+        
     }
 
     /**
@@ -46,39 +80,61 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgJornada/VS.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgJornada/Versus_icon (1).png"))); // NOI18N
 
-        cbJornada.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jornada 1", "Jornada 2", "Jornada 3", "Jornada 4", "Jornada 5", "Jornada 6" }));
+        tfEquipoVisitante3.setBorder(null);
+
         cbJornada.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cbJornada.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbJornadaItemStateChanged(evt);
+            }
+        });
+
+        tfEquipoVisitante2.setBorder(null);
+
+        tfEquipoVisitante1.setBorder(null);
+
+        tfEquipoLocal1.setBorder(null);
+
+        tfEquipoLocal2.setBorder(null);
+
+        tfEquipoLocal3.setBorder(null);
 
         bVolver.setText("Volver");
+        bVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVolverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelOpacoLayout = new javax.swing.GroupLayout(panelOpaco);
         panelOpaco.setLayout(panelOpacoLayout);
         panelOpacoLayout.setHorizontalGroup(
             panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOpacoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cbJornada, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(433, 433, 433))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpacoLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tfEquipoLocal1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfEquipoLocal2, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfEquipoLocal3, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEquipoLocal3, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEquipoLocal2, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(jLabel2)
                 .addGap(41, 41, 41)
                 .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(tfEquipoVisitante3, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfEquipoVisitante2, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfEquipoVisitante1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28))
-            .addGroup(panelOpacoLayout.createSequentialGroup()
-                .addGap(481, 481, 481)
-                .addComponent(bVolver)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpacoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpacoLayout.createSequentialGroup()
+                        .addComponent(cbJornada, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(433, 433, 433))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpacoLayout.createSequentialGroup()
+                        .addComponent(bVolver)
+                        .addGap(493, 493, 493))))
         );
         panelOpacoLayout.setVerticalGroup(
             panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,38 +144,52 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
                 .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelOpacoLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tfEquipoVisitante1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfEquipoVisitante1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
-                        .addComponent(tfEquipoVisitante2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(tfEquipoVisitante3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(117, 117, 117))
+                        .addComponent(tfEquipoVisitante2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(tfEquipoVisitante3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(106, 106, 106))
                     .addGroup(panelOpacoLayout.createSequentialGroup()
-                        .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(42, 42, 42)
+                        .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(panelOpacoLayout.createSequentialGroup()
-                                .addGap(90, 90, 90)
-                                .addComponent(tfEquipoLocal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tfEquipoLocal1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29)
-                                .addComponent(tfEquipoLocal2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29)
-                                .addComponent(tfEquipoLocal3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelOpacoLayout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                                .addComponent(tfEquipoLocal2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35)
+                                .addComponent(tfEquipoLocal3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addComponent(bVolver)
-                        .addContainerGap())))
+                        .addContainerGap(16, Short.MAX_VALUE))))
         );
 
         getContentPane().add(panelOpaco);
-        panelOpaco.setBounds(170, 140, 1060, 360);
+        panelOpaco.setBounds(460, 290, 1060, 360);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgJornada/FondoJornada.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgJornada/FondoJornada_1.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(-440, -270, 1860, 1160);
+        jLabel1.setBounds(0, 0, 2050, 1200);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
+        ControladorVista.OcultarVentanaVisualizarJornada();
+        ControladorVista.mostrarVentanaUsuarios();
+    }//GEN-LAST:event_bVolverActionPerformed
+
+    private void cbJornadaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbJornadaItemStateChanged
+        switch(cbJornada.getSelectedIndex()){
+            case 1: tfEquipoLocal1.setText("hola11111111");
+            break;
+            case 2: tfEquipoLocal1.setText("hola222222");
+            break;
+    
+        }
+    }//GEN-LAST:event_cbJornadaItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -151,7 +221,11 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaVisualizarJornada().setVisible(true);
+                try {
+                    new VentanaVisualizarJornada().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(VentanaVisualizarJornada.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
