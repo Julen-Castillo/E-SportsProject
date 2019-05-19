@@ -32,12 +32,10 @@ public class PartidoDB {
         ps.setDate(5, Date.valueOf(sysdate));
          
         int insercion = ps.executeUpdate();
-        System.out.println("partido insertado? " + insercion);
         
-       GenericoDB.cerrarCon();
-       
-       return insercion;
-        
+        GenericoDB.cerrarCon();
+
+        return insercion;
     }
     
 }
