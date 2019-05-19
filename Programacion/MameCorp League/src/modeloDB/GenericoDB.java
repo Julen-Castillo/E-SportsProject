@@ -19,7 +19,7 @@ public class GenericoDB {
             //String url="jdbc:oracle:thin:@SrvOracle:1521:orcl";
             String url="jdbc:oracle:thin:@localhost:1521:xe";
             // String url="jdbc:oracle:thin:oracle_clase:1521:db12102";
-            con = DriverManager.getConnection(url,"course","myipod12");
+            con = DriverManager.getConnection(url,"course","x");
             //con = DriverManager.getConnection(url,"eqdaw01","eqdaw01");
             // con = DriverManager.getConnection(url,"sys","oracle");
 
