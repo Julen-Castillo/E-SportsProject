@@ -5,11 +5,13 @@
  */
 package modeloDB;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import modelo.Jornada;
+import modelo.Liga;
 
 /**
  *
@@ -18,6 +20,7 @@ import modelo.Jornada;
 public class JornadaDB {
     
     private static ResultSet resultado;
+    private static Statement st;
     
     public static Jornada getObjetoJornada(int numeroJornada) throws SQLException, Exception{
         
@@ -43,4 +46,29 @@ public class JornadaDB {
         GenericoDB.cerrarCon();
         return null;       
     }
+    
+    public static ArrayList<Jornada> consultarJornadas(Liga oLiga) throws SQLException, Exception{
+        
+        GenericoDB.conectar(); 
+        
+        st = GenericoDB.getCon().createStatement();
+        resultado = st.executeQuery("select * from jornada");
+        
+        ArrayList<Jornada> listaJornadas = new ArrayList();
+        Jornada oJornada;
+        
+        while(resultado.next()){
+            oJornada = new Jornada();
+            oJornada.setIdJornada(resultado.getInt("id_jornada"));
+            oJornada.setFechaInicio(resultado.getDate("fecha_inicio").toLocalDate());
+            oJornada.setFechaFin(resultado.getDate("fecha_fin").toLocalDate());
+            oJornada.setoLiga(oLiga);
+            
+            listaJornadas.add(oJornada);
+        }
+
+        GenericoDB.cerrarCon();
+        return listaJornadas;      
+    }
+    
 }

@@ -90,7 +90,7 @@ public class EquipoDB {
         return listaEquipos; 
     }
     
-     public ArrayList<Equipo> consultarEquipoSinPresidente() throws Exception{
+     public static ArrayList<Equipo> consultarEquipoSinPresidente() throws Exception{
 
         GenericoDB.conectar(); 
         

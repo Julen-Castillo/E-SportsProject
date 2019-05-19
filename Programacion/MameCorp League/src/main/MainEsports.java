@@ -48,15 +48,14 @@ public class MainEsports {
         GenericoDB.conectar();
         con =  GenericoDB.getCon();
         if(con != null){           
-            crearRoundRobinEmparejamientos();
+            //crearRoundRobinEmparejamientos();
             ControladorVista.mostrarLogin();
         }
     }
     
     public static void consultarEquipos() throws Exception{
-        EquipoDB equipoDB = new EquipoDB();
 
-        ArrayList<Equipo> listaEquipos = equipoDB.consultarTodos();
+        listaEquipos = EquipoDB.consultarTodos();
 
         for(int x=0; x < listaEquipos.size() ;x++){
             Equipo e = listaEquipos.get(x);
@@ -66,8 +65,8 @@ public class MainEsports {
     }
     
     public static ArrayList consultarEquipoSinPresidente() throws Exception{
-        EquipoDB equipoDB = new EquipoDB();
-        ArrayList<Equipo> listaEquipos = equipoDB.consultarEquipoSinPresidente();
+        
+        listaEquipos = EquipoDB.consultarEquipoSinPresidente();
 
         for(int x=0; x < listaEquipos.size() ;x++){
             Equipo e = listaEquipos.get(x);
@@ -75,6 +74,15 @@ public class MainEsports {
         }   
         
         return listaEquipos;
+    }
+    
+    public static ArrayList<Jornada> consultarJornadas() throws SQLException, Exception{
+        oLiga = LigaDB.getObjetoLiga();
+        return JornadaDB.consultarJornadas(oLiga);
+    }
+    
+    public static ArrayList<Partido> consultarPartidos() throws Exception{
+        return PartidoDB.consultarPartidos(oLiga);
     }
 
 
