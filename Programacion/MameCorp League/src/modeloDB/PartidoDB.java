@@ -12,8 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import modelo.Equipo;
 import modelo.Jornada;
-import modelo.Liga;
 import modelo.Partido;
 
 /**
@@ -46,7 +46,7 @@ public class PartidoDB {
         return insercion;
     }
     
-    public static ArrayList<Partido> consultarPartidos(Liga oLiga) throws SQLException, Exception{
+    public static ArrayList<Partido> consultarPartidos(ArrayList<Jornada> listaJornadas, ArrayList<Equipo> listaEquipos) throws SQLException, Exception{
         
         GenericoDB.conectar(); 
         
@@ -58,11 +58,35 @@ public class PartidoDB {
         
         while(resultado.next()){
             oPartido = new Partido();
-          //  oPartido.setEquipoLocal(resultado.getInt("equipo_id_equipo"));
             
-          //  select de ese equipo
+            //Buscamos en el array listaequipos que equipo tiene el id_equipo que nos ha dado la base de datos. Cuando guardamos el objeto equipo.
+            for(int i = 0; i < listaEquipos.size(); i++){
+                if(resultado.getInt("equipo_id_equipo") == listaEquipos.get(i).getIdEquipo()){
+                    oPartido.setEquipoLocal(listaEquipos.get(i));
+                }
+            }
+            
+            //Lo mismo para la jornada
+            for(int i = 0; i < listaJornadas.size(); i++){
+                if(resultado.getInt("jornada_id_jornada") == listaJornadas.get(i).getIdJornada()){
+                    oPartido.setoJornada(listaJornadas.get(i));
+                }
+            }  
+            
+            //Lo mismo para el equipo visitante
+            for(int i = 0; i < listaEquipos.size(); i++){
+                if(resultado.getInt("equipo_visitante") == listaEquipos.get(i).getIdEquipo()){
+                    oPartido.setEquipoVisitante(listaEquipos.get(i));
+                }
+            }
+            
+            //Lo mismo para el vencedor
+            for(int i = 0; i < listaEquipos.size(); i++){
+                if(resultado.getInt("vencedor") == listaEquipos.get(i).getIdEquipo()){
+                    oPartido.setEquipoVencedor(listaEquipos.get(i));
+                }
+            }
 
-            
             listaPartidos.add(oPartido);
         }
 

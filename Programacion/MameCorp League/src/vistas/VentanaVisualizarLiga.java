@@ -6,7 +6,6 @@
 package vistas;
 
 import java.awt.Color;
-import javax.swing.JFrame;
 
 /**
  *

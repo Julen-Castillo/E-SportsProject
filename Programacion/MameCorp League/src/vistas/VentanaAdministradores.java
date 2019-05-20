@@ -66,16 +66,19 @@ public class VentanaAdministradores extends javax.swing.JFrame {
         panelOpaco.add(tfPassword);
         tfPassword.setBounds(151, 445, 178, 25);
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("NOMBRE");
         panelOpaco.add(jLabel2);
-        jLabel2.setBounds(57, 319, 42, 14);
+        jLabel2.setBounds(57, 319, 80, 14);
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("PASSWORD");
         panelOpaco.add(jLabel3);
-        jLabel3.setBounds(57, 450, 57, 14);
+        jLabel3.setBounds(57, 450, 80, 14);
 
-        jLabel4.setText("ADMINISTRADOR");
         jLabel4.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("ADMINISTRADOR");
         panelOpaco.add(jLabel4);
         jLabel4.setBounds(108, 102, 206, 75);
 

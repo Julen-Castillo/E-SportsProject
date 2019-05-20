@@ -18,7 +18,7 @@ public class Jornada {
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
     
-    private ArrayList<Partido> listaPartidos;
+    private ArrayList<Partido> listaPartidos = new ArrayList();
     private Liga oLiga;
 
     public Jornada(LocalDate fechaInicio, LocalDate fechaFin) {
