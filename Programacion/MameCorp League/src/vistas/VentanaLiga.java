@@ -70,7 +70,7 @@ public class VentanaLiga extends javax.swing.JFrame {
         panelOpaco.add(jLabel6);
         jLabel6.setBounds(10, 420, 150, 17);
         panelOpaco.add(jTextField3);
-        jTextField3.setBounds(170, 420, 190, 24);
+        jTextField3.setBounds(170, 420, 190, 20);
 
         jLabel8.setText("FECHA DE INICIO");
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -78,7 +78,7 @@ public class VentanaLiga extends javax.swing.JFrame {
         panelOpaco.add(jLabel8);
         jLabel8.setBounds(10, 470, 140, 17);
         panelOpaco.add(datePicker1);
-        datePicker1.setBounds(170, 470, 190, 32);
+        datePicker1.setBounds(170, 470, 190, 20);
 
         jLabel9.setText("FECHA DE FIN");
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -86,7 +86,7 @@ public class VentanaLiga extends javax.swing.JFrame {
         panelOpaco.add(jLabel9);
         jLabel9.setBounds(10, 520, 170, 17);
         panelOpaco.add(datePicker2);
-        datePicker2.setBounds(170, 520, 190, 32);
+        datePicker2.setBounds(170, 520, 190, 20);
 
         jLabel5.setText("LIGA EN CURSO");
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -94,26 +94,31 @@ public class VentanaLiga extends javax.swing.JFrame {
         panelOpaco.add(jLabel5);
         jLabel5.setBounds(10, 580, 130, 17);
         panelOpaco.add(jCheckBox1);
-        jCheckBox1.setBounds(170, 580, 30, 24);
+        jCheckBox1.setBounds(170, 580, 30, 21);
 
         bLimpiar.setText("LIMPIAR");
         panelOpaco.add(bLimpiar);
-        bLimpiar.setBounds(10, 630, 110, 32);
+        bLimpiar.setBounds(10, 630, 110, 23);
 
         bInsertar.setText("INSERTAR");
         panelOpaco.add(bInsertar);
-        bInsertar.setBounds(260, 630, 100, 32);
+        bInsertar.setBounds(260, 630, 100, 23);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/Mamecorp logo.png"))); // NOI18N
         panelOpaco.add(jLabel2);
         jLabel2.setBounds(-60, 740, 460, 290);
 
         bVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/bVolver.png"))); // NOI18N
+        bVolver.setAutoscrolls(true);
+        bVolver.setBackground(new java.awt.Color(0, 0, 0));
+        bVolver.setBorder(null);
+        bVolver.setBorderPainted(false);
         bVolver.setFocusPainted(false);
+        bVolver.setFocusable(false);
         bVolver.setForeground(new java.awt.Color(255, 255, 255));
         bVolver.setOpaque(false);
         panelOpaco.add(bVolver);
-        bVolver.setBounds(30, 1080, 90, 80);
+        bVolver.setBounds(110, 1090, 160, 60);
 
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, -230, 400, 1430);

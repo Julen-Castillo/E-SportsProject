@@ -127,11 +127,11 @@ public class EquipoDB {
         
         GenericoDB.cerrarCon();   
     } 
-    public static Equipo consultarEquipoPresidente(int idEquipo) throws SQLException{
+    public static Equipo consultarEquipoPresidente(String idEquipo) throws SQLException{
         GenericoDB.conectar();
-        String plantilla = "select * from equipo where id_equipo = ?";
+        String plantilla = "select * from equipo where nombre = ?";
         ps = GenericoDB.getCon().prepareStatement(plantilla);
-        ps.setInt(1, idEquipo);
+        ps.setString(1, idEquipo);
         
         resultado = ps.executeQuery();
         Equipo e = new Equipo();
