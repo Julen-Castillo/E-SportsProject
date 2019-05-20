@@ -39,6 +39,9 @@ public class MainEsports {
     private static Jornada oJornada;
     private static Liga oLiga;
     private static Equipo oEquipo;
+    private static ArrayList<Jornada> listaJornadas; //Para mostrar las jornadas en la ventan visualizacion
+    private static ArrayList<Partido> listaPartidos;
+    
     private static Presidente oPresidente;
 
     
@@ -76,11 +79,22 @@ public class MainEsports {
     
     public static ArrayList<Jornada> consultarJornadas() throws SQLException, Exception{
         oLiga = LigaDB.getObjetoLiga();
-        return JornadaDB.consultarJornadas(oLiga);
+        listaJornadas = JornadaDB.consultarJornadas(oLiga); //Lo guardamos para reutilizarlo en consultar partidos dado que necesitamos los objetos jornada de cada partido.
+        return listaJornadas;
     }
     
-    public static ArrayList<Partido> consultarPartidos() throws Exception{
-        return PartidoDB.consultarPartidos(oLiga);
+    public static ArrayList<Jornada> consultarPartidosDeCadaJornada() throws Exception{
+        listaEquipos = EquipoDB.consultarTodos(); //Lo guardamos para reutilizaro en consultar partidos dado que necesitamos los objetos equipo de cada partido.
+        listaPartidos = PartidoDB.consultarPartidos(listaJornadas, listaEquipos);
+        int nPartido = 0; //llevamos el count de partidos asignados para a cada jornada asignarle los partidos 1, 2, 3 // 4, 5, 6.... en lugar de 1,2,3 // 1,2,3......
+        //Vamos a guardar la lista de partidos en cada objeto jornada.
+        for(int i = 0; i < listaJornadas.size(); i++){
+            for(int x = 0; x < 3; x++){ //3, dado que hay 3 partidos por jornada                 
+                listaJornadas.get(i).getListaPartidos().add(listaPartidos.get(nPartido));
+                nPartido++;
+            }
+        }
+        return listaJornadas;
     }
 
 
