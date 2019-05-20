@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import modelo.*;
 import modeloDB.*;
 import vistas.*;
@@ -37,7 +38,8 @@ public class MainEsports {
     private static Partido oPartido;
     private static Jornada oJornada;
     private static Liga oLiga;
-    
+    private static Equipo oEquipo;
+    private static Presidente oPresidente;
 
     
     
@@ -68,11 +70,7 @@ public class MainEsports {
         
         listaEquipos = EquipoDB.consultarEquipoSinPresidente();
 
-        for(int x=0; x < listaEquipos.size() ;x++){
-            Equipo e = listaEquipos.get(x);
-            System.out.println("nombre " + e.getNombre() + " presupuesto " + e.getPresupuesto()+ " puntos " + e.getPuntos() + "\n");
-        }   
-        
+        System.out.println(listaEquipos.size());
         return listaEquipos;
     }
     
@@ -102,15 +100,16 @@ public class MainEsports {
         return SesionDB.insertarAdministrador(nombre,password);
     
     }
-    /* public static int insertarPresidente(String nombrePresidente, String apellidoPresidente,Equipo equipoPresidente) throws Exception {
-       
-        Presidente p = new Presidente(nombrePresidente,apellidoPresidente,equipoPresidente);
-        PresidenteDB presidenteDB = new PresidenteDB();
-       
-        return presidenteDB.insertarPresi(p);
+     public static int insertarPresidente(String nombrePresidente, String apellidoPresidente,int idEquipo) throws Exception {
+         
+       oEquipo = EquipoDB.consultarEquipoPresidente(idEquipo);
+       oPresidente = new Presidente(nombrePresidente,apellidoPresidente,oEquipo);
+      
+        
+        return PresidenteDB.insertarPresi(oPresidente);
   
     }
-      */
+      
 
     public static Sesion comprobarLogin(String nombre,String password) throws Exception{
         return SesionDB.consultarUsuario(nombre,password);
@@ -124,9 +123,19 @@ public class MainEsports {
        }
        else {
            String jugador = oJugador.getNickname();
+           JugadorDB.darBajaJugador(jugador);
        }
        
        return oJugador;    
+    }
+    public static Jugador modificarJugador(String nick,int sueldo,boolean titularidad, String posicion) throws Exception{
+        
+        oJugador = JugadorDB.modificarJugador(nick,sueldo,titularidad,posicion);
+        if (oJugador == null){
+        JOptionPane.showMessageDialog(null, "Este jugador no exisate");
+            return null;
+        }
+        return null;
     }
     
     

@@ -15,27 +15,27 @@ import modelo.Presidente;
  * @author 1gdaw03
  */
 public class PresidenteDB {
-     private static GenericoDB gdb;
+    
      private static ResultSet resultado;
 
 
-        /*  public int insertarPresi(Presidente p)throws Exception{
+          public static int insertarPresi(Presidente oPresidente)throws Exception{
 
 
-   gdb.conectar();
+   GenericoDB.conectar();
 
         String plantilla = "insert into presidente values (?,?,?)";
-        PreparedStatement sentenciaPre = gdb.getCon().prepareStatement(plantilla);
+        PreparedStatement sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
         
-        sentenciaPre.setString(0, p.getNombre());
-        sentenciaPre.setString(1, p.getApellido());
-        sentenciaPre.setInt(2, p.getEquipo());
+        sentenciaPre.setString(1, oPresidente.getNombre());
+        sentenciaPre.setString(2, oPresidente.getApellido());
+        sentenciaPre.setInt(3,oPresidente.getoEquipo().getIdEquipo());
         
         int insercion = sentenciaPre.executeUpdate();
         System.out.println(insercion);
         
-       gdb.cerrarCon();
+       GenericoDB.cerrarCon();
       
        return insercion;
-}*/ 
+} 
 }

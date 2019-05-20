@@ -116,15 +116,12 @@ public class VentanaPresidente extends javax.swing.JFrame {
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
        int posicion = cbEquipoPresidente.getSelectedIndex();
+       // Equipo e = new Equipo();
+       // e.setIdEquipo(cbEquipoPresidente.getSelectedIndex());
        
-       
-        Equipo e = new Equipo();
-        
-       // e.setIdEquipo(cbEquipoPresidente.getSelectedIndex);
-      /*   
         try {
      
-     int insercion =  MainEsports.insertarPresidente(tfNombrePresidente.getText(),tfApellidoPresidente.getText(),posicion;
+     int insercion =  MainEsports.insertarPresidente(tfNombrePresidente.getText(),tfApellidoPresidente.getText(),posicion);
      
       if(insercion > 0){
                 JOptionPane.showMessageDialog(this,"Linea insertada correctamente");
@@ -132,9 +129,9 @@ public class VentanaPresidente extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,"ERROR AL INSERTAR");
             }
        }
-       catch (Exception e){
+       catch (Exception ex){
            System.out.println("Error");
-       }*/
+       }
       
     }//GEN-LAST:event_bAceptarActionPerformed
  public  void llenarComboBox() throws Exception{

@@ -11,17 +11,23 @@ import main.MainEsports;
  * @author N3Essential
  */
 public class VentanaAdministradores extends javax.swing.JFrame {
+    
+    private static String opcionActiva;
 
     /**
      * Creates new form VentanaAdministradores
      */
-    public VentanaAdministradores() {
+    public VentanaAdministradores(String opcion) {
         setUndecorated(true);
         initComponents();
         setAlwaysOnTop(rootPaneCheckingEnabled);
         setExtendedState(MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(4,20,57,190));
         setVisible(true);
+        opcionActiva = opcion;
+        mostrarOcultarFields();
+        
+        
     }
     
     
@@ -79,7 +85,7 @@ public class VentanaAdministradores extends javax.swing.JFrame {
         bAceptar.setText("ACEPTAR");
         bAceptar.setBorder(null);
         bAceptar.setContentAreaFilled(false);
-        bAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bAceptar.setFocusPainted(false);
         bAceptar.setOpaque(true);
         bAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -132,8 +138,27 @@ public class VentanaAdministradores extends javax.swing.JFrame {
         } catch (Exception ex) {
             System.out.println("Excepcion " + ex.getMessage());
         }
+        
+    
     }//GEN-LAST:event_bAceptarActionPerformed
-
+    public  void mostrarOcultarFields(){
+        
+        switch (opcionActiva){
+            
+            case "alta":
+                //implementar label cambiante
+                break;
+            case "baja":
+                String nombreAdminBaja = JOptionPane.showInputDialog(this,"Escribe el nombre del usuario que quieras dar de baja");
+                tfPassword.setEnabled(false);
+                break;
+            case "modificar":
+               String nombreAdminModificar = JOptionPane.showInputDialog(this,"Escribe el nombre del usuario que quieras modificar");
+          
+                
+        }
+            
+        }
     /**
      * @param args the command line arguments
      */
@@ -161,12 +186,8 @@ public class VentanaAdministradores extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaAdministradores().setVisible(true);
-            }
-        });
+  
+      
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

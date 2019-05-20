@@ -398,7 +398,11 @@ public class VentanaCategoria extends javax.swing.JFrame {
        }
        else {
            if (operacionActiva.equals("jugador")){
-               ControladorVista.mostrarVentanaJugador("modificar");
+               try {
+                   ControladorVista.mostrarVentanaJugador("modificar");
+               } catch (Exception ex) {
+                   Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+               }
            }
            else {
                if (operacionActiva.equals("presidente")){
@@ -447,7 +451,11 @@ public class VentanaCategoria extends javax.swing.JFrame {
        }
        else {
            if (operacionActiva.equals("jugador")){
-               ControladorVista.mostrarVentanaJugador("baja");
+               try {
+                   ControladorVista.mostrarVentanaJugador("baja");
+               } catch (Exception ex) {
+                   Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+               }
            }
            else {
                if (operacionActiva.equals("presidente")){
@@ -479,7 +487,11 @@ public class VentanaCategoria extends javax.swing.JFrame {
        }
        else {
            if (operacionActiva.equals("jugador")){
-               ControladorVista.mostrarVentanaJugador("alta");
+               try {
+                   ControladorVista.mostrarVentanaJugador("alta");
+               } catch (Exception ex) {
+                   Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+               }
            }
            else {
                if (operacionActiva.equals("presidente")){
@@ -533,6 +545,8 @@ public class VentanaCategoria extends javax.swing.JFrame {
 
     private void miAdministradoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAdministradoresActionPerformed
         ocultarBotonesYMostrarCrud();
+        opcionActiva = "alta";
+        ControladorVista.mostrarVentanaAdministradores(opcionActiva);
     }//GEN-LAST:event_miAdministradoresActionPerformed
 
     private void jMenuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSalirMouseClicked

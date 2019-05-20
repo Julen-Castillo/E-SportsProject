@@ -6,7 +6,10 @@
 package vistas;
 
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import main.MainEsports;
 
 /**
@@ -15,11 +18,13 @@ import main.MainEsports;
  */
 public class VentanaJugador extends javax.swing.JFrame {
   private String operacion;
+  private boolean titularidad;
+  private String posicion;
 
     /**
      * Creates new form VentanaJugador
      */
-    public VentanaJugador(String operacionActiva) {
+    public VentanaJugador(String operacionActiva) throws Exception {
         initComponents();
         setLocationRelativeTo(null);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -31,7 +36,7 @@ public class VentanaJugador extends javax.swing.JFrame {
     public VentanaJugador() {
         initComponents();
     }
-public void mostrarOocultarfields(){
+public void mostrarOocultarfields() throws Exception{
     if (operacion.equals("modificar")) {
         
         tfNombre.setEnabled(false);
@@ -40,7 +45,8 @@ public void mostrarOocultarfields(){
     }
     else { if (operacion.equals("baja")){
         tfSueldo.setEnabled(false);
-        tfTitularidad.setEnabled(false);
+        rbNo.setEnabled(false);
+        rbSi.setEnabled(false);
         tfNombre.setEnabled(false);
         tfApellido.setEnabled(false);
         cbPosicion.setEnabled(false);
@@ -59,11 +65,11 @@ public void mostrarOocultarfields(){
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        gTitularidad = new javax.swing.ButtonGroup();
         panelOpaco = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         tfSueldo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        tfTitularidad = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         tfNombre = new javax.swing.JTextField();
@@ -74,6 +80,8 @@ public void mostrarOocultarfields(){
         jLabel1 = new javax.swing.JLabel();
         bAceptar = new javax.swing.JButton();
         cbPosicion = new javax.swing.JComboBox<>();
+        rbSi = new javax.swing.JRadioButton();
+        rbNo = new javax.swing.JRadioButton();
         lFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -92,8 +100,6 @@ public void mostrarOocultarfields(){
         jLabel4.setText("APELLIDO");
         panelOpaco.add(jLabel4);
         jLabel4.setBounds(20, 740, 130, 17);
-        panelOpaco.add(tfTitularidad);
-        tfTitularidad.setBounds(150, 1020, 200, 20);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("NICKNAME");
@@ -144,8 +150,26 @@ public void mostrarOocultarfields(){
         bAceptar.setBounds(210, 1120, 160, 50);
 
         cbPosicion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toplaner", "Jungler", "Midlaner", "Ad Carry", "Support" }));
+        cbPosicion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbPosicionActionPerformed(evt);
+            }
+        });
         panelOpaco.add(cbPosicion);
         cbPosicion.setBounds(150, 880, 200, 20);
+
+        rbSi.setText("Si");
+        rbSi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbSiActionPerformed(evt);
+            }
+        });
+        panelOpaco.add(rbSi);
+        rbSi.setBounds(160, 1030, 93, 23);
+
+        rbNo.setText("No");
+        panelOpaco.add(rbNo);
+        rbNo.setBounds(250, 1030, 39, 23);
 
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, -330, 400, 1430);
@@ -159,8 +183,73 @@ public void mostrarOocultarfields(){
     }// </editor-fold>//GEN-END:initComponents
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-    //    MainEsports.insertarJugadores();
+        
+    if (operacion.equals("baja")){
+      int respuesta =  JOptionPane.showConfirmDialog(this, "Estas segur@ que quieres dar de baja a " + tfNick.getText()+ " ?") ;
+      
+      if (respuesta == 1) {
+       if (operacion.equals("baja")){
+           try {
+               MainEsports.darBajaJugador(tfNick.getText());
+           } catch (Exception ex) {
+               Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        
+        } 
+      
+       else { if (operacion.equals("modificar")){ 
+           
+           if(rbSi.isSelected()){
+               titularidad = true;
+           }
+           else {
+               titularidad = false;
+           }
+           switch (cbPosicion.getSelectedIndex()){
+               case 0:
+                   posicion = "Toplaner";
+                   break;
+               case 1:
+                   posicion = "Jungler";
+                   break;
+               case 2:
+                   posicion = "Midlaner";
+                   break;
+               case 3:
+                   posicion = "Adcarry";
+                   break;
+               case 4:
+                   posicion = "Support";
+                   break;
+
+           }
+           try {
+               MainEsports.modificarJugador(tfNick.getText(), Integer.parseInt(tfSueldo.getText()),titularidad,posicion);
+           } catch (Exception ex) {
+               Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
+           }
+       }
+      }  
+      } else { if (respuesta == 2 || respuesta == 3){
+          tfNick.setText("");
+          JOptionPane.showMessageDialog(this, "Escribe otra vez el nickname del jugador que quieras dar de baja");
+          }
+      }
+    }
+    else {
+        if(operacion.equals("alta")){
+            //MainEsports.insertarJugadores();
+        }
+    }
     }//GEN-LAST:event_bAceptarActionPerformed
+
+    private void cbPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPosicionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbPosicionActionPerformed
+
+    private void rbSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbSiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,6 +287,7 @@ public void mostrarOocultarfields(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAceptar;
     private javax.swing.JComboBox<String> cbPosicion;
+    private javax.swing.ButtonGroup gTitularidad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -207,10 +297,11 @@ public void mostrarOocultarfields(){
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lFondo;
     private javax.swing.JPanel panelOpaco;
+    private javax.swing.JRadioButton rbNo;
+    private javax.swing.JRadioButton rbSi;
     private javax.swing.JTextField tfApellido;
     private javax.swing.JTextField tfNick;
     private javax.swing.JTextField tfNombre;
     private javax.swing.JTextField tfSueldo;
-    private javax.swing.JTextField tfTitularidad;
     // End of variables declaration//GEN-END:variables
 }
