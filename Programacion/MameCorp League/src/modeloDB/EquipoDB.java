@@ -146,4 +146,28 @@ public class EquipoDB {
         }
         return e;
     }
+    
+    public static ArrayList<Equipo> getClasificacion() throws SQLException, Exception{
+        GenericoDB.conectar(); 
+        
+        Statement sentencia = GenericoDB.getCon().createStatement();
+        
+        resultado = sentencia.executeQuery("select e.id_equipo, e.nombre,e.presupuesto, e.puntos from equipo e join partido p ON e.id_equipo = p.vencedor where e.id_equipo = p.vencedor group by e.nombre, e.puntos, e.id_equipo, e.presupuesto order by count(p.vencedor) desc");
+        
+        ArrayList<Equipo> listaEquipos = new ArrayList<>();
+        while(resultado.next()){
+            Equipo e = new Equipo();
+            
+            e.setIdEquipo(resultado.getInt("id_equipo"));
+            e.setNombre(resultado.getString("nombre"));
+            e.setPresupuesto(resultado.getInt("presupuesto"));
+            e.setPuntos(resultado.getInt("puntos"));
+            
+            listaEquipos.add(e);
+        }
+        
+        GenericoDB.cerrarCon();
+        
+        return listaEquipos; 
+    }
 }
