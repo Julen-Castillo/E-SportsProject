@@ -96,6 +96,10 @@ public class MainEsports {
         }
         return listaJornadas;
     }
+    
+    public static ArrayList<Equipo> getClasificacion() throws Exception{
+        return EquipoDB.getClasificacion();
+    }
 
 
     public static int insertarEquipos(String nombre,int presupuesto,int puntos) throws Exception{
