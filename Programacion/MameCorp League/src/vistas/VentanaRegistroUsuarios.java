@@ -8,6 +8,7 @@ package vistas;
 import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import main.MainEsports;
 
 /**
  *
@@ -155,12 +156,28 @@ public class VentanaRegistroUsuarios extends javax.swing.JFrame {
          * Si el usuario pulsa este botón, comprobamos que las contraseñas coincidan
          *y que el nombre de usuario no exista en nuestra bbdd
          */
-        if(!tfPassword.equals(tfRepeatPassword)){
+        if(!String.valueOf(tfPassword.getPassword()).equals(String.valueOf(tfRepeatPassword.getPassword()))){
             JOptionPane.showMessageDialog(this,"Las contraseñas no coinciden");
+        }else{
+        try {
+            int insercion = MainEsports.insertarUsuario(tfNombre.getText(),String.valueOf(tfPassword.getPassword()));
+            
+            
+            if(insercion > 0){
+                JOptionPane.showMessageDialog(this,"Linea insertada correctamente");
+                tfNombre.setText("");
+                tfPassword.setText(""); 
+                tfRepeatPassword.setText("");
+            }else{
+                JOptionPane.showMessageDialog(this,"ERROR AL INSERTAR");
+            }
+            
+            
+        } catch (Exception ex) {
+            System.out.println("Excepcion " + ex.getMessage());
         }
-        
     }//GEN-LAST:event_bRegistrarActionPerformed
-
+    }
     /**
      * @param args the command line arguments
      */

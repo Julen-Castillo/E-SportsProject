@@ -98,9 +98,16 @@ public class MainEsports {
         SesionDB sesionDB = new SesionDB();
         
         return SesionDB.insertarAdministrador(nombre,password);
-    
     }
-     public static int insertarPresidente(String nombrePresidente, String apellidoPresidente,int idEquipo) throws Exception {
+    public static int insertarUsuario(String nombre,String password) throws Exception{
+    
+        oSesion = new Sesion(nombre,password);
+        SesionDB sesionDB = new SesionDB();
+        
+        return SesionDB.insertarUsuario(nombre,password);
+    }
+    
+     public static int insertarPresidente(String nombrePresidente, String apellidoPresidente,String idEquipo) throws Exception {
          
        oEquipo = EquipoDB.consultarEquipoPresidente(idEquipo);
        oPresidente = new Presidente(nombrePresidente,apellidoPresidente,oEquipo);
@@ -109,7 +116,8 @@ public class MainEsports {
         return PresidenteDB.insertarPresi(oPresidente);
   
     }
-      
+     
+     
 
     public static Sesion comprobarLogin(String nombre,String password) throws Exception{
         return SesionDB.consultarUsuario(nombre,password);

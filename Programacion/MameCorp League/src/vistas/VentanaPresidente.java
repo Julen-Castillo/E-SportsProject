@@ -97,10 +97,20 @@ public class VentanaPresidente extends javax.swing.JFrame {
         panelOpaco.add(jLabel2);
         jLabel2.setBounds(40, 330, 70, 20);
 
+        cbEquipoPresidente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbEquipoPresidenteActionPerformed(evt);
+            }
+        });
         panelOpaco.add(cbEquipoPresidente);
         cbEquipoPresidente.setBounds(130, 330, 200, 20);
 
         bVolver.setText("Volver");
+        bVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVolverActionPerformed(evt);
+            }
+        });
         panelOpaco.add(bVolver);
         bVolver.setBounds(150, 810, 110, 40);
 
@@ -115,25 +125,37 @@ public class VentanaPresidente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-       int posicion = cbEquipoPresidente.getSelectedIndex();
+       String posicion = cbEquipoPresidente.getSelectedItem().toString();
        // Equipo e = new Equipo();
        // e.setIdEquipo(cbEquipoPresidente.getSelectedIndex());
        
         try {
      
      int insercion =  MainEsports.insertarPresidente(tfNombrePresidente.getText(),tfApellidoPresidente.getText(),posicion);
-     
+            System.out.println("se ha insertado? " + insercion);
       if(insercion > 0){
                 JOptionPane.showMessageDialog(this,"Linea insertada correctamente");
+                tfNombrePresidente.setText("");
+                tfApellidoPresidente.setText("");
             }else{
                 JOptionPane.showMessageDialog(this,"ERROR AL INSERTAR");
             }
        }
        catch (Exception ex){
-           System.out.println("Error");
+           System.out.println(ex.getClass() + ex.getMessage());
        }
       
     }//GEN-LAST:event_bAceptarActionPerformed
+
+    private void cbEquipoPresidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEquipoPresidenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbEquipoPresidenteActionPerformed
+
+    private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        ControladorVista.mostrarVentanaCategoria();
+    }//GEN-LAST:event_bVolverActionPerformed
  public  void llenarComboBox() throws Exception{
         listaEquipos = new ArrayList();
         

@@ -24,7 +24,7 @@ public class PresidenteDB {
 
    GenericoDB.conectar();
 
-        String plantilla = "insert into presidente values (?,?,?)";
+        String plantilla = "insert into presidente (nombre,apellido,equipo_id_equipo) values (?,?,?)";
         PreparedStatement sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
         
         sentenciaPre.setString(1, oPresidente.getNombre());
