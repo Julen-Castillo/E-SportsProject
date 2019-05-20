@@ -29,10 +29,10 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
      * @throws java.lang.Exception
      */
     public VentanaVisualizarJornada() throws Exception {
-        //setUndecorated(true);
+        setUndecorated(true);
         initComponents();
-        //setAlwaysOnTop(rootPaneCheckingEnabled);
-       //setExtendedState(MAXIMIZED_BOTH);
+        setAlwaysOnTop(rootPaneCheckingEnabled);
+        setExtendedState(MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(39, 118, 173,150));
         llenarComboBoxJornadas();
         consultarPartidosDeCadaJornada();
@@ -90,6 +90,11 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgJornada/Versus_icon (1).png"))); // NOI18N
 
         cbJornada.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cbJornada.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbJornadaItemStateChanged(evt);
+            }
+        });
         cbJornada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbJornadaActionPerformed(evt);
@@ -254,12 +259,106 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
                 tfEquipoVisitante2.setText(listaJornadas.get(2).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
                 tfEquipoVisitante3.setText(listaJornadas.get(2).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
             break;
+            case 3:
+                tfEquipoLocal1.setText(listaJornadas.get(3).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoLocal2.setText(listaJornadas.get(3).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoLocal3.setText(listaJornadas.get(3).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoVisitante1.setText(listaJornadas.get(3).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+                tfEquipoVisitante2.setText(listaJornadas.get(3).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+                tfEquipoVisitante3.setText(listaJornadas.get(3).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            break;
+            case 4:
+                tfEquipoLocal1.setText(listaJornadas.get(4).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoLocal2.setText(listaJornadas.get(4).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoLocal3.setText(listaJornadas.get(4).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoVisitante1.setText(listaJornadas.get(4).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+                tfEquipoVisitante2.setText(listaJornadas.get(4).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+                tfEquipoVisitante3.setText(listaJornadas.get(4).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            break;
+            case 5:
+                tfEquipoLocal1.setText(listaJornadas.get(5).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoLocal2.setText(listaJornadas.get(5).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoLocal3.setText(listaJornadas.get(5).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoVisitante1.setText(listaJornadas.get(5).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+                tfEquipoVisitante2.setText(listaJornadas.get(5).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+                tfEquipoVisitante3.setText(listaJornadas.get(5).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            break;
+            case 6:
+                tfEquipoLocal1.setText(listaJornadas.get(6).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoLocal2.setText(listaJornadas.get(6).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoLocal3.setText(listaJornadas.get(6).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoVisitante1.setText(listaJornadas.get(6).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+                tfEquipoVisitante2.setText(listaJornadas.get(6).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+                tfEquipoVisitante3.setText(listaJornadas.get(6).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            break;
+            case 7:
+                tfEquipoLocal1.setText(listaJornadas.get(7).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoLocal2.setText(listaJornadas.get(7).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoLocal3.setText(listaJornadas.get(7).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoVisitante1.setText(listaJornadas.get(7).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+                tfEquipoVisitante2.setText(listaJornadas.get(7).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+                tfEquipoVisitante3.setText(listaJornadas.get(7).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            break;
+            case 8:
+                tfEquipoLocal1.setText(listaJornadas.get(8).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoLocal2.setText(listaJornadas.get(8).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoLocal3.setText(listaJornadas.get(8).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoVisitante1.setText(listaJornadas.get(8).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+                tfEquipoVisitante2.setText(listaJornadas.get(8).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+                tfEquipoVisitante3.setText(listaJornadas.get(8).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            break;
+            case 9:
+                tfEquipoLocal1.setText(listaJornadas.get(9).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoLocal2.setText(listaJornadas.get(9).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoLocal3.setText(listaJornadas.get(9).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoVisitante1.setText(listaJornadas.get(9).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+                tfEquipoVisitante2.setText(listaJornadas.get(9).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+                tfEquipoVisitante3.setText(listaJornadas.get(9).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            break;
+            case 10:
+                tfEquipoLocal1.setText(listaJornadas.get(10).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoLocal2.setText(listaJornadas.get(10).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoLocal3.setText(listaJornadas.get(10).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+                tfEquipoVisitante1.setText(listaJornadas.get(10).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+                tfEquipoVisitante2.setText(listaJornadas.get(10).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+                tfEquipoVisitante3.setText(listaJornadas.get(10).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            break;
         }
     }//GEN-LAST:event_bRefrescarActionPerformed
 
     private void cbJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbJornadaActionPerformed
 
     }//GEN-LAST:event_cbJornadaActionPerformed
+
+    private void cbJornadaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbJornadaItemStateChanged
+//        System.out.println(listaJornadas.size());
+//        switch(cbJornada.getSelectedIndex()){
+//            case 0:
+//                tfEquipoLocal1.setText(listaJornadas.get(0).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+//                tfEquipoLocal2.setText(listaJornadas.get(0).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+//                tfEquipoLocal3.setText(listaJornadas.get(0).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+//                tfEquipoVisitante1.setText(listaJornadas.get(0).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+//                tfEquipoVisitante2.setText(listaJornadas.get(0).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+//                tfEquipoVisitante3.setText(listaJornadas.get(0).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+//            break;
+//            case 1:
+//                tfEquipoLocal1.setText(listaJornadas.get(1).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+//                tfEquipoLocal2.setText(listaJornadas.get(1).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+//                tfEquipoLocal3.setText(listaJornadas.get(1).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+//                tfEquipoVisitante1.setText(listaJornadas.get(1).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+//                tfEquipoVisitante2.setText(listaJornadas.get(1).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+//                tfEquipoVisitante3.setText(listaJornadas.get(1).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+//            break;
+//            case 2:
+//                tfEquipoLocal1.setText(listaJornadas.get(2).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+//                tfEquipoLocal2.setText(listaJornadas.get(2).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+//                tfEquipoLocal3.setText(listaJornadas.get(2).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+//                tfEquipoVisitante1.setText(listaJornadas.get(2).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+//                tfEquipoVisitante2.setText(listaJornadas.get(2).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+//                tfEquipoVisitante3.setText(listaJornadas.get(2).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+//            break;
+//        }
+    }//GEN-LAST:event_cbJornadaItemStateChanged
 
     /**
      * @param args the command line arguments
