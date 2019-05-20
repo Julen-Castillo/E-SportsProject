@@ -47,7 +47,7 @@ CREATE OR REPLACE PACKAGE BODY paquete_mamecorp AS
 		BEGIN
 		    DELETE FROM JORNADA; --eliminamos todas las jornadas antes de crear el calendario
 		    DELETE FROM LIGA; --eliminamos las ligas antes de crear el calendario
-		    INSERT INTO LIGA VALUES (1, 'MAMECORPLEAGUE', SYSDATE, NULL, 0); --Creamos la liga sin fecha fin
+		    INSERT INTO LIGA (nombre, fecha_inicio, fecha_fin,en_curso) VALUES ('MAMECORPLEAGUE', SYSDATE, NULL, 0); --Creamos la liga sin fecha fin
 		    SELECT FECHA_INICIO INTO v_f_inicio_liga 
 		    FROM liga
 		    WHERE id_liga = 1;

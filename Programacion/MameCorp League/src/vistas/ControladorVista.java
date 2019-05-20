@@ -29,8 +29,8 @@ public class ControladorVista {
      * Ejemplo: con este metodo creamos la ventana vAdmin
      * y mostramos la ventana, para ello la ponemos en visible
      */
-    public static void mostrarVentanaAdministradores(){
-        vAdmin = new VentanaAdministradores();
+    public static void mostrarVentanaAdministradores(String opcionActiva){
+        vAdmin = new VentanaAdministradores(opcionActiva);
         vAdmin.setVisible(true);
     }
     /**

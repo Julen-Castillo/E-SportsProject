@@ -545,6 +545,8 @@ public class VentanaCategoria extends javax.swing.JFrame {
 
     private void miAdministradoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAdministradoresActionPerformed
         ocultarBotonesYMostrarCrud();
+        opcionActiva = "alta";
+        ControladorVista.mostrarVentanaAdministradores(opcionActiva);
     }//GEN-LAST:event_miAdministradoresActionPerformed
 
     private void jMenuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSalirMouseClicked

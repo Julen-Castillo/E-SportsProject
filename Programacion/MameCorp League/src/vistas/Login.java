@@ -128,7 +128,7 @@ public class Login extends javax.swing.JFrame {
             if(oSesion == null){
                 JOptionPane.showMessageDialog(this,"Usuario o contraseña incorrectos");
             }else{
-                if(oSesion.getTipoUsuario().equals("administrador")){
+                if(oSesion.getTipoUsuario().equals("admin")){
                     this.dispose();
                     ControladorVista.mostrarVentanaCategoria();
                 }else{

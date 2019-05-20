@@ -183,7 +183,8 @@ public void mostrarOocultarfields() throws Exception{
     }// </editor-fold>//GEN-END:initComponents
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-    //    MainEsports.insertarJugadores();
+        
+    if (operacion.equals("baja")){
       int respuesta =  JOptionPane.showConfirmDialog(this, "Estas segur@ que quieres dar de baja a " + tfNick.getText()+ " ?") ;
       
       if (respuesta == 1) {
@@ -195,6 +196,7 @@ public void mostrarOocultarfields() throws Exception{
            }
         
         } 
+      
        else { if (operacion.equals("modificar")){ 
            
            if(rbSi.isSelected()){
@@ -233,6 +235,12 @@ public void mostrarOocultarfields() throws Exception{
           JOptionPane.showMessageDialog(this, "Escribe otra vez el nickname del jugador que quieras dar de baja");
           }
       }
+    }
+    else {
+        if(operacion.equals("alta")){
+            //MainEsports.insertarJugadores();
+        }
+    }
     }//GEN-LAST:event_bAceptarActionPerformed
 
     private void cbPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPosicionActionPerformed

@@ -96,7 +96,7 @@ public class EquipoDB {
         
         Statement sentencia = GenericoDB.getCon().createStatement();
         
-        resultado = sentencia.executeQuery("select * from equipo where id_equipo not in (select equipo_id_equipo from presidente)");
+        resultado = sentencia.executeQuery("select * from equipo where id_equipo NOT in (select equipo_id_equipo from presidente)");
         
         ArrayList<Equipo> listaEquipos = new ArrayList<>();
         while(resultado.next()){
@@ -127,4 +127,23 @@ public class EquipoDB {
         
         GenericoDB.cerrarCon();   
     } 
+    public static Equipo consultarEquipoPresidente(int idEquipo) throws SQLException{
+        GenericoDB.conectar();
+        String plantilla = "select * from equipo where id_equipo = ?";
+        ps = GenericoDB.getCon().prepareStatement(plantilla);
+        ps.setInt(1, idEquipo);
+        
+        resultado = ps.executeQuery();
+        Equipo e = new Equipo();
+        
+        if(resultado.next()){
+            
+            e.setIdEquipo(resultado.getInt("id_equipo"));
+            e.setNombre(resultado.getString("nombre"));
+            e.setPresupuesto(resultado.getInt("presupuesto"));
+            e.setPuntos(resultado.getInt("puntos"));
+            
+        }
+        return e;
+    }
 }
