@@ -6,6 +6,7 @@
 package vistas;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import main.MainEsports;
@@ -17,15 +18,25 @@ import modelo.Equipo;
  */
 public class VentanaPresidente extends javax.swing.JFrame {
      private Equipo e;
-    /**
-     * Creates new form VentanaPresidente
-     */
-    public VentanaPresidente() {
+       private ArrayList<Equipo> listaEquipos;
+    
+ public VentanaPresidente(String operacionActiva) throws Exception {
         initComponents();
         setLocationRelativeTo(null);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(180,102,24,190));
+        llenarComboBox();
+        
     }
+
+      public VentanaPresidente() {
+        initComponents();
+       
+    }
+
+    
+     
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,6 +56,7 @@ public class VentanaPresidente extends javax.swing.JFrame {
         bAceptar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         cbEquipoPresidente = new javax.swing.JComboBox<>();
+        bVolver = new javax.swing.JButton();
         lFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -85,9 +97,12 @@ public class VentanaPresidente extends javax.swing.JFrame {
         panelOpaco.add(jLabel2);
         jLabel2.setBounds(40, 330, 70, 20);
 
-        cbEquipoPresidente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         panelOpaco.add(cbEquipoPresidente);
         cbEquipoPresidente.setBounds(130, 330, 200, 20);
+
+        bVolver.setText("Volver");
+        panelOpaco.add(bVolver);
+        bVolver.setBounds(150, 810, 110, 40);
 
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, 0, 400, 1080);
@@ -100,13 +115,13 @@ public class VentanaPresidente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-      
-        Equipo e = new Equipo();
-       // e.setIdEquipo(cbEquipoPresidente.getSelectedIndex);
-      /*   
+       int posicion = cbEquipoPresidente.getSelectedIndex();
+       // Equipo e = new Equipo();
+       // e.setIdEquipo(cbEquipoPresidente.getSelectedIndex());
+       
         try {
      
-     int insercion =  MainEsports.insertarPresidente(tfNombrePresidente.getText(),tfApellidoPresidente.getText(),tfEquipoPresidente.getText());
+     int insercion =  MainEsports.insertarPresidente(tfNombrePresidente.getText(),tfApellidoPresidente.getText(),posicion);
      
       if(insercion > 0){
                 JOptionPane.showMessageDialog(this,"Linea insertada correctamente");
@@ -114,11 +129,21 @@ public class VentanaPresidente extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,"ERROR AL INSERTAR");
             }
        }
-       catch (Exception e){
+       catch (Exception ex){
            System.out.println("Error");
-       }*/
+       }
+      
     }//GEN-LAST:event_bAceptarActionPerformed
-
+ public  void llenarComboBox() throws Exception{
+        listaEquipos = new ArrayList();
+        
+       listaEquipos = MainEsports.consultarEquipoSinPresidente();
+        for (int x = 0; x < listaEquipos.size(); x++) {
+            
+            cbEquipoPresidente.addItem(listaEquipos.get(x).getNombre());
+        }
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -146,16 +171,12 @@ public class VentanaPresidente extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaPresidente().setVisible(true);
-            }
-        });
+       
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAceptar;
+    private javax.swing.JButton bVolver;
     private javax.swing.JComboBox<String> cbEquipoPresidente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

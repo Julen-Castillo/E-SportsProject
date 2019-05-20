@@ -9,20 +9,23 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import main.MainEsports;
 
+
 /**
  *
  * @author PETO
  */
 public class VentanaLiga extends javax.swing.JFrame {
 
+    private static String operacion;
     /**
      * Creates new form VentanaInsertarLiga
      */
-    public VentanaLiga() {
+    public VentanaLiga(String operacionActiva) {
         initComponents();
         setLocationRelativeTo(null);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(39,43,57,190));
+        operacion = operacionActiva;
     }
 
     /**
@@ -151,13 +154,10 @@ public class VentanaLiga extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+      
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaLiga().setVisible(true);
-            }
-        });
+      
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

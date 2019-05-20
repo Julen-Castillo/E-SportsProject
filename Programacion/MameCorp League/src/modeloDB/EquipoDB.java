@@ -6,74 +6,72 @@ import java.sql.*;
 import java.sql.Statement;
 import java.util.ArrayList;
 import modelo.Equipo;
+import modelo.Partido;
 
 public class EquipoDB {
     
-    private static GenericoDB gdb;
     private static ResultSet resultado;
+    private static PreparedStatement ps;
 
-    public EquipoDB() {
-        
-        gdb = new GenericoDB();    
-    }
+
     public int insertarEquipo(Equipo e) throws Exception{
         
-        gdb.conectar();
+        GenericoDB.conectar();
         
-        String plantilla = "insert into equipos values (?,?,?)";
-        PreparedStatement sentenciaPre = gdb.getCon().prepareStatement(plantilla);
+        String plantilla = "insert into equipo (nombre,presupuesto,puntos)values (?,?,?)";
+        PreparedStatement sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
         
-        sentenciaPre.setString(0, e.getNombre());
-        sentenciaPre.setInt(1, e.getPresupuesto());
-        sentenciaPre.setInt(2, e.getPuntos());
+        sentenciaPre.setString(1, e.getNombre());
+        sentenciaPre.setInt(2, e.getPresupuesto());
+        sentenciaPre.setInt(3, e.getPuntos());
         
         int insercion = sentenciaPre.executeUpdate();
         System.out.println(insercion);
         
-       gdb.cerrarCon();
+       GenericoDB.cerrarCon();
        
        return insercion;
     }
     public void modificarEquipo(int id_equipo,String nombre,int presupuesto,int puntos) throws Exception{
     
-        gdb.conectar();
+        GenericoDB.conectar();
         
         String plantilla = "update equipos set nombre=?,presupuesto=?,puntos=? where id_equipo=?";
-        PreparedStatement sentenciaPre = gdb.getCon().prepareStatement(plantilla);
+        PreparedStatement sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
         
-        sentenciaPre.setString(0, nombre);
-        sentenciaPre.setInt(1, presupuesto);
-        sentenciaPre.setInt(2, puntos);
-        sentenciaPre.setInt(3, id_equipo);
+        sentenciaPre.setString(1, nombre);
+        sentenciaPre.setInt(2, presupuesto);
+        sentenciaPre.setInt(3, puntos);
+        sentenciaPre.setInt(4, id_equipo);
     
         int update = sentenciaPre.executeUpdate();
         System.out.println(update);
         
-        gdb.cerrarCon();
+        GenericoDB.cerrarCon();
     }
-    public void borrarEquipo(int id_equipo) throws Exception{
+    public void borrarEquipo(String nombre) throws Exception{
     
-        gdb.conectar();
+        GenericoDB.conectar();
         
-        String plantilla = "delete from equipos where id_equipo=?";
-        PreparedStatement sentenciaPre = gdb.getCon().prepareStatement(plantilla);
+        String plantilla = "delete from equipos where nombre=?";
+        PreparedStatement sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
         
-        sentenciaPre.setInt(0, id_equipo);
+        sentenciaPre.setString(1, nombre);
         
         int delete = sentenciaPre.executeUpdate();
         System.out.println(delete);        
     
-        gdb.cerrarCon();   
+        GenericoDB.cerrarCon();   
     }
     
-    public ArrayList<Equipo> consultarTodos() throws Exception{
+    public static ArrayList<Equipo> consultarTodos() throws Exception{
         
         
-        gdb.conectar(); 
+        GenericoDB.conectar(); 
         
-        Statement sentencia = gdb.getCon().createStatement();
+        Statement sentencia = GenericoDB.getCon().createStatement();
         
-        resultado = sentencia.executeQuery("select * from equipos");
+        resultado = sentencia.executeQuery("select * from equipo");
         
         ArrayList<Equipo> listaEquipos = new ArrayList<>();
         while(resultado.next()){
@@ -87,9 +85,65 @@ public class EquipoDB {
             listaEquipos.add(e);
         }
         
-        gdb.cerrarCon();
+        GenericoDB.cerrarCon();
         
         return listaEquipos; 
     }
     
+     public static ArrayList<Equipo> consultarEquipoSinPresidente() throws Exception{
+
+        GenericoDB.conectar(); 
+        
+        Statement sentencia = GenericoDB.getCon().createStatement();
+        
+        resultado = sentencia.executeQuery("select * from equipo where id_equipo NOT in (select equipo_id_equipo from presidente)");
+        
+        ArrayList<Equipo> listaEquipos = new ArrayList<>();
+        while(resultado.next()){
+            Equipo e = new Equipo();
+            
+            e.setIdEquipo(resultado.getInt("id_equipo"));
+            e.setNombre(resultado.getString("nombre"));
+            e.setPresupuesto(resultado.getInt("presupuesto"));
+            e.setPuntos(resultado.getInt("puntos"));
+            
+            listaEquipos.add(e);
+        }
+        
+        GenericoDB.cerrarCon();
+        
+        return listaEquipos; 
+    }
+     
+    public static void updatePuntosEquipo(Partido oPartido) throws SQLException, Exception{
+        
+        //GenericoDB.conectar(); //Desactivada por problemas tecnicos
+        
+        String plantilla = "update equipo set puntos = puntos + 3 where id_equipo = ?";
+        ps = GenericoDB.getCon().prepareStatement(plantilla);
+        
+        ps.setInt(1, oPartido.getEquipoVencedor().getIdEquipo());
+        int insercion = ps.executeUpdate();
+        
+        GenericoDB.cerrarCon();   
+    } 
+    public static Equipo consultarEquipoPresidente(int idEquipo) throws SQLException{
+        GenericoDB.conectar();
+        String plantilla = "select * from equipo where id_equipo = ?";
+        ps = GenericoDB.getCon().prepareStatement(plantilla);
+        ps.setInt(1, idEquipo);
+        
+        resultado = ps.executeQuery();
+        Equipo e = new Equipo();
+        
+        if(resultado.next()){
+            
+            e.setIdEquipo(resultado.getInt("id_equipo"));
+            e.setNombre(resultado.getString("nombre"));
+            e.setPresupuesto(resultado.getInt("presupuesto"));
+            e.setPuntos(resultado.getInt("puntos"));
+            
+        }
+        return e;
+    }
 }

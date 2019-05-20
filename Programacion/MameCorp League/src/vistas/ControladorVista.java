@@ -20,14 +20,17 @@ public class ControladorVista {
     private static VentanaPresidente vModPresidente;
     private static VentanaUsuarios vUsuarios;
     private static VentanaVisualizarLiga vVisualizarLiga;
+    private static VentanaVisualizarJornada vVisualizarJornada;
+    private static VentanaVisualizarEquipos vVisualizarEquipos;
     private static Login vLogin;
+    private static VentanaRegistroUsuarios vRegistroUsuarios;
     
     /**
      * Ejemplo: con este metodo creamos la ventana vAdmin
      * y mostramos la ventana, para ello la ponemos en visible
      */
-    public static void mostrarVentanaAdministradores(){
-        vAdmin = new VentanaAdministradores();
+    public static void mostrarVentanaAdministradores(String opcionActiva){
+        vAdmin = new VentanaAdministradores(opcionActiva);
         vAdmin.setVisible(true);
     }
     /**
@@ -44,22 +47,22 @@ public class ControladorVista {
     public static void OcultarVentanaCategoria(){
         vCategoria.dispose();
     }
-    public static void mostrarVentanaEquipos(){
-        vEquipos = new VentanaEquipos();
+    public static void mostrarVentanaEquipos(String operacionActiva){
+        vEquipos = new VentanaEquipos(operacionActiva);
         vEquipos.setVisible(true);
     }
     public static void OcultarVentanaEquipos(){
         vEquipos.dispose();
     }
-    public static void mostrarVentanaJugador(){
-        vJugador = new VentanaJugador();
+    public static void mostrarVentanaJugador(String operacionActiva) throws Exception{
+        vJugador = new VentanaJugador(operacionActiva);
         vJugador.setVisible(true);
     } 
     public static void OcultarVentanaJugador(){
         vJugador.dispose();
     }
-    public static void mostrarVentanaLiga(){
-        vLiga = new VentanaLiga();
+    public static void mostrarVentanaLiga(String operacionActiva){
+        vLiga = new VentanaLiga(operacionActiva);
         vLiga.setVisible(true);
     } 
     public static void OcultarVentanaLiga(){
@@ -72,8 +75,8 @@ public class ControladorVista {
     public static void OcultarVentanaModUsuarios(){
         vModUsuarios.dispose();
     }
-    public static void mostrarVentanaPresidente(){
-        vModPresidente = new VentanaPresidente();
+    public static void mostrarVentanaPresidente(String operacionActiva) throws Exception{
+        vModPresidente = new VentanaPresidente(operacionActiva);
         vModPresidente.setVisible(true);
     }
     public static void OcultarVentanaPresidente(){
@@ -83,8 +86,17 @@ public class ControladorVista {
         vUsuarios = new VentanaUsuarios();
         vUsuarios.setVisible(true);
     }
+    
     public static void OcultarVentanaUsuarios(){
         vUsuarios.dispose();
+    }
+    public static void mostrarVentanaVisualizarJornada() throws Exception{
+        vVisualizarJornada = new VentanaVisualizarJornada();
+        vVisualizarJornada.setVisible(true);
+    }
+    public static void mostrarVentanaVisualizarEquipos(){
+        vVisualizarEquipos = new VentanaVisualizarEquipos();
+        vVisualizarEquipos.setVisible(true);
     }
     public static void mostrarVentanaVisualizarLiga(){
         vVisualizarLiga = new VentanaVisualizarLiga();
@@ -93,12 +105,22 @@ public class ControladorVista {
     public static void OcultarVentanaVisualizarLiga(){
         vVisualizarLiga.dispose();
     }
+    public static void OcultarVentanaVisualizarJornada(){
+        vVisualizarJornada.dispose();
+    }
     public static void mostrarLogin(){
         vLogin = new Login();
         vLogin.setVisible(true);
     }
     public static void OcultarLogin(){
         vLogin.dispose();
+    }
+    public static void mostrarVentanaRegistroUsuarios(){
+        vRegistroUsuarios = new VentanaRegistroUsuarios();
+        vRegistroUsuarios.setVisible(true);
+    }
+        public static void OcultarVentanaRegistroUsuarios(){
+        vRegistroUsuarios.dispose();
     }
 
     

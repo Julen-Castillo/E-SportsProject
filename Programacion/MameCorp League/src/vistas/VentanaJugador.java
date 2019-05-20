@@ -6,7 +6,10 @@
 package vistas;
 
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import main.MainEsports;
 
 /**
@@ -14,17 +17,45 @@ import main.MainEsports;
  * @author PETO
  */
 public class VentanaJugador extends javax.swing.JFrame {
+  private String operacion;
+  private boolean titularidad;
+  private String posicion;
 
     /**
      * Creates new form VentanaJugador
      */
-    public VentanaJugador() {
+    public VentanaJugador(String operacionActiva) throws Exception {
         initComponents();
         setLocationRelativeTo(null);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(255,255,255,190));
+        operacion = operacionActiva;
+        mostrarOocultarfields();
     }
-
+   
+    public VentanaJugador() {
+        initComponents();
+    }
+public void mostrarOocultarfields() throws Exception{
+    if (operacion.equals("modificar")) {
+        
+        tfNombre.setEnabled(false);
+        tfApellido.setEnabled(false);
+        
+    }
+    else { if (operacion.equals("baja")){
+        tfSueldo.setEnabled(false);
+        rbNo.setEnabled(false);
+        rbSi.setEnabled(false);
+        tfNombre.setEnabled(false);
+        tfApellido.setEnabled(false);
+        cbPosicion.setEnabled(false);
+        MainEsports.darBajaJugador(tfNick.getText());
+        
+    }
+    }
+    
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,11 +65,11 @@ public class VentanaJugador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        gTitularidad = new javax.swing.ButtonGroup();
         panelOpaco = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         tfSueldo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        tfTitularidad = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         tfNombre = new javax.swing.JTextField();
@@ -48,7 +79,9 @@ public class VentanaJugador extends javax.swing.JFrame {
         tfNick = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         bAceptar = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbPosicion = new javax.swing.JComboBox<>();
+        rbSi = new javax.swing.JRadioButton();
+        rbNo = new javax.swing.JRadioButton();
         lFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,14 +94,12 @@ public class VentanaJugador extends javax.swing.JFrame {
         panelOpaco.add(jLabel3);
         jLabel3.setBounds(20, 670, 100, 20);
         panelOpaco.add(tfSueldo);
-        tfSueldo.setBounds(150, 950, 200, 24);
+        tfSueldo.setBounds(150, 950, 200, 20);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("APELLIDO");
         panelOpaco.add(jLabel4);
         jLabel4.setBounds(20, 740, 130, 17);
-        panelOpaco.add(tfTitularidad);
-        tfTitularidad.setBounds(150, 1020, 200, 24);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("NICKNAME");
@@ -80,26 +111,26 @@ public class VentanaJugador extends javax.swing.JFrame {
         panelOpaco.add(jLabel7);
         jLabel7.setBounds(20, 890, 80, 17);
         panelOpaco.add(tfNombre);
-        tfNombre.setBounds(150, 670, 200, 24);
+        tfNombre.setBounds(150, 670, 200, 20);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("SUELDO");
         panelOpaco.add(jLabel8);
         jLabel8.setBounds(30, 960, 80, 17);
         panelOpaco.add(tfApellido);
-        tfApellido.setBounds(150, 740, 200, 24);
+        tfApellido.setBounds(150, 740, 200, 20);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("TITULARIDAD");
         panelOpaco.add(jLabel9);
         jLabel9.setBounds(20, 1020, 100, 30);
         panelOpaco.add(tfNick);
-        tfNick.setBounds(150, 810, 200, 24);
+        tfNick.setBounds(150, 810, 200, 20);
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 48)); // NOI18N
         jLabel1.setText("JUGADOR");
         panelOpaco.add(jLabel1);
-        jLabel1.setBounds(80, 420, 220, 170);
+        jLabel1.setBounds(80, 420, 280, 170);
 
         bAceptar.setBackground(new java.awt.Color(0, 40, 135));
         bAceptar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -107,7 +138,7 @@ public class VentanaJugador extends javax.swing.JFrame {
         bAceptar.setText("ACEPTAR");
         bAceptar.setBorder(null);
         bAceptar.setContentAreaFilled(false);
-        bAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bAceptar.setFocusPainted(false);
         bAceptar.setOpaque(true);
         bAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -118,9 +149,27 @@ public class VentanaJugador extends javax.swing.JFrame {
         panelOpaco.add(bAceptar);
         bAceptar.setBounds(210, 1120, 160, 50);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toplaner", "Jungler", "Midlaner", "Ad Carry", "Support" }));
-        panelOpaco.add(jComboBox1);
-        jComboBox1.setBounds(150, 880, 200, 26);
+        cbPosicion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toplaner", "Jungler", "Midlaner", "Ad Carry", "Support" }));
+        cbPosicion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbPosicionActionPerformed(evt);
+            }
+        });
+        panelOpaco.add(cbPosicion);
+        cbPosicion.setBounds(150, 880, 200, 20);
+
+        rbSi.setText("Si");
+        rbSi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbSiActionPerformed(evt);
+            }
+        });
+        panelOpaco.add(rbSi);
+        rbSi.setBounds(160, 1030, 93, 23);
+
+        rbNo.setText("No");
+        panelOpaco.add(rbNo);
+        rbNo.setBounds(250, 1030, 39, 23);
 
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, -330, 400, 1430);
@@ -134,8 +183,73 @@ public class VentanaJugador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-        MainEsports.insertarJugadores();
+        
+    if (operacion.equals("baja")){
+      int respuesta =  JOptionPane.showConfirmDialog(this, "Estas segur@ que quieres dar de baja a " + tfNick.getText()+ " ?") ;
+      
+      if (respuesta == 1) {
+       if (operacion.equals("baja")){
+           try {
+               MainEsports.darBajaJugador(tfNick.getText());
+           } catch (Exception ex) {
+               Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        
+        } 
+      
+       else { if (operacion.equals("modificar")){ 
+           
+           if(rbSi.isSelected()){
+               titularidad = true;
+           }
+           else {
+               titularidad = false;
+           }
+           switch (cbPosicion.getSelectedIndex()){
+               case 0:
+                   posicion = "Toplaner";
+                   break;
+               case 1:
+                   posicion = "Jungler";
+                   break;
+               case 2:
+                   posicion = "Midlaner";
+                   break;
+               case 3:
+                   posicion = "Adcarry";
+                   break;
+               case 4:
+                   posicion = "Support";
+                   break;
+
+           }
+           try {
+               MainEsports.modificarJugador(tfNick.getText(), Integer.parseInt(tfSueldo.getText()),titularidad,posicion);
+           } catch (Exception ex) {
+               Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
+           }
+       }
+      }  
+      } else { if (respuesta == 2 || respuesta == 3){
+          tfNick.setText("");
+          JOptionPane.showMessageDialog(this, "Escribe otra vez el nickname del jugador que quieras dar de baja");
+          }
+      }
+    }
+    else {
+        if(operacion.equals("alta")){
+            //MainEsports.insertarJugadores();
+        }
+    }
     }//GEN-LAST:event_bAceptarActionPerformed
+
+    private void cbPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPosicionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbPosicionActionPerformed
+
+    private void rbSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbSiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,16 +279,15 @@ public class VentanaJugador extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaJugador().setVisible(true);
-            }
-        });
+       
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAceptar;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cbPosicion;
+    private javax.swing.ButtonGroup gTitularidad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -184,10 +297,11 @@ public class VentanaJugador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lFondo;
     private javax.swing.JPanel panelOpaco;
+    private javax.swing.JRadioButton rbNo;
+    private javax.swing.JRadioButton rbSi;
     private javax.swing.JTextField tfApellido;
     private javax.swing.JTextField tfNick;
     private javax.swing.JTextField tfNombre;
     private javax.swing.JTextField tfSueldo;
-    private javax.swing.JTextField tfTitularidad;
     // End of variables declaration//GEN-END:variables
 }

@@ -18,11 +18,12 @@ public class VentanaVisualizarLiga extends javax.swing.JFrame {
      * Creates new form VentanaVisualizarLiga
      */
     public VentanaVisualizarLiga() {
+        setUndecorated(true);
         initComponents();
-         setLocationRelativeTo(null);
-         setExtendedState(JFrame.MAXIMIZED_BOTH);
-          panelOpaco.setBackground(new Color(39, 118, 173,190));
-         // bVolver.setBackground(new Color(39, 118, 173,190));
+        setAlwaysOnTop(rootPaneCheckingEnabled);
+        setExtendedState(MAXIMIZED_BOTH);
+        panelOpaco.setBackground(new Color(39, 118, 173,190));
+        // bVolver.setBackground(new Color(39, 118, 173,190));
     }
 
     /**
@@ -116,9 +117,15 @@ public class VentanaVisualizarLiga extends javax.swing.JFrame {
         bVolver.setBackground(new java.awt.Color(255, 255, 255));
         bVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgLiga/icon1.png"))); // NOI18N
         bVolver.setBorderPainted(false);
+        bVolver.setContentAreaFilled(false);
         bVolver.setFocusPainted(false);
         bVolver.setOpaque(false);
         bVolver.setRequestFocusEnabled(false);
+        bVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVolverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelOpacoLayout = new javax.swing.GroupLayout(panelOpaco);
         panelOpaco.setLayout(panelOpacoLayout);
@@ -239,17 +246,17 @@ public class VentanaVisualizarLiga extends javax.swing.JFrame {
                         .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
                 .addComponent(bVolver)
                 .addContainerGap())
         );
 
         getContentPane().add(panelOpaco);
-        panelOpaco.setBounds(670, 180, 610, 670);
+        panelOpaco.setBounds(660, 180, 610, 670);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgLiga/FondoClasificacion.png"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(20, -50, 1920, 1080);
+        jLabel1.setBounds(0, 0, 1950, 1080);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -265,6 +272,11 @@ public class VentanaVisualizarLiga extends javax.swing.JFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
+        ControladorVista.OcultarVentanaVisualizarLiga();
+        ControladorVista.mostrarVentanaUsuarios();
+    }//GEN-LAST:event_bVolverActionPerformed
 
     /**
      * @param args the command line arguments

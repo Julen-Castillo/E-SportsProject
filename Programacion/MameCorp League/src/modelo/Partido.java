@@ -14,8 +14,8 @@ import java.time.LocalDate;
 public class Partido {
     
     private Equipo equipoLocal;
+    private Equipo equipoVisitante;
     private Jornada oJornada;
-    private int idEquipoVisitante;
     private Equipo equipoVencedor;
     private String tipoPartido;
     private LocalDate fechaInicio;
@@ -25,10 +25,10 @@ public class Partido {
     private int oroEquipoLocal;
     private int oroEquipoVisitante;
 
-    public Partido(Equipo equipoLocal, Jornada oJornada, int idEquipoVisitante, Equipo equipoVencedor, String tipoPartido, LocalDate fechaInicio, LocalDate fechaFin, int killsEquipoLocal, int killsEquipoVisitante, int oroEquipoLocal, int oroEquipoVisitante) {
+    public Partido(Equipo equipoLocal, Equipo equipoVisitante, Jornada oJornada, Equipo equipoVencedor, String tipoPartido, LocalDate fechaInicio, LocalDate fechaFin, int killsEquipoLocal, int killsEquipoVisitante, int oroEquipoLocal, int oroEquipoVisitante) {
         this.equipoLocal = equipoLocal;
+        this.equipoVisitante = equipoVisitante;
         this.oJornada = oJornada;
-        this.idEquipoVisitante = idEquipoVisitante;
         this.equipoVencedor = equipoVencedor;
         this.tipoPartido = tipoPartido;
         this.fechaInicio = fechaInicio;
@@ -39,6 +39,7 @@ public class Partido {
         this.oroEquipoVisitante = oroEquipoVisitante;
     }
 
+    
 
     public Partido() {
     }
@@ -51,20 +52,20 @@ public class Partido {
         this.equipoLocal = equipoLocal;
     }
 
+    public Equipo getEquipoVisitante() {
+        return equipoVisitante;
+    }
+
+    public void setEquipoVisitante(Equipo equipoVisitante) {
+        this.equipoVisitante = equipoVisitante;
+    }
+
     public Jornada getoJornada() {
         return oJornada;
     }
 
     public void setoJornada(Jornada oJornada) {
         this.oJornada = oJornada;
-    }
-
-    public int getIdEquipoVisitante() {
-        return idEquipoVisitante;
-    }
-
-    public void setIdEquipoVisitante(int idEquipoVisitante) {
-        this.idEquipoVisitante = idEquipoVisitante;
     }
 
     public Equipo getEquipoVencedor() {
@@ -129,7 +130,5 @@ public class Partido {
 
     public void setOroEquipoVisitante(int oroEquipoVisitante) {
         this.oroEquipoVisitante = oroEquipoVisitante;
-    }
-
-    
+    } 
 }
