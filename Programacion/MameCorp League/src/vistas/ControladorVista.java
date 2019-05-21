@@ -94,7 +94,7 @@ public class ControladorVista {
         vVisualizarJornada = new VentanaVisualizarJornada();
         vVisualizarJornada.setVisible(true);
     }
-    public static void mostrarVentanaVisualizarEquipos(){
+    public static void mostrarVentanaVisualizarEquipos() throws Exception{
         vVisualizarEquipos = new VentanaVisualizarEquipos();
         vVisualizarEquipos.setVisible(true);
     }
