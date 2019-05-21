@@ -22,12 +22,12 @@ public class GenericoDB {
             // con = DriverManager.getConnection(url,"sys","oracle");
             
             //Conexiones adri
-            String url="jdbc:oracle:thin:@localhost:1521:xe";
-            con = DriverManager.getConnection(url,"course","myipod12");
+            //String url="jdbc:oracle:thin:@localhost:1521:xe";
+            //con = DriverManager.getConnection(url,"course","myipod12");
             
-            //Casa
-            //String url="jdbc:oracle:thin:@10.10.10.9:1521:db12102";
-            //con = DriverManager.getConnection(url,"sys","oracle");
+            //Casa PETO
+            String url="jdbc:oracle:thin:@10.10.10.9:1521:db12102";
+            con = DriverManager.getConnection(url,"eqdaw01","eqdaw01");
 
             //Clase
             //String url="jdbc:oracle:thin:@SrvOracle:1521:orcl";

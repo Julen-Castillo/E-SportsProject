@@ -6,6 +6,7 @@
 package vistas;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -13,6 +14,8 @@ import java.util.regex.Pattern;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import main.MainEsports;
+import modelo.Equipo;
+import modelo.Jugador;
 
 
 /**
@@ -23,6 +26,9 @@ public class VentanaJugador extends javax.swing.JFrame {
   private String operacion;
   private boolean titularidad;
   private String posicion;
+  private Jugador oJugador;
+  private ArrayList<Equipo>listaEquipos;
+  private int respuesta;
 
     /**
      * Creates new form VentanaJugador
@@ -33,26 +39,52 @@ public class VentanaJugador extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(255,255,255,190));
         operacion = operacionActiva;
+        llenarCbEquipos();
         mostrarOocultarfields();
+        
       
     }
    
     public VentanaJugador() {
         initComponents();
     }
+    public void llenarCbEquipos() throws Exception{
+        listaEquipos = MainEsports.consultarEquipos();
+        for(int i = 0; i < listaEquipos.size(); i++){
+            cbEquipo.addItem(listaEquipos.get(i).getNombre());
+        }
+        
+    }
     public void mostrarOocultarfields() throws Exception{
         if (operacion.equals("modificar")) {
             tfNombre.setEnabled(false);
             tfApellido.setEnabled(false);
+            cbEquipo.setEnabled(false);
         }
         else if(operacion.equals("baja")){ 
-        tfSueldo.setEnabled(false);
-        rbNo.setEnabled(false);
-        rbSi.setEnabled(false);
-        tfNombre.setEnabled(false);
-        tfApellido.setEnabled(false);
-        cbPosicion.setEnabled(false);
-        MainEsports.darBajaJugador(tfNick.getText());
+            rbSi.setEnabled(false);
+            rbNo.setEnabled(false);
+            tfNick.setEnabled(titularidad);
+            tfSueldo.setEnabled(false);
+            tfNombre.setEnabled(false);
+            tfApellido.setEnabled(false);
+            cbPosicion.setEnabled(false);
+            cbEquipo.setEnabled(false);
+            String nickAEliminar = JOptionPane.showInputDialog(null, "Introduce el nickname del jugador a eliminar");
+            oJugador = MainEsports.consultarJugadorABorrar(nickAEliminar);
+
+            tfNombre.setText(oJugador.getNombre());
+            tfApellido.setText(oJugador.getApellido());
+            tfNick.setText(oJugador.getNickname());
+            cbPosicion.setSelectedItem(oJugador.getPosicion());
+            tfSueldo.setText(String.valueOf(oJugador.getSueldo()));
+            if(oJugador.isTitularidad()){
+                rbSi.setSelected(true); 
+            }
+            else{
+                rbNo.setSelected(true);
+            }
+            cbEquipo.setSelectedItem(oJugador.getoEquipo().getNombre());
         }
     }
     
@@ -87,6 +119,8 @@ public class VentanaJugador extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         cbEquipo = new javax.swing.JComboBox<>();
         lFondo = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        miVolver = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -98,7 +132,7 @@ public class VentanaJugador extends javax.swing.JFrame {
         panelOpaco.add(jLabel3);
         jLabel3.setBounds(30, 610, 100, 20);
         panelOpaco.add(tfSueldo);
-        tfSueldo.setBounds(150, 890, 200, 24);
+        tfSueldo.setBounds(150, 890, 200, 20);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("APELLIDO");
@@ -115,21 +149,21 @@ public class VentanaJugador extends javax.swing.JFrame {
         panelOpaco.add(jLabel7);
         jLabel7.setBounds(20, 817, 80, 30);
         panelOpaco.add(tfNombre);
-        tfNombre.setBounds(150, 610, 200, 24);
+        tfNombre.setBounds(150, 610, 200, 20);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("SUELDO");
         panelOpaco.add(jLabel8);
         jLabel8.setBounds(30, 890, 80, 30);
         panelOpaco.add(tfApellido);
-        tfApellido.setBounds(150, 680, 200, 24);
+        tfApellido.setBounds(150, 680, 200, 20);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("EQUIPO");
         panelOpaco.add(jLabel9);
         jLabel9.setBounds(30, 1030, 70, 30);
         panelOpaco.add(tfNick);
-        tfNick.setBounds(150, 750, 200, 24);
+        tfNick.setBounds(150, 750, 200, 20);
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 48)); // NOI18N
         jLabel1.setText("JUGADOR");
@@ -151,7 +185,7 @@ public class VentanaJugador extends javax.swing.JFrame {
             }
         });
         panelOpaco.add(bAceptar);
-        bAceptar.setBounds(210, 1120, 160, 50);
+        bAceptar.setBounds(220, 1100, 140, 40);
 
         cbPosicion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toplaner", "Jungler", "Midlaner", "Ad Carry", "Support" }));
         cbPosicion.addActionListener(new java.awt.event.ActionListener() {
@@ -160,8 +194,9 @@ public class VentanaJugador extends javax.swing.JFrame {
             }
         });
         panelOpaco.add(cbPosicion);
-        cbPosicion.setBounds(150, 820, 200, 26);
+        cbPosicion.setBounds(150, 820, 200, 20);
 
+        gTitularidad.add(rbSi);
         rbSi.setText("Si");
         rbSi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,11 +204,12 @@ public class VentanaJugador extends javax.swing.JFrame {
             }
         });
         panelOpaco.add(rbSi);
-        rbSi.setBounds(160, 960, 70, 28);
+        rbSi.setBounds(160, 960, 70, 23);
 
+        gTitularidad.add(rbNo);
         rbNo.setText("No");
         panelOpaco.add(rbNo);
-        rbNo.setBounds(260, 960, 47, 28);
+        rbNo.setBounds(260, 960, 70, 23);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("TITULARIDAD");
@@ -181,7 +217,7 @@ public class VentanaJugador extends javax.swing.JFrame {
         jLabel10.setBounds(20, 960, 100, 30);
 
         panelOpaco.add(cbEquipo);
-        cbEquipo.setBounds(150, 1030, 200, 26);
+        cbEquipo.setBounds(150, 1030, 200, 20);
 
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, -330, 400, 1430);
@@ -190,6 +226,16 @@ public class VentanaJugador extends javax.swing.JFrame {
         lFondo.setText("jugador");
         getContentPane().add(lFondo);
         lFondo.setBounds(-130, -10, 2050, 1140);
+
+        miVolver.setText("Volver");
+        miVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                miVolverMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(miVolver);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -225,35 +271,32 @@ public class VentanaJugador extends javax.swing.JFrame {
             }
         }
         
-        if (operacion.equals("baja")){
-        int respuesta =  JOptionPane.showConfirmDialog(this, "Estas segur@ que quieres dar de baja a " + tfNick.getText()+ " ?") ;
+        else if (operacion.equals("baja")){
+        respuesta =  JOptionPane.showConfirmDialog(this, "Estas segur@ que quieres dar de baja a " + tfNick.getText()+ " ?") ;
 
-        if (respuesta == 1) {
-            if (operacion.equals("baja")){
-                try {
-                    MainEsports.darBajaJugador(tfNick.getText());
-                } catch (Exception ex) {
-                    Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-             } 
-      
-       else { 
-            if (operacion.equals("modificar")){ 
-           
+        if (respuesta == 0) {
+            try {
+                MainEsports.darBajaJugador(tfNick.getText());
+            } catch (Exception ex) {
+                Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } 
+        else if (operacion.equals("modificar")){                   
                 if(rbSi.isSelected()){
                     titularidad = true;
                 }
                 else {
                     titularidad = false;
                 }
+            
+        }      
                 switch (cbPosicion.getSelectedIndex()){
                     case 0:
                         posicion = "Toplaner";
                         break;
                     case 1:
                         posicion = "Jungler";
-                        break;
+                       break;
                     case 2:
                         posicion = "Midlaner";
                         break;
@@ -264,25 +307,27 @@ public class VentanaJugador extends javax.swing.JFrame {
                         posicion = "Support";
                         break;
 
-                }
+              }
            try {
-               MainEsports.modificarJugador(tfNick.getText(), Integer.parseInt(tfSueldo.getText()),titularidad,posicion);
-           } catch (Exception ex) {
+               String nickname = JOptionPane.showInputDialog("Escribe el nickname del jugador que quieres modificar"); 
+              oJugador = MainEsports.consultarJugadorAModificar(nickname);
+               if(oJugador == null){
+                   JOptionPane.showMessageDialog(null, "No existe tal jugador");
+               }
+               else {
+                  llenarFields();
+                  MainEsports.modificarJugador(tfNick.getText(),Integer.parseInt(tfSueldo.getText()),titularidad,posicion);
+               }
+ 
+          } catch (Exception ex) {
                Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
-           }
+          }    
+            if (respuesta == 2 || respuesta == 3){
+             tfNick.setText("");
+        
+         }
        }
-      }  
-      } else { if (respuesta == 2 || respuesta == 3){
-          tfNick.setText("");
-          JOptionPane.showMessageDialog(this, "Escribe otra vez el nickname del jugador que quieras dar de baja");
-          }
-      }
-    }
-    else {
-        if(operacion.equals("alta")){
-            //MainEsports.insertarJugadores();
-        }
-    }
+   
     }//GEN-LAST:event_bAceptarActionPerformed
 
     private void cbPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPosicionActionPerformed
@@ -293,6 +338,12 @@ public class VentanaJugador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbSiActionPerformed
 
+    private void miVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miVolverMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        ControladorVista.mostrarVentanaCategoria();
+    }//GEN-LAST:event_miVolverMouseClicked
+
     private boolean validarFields (){
          Pattern patron = Pattern.compile("^[A-Z][a-z]{15}");
                 Matcher encaja = patron.matcher(tfNombre.getText());
@@ -302,6 +353,14 @@ public class VentanaJugador extends javax.swing.JFrame {
                     return true;
                 }
        return false; 
+    }
+    private void llenarFields(){
+        tfNombre.setText(oJugador.getNombre());
+        tfApellido.setText(oJugador.getApellido());
+        tfNick.setText(oJugador.getNickname());
+        tfSueldo.setText(oJugador.getPosicion());
+        cbEquipo.setSelectedIndex(oJugador.getoEquipo().getIdEquipo());
+        
     }
     /**
      * @param args the command line arguments
@@ -349,7 +408,9 @@ public class VentanaJugador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lFondo;
+    private javax.swing.JMenu miVolver;
     private javax.swing.JPanel panelOpaco;
     private javax.swing.JRadioButton rbNo;
     private javax.swing.JRadioButton rbSi;

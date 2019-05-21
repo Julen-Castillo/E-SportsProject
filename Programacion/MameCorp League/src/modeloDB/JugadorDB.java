@@ -11,8 +11,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import main.MainEsports;
+import modelo.Equipo;
 import modelo.Jugador;
-import modelo.Sesion;
 
 /**
  *
@@ -23,6 +23,7 @@ public class JugadorDB {
     private static PreparedStatement sentenciaPre;
     private static Statement st;
     private static ArrayList<Jugador> listaJugador;
+    private static Equipo oEquipo;
     
 
     public static boolean insertarJugadores(Jugador oJugador) throws SQLException{
@@ -58,49 +59,50 @@ public class JugadorDB {
          Jugador oJugador = new Jugador();
          resultado = sentenciaPre.executeQuery();
          if(resultado.next()){
-             oJugador.setNickname(resultado.getString("NOMBRE"));
-             oJugador.setApellido(resultado.getString("APELLIDO"));
-             oJugador.setNickname(resultado.getString("NICKNAME"));
-             oJugador.setPosicion(resultado.getString("POSICION"));
-             oJugador.setSueldo(resultado.getInt("SUELDO"));
-             oJugador.setTitularidad(resultado.getBoolean("TITULARIDAD"));
-             EquipoDB oEquipoDB = new EquipoDB();
-           //  Equipo oEquipo = oEquipoDB.consultarTodos()
-           //  oJugador.setoEquipo(resultado.getObject("EQUIPO"));
+            oJugador.setNombre(resultado.getString("NOMBRE"));
+            oJugador.setApellido(resultado.getString("APELLIDO"));
+            oJugador.setNickname(resultado.getString("NICKNAME"));
+            oJugador.setPosicion(resultado.getString("POSICION"));
+            oJugador.setSueldo(resultado.getInt("SUELDO"));
+            oJugador.setTitularidad(resultado.getBoolean("TITULARIDAD"));
+            
+            oEquipo = MainEsports.buscarEquipoDelJugador(resultado.getInt("EQUIPO_ID_EQUIPO"));
+            oJugador.setoEquipo(oEquipo);
 
-             GenericoDB.cerrarCon();
-             return oJugador;
+            
+            GenericoDB.cerrarCon();
+            return oJugador;
          }
          GenericoDB.cerrarCon();
-         return null;
+         return oJugador;
     }
-public static Jugador modificarJugador(String nickname,int sueldo, boolean titularidad,String posicion) throws SQLException{
-    GenericoDB.conectar();
+    
+    public static Jugador modificarJugador(String nickname,int sueldo, boolean titularidad,String posicion) throws SQLException{
+        GenericoDB.conectar();
         String plantilla = "update jugador set NICKNAME = ?, SUELDO = ?, TITULARIDAD = ?, POSICION = ? ";
         sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
         sentenciaPre.setString(1, nickname);
-         sentenciaPre.setInt(2, sueldo);
-          sentenciaPre.setBoolean(3, titularidad);
-           sentenciaPre.setString(4, posicion);
-           
-             Jugador oJugador = new Jugador();
-          resultado = sentenciaPre.executeQuery();
-          // duda de que hacer ahora
+        sentenciaPre.setInt(2, sueldo);
+        sentenciaPre.setBoolean(3, titularidad);
+        sentenciaPre.setString(4, posicion);
+
+        Jugador oJugador = new Jugador();
+        resultado = sentenciaPre.executeQuery();
+        // duda de que hacer ahora
           
-   return null; //cambiar
+    return null; //cambiar
 }
 public static void darBajaJugador(String nickname) throws SQLException, Exception{
     
-     GenericoDB.conectar();
-     String plantilla = "delete from jugador where NICKNAME = ?";
-         sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
-         sentenciaPre.setString(1, nickname);
-        
-        int delete = sentenciaPre.executeUpdate();
-        System.out.println(delete);        
-    
-      GenericoDB.cerrarCon();   
+    GenericoDB.conectar();
+    String plantilla = "delete from jugador where NICKNAME = ?";
+    sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
+    sentenciaPre.setString(1, nickname);
 
+    int delete = sentenciaPre.executeUpdate();
+    System.out.println(delete);        
+    
+    GenericoDB.cerrarCon();   
 }
 
 //public static ArrayList<Jugador> consultarJugador() throws SQLException, Exception{
