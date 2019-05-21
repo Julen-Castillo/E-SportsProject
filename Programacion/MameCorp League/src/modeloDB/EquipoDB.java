@@ -12,6 +12,7 @@ public class EquipoDB {
     
     private static ResultSet resultado;
     private static PreparedStatement ps;
+    private static Statement st;
 
 
     public int insertarEquipo(Equipo e) throws Exception{
@@ -170,30 +171,30 @@ public class EquipoDB {
         
         return listaEquipos; 
     }
-    public static Equipo consultarEquipoDelJugador(int equipo_id_equipo) throws SQLException{
-          GenericoDB.conectar(); 
-        
-         Statement sentencia = GenericoDB.getCon().createStatement();
-          String plantilla = "select * from equipo where id_equipo = ?";
-          ps = GenericoDB.getCon().prepareStatement(plantilla);
-          ps.setInt(1,equipo_id_equipo);
-        
-          resultado = ps.executeQuery();
-          Equipo e = new Equipo();
-        
-         if(resultado.next()){
-            
-            e.setIdEquipo(resultado.getInt("id_equipo"));
-            e.setNombre(resultado.getString("nombre"));
-            e.setPresupuesto(resultado.getInt("presupuesto"));
-            e.setPuntos(resultado.getInt("puntos"));
-         
-        return e;
-        
-        
-    }
-         else{
-             return null;
-         }
-}
+//    public static Equipo consultarEquipoDelJugador(int equipo_id_equipo) throws SQLException{
+//          GenericoDB.conectar(); 
+//        
+//          st = GenericoDB.getCon().createStatement();
+//          String plantilla = "select * from equipo where id_equipo = ?";
+//          ps = GenericoDB.getCon().prepareStatement(plantilla);
+//          ps.setInt(1,equipo_id_equipo);
+//        
+//          resultado = ps.executeQuery();
+//          Equipo e = new Equipo();
+//        
+//         if(resultado.next()){
+//            
+//            e.setIdEquipo(resultado.getInt("id_equipo"));
+//            e.setNombre(resultado.getString("nombre"));
+//            e.setPresupuesto(resultado.getInt("presupuesto"));
+//            e.setPuntos(resultado.getInt("puntos"));
+//         
+//        return e;
+//        
+//        
+//    }
+//         else{
+//             return null;
+//         }
+//    }
 }
