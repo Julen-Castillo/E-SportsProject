@@ -289,7 +289,7 @@ public class VentanaJugador extends javax.swing.JFrame {
                     titularidad = false;
                 }
             
-        }      
+        }
                 switch (cbPosicion.getSelectedIndex()){
                     case 0:
                         posicion = "Toplaner";
@@ -306,11 +306,12 @@ public class VentanaJugador extends javax.swing.JFrame {
                     case 4:
                         posicion = "Support";
                         break;
-
               }
-           try {
+        
+           try { //if(operacion.equals("modificar")){
                String nickname = JOptionPane.showInputDialog("Escribe el nickname del jugador que quieres modificar"); 
               oJugador = MainEsports.consultarJugadorAModificar(nickname);
+          // }
                if(oJugador == null){
                    JOptionPane.showMessageDialog(null, "No existe tal jugador");
                }

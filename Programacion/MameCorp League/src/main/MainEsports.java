@@ -41,6 +41,7 @@ public class MainEsports {
     private static ArrayList<Jornada> listaJornadas; //Para mostrar las jornadas en la ventan visualizacion
     private static ArrayList<Partido> listaPartidos;
     private static ArrayList<Jugador> listaJugadores;
+    private static ArrayList<Presidente> listaPresidentes;
     private static Presidente oPresidente;
     private static boolean simular;
     
@@ -221,7 +222,9 @@ public class MainEsports {
         for(int i = 0; i < listaEquipos.size(); i++){
             int idEquipo = listaEquipos.get(i).getIdEquipo();
             listaJugadores = JugadorDB.consultarJugadorDelEquipo(idEquipo);
-            listaEquipos.get(i).setListaJugadores(listaJugadores);            
+            listaPresidentes = PresidenteDB.consultarPresidentesDelEquipo(idEquipo);
+            listaEquipos.get(i).setListaJugadores(listaJugadores);   
+            listaEquipos.get(i).setListaPresidentes(listaPresidentes);
         }
         
         if(listaEquipos.size()>0){

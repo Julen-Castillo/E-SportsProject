@@ -31,6 +31,7 @@ public class VentanaVisualizarEquipos extends javax.swing.JFrame {
         llenarFieldsEquipo();
         //listaJugadores = MainEsports.mostrarJugadores();
         llenarFieldsJugador();
+        llenarFieldsPresidente();
         
     }
 
@@ -706,6 +707,15 @@ public class VentanaVisualizarEquipos extends javax.swing.JFrame {
         tfJugador6_6.setText(listaEquipos.get(5).getListaJugadores().get(5).getNickname().toUpperCase());
     }}}
     
+      public void llenarFieldsPresidente(){
+        tfPresidente1.setText(listaEquipos.get(0).getListaPresidentes().get(0).getNombre().toUpperCase());
+        tfPresidente1.setText(listaEquipos.get(1).getListaPresidentes().get(1).getNombre().toUpperCase());
+        tfPresidente1.setText(listaEquipos.get(2).getListaPresidentes().get(2).getNombre().toUpperCase());
+        tfPresidente1.setText(listaEquipos.get(3).getListaPresidentes().get(3).getNombre().toUpperCase());
+        tfPresidente1.setText(listaEquipos.get(4).getListaPresidentes().get(4).getNombre().toUpperCase());
+        tfPresidente1.setText(listaEquipos.get(5).getListaPresidentes().get(5).getNombre().toUpperCase());   
+    }
+    
     public void estiloPaneles(){
         panelOpaco1.setBackground(new Color(62, 80, 111,190));
         panelOpaco2.setBackground(new Color(62, 80, 111,190));
@@ -714,6 +724,8 @@ public class VentanaVisualizarEquipos extends javax.swing.JFrame {
         panelOpaco5.setBackground(new Color(62, 80, 111,190));
         panelOpaco6.setBackground(new Color(62, 80, 111,190));
     }
+    
+  
     /**
      * @param args the command line arguments
      */
