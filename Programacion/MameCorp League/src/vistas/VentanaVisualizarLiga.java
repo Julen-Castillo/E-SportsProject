@@ -332,21 +332,20 @@ public class VentanaVisualizarLiga extends javax.swing.JFrame {
     
     private void getClasificacion() throws Exception{
         listaEquipos = MainEsports.getClasificacion();
+ 
+        lEquipo1.setText(listaEquipos.get(0).getNombre().toUpperCase());
+        lPuntos1.setText(String.valueOf(listaEquipos.get(0).getPuntos()));
+        lEquipo2.setText(listaEquipos.get(1).getNombre().toUpperCase());
+        lPuntos2.setText(String.valueOf(listaEquipos.get(1).getPuntos()));
+        lEquipo3.setText(listaEquipos.get(2).getNombre().toUpperCase());
+        lPuntos3.setText(String.valueOf(listaEquipos.get(2).getPuntos()));
+        lEquipo4.setText(listaEquipos.get(3).getNombre().toUpperCase());
+        lPuntos4.setText(String.valueOf(listaEquipos.get(3).getPuntos()));
+        lEquipo5.setText(listaEquipos.get(4).getNombre().toUpperCase());
+        lPuntos5.setText(String.valueOf(listaEquipos.get(4).getPuntos()));
+        lEquipo6.setText(listaEquipos.get(5).getNombre().toUpperCase());
+        lPuntos6.setText(String.valueOf(listaEquipos.get(5).getPuntos()));
         
-        if(listaEquipos != null){
-            lEquipo1.setText(listaEquipos.get(0).getNombre().toUpperCase());
-            lPuntos1.setText(String.valueOf(listaEquipos.get(0).getPuntos()));
-            lEquipo2.setText(listaEquipos.get(1).getNombre().toUpperCase());
-            lPuntos2.setText(String.valueOf(listaEquipos.get(1).getPuntos()));
-            lEquipo3.setText(listaEquipos.get(2).getNombre().toUpperCase());
-            lPuntos3.setText(String.valueOf(listaEquipos.get(2).getPuntos()));
-            lEquipo4.setText(listaEquipos.get(3).getNombre().toUpperCase());
-            lPuntos4.setText(String.valueOf(listaEquipos.get(3).getPuntos()));
-            lEquipo5.setText(listaEquipos.get(4).getNombre().toUpperCase());
-            lPuntos5.setText(String.valueOf(listaEquipos.get(4).getPuntos()));
-            lEquipo6.setText(listaEquipos.get(5).getNombre().toUpperCase());
-            lPuntos6.setText(String.valueOf(listaEquipos.get(5).getPuntos()));
-        }
     }
     
     /**

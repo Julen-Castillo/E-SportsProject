@@ -23,6 +23,8 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
 
     private static ArrayList<Partido> listaPartidos;
     private static ArrayList<Jornada> listaJornadas;
+    private static Partido oPartido;
+    private static boolean ready = false;
     
     /**
      * Creates new form VentanaVisualizarJornada
@@ -37,6 +39,7 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
         llenarComboBoxJornadas();
         consultarPartidosDeCadaJornada();
         setDatosPrimeraJornada();
+        ready = true;
     }
     
     public final void llenarComboBoxJornadas() throws Exception{
@@ -74,7 +77,6 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         cbJornada = new javax.swing.JComboBox<>();
         bVolver = new javax.swing.JButton();
-        bRefrescar = new javax.swing.JButton();
         tfEquipoLocal1 = new javax.swing.JLabel();
         tfEquipoLocal3 = new javax.swing.JLabel();
         tfEquipoVisitante1 = new javax.swing.JLabel();
@@ -111,13 +113,6 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
         bVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bVolverActionPerformed(evt);
-            }
-        });
-
-        bRefrescar.setText("Refresh");
-        bRefrescar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bRefrescarActionPerformed(evt);
             }
         });
 
@@ -186,6 +181,11 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
         bWinEquipoLocal1.setForeground(new java.awt.Color(255, 255, 255));
         bWinEquipoLocal1.setText("WINNER");
         bWinEquipoLocal1.setBorder(null);
+        bWinEquipoLocal1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bWinEquipoLocal1ActionPerformed(evt);
+            }
+        });
 
         bWinEquipoLocal2.setBackground(new java.awt.Color(0, 153, 0));
         bWinEquipoLocal2.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
@@ -242,10 +242,7 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
                         .addGap(464, 464, 464))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpacoLayout.createSequentialGroup()
                         .addComponent(cbJornada, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(411, 411, 411))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpacoLayout.createSequentialGroup()
-                        .addComponent(bRefrescar)
-                        .addGap(464, 464, 464))))
+                        .addGap(411, 411, 411))))
         );
         panelOpacoLayout.setVerticalGroup(
             panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,9 +251,7 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
                     .addGroup(panelOpacoLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(cbJornada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bRefrescar)
-                        .addGap(4, 4, 4)
+                        .addGap(42, 42, 42)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelOpacoLayout.createSequentialGroup()
                         .addGap(103, 103, 103)
@@ -299,8 +294,14 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRefrescarActionPerformed
-        switch(cbJornada.getSelectedIndex()){
+    private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
+        ControladorVista.OcultarVentanaVisualizarJornada();
+        ControladorVista.mostrarVentanaUsuarios();
+    }//GEN-LAST:event_bVolverActionPerformed
+
+    private void cbJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbJornadaActionPerformed
+        if(ready){
+            switch(cbJornada.getSelectedIndex()){
             case 0:
             tfEquipoLocal1.setText(listaJornadas.get(0).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
             tfEquipoLocal2.setText(listaJornadas.get(0).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
@@ -390,46 +391,23 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
             tfEquipoVisitante3.setText(listaJornadas.get(10).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
             break;
         }
-    }//GEN-LAST:event_bRefrescarActionPerformed
-
-    private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
-        ControladorVista.OcultarVentanaVisualizarJornada();
-        ControladorVista.mostrarVentanaUsuarios();
-    }//GEN-LAST:event_bVolverActionPerformed
-
-    private void cbJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbJornadaActionPerformed
-
+        }
     }//GEN-LAST:event_cbJornadaActionPerformed
 
     private void cbJornadaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbJornadaItemStateChanged
-        //        System.out.println(listaJornadas.size());
-        //        switch(cbJornada.getSelectedIndex()){
-            //            case 0:
-            //                tfEquipoLocal1.setText(listaJornadas.get(0).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
-            //                tfEquipoLocal2.setText(listaJornadas.get(0).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
-            //                tfEquipoLocal3.setText(listaJornadas.get(0).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
-            //                tfEquipoVisitante1.setText(listaJornadas.get(0).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
-            //                tfEquipoVisitante2.setText(listaJornadas.get(0).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
-            //                tfEquipoVisitante3.setText(listaJornadas.get(0).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
-            //            break;
-            //            case 1:
-            //                tfEquipoLocal1.setText(listaJornadas.get(1).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
-            //                tfEquipoLocal2.setText(listaJornadas.get(1).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
-            //                tfEquipoLocal3.setText(listaJornadas.get(1).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
-            //                tfEquipoVisitante1.setText(listaJornadas.get(1).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
-            //                tfEquipoVisitante2.setText(listaJornadas.get(1).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
-            //                tfEquipoVisitante3.setText(listaJornadas.get(1).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
-            //            break;
-            //            case 2:
-            //                tfEquipoLocal1.setText(listaJornadas.get(2).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
-            //                tfEquipoLocal2.setText(listaJornadas.get(2).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
-            //                tfEquipoLocal3.setText(listaJornadas.get(2).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
-            //                tfEquipoVisitante1.setText(listaJornadas.get(2).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
-            //                tfEquipoVisitante2.setText(listaJornadas.get(2).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
-            //                tfEquipoVisitante3.setText(listaJornadas.get(2).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
-            //            break;
-            //        }
+        
     }//GEN-LAST:event_cbJornadaItemStateChanged
+
+    private void bWinEquipoLocal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bWinEquipoLocal1ActionPerformed
+        
+        try {
+            //Le pasamos el objeto partido y las string del equipo ganador al main
+            MainEsports.updateVencedorYpuntosNoSimulados(listaJornadas.get(cbJornada.getSelectedIndex()).getListaPartidos().get(0), tfEquipoLocal1.getText());
+        } catch (Exception ex) {
+            Logger.getLogger(VentanaVisualizarJornada.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_bWinEquipoLocal1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -471,7 +449,6 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bRefrescar;
     private javax.swing.JButton bVolver;
     private javax.swing.JButton bWinEquipoLocal1;
     private javax.swing.JButton bWinEquipoLocal2;
