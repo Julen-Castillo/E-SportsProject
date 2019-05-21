@@ -5,9 +5,6 @@
  */
 package vistas;
 
-import java.awt.Color;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import main.MainEsports;
 import modelo.Sesion;
@@ -60,7 +57,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgLogin/Mamecorp White.png"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel1.setFocusable(false);
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 250, 210));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 250, 210));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -70,7 +67,7 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Contraseña:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, -1, -1));
 
         tfPassword.setBorder(null);
         tfPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +75,7 @@ public class Login extends javax.swing.JFrame {
                 tfPasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(tfPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 210, 30));
+        getContentPane().add(tfPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 210, 30));
 
         tfNombre.setBorder(null);
         tfNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +101,7 @@ public class Login extends javax.swing.JFrame {
                 bRegistrarUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(bRegistrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 490, -1, -1));
+        getContentPane().add(bRegistrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, -1, -1));
 
         bMusic.setBackground(new java.awt.Color(0, 0, 0));
         bMusic.setOpaque(false);
@@ -113,11 +110,11 @@ public class Login extends javax.swing.JFrame {
                 bMusicActionPerformed(evt);
             }
         });
-        getContentPane().add(bMusic, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 30));
+        getContentPane().add(bMusic, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 540, -1, 30));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Silenciar");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 70, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 546, 70, 20));
 
         pFondoLogin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         pFondoLogin.setForeground(new java.awt.Color(255, 255, 255));

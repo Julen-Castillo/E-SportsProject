@@ -2,12 +2,10 @@ package main;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.*;
 import modeloDB.*;
-import music.Sonido;
 import vistas.*;
 
 
@@ -48,7 +46,6 @@ public class MainEsports {
     
     
     public static void main(String[] args) throws SQLException, Exception {
-    Sonido reproducir = new Sonido();
         //La linea de abajo está comentada porque todavia no está implementado el login
         // ControladorVista.mostrarVentanaVisualizarLiga();
         GenericoDB.conectar();
