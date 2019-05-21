@@ -64,7 +64,7 @@ public class VentanaUsuarios extends javax.swing.JFrame {
                 bJornadasActionPerformed(evt);
             }
         });
-        getContentPane().add(bJornadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 230, 50));
+        getContentPane().add(bJornadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 230, 50));
 
         bEquipos.setBackground(new java.awt.Color(0, 102, 102));
         bEquipos.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -80,7 +80,7 @@ public class VentanaUsuarios extends javax.swing.JFrame {
                 bEquiposActionPerformed(evt);
             }
         });
-        getContentPane().add(bEquipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 260, 70));
+        getContentPane().add(bEquipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 500, 260, 70));
 
         bLiga.setBackground(new java.awt.Color(255, 255, 255));
         bLiga.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -101,7 +101,7 @@ public class VentanaUsuarios extends javax.swing.JFrame {
                 bLigaActionPerformed(evt);
             }
         });
-        getContentPane().add(bLiga, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 190, 60));
+        getContentPane().add(bLiga, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 190, 60));
 
         jLabel3.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));

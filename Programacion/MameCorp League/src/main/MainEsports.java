@@ -96,6 +96,10 @@ public class MainEsports {
         }
         return listaJornadas;
     }
+    
+    public static ArrayList<Equipo> getClasificacion() throws Exception{
+        return EquipoDB.getClasificacion();
+    }
 
 
     public static int insertarEquipos(String nombre,int presupuesto,int puntos) throws Exception{
@@ -106,6 +110,7 @@ public class MainEsports {
         return equipoDB.insertarEquipo(e);  
 
     }
+    
     public static int insertarAdministrador(String nombre,String password) throws Exception{
     
         oSesion = new Sesion(nombre,password);
@@ -130,6 +135,22 @@ public class MainEsports {
         return PresidenteDB.insertarPresi(oPresidente);
   
     }
+     
+     public static void borrarPresidente(String nombre,String apellido) throws Exception{
+         oPresidente = PresidenteDB.consultarPresidente(nombre,apellido);
+         if (oPresidente == null) {
+            
+            
+         }
+         else {
+          int delete = PresidenteDB.borrarPresi(nombre,apellido);
+             
+          if (delete > 0){
+              JOptionPane.showMessageDialog(null, delete + " filas eliminadas");
+          }
+             
+         }
+     }
      
      
 
@@ -159,6 +180,15 @@ public class MainEsports {
         }
         return null;
     }
+    public static ArrayList<Equipo> mostrarEquipos() throws Exception{
+        
+        listaEquipos = EquipoDB.consultarTodos();
+        if(listaEquipos.size()>0){
+        
+        return listaEquipos;
+        } else {
+        return null;
+    }}
     
     
     public static void crearRoundRobinEmparejamientos() throws Exception{
