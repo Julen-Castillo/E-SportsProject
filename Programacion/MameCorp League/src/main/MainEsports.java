@@ -41,6 +41,7 @@ public class MainEsports {
     private static ArrayList<Jornada> listaJornadas; //Para mostrar las jornadas en la ventan visualizacion
     private static ArrayList<Partido> listaPartidos;
     private static ArrayList<Jugador> listaJugadores;
+    private static ArrayList<Presidente> listaPresidentes;
     private static Presidente oPresidente;
     private static boolean simular;
     
@@ -200,17 +201,20 @@ public class MainEsports {
     public static Jugador consultarJugadorABorrar(String nick) throws Exception{
        return JugadorDB.consultarJugador(nick); 
     }
+    public static Jugador consultarJugadorAModificar (String nick) throws Exception{
+        return JugadorDB.consultarJugador(nick);
+    }
     public static Equipo buscarEquipoDelJugador(int equipoIdEquipo) throws SQLException, Exception{
         return EquipoDB.consultarEquipoDelJugador(equipoIdEquipo);
     }
-    public static Jugador modificarJugador(String nick,int sueldo,boolean titularidad, String posicion) throws Exception{
+    public static void modificarJugador(String nick,int sueldo,boolean titularidad, String posicion) throws Exception{
         
         oJugador = JugadorDB.modificarJugador(nick,sueldo,titularidad,posicion);
         if (oJugador == null){
-        JOptionPane.showMessageDialog(null, "Este jugador no exisate");
-            return null;
+        JOptionPane.showMessageDialog(null, "Este jugador no existe");
+            
         }
-        return null;
+        
     }
     public static ArrayList<Equipo> mostrarEquipos() throws Exception{
         
@@ -218,7 +222,9 @@ public class MainEsports {
         for(int i = 0; i < listaEquipos.size(); i++){
             int idEquipo = listaEquipos.get(i).getIdEquipo();
             listaJugadores = JugadorDB.consultarJugadorDelEquipo(idEquipo);
-            listaEquipos.get(i).setListaJugadores(listaJugadores);            
+            listaPresidentes = PresidenteDB.consultarPresidentesDelEquipo(idEquipo);
+            listaEquipos.get(i).setListaJugadores(listaJugadores);   
+            listaEquipos.get(i).setListaPresidentes(listaPresidentes);
         }
         
         if(listaEquipos.size()>0){
@@ -449,5 +455,9 @@ public class MainEsports {
         //Creamos el jugador
         oJugador = new Jugador(nombre, apellido, nickname, posicion, sueldo, titularidad, oEquipo);
         return JugadorDB.insertarJugadores(oJugador);
+    }
+
+    public static Jugador modificarJugador(String nickname) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 } 
