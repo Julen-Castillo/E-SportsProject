@@ -47,7 +47,7 @@ public class ControladorVista {
     public static void OcultarVentanaCategoria(){
         vCategoria.dispose();
     }
-    public static void mostrarVentanaEquipos(String operacionActiva){
+    public static void mostrarVentanaEquipos(String operacionActiva) throws Exception{
         vEquipos = new VentanaEquipos(operacionActiva);
         vEquipos.setVisible(true);
     }
@@ -58,6 +58,10 @@ public class ControladorVista {
         vJugador = new VentanaJugador(operacionActiva);
         vJugador.setVisible(true);
     } 
+    public static void mostrarVentanaEquipos(){
+        vEquipos = new VentanaEquipos();
+        vEquipos.setVisible(true);
+    }
     public static void OcultarVentanaJugador(){
         vJugador.dispose();
     }

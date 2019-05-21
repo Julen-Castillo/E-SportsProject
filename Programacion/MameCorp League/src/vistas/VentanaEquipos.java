@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import main.MainEsports;
+import modelo.Equipo;
 
 /**
  *
@@ -18,17 +19,28 @@ import main.MainEsports;
  */
 public class VentanaEquipos extends javax.swing.JFrame {
     private String operacion;
+    private static Equipo oEquipo;
+    int modificar;
+    String nombreEquipo;
+
 
     /**
      * Creates new form VentanaEquipos
      */
-    public VentanaEquipos(String operacionActiva) {
+    public VentanaEquipos(String operacionActiva) throws Exception {
         initComponents();
         setLocationRelativeTo(null);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(2,91,136,190));
         operacion = operacionActiva;
-        mostrarOocultarfields();
+        if(operacion.equals("baja")){
+             pedirEquipoABorrar();
+        }
+        if(operacion.equals("modificar")){
+             pedirEquipoAModificar();
+        }        
+        
+        //mostrarOocultarfields();
     }
     public VentanaEquipos(){
         initComponents();
@@ -53,6 +65,7 @@ public class VentanaEquipos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         bLimpiar = new javax.swing.JButton();
         bInsertar = new javax.swing.JButton();
+        bVolver = new javax.swing.JButton();
         lFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -95,7 +108,7 @@ public class VentanaEquipos extends javax.swing.JFrame {
         panelOpaco.add(bLimpiar);
         bLimpiar.setBounds(20, 440, 90, 23);
 
-        bInsertar.setText("Insertar");
+        bInsertar.setText("ACEPTAR");
         bInsertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bInsertarActionPerformed(evt);
@@ -103,6 +116,15 @@ public class VentanaEquipos extends javax.swing.JFrame {
         });
         panelOpaco.add(bInsertar);
         bInsertar.setBounds(261, 440, 100, 23);
+
+        bVolver.setText("Volver");
+        bVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVolverActionPerformed(evt);
+            }
+        });
+        panelOpaco.add(bVolver);
+        bVolver.setBounds(213, 970, 130, 23);
 
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, -140, 400, 1310);
@@ -117,12 +139,58 @@ public class VentanaEquipos extends javax.swing.JFrame {
    public void mostrarOocultarfields(){
        
        if(operacion.equals("baja")){
+           bVolver.setEnabled(true);
+           tfNombre.setEnabled(false);
            tfPresupuesto.setEnabled(false);
            tfPuntos.setEnabled(false);
+           tfNombre.setText(oEquipo.getNombre());
+           tfPresupuesto.setText(String.valueOf(oEquipo.getPresupuesto()));
+           tfPuntos.setText(String.valueOf(oEquipo.getPuntos()));
        }
-      
+       if(operacion.equals("modificar")){
+           tfNombre.setText(oEquipo.getNombre());
+           tfPresupuesto.setText(String.valueOf(oEquipo.getPresupuesto()));
+           tfPuntos.setText(String.valueOf(oEquipo.getPuntos()));
+           
+       
+       }    
        
    }
+   
+   public void pedirEquipoABorrar(){
+    /**
+    *  preguntamos al usuario que equipo quiere borrar y recogemos los datos
+    */
+        try{
+            while(oEquipo == null){
+                nombreEquipo = JOptionPane.showInputDialog(this, "¿Qué EQUIPO quieres BORRAR?");
+                oEquipo = MainEsports.buscarEquipo(nombreEquipo);
+            }
+            
+            ControladorVista.mostrarVentanaEquipos();
+            mostrarOocultarfields();
+            }catch(Exception E){
+                System.out.println("Excepcion " + E.getClass() + E.getMessage());
+            } 
+    }
+   
+    public void pedirEquipoAModificar(){
+    /**
+    *  preguntamos al usuario que equipo quiere borrar y recogemos los datos
+    */
+        try{
+            while(oEquipo == null){
+                nombreEquipo = JOptionPane.showInputDialog("¿Qué EQUIPO quieres MODIFICAR?");
+                oEquipo = MainEsports.buscarEquipo(nombreEquipo);
+            }
+            
+            ControladorVista.mostrarVentanaEquipos();
+            mostrarOocultarfields();
+            }catch(Exception E){
+                System.out.println("Excepcion " + E.getClass() + E.getMessage());
+            } 
+    }
+
     
     private void bLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimpiarActionPerformed
     /**
@@ -137,24 +205,68 @@ public class VentanaEquipos extends javax.swing.JFrame {
     }//GEN-LAST:event_bLimpiarActionPerformed
 
     private void bInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInsertarActionPerformed
-        try {
-           
-            int insercion= MainEsports.insertarEquipos(tfNombre.getText(),Integer.parseInt(tfPresupuesto.getText()),Integer.parseInt(tfPuntos.getText()));
-            
-            if(insercion > 0){
-                JOptionPane.showMessageDialog(this,"Linea insertada correctamente");
-                tfNombre.setText("");
-                tfPresupuesto.setText("");
-                tfPuntos.setText(""); 
-            }else{
-                JOptionPane.showMessageDialog(this,"ERROR AL INSERTAR");
-            }
-            
-        } catch (Exception ex) {
-            System.out.println(ex.getClass() + ex.getMessage());
-        }
         
+        String nombre = tfNombre.getText();
+        int presupuesto = Integer.parseInt(tfPresupuesto.getText());
+        int puntos = Integer.parseInt(tfPuntos.getText());
+        
+        if(operacion.equals("alta")){
+            try {
+
+                int insercion= MainEsports.insertarEquipos(tfNombre.getText(),Integer.parseInt(tfPresupuesto.getText()),Integer.parseInt(tfPuntos.getText()));
+
+                if(insercion > 0){
+                    JOptionPane.showMessageDialog(this,"Linea insertada correctamente");
+                    tfNombre.setText("");
+                    tfPresupuesto.setText("");
+                    tfPuntos.setText(""); 
+                }else{
+                    JOptionPane.showMessageDialog(this,"ERROR AL INSERTAR");
+                }
+
+            } catch (Exception ex) {
+                System.out.println(ex.getClass() + ex.getMessage());
+            }
+        } 
+        
+        if(operacion.equals("modificar")){
+
+           try {
+               modificar = MainEsports.modificarEquipo(nombre,presupuesto,puntos);
+           } catch (Exception ex) {
+               System.out.println("Excepcion " + ex.getClass() + ex.getMessage());;
+           }
+
+             if(modificar >=1){
+                 JOptionPane.showMessageDialog(this, "Equipo " + nombre + " actualizado");
+             }else{
+                 JOptionPane.showMessageDialog(this, "OOOPSS... Algo salió mal al actualizar");
+             }
+
+
+        }
+        if(operacion.equals("baja")){
+
+            try {
+               int delete = MainEsports.borrarEquipo(nombre,presupuesto,puntos);
+                if(delete == 1){
+                    JOptionPane.showMessageDialog(this, "Equipo " + nombre + " borrado");
+                }else{
+                    JOptionPane.showMessageDialog(this, "OOOPSS... Algo salió mal al borrar");
+                }
+            } catch (Exception ex) {
+               System.out.println("Excepcion " + ex.getClass() + ex.getMessage());;
+            }
+
+            
+        }  
     }//GEN-LAST:event_bInsertarActionPerformed
+
+    private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        ControladorVista.mostrarVentanaCategoria();
+    }//GEN-LAST:event_bVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,6 +306,7 @@ public class VentanaEquipos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bInsertar;
     private javax.swing.JButton bLimpiar;
+    private javax.swing.JButton bVolver;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

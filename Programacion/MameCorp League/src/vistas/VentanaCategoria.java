@@ -3,6 +3,8 @@ package vistas;
 import java.awt.ComponentOrientation;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import main.MainEsports;
 
 /**
  *
@@ -232,7 +234,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
                 bConsultarActionPerformed(evt);
             }
         });
-        getContentPane().add(bConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 440, 230, 60));
+        getContentPane().add(bConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 270, 60));
 
         jLabel3.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -414,7 +416,11 @@ public class VentanaCategoria extends javax.swing.JFrame {
                }
                else {
                  if  (operacionActiva.equals("equipo")){
+                    try {
                     ControladorVista.mostrarVentanaEquipos("modificar");
+                    }catch (Exception ex) {
+                         Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+                    }                 
                }
                }
            }
@@ -446,29 +452,35 @@ public class VentanaCategoria extends javax.swing.JFrame {
 
     private void bBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBajaActionPerformed
            this.dispose();
-       if (operacionActiva.equals("liga")){
-            ControladorVista.mostrarVentanaLiga("baja");   
-       }
-       else {
-           if (operacionActiva.equals("jugador")){
-               try {
-                   ControladorVista.mostrarVentanaJugador("baja");
-               } catch (Exception ex) {
-                   Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
-               }
-           }
-           else {
-               if (operacionActiva.equals("presidente")){
-                   try {
-                       ControladorVista.mostrarVentanaPresidente("baja");
-                   } catch (Exception ex) {
-                       Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
-                   }
-               }
-               else {
-                 if  (operacionActiva.equals("equipo")){
-                    ControladorVista.mostrarVentanaEquipos("baja");
-               }
+        if (operacionActiva.equals("liga")){
+             ControladorVista.mostrarVentanaLiga("baja");   
+        }
+        else {
+            if (operacionActiva.equals("jugador")){
+                try {
+                    ControladorVista.mostrarVentanaJugador("baja");
+                } catch (Exception ex) {
+                    Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        else {
+            if (operacionActiva.equals("presidente")){
+                try {
+                    ControladorVista.mostrarVentanaPresidente("baja");
+                } catch (Exception ex) {
+                    Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        else {
+          if  (operacionActiva.equals("equipo")){
+              try {
+                  ControladorVista.mostrarVentanaEquipos("baja");
+                  
+              } catch (Exception ex) {
+                  Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+              }
+
+        }
                }
            }
        }
@@ -503,7 +515,11 @@ public class VentanaCategoria extends javax.swing.JFrame {
                }
                else {
                  if  (operacionActiva.equals("equipo")){
-                    ControladorVista.mostrarVentanaEquipos("alta");
+                     try {
+                         ControladorVista.mostrarVentanaEquipos("alta");
+                     } catch (Exception ex) {
+                         Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+                     }
                }
                  else {
                      if (operacionActiva.equals("jornada")){
