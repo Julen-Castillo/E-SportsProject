@@ -201,7 +201,17 @@ public class VentanaJugador extends javax.swing.JFrame {
         }
         
         if(operacion.equals("alta")){
-            int insert = MainEsports.insertarJugadores(tfNombre.getText(), tfApellido.getText(), tfNick.getText(), cbPosicion.getSelectedItem().toString(), Integer.parseInt(tfSueldo.getText()), titularidad, cbEquipo.getSelectedItem().toString());
+            try {
+                boolean insert = MainEsports.insertarJugadores(tfNombre.getText(), tfApellido.getText(), tfNick.getText(), cbPosicion.getSelectedItem().toString(), Integer.parseInt(tfSueldo.getText()), titularidad, cbEquipo.getSelectedIndex());
+                if(insert){
+                    JOptionPane.showMessageDialog(null, "Insert correcta");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Problemas con la insert");
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
         if (operacion.equals("baja")){

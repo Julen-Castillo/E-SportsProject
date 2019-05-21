@@ -57,10 +57,6 @@ public class MainEsports {
             ControladorVista.mostrarLogin();
         }
     }
-    public static void consultarEquipoDelJugador(int equipo_id_equipo) throws SQLException{
-       EquipoDB.consultarEquipoDelJugador(equipo_id_equipo);
-        
-    }
        
     
     
@@ -371,9 +367,13 @@ public class MainEsports {
         return (int)(Math.random() * range) + 0;
     }
 
-    public static int insertarJugadores(String nombre, String apellido, String nickname, String posicion, int sueldo, boolean titularidad, String equipo) {
-        o
-        oJugador = new Jugador(nombre, apellido, nickname, posicion, sueldo, titularidad, equipo);
-        return JugadorDB.insertarJugadores();
+    public static boolean insertarJugadores(String nombre, String apellido, String nickname, String posicion, int sueldo, boolean titularidad, int posicionEquipo) throws Exception {
+        //Obtenemos la lista de equipos
+        listaEquipos = EquipoDB.consultarTodos();
+        //Seleccionamos el elegido por el usuario
+        oEquipo = listaEquipos.get(posicionEquipo);
+        //Creamos el jugador
+        oJugador = new Jugador(nombre, apellido, nickname, posicion, sueldo, titularidad, oEquipo);
+        return JugadorDB.insertarJugadores(oJugador);
     }
 } 
