@@ -6,6 +6,7 @@
 package vistas;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -13,6 +14,8 @@ import java.util.regex.Pattern;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import main.MainEsports;
+import modelo.Equipo;
+import modelo.Jugador;
 
 
 /**
@@ -23,6 +26,8 @@ public class VentanaJugador extends javax.swing.JFrame {
   private String operacion;
   private boolean titularidad;
   private String posicion;
+  private Jugador oJugador;
+  private ArrayList<Equipo>listaEquipos;
 
     /**
      * Creates new form VentanaJugador
@@ -33,12 +38,21 @@ public class VentanaJugador extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(255,255,255,190));
         operacion = operacionActiva;
+        llenarCbEquipos();
         mostrarOocultarfields();
+        
       
     }
    
     public VentanaJugador() {
         initComponents();
+    }
+    public void llenarCbEquipos() throws Exception{
+        listaEquipos = MainEsports.consultarEquipos();
+        for(int i = 0; i < listaEquipos.size(); i++){
+            cbEquipo.addItem(listaEquipos.get(i).getNombre());
+        }
+        
     }
     public void mostrarOocultarfields() throws Exception{
         if (operacion.equals("modificar")) {
@@ -46,13 +60,29 @@ public class VentanaJugador extends javax.swing.JFrame {
             tfApellido.setEnabled(false);
         }
         else if(operacion.equals("baja")){ 
-        tfSueldo.setEnabled(false);
-        rbNo.setEnabled(false);
-        rbSi.setEnabled(false);
-        tfNombre.setEnabled(false);
-        tfApellido.setEnabled(false);
-        cbPosicion.setEnabled(false);
-        MainEsports.darBajaJugador(tfNick.getText());
+            rbSi.setEnabled(false);
+            rbNo.setEnabled(false);
+            tfNick.setEnabled(titularidad);
+            tfSueldo.setEnabled(false);
+            tfNombre.setEnabled(false);
+            tfApellido.setEnabled(false);
+            cbPosicion.setEnabled(false);
+            cbEquipo.setEnabled(false);
+            String nickAEliminar = JOptionPane.showInputDialog(null, "Introduce el nickname del jugador a eliminar");
+            oJugador = MainEsports.consultarJugadorABorrar(nickAEliminar);
+
+            tfNombre.setText(oJugador.getNombre());
+            tfApellido.setText(oJugador.getApellido());
+            tfNick.setText(oJugador.getNickname());
+            cbPosicion.setSelectedItem(oJugador.getPosicion());
+            tfSueldo.setText(String.valueOf(oJugador.getSueldo()));
+            if(oJugador.isTitularidad()){
+                rbSi.setSelected(true); 
+            }
+            else{
+                rbNo.setSelected(true);
+            }
+            cbEquipo.setSelectedItem(oJugador.getoEquipo().getNombre());
         }
     }
     
@@ -164,6 +194,7 @@ public class VentanaJugador extends javax.swing.JFrame {
         panelOpaco.add(cbPosicion);
         cbPosicion.setBounds(150, 820, 200, 20);
 
+        gTitularidad.add(rbSi);
         rbSi.setText("Si");
         rbSi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,6 +204,7 @@ public class VentanaJugador extends javax.swing.JFrame {
         panelOpaco.add(rbSi);
         rbSi.setBounds(160, 960, 70, 23);
 
+        gTitularidad.add(rbNo);
         rbNo.setText("No");
         panelOpaco.add(rbNo);
         rbNo.setBounds(260, 960, 70, 23);
@@ -237,64 +269,57 @@ public class VentanaJugador extends javax.swing.JFrame {
             }
         }
         
-        if (operacion.equals("baja")){
+        else if (operacion.equals("baja")){
         int respuesta =  JOptionPane.showConfirmDialog(this, "Estas segur@ que quieres dar de baja a " + tfNick.getText()+ " ?") ;
 
-        if (respuesta == 1) {
-            if (operacion.equals("baja")){
-                try {
-                    MainEsports.darBajaJugador(tfNick.getText());
-                } catch (Exception ex) {
-                    Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-             } 
-      
-       else { 
-            if (operacion.equals("modificar")){ 
-           
-                if(rbSi.isSelected()){
-                    titularidad = true;
-                }
-                else {
-                    titularidad = false;
-                }
-                switch (cbPosicion.getSelectedIndex()){
-                    case 0:
-                        posicion = "Toplaner";
-                        break;
-                    case 1:
-                        posicion = "Jungler";
-                        break;
-                    case 2:
-                        posicion = "Midlaner";
-                        break;
-                    case 3:
-                        posicion = "Adcarry";
-                        break;
-                    case 4:
-                        posicion = "Support";
-                        break;
-
-                }
-           try {
-               MainEsports.modificarJugador(tfNick.getText(), Integer.parseInt(tfSueldo.getText()),titularidad,posicion);
-           } catch (Exception ex) {
-               Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
-           }
-       }
-      }  
-      } else { if (respuesta == 2 || respuesta == 3){
-          tfNick.setText("");
-          JOptionPane.showMessageDialog(this, "Escribe otra vez el nickname del jugador que quieras dar de baja");
-          }
-      }
-    }
-    else {
-        if(operacion.equals("alta")){
-            //MainEsports.insertarJugadores();
-        }
-    }
+        if (respuesta == 0) {
+            try {
+                MainEsports.darBajaJugador(tfNick.getText());
+            } catch (Exception ex) {
+                Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } 
+        
+//        else if { 
+//            if (operacion.equals("modificar")){ 
+//           
+//                if(rbSi.isSelected()){
+//                    titularidad = true;
+//                }
+//                else {
+//                    titularidad = false;
+//                }
+//                switch (cbPosicion.getSelectedIndex()){
+//                    case 0:
+//                        posicion = "Toplaner";
+//                        break;
+//                    case 1:
+//                        posicion = "Jungler";
+//                        break;
+//                    case 2:
+//                        posicion = "Midlaner";
+//                        break;
+//                    case 3:
+//                        posicion = "Adcarry";
+//                        break;
+//                    case 4:
+//                        posicion = "Support";
+//                        break;
+//
+//                }
+//           try {
+//               MainEsports.modificarJugador(tfNick.getText(), Integer.parseInt(tfSueldo.getText()),titularidad,posicion);
+//           } catch (Exception ex) {
+//               Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
+//           }
+//       }
+//      }  
+//      } else { if (respuesta == 2 || respuesta == 3){
+//          tfNick.setText("");
+//          JOptionPane.showMessageDialog(this, "Escribe otra vez el nickname del jugador que quieras dar de baja");
+//          }
+   }
+    
     }//GEN-LAST:event_bAceptarActionPerformed
 
     private void cbPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPosicionActionPerformed
