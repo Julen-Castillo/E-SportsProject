@@ -42,11 +42,11 @@ public class PresidenteDB {
        return insercion;
 } 
           
-          public static Presidente consultarPresidente(String nombre,String apellido) throws SQLException, Exception{
+    public static Presidente consultarPresidente(String nombre,String apellido) throws SQLException, Exception{
  
-    GenericoDB.conectar();
+        GenericoDB.conectar();
     
-         String plantilla = "select NOMBRE from presidente where NOMBRE = ? and APELLIDO = ?";
+        String plantilla = "select NOMBRE from presidente where NOMBRE = ? and APELLIDO = ?";
         PreparedStatement sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
          
           sentenciaPre.setString(1,nombre);
@@ -55,32 +55,30 @@ public class PresidenteDB {
           resultado = sentenciaPre.executeQuery();
           if(resultado.next()){
               oPresidente.setNombre(resultado.getString("NOMBRE"));
-            
-         
-             
+
               PresidenteDB OPresidenteDB = new PresidenteDB();
             //  Equipo oEquipo = oEquipoDB.consultarTodos()
             //  oJugador.setoEquipo(resultado.getObject("EQUIPO"));
               
-              GenericoDB.cerrarCon();
-              return oPresidente;
+            GenericoDB.cerrarCon();
+            return oPresidente;
           }
           GenericoDB.cerrarCon();
           return null;
-}
-          public static int borrarPresi(String nombre, String apellido) throws SQLException, Exception{
-              
-                GenericoDB.conectar();
-                String plantilla = "delete from presidente where nombre = ? and apellido = ?";
-        PreparedStatement sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
-         sentenciaPre.setString(1, nombre);
-         sentenciaPre.setString(2, apellido);
-        
-        int delete = sentenciaPre.executeUpdate();
-        System.out.println(delete);        
-    
-      GenericoDB.cerrarCon();   
-              
-              return delete;
-          }
+    }
+    public static int borrarPresi(String nombre, String apellido) throws SQLException, Exception{
+
+            GenericoDB.conectar();
+            String plantilla = "delete from presidente where nombre = ? and apellido = ?";
+            PreparedStatement sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
+            sentenciaPre.setString(1, nombre);
+            sentenciaPre.setString(2, apellido);
+
+            int delete = sentenciaPre.executeUpdate();
+            System.out.println(delete);        
+
+             GenericoDB.cerrarCon();   
+
+            return delete;
+    }
 }

@@ -47,11 +47,10 @@ public class VentanaLiga extends javax.swing.JFrame {
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker();
         jLabel5 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
-        bLimpiar = new javax.swing.JButton();
         bInsertar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        bVolver = new javax.swing.JButton();
         lFondo = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        miVolver = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -62,7 +61,7 @@ public class VentanaLiga extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         panelOpaco.add(jLabel1);
-        jLabel1.setBounds(100, 280, 170, 120);
+        jLabel1.setBounds(130, 280, 170, 120);
 
         jLabel6.setText("NOMBRE DE LIGA");
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -96,29 +95,13 @@ public class VentanaLiga extends javax.swing.JFrame {
         panelOpaco.add(jCheckBox1);
         jCheckBox1.setBounds(170, 580, 30, 21);
 
-        bLimpiar.setText("LIMPIAR");
-        panelOpaco.add(bLimpiar);
-        bLimpiar.setBounds(10, 630, 110, 23);
-
-        bInsertar.setText("INSERTAR");
+        bInsertar.setText("ACEPTAR");
+        bInsertar.setBackground(new java.awt.Color(0, 40, 135));
+        bInsertar.setBorder(null);
+        bInsertar.setBorderPainted(false);
+        bInsertar.setForeground(new java.awt.Color(255, 255, 255));
         panelOpaco.add(bInsertar);
-        bInsertar.setBounds(260, 630, 100, 23);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/Mamecorp logo.png"))); // NOI18N
-        panelOpaco.add(jLabel2);
-        jLabel2.setBounds(-60, 740, 460, 290);
-
-        bVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/bVolver.png"))); // NOI18N
-        bVolver.setAutoscrolls(true);
-        bVolver.setBackground(new java.awt.Color(0, 0, 0));
-        bVolver.setBorder(null);
-        bVolver.setBorderPainted(false);
-        bVolver.setFocusPainted(false);
-        bVolver.setFocusable(false);
-        bVolver.setForeground(new java.awt.Color(255, 255, 255));
-        bVolver.setOpaque(false);
-        panelOpaco.add(bVolver);
-        bVolver.setBounds(110, 1090, 160, 60);
+        bInsertar.setBounds(260, 623, 100, 30);
 
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, -230, 400, 1430);
@@ -127,8 +110,24 @@ public class VentanaLiga extends javax.swing.JFrame {
         getContentPane().add(lFondo);
         lFondo.setBounds(-320, -250, 2560, 1440);
 
+        miVolver.setText("Volver");
+        miVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                miVolverMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(miVolver);
+
+        setJMenuBar(jMenuBar1);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void miVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miVolverMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        ControladorVista.mostrarVentanaCategoria();
+    }//GEN-LAST:event_miVolverMouseClicked
 
     /**
      * @param args the command line arguments
@@ -167,19 +166,18 @@ public class VentanaLiga extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bInsertar;
-    private javax.swing.JButton bLimpiar;
-    private javax.swing.JButton bVolver;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lFondo;
+    private javax.swing.JMenu miVolver;
     private javax.swing.JPanel panelOpaco;
     // End of variables declaration//GEN-END:variables
 }

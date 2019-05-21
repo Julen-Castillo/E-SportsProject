@@ -54,7 +54,7 @@ public class VentanaAdministradores extends javax.swing.JFrame {
         jMenuSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         panelOpaco.setLayout(null);
 
@@ -97,12 +97,14 @@ public class VentanaAdministradores extends javax.swing.JFrame {
             }
         });
         panelOpaco.add(bAceptar);
-        bAceptar.setBounds(199, 986, 179, 55);
+        bAceptar.setBounds(160, 540, 170, 50);
 
-        getContentPane().add(panelOpaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 1110));
+        getContentPane().add(panelOpaco);
+        panelOpaco.setBounds(0, 0, 400, 1110);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgVentanaAdministradores/admin.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2030, 1080));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 2030, 1080);
 
         jMenuVolver.setText("Volver");
         jMenuBar1.add(jMenuVolver);

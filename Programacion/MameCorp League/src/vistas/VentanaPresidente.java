@@ -27,7 +27,7 @@ public class VentanaPresidente extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
-        panelOpaco.setBackground(new Color(180,102,24,190));
+        panelOpaco.setBackground(new Color(39,43,57,190));
         llenarComboBox();
         this.operacionActiva = operacionActiva;
         
@@ -51,6 +51,21 @@ public class VentanaPresidente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jFrame1 = new javax.swing.JFrame();
+        panelOpaco1 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        tfNombrePresidente1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        tfApellidoPresidente1 = new javax.swing.JTextField();
+        bAceptar1 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        cbEquipoPresidente1 = new javax.swing.JComboBox<>();
+        bVolver1 = new javax.swing.JButton();
+        lFondo1 = new javax.swing.JLabel();
         panelOpaco = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -60,43 +75,121 @@ public class VentanaPresidente extends javax.swing.JFrame {
         bAceptar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         cbEquipoPresidente = new javax.swing.JComboBox<>();
-        bVolver = new javax.swing.JButton();
         lFondo = new javax.swing.JLabel();
+        jMenuBar3 = new javax.swing.JMenuBar();
+        miVolver = new javax.swing.JMenu();
+
+        jMenu3.setText("File");
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("Edit");
+        jMenuBar2.add(jMenu4);
+
+        jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jFrame1.getContentPane().setLayout(null);
+
+        panelOpaco1.setLayout(null);
+
+        jLabel5.setText("PRESIDENTE");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        panelOpaco1.add(jLabel5);
+        jLabel5.setBounds(30, 40, 510, 160);
+
+        jLabel6.setText("NOMBRE");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        panelOpaco1.add(jLabel6);
+        jLabel6.setBounds(40, 200, 100, 17);
+        panelOpaco1.add(tfNombrePresidente1);
+        tfNombrePresidente1.setBounds(130, 200, 200, 20);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setText("APELLIDO");
+        panelOpaco1.add(jLabel7);
+        jLabel7.setBounds(40, 270, 130, 17);
+        panelOpaco1.add(tfApellidoPresidente1);
+        tfApellidoPresidente1.setBounds(130, 270, 200, 20);
+
+        bAceptar1.setText("Aceptar");
+        bAceptar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAceptar1ActionPerformed(evt);
+            }
+        });
+        panelOpaco1.add(bAceptar1);
+        bAceptar1.setBounds(200, 390, 73, 23);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setText("EQUIPO");
+        panelOpaco1.add(jLabel8);
+        jLabel8.setBounds(40, 330, 70, 20);
+
+        cbEquipoPresidente1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbEquipoPresidente1ActionPerformed(evt);
+            }
+        });
+        panelOpaco1.add(cbEquipoPresidente1);
+        cbEquipoPresidente1.setBounds(130, 330, 200, 20);
+
+        bVolver1.setText("Volver");
+        bVolver1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVolver1ActionPerformed(evt);
+            }
+        });
+        panelOpaco1.add(bVolver1);
+        bVolver1.setBounds(150, 810, 110, 40);
+
+        jFrame1.getContentPane().add(panelOpaco1);
+        panelOpaco1.setBounds(0, 0, 400, 1080);
+
+        lFondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgPresidente/PresidenteFondo.png"))); // NOI18N
+        jFrame1.getContentPane().add(lFondo1);
+        lFondo1.setBounds(-90, -100, 2560, 1440);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
         panelOpaco.setLayout(null);
 
-        jLabel1.setText("PRESIDENTE");
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("PRESIDENTE");
         panelOpaco.add(jLabel1);
         jLabel1.setBounds(30, 40, 510, 160);
 
-        jLabel3.setText("NOMBRE");
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("NOMBRE");
         panelOpaco.add(jLabel3);
         jLabel3.setBounds(40, 200, 100, 17);
         panelOpaco.add(tfNombrePresidente);
         tfNombrePresidente.setBounds(130, 200, 200, 20);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("APELLIDO");
         panelOpaco.add(jLabel4);
         jLabel4.setBounds(40, 270, 130, 17);
         panelOpaco.add(tfApellidoPresidente);
         tfApellidoPresidente.setBounds(130, 270, 200, 20);
 
-        bAceptar.setText("Aceptar");
+        bAceptar.setBackground(new java.awt.Color(0, 40, 135));
+        bAceptar.setForeground(new java.awt.Color(255, 255, 255));
+        bAceptar.setText("ACEPTAR");
+        bAceptar.setBorder(null);
+        bAceptar.setBorderPainted(false);
+        bAceptar.setFocusPainted(false);
         bAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bAceptarActionPerformed(evt);
             }
         });
         panelOpaco.add(bAceptar);
-        bAceptar.setBounds(200, 390, 73, 23);
+        bAceptar.setBounds(230, 390, 110, 30);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("EQUIPO");
         panelOpaco.add(jLabel2);
         jLabel2.setBounds(40, 330, 70, 20);
@@ -109,21 +202,22 @@ public class VentanaPresidente extends javax.swing.JFrame {
         panelOpaco.add(cbEquipoPresidente);
         cbEquipoPresidente.setBounds(130, 330, 200, 20);
 
-        bVolver.setText("Volver");
-        bVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bVolverActionPerformed(evt);
-            }
-        });
-        panelOpaco.add(bVolver);
-        bVolver.setBounds(150, 810, 110, 40);
-
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, 0, 400, 1080);
 
         lFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgPresidente/PresidenteFondo.png"))); // NOI18N
         getContentPane().add(lFondo);
         lFondo.setBounds(-90, -100, 2560, 1440);
+
+        miVolver.setText("Volver");
+        miVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                miVolverMouseClicked(evt);
+            }
+        });
+        jMenuBar3.add(miVolver);
+
+        setJMenuBar(jMenuBar3);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -162,11 +256,23 @@ public class VentanaPresidente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbEquipoPresidenteActionPerformed
 
-    private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
+    private void bAceptar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bAceptar1ActionPerformed
+
+    private void cbEquipoPresidente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEquipoPresidente1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbEquipoPresidente1ActionPerformed
+
+    private void bVolver1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolver1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bVolver1ActionPerformed
+
+    private void miVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miVolverMouseClicked
         // TODO add your handling code here:
         this.dispose();
         ControladorVista.mostrarVentanaCategoria();
-    }//GEN-LAST:event_bVolverActionPerformed
+    }//GEN-LAST:event_miVolverMouseClicked
  public  void llenarComboBox() throws Exception{
         listaEquipos = new ArrayList();
         
@@ -209,15 +315,31 @@ public class VentanaPresidente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAceptar;
-    private javax.swing.JButton bVolver;
+    private javax.swing.JButton bAceptar1;
+    private javax.swing.JButton bVolver1;
     private javax.swing.JComboBox<String> cbEquipoPresidente;
+    private javax.swing.JComboBox<String> cbEquipoPresidente1;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JLabel lFondo;
+    private javax.swing.JLabel lFondo1;
+    private javax.swing.JMenu miVolver;
     private javax.swing.JPanel panelOpaco;
+    private javax.swing.JPanel panelOpaco1;
     private javax.swing.JTextField tfApellidoPresidente;
+    private javax.swing.JTextField tfApellidoPresidente1;
     private javax.swing.JTextField tfNombrePresidente;
+    private javax.swing.JTextField tfNombrePresidente1;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,7 +2,6 @@ package main;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.*;
@@ -41,13 +40,12 @@ public class MainEsports {
     private static Equipo oEquipo;
     private static ArrayList<Jornada> listaJornadas; //Para mostrar las jornadas en la ventan visualizacion
     private static ArrayList<Partido> listaPartidos;
-    
+    private static ArrayList<Jugador> listaJugadores;
     private static Presidente oPresidente;
 
     
     
     public static void main(String[] args) throws SQLException, Exception {
-    
         //La linea de abajo está comentada porque todavia no está implementado el login
         // ControladorVista.mostrarVentanaVisualizarLiga();
         GenericoDB.conectar();
@@ -57,16 +55,19 @@ public class MainEsports {
             ControladorVista.mostrarLogin();
         }
     }
+       
     
-    public static void consultarEquipos() throws Exception{
+    
+    public static ArrayList<Equipo> consultarEquipos() throws Exception{
 
         listaEquipos = EquipoDB.consultarTodos();
 
         for(int x=0; x < listaEquipos.size() ;x++){
             Equipo e = listaEquipos.get(x);
-            
             System.out.println("nombre " + e.getNombre() + " presupuesto " + e.getPresupuesto()+ " puntos " + e.getPuntos() + "\n");
-        }   
+        }
+        
+        return listaEquipos;
     }
     
     public static ArrayList consultarEquipoSinPresidente() throws Exception{
@@ -110,7 +111,25 @@ public class MainEsports {
         return equipoDB.insertarEquipo(e);  
 
     }
+     /**
+     * Aquí buscamos un equipo para las opciones borrar y modificar 
+     */
+    public static Equipo buscarEquipo(String nombreEquipo) throws Exception{
+        oEquipo = EquipoDB.buscarEquipo(nombreEquipo);
+        return oEquipo;
+    }
     
+    public static int modificarEquipo(String nombre,int presupuesto, int puntos) throws Exception{
+       
+        int update = EquipoDB.modificarEquipo(oEquipo.getIdEquipo(),nombre,presupuesto,puntos);
+    
+         return update;
+    }
+    public static int borrarEquipo(String nombre,int presupuesto, int puntos) throws Exception{
+        oEquipo = EquipoDB.buscarEquipo(nombre);
+        return EquipoDB.borrarEquipo(oEquipo.getIdEquipo(),nombre,presupuesto,puntos);
+    
+    }
     public static int insertarAdministrador(String nombre,String password) throws Exception{
     
         oSesion = new Sesion(nombre,password);
@@ -126,7 +145,7 @@ public class MainEsports {
         return SesionDB.insertarUsuario(nombre,password);
     }
     
-     public static int insertarPresidente(String nombrePresidente, String apellidoPresidente,String idEquipo) throws Exception {
+    public static int insertarPresidente(String nombrePresidente, String apellidoPresidente,String idEquipo) throws Exception {
          
        oEquipo = EquipoDB.consultarEquipoPresidente(idEquipo);
        oPresidente = new Presidente(nombrePresidente,apellidoPresidente,oEquipo);
@@ -136,28 +155,33 @@ public class MainEsports {
   
     }
      
-     public static void borrarPresidente(String nombre,String apellido) throws Exception{
-         oPresidente = PresidenteDB.consultarPresidente(nombre,apellido);
-         if (oPresidente == null) {
-            
-            
+    public static void borrarPresidente(String nombre,String apellido) throws Exception{
+        oPresidente = PresidenteDB.consultarPresidente(nombre,apellido);
+        if (oPresidente == null) {
+
+
+        }
+        else {
+         int delete = PresidenteDB.borrarPresi(nombre,apellido);
+
+         if (delete > 0){
+             JOptionPane.showMessageDialog(null, delete + " filas eliminadas");
          }
-         else {
-          int delete = PresidenteDB.borrarPresi(nombre,apellido);
-             
-          if (delete > 0){
-              JOptionPane.showMessageDialog(null, delete + " filas eliminadas");
-          }
-             
-         }
-     }
+
+        }
+    }
      
      
 
     public static Sesion comprobarLogin(String nombre,String password) throws Exception{
         return SesionDB.consultarUsuario(nombre,password);
     }
-    
+    public static ArrayList<Jugador> mostrarJugadores() throws Exception{
+        
+       // listaJugadores = JugadorDB.consultarJugador();
+        return listaJugadores;
+    } 
+            
     public static Jugador darBajaJugador(String nick) throws Exception{
        oJugador = JugadorDB.consultarJugador(nick);
        if (oJugador == null){
@@ -171,6 +195,12 @@ public class MainEsports {
        
        return oJugador;    
     }
+    public static Jugador consultarJugadorABorrar(String nick) throws Exception{
+       return JugadorDB.consultarJugador(nick); 
+    }
+    public static Equipo buscarEquipoDelJugador(int equipoIdEquipo) throws SQLException, Exception{
+        return EquipoDB.consultarEquipoDelJugador(equipoIdEquipo);
+    }
     public static Jugador modificarJugador(String nick,int sueldo,boolean titularidad, String posicion) throws Exception{
         
         oJugador = JugadorDB.modificarJugador(nick,sueldo,titularidad,posicion);
@@ -183,6 +213,12 @@ public class MainEsports {
     public static ArrayList<Equipo> mostrarEquipos() throws Exception{
         
         listaEquipos = EquipoDB.consultarTodos();
+        for(int i = 0; i < listaEquipos.size(); i++){
+            int idEquipo = listaEquipos.get(i).getIdEquipo();
+            listaJugadores = JugadorDB.consultarJugadorDelEquipo(idEquipo);
+            listaEquipos.get(i).setListaJugadores(listaJugadores);            
+        }
+        
         if(listaEquipos.size()>0){
         
         return listaEquipos;
@@ -352,5 +388,15 @@ public class MainEsports {
     public static int randomWinner(){
         int range = (1 - 0) + 1; 
         return (int)(Math.random() * range) + 0;
+    }
+
+    public static boolean insertarJugadores(String nombre, String apellido, String nickname, String posicion, int sueldo, boolean titularidad, int posicionEquipo) throws Exception {
+        //Obtenemos la lista de equipos
+        listaEquipos = EquipoDB.consultarTodos();
+        //Seleccionamos el elegido por el usuario
+        oEquipo = listaEquipos.get(posicionEquipo);
+        //Creamos el jugador
+        oJugador = new Jugador(nombre, apellido, nickname, posicion, sueldo, titularidad, oEquipo);
+        return JugadorDB.insertarJugadores(oJugador);
     }
 } 
