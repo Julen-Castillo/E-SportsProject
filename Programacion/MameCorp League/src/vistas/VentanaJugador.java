@@ -31,6 +31,7 @@ public class VentanaJugador extends javax.swing.JFrame {
         panelOpaco.setBackground(new Color(255,255,255,190));
         operacion = operacionActiva;
         mostrarOocultarfields();
+      
     }
    
     public VentanaJugador() {

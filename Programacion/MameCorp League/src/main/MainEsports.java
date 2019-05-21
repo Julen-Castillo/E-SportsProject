@@ -41,7 +41,7 @@ public class MainEsports {
     private static Equipo oEquipo;
     private static ArrayList<Jornada> listaJornadas; //Para mostrar las jornadas en la ventan visualizacion
     private static ArrayList<Partido> listaPartidos;
-    
+    private static ArrayList<Jugador> listaJugadores;
     private static Presidente oPresidente;
 
     
@@ -57,6 +57,12 @@ public class MainEsports {
             ControladorVista.mostrarLogin();
         }
     }
+    public static void consultarEquipoDelJugador(int equipo_id_equipo) throws SQLException{
+       EquipoDB.consultarEquipoDelJugador(equipo_id_equipo);
+        
+    }
+       
+    
     
     public static void consultarEquipos() throws Exception{
 
@@ -157,7 +163,12 @@ public class MainEsports {
     public static Sesion comprobarLogin(String nombre,String password) throws Exception{
         return SesionDB.consultarUsuario(nombre,password);
     }
-    
+    public static ArrayList<Jugador> mostrarJugadores() throws Exception{
+        
+       // listaJugadores = JugadorDB.consultarJugador();
+        return listaJugadores;
+    } 
+            
     public static Jugador darBajaJugador(String nick) throws Exception{
        oJugador = JugadorDB.consultarJugador(nick);
        if (oJugador == null){
@@ -183,6 +194,12 @@ public class MainEsports {
     public static ArrayList<Equipo> mostrarEquipos() throws Exception{
         
         listaEquipos = EquipoDB.consultarTodos();
+        for(int i = 0; i < listaEquipos.size(); i++){
+            int idEquipo = listaEquipos.get(i).getIdEquipo();
+            listaJugadores = JugadorDB.consultarJugadorDelEquipo(idEquipo);
+            listaEquipos.get(i).setListaJugadores(listaJugadores);            
+        }
+        
         if(listaEquipos.size()>0){
         
         return listaEquipos;
