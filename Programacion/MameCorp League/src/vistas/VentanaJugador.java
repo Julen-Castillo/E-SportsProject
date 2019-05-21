@@ -87,6 +87,8 @@ public class VentanaJugador extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         cbEquipo = new javax.swing.JComboBox<>();
         lFondo = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        miVolver = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -98,7 +100,7 @@ public class VentanaJugador extends javax.swing.JFrame {
         panelOpaco.add(jLabel3);
         jLabel3.setBounds(30, 610, 100, 20);
         panelOpaco.add(tfSueldo);
-        tfSueldo.setBounds(150, 890, 200, 24);
+        tfSueldo.setBounds(150, 890, 200, 20);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("APELLIDO");
@@ -115,21 +117,21 @@ public class VentanaJugador extends javax.swing.JFrame {
         panelOpaco.add(jLabel7);
         jLabel7.setBounds(20, 817, 80, 30);
         panelOpaco.add(tfNombre);
-        tfNombre.setBounds(150, 610, 200, 24);
+        tfNombre.setBounds(150, 610, 200, 20);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("SUELDO");
         panelOpaco.add(jLabel8);
         jLabel8.setBounds(30, 890, 80, 30);
         panelOpaco.add(tfApellido);
-        tfApellido.setBounds(150, 680, 200, 24);
+        tfApellido.setBounds(150, 680, 200, 20);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("EQUIPO");
         panelOpaco.add(jLabel9);
         jLabel9.setBounds(30, 1030, 70, 30);
         panelOpaco.add(tfNick);
-        tfNick.setBounds(150, 750, 200, 24);
+        tfNick.setBounds(150, 750, 200, 20);
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 48)); // NOI18N
         jLabel1.setText("JUGADOR");
@@ -151,7 +153,7 @@ public class VentanaJugador extends javax.swing.JFrame {
             }
         });
         panelOpaco.add(bAceptar);
-        bAceptar.setBounds(210, 1120, 160, 50);
+        bAceptar.setBounds(220, 1100, 140, 40);
 
         cbPosicion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toplaner", "Jungler", "Midlaner", "Ad Carry", "Support" }));
         cbPosicion.addActionListener(new java.awt.event.ActionListener() {
@@ -160,7 +162,7 @@ public class VentanaJugador extends javax.swing.JFrame {
             }
         });
         panelOpaco.add(cbPosicion);
-        cbPosicion.setBounds(150, 820, 200, 26);
+        cbPosicion.setBounds(150, 820, 200, 20);
 
         rbSi.setText("Si");
         rbSi.addActionListener(new java.awt.event.ActionListener() {
@@ -169,11 +171,11 @@ public class VentanaJugador extends javax.swing.JFrame {
             }
         });
         panelOpaco.add(rbSi);
-        rbSi.setBounds(160, 960, 70, 28);
+        rbSi.setBounds(160, 960, 70, 23);
 
         rbNo.setText("No");
         panelOpaco.add(rbNo);
-        rbNo.setBounds(260, 960, 47, 28);
+        rbNo.setBounds(260, 960, 70, 23);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("TITULARIDAD");
@@ -181,7 +183,7 @@ public class VentanaJugador extends javax.swing.JFrame {
         jLabel10.setBounds(20, 960, 100, 30);
 
         panelOpaco.add(cbEquipo);
-        cbEquipo.setBounds(150, 1030, 200, 26);
+        cbEquipo.setBounds(150, 1030, 200, 20);
 
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, -330, 400, 1430);
@@ -190,6 +192,16 @@ public class VentanaJugador extends javax.swing.JFrame {
         lFondo.setText("jugador");
         getContentPane().add(lFondo);
         lFondo.setBounds(-130, -10, 2050, 1140);
+
+        miVolver.setText("Volver");
+        miVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                miVolverMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(miVolver);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -293,6 +305,12 @@ public class VentanaJugador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbSiActionPerformed
 
+    private void miVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miVolverMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        ControladorVista.mostrarVentanaCategoria();
+    }//GEN-LAST:event_miVolverMouseClicked
+
     private boolean validarFields (){
          Pattern patron = Pattern.compile("^[A-Z][a-z]{15}");
                 Matcher encaja = patron.matcher(tfNombre.getText());
@@ -349,7 +367,9 @@ public class VentanaJugador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lFondo;
+    private javax.swing.JMenu miVolver;
     private javax.swing.JPanel panelOpaco;
     private javax.swing.JRadioButton rbNo;
     private javax.swing.JRadioButton rbSi;

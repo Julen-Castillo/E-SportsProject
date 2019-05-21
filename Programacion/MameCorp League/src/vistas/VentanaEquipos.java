@@ -63,18 +63,20 @@ public class VentanaEquipos extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         tfPuntos = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        bLimpiar = new javax.swing.JButton();
         bInsertar = new javax.swing.JButton();
-        bVolver = new javax.swing.JButton();
         lFondo = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        miVolver = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        panelOpaco.setForeground(new java.awt.Color(255, 255, 255));
         panelOpaco.setLayout(null);
 
-        jLabel3.setText("NOMBRE");
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("NOMBRE");
         panelOpaco.add(jLabel3);
         jLabel3.setBounds(20, 300, 100, 17);
         panelOpaco.add(tfNombre);
@@ -82,49 +84,38 @@ public class VentanaEquipos extends javax.swing.JFrame {
         panelOpaco.add(tfPresupuesto);
         tfPresupuesto.setBounds(160, 340, 200, 20);
 
-        jLabel4.setText("PRESUPUESTO");
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("PRESUPUESTO");
         panelOpaco.add(jLabel4);
         jLabel4.setBounds(20, 340, 130, 17);
 
-        jLabel5.setText("PUNTOS");
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("PUNTOS");
         panelOpaco.add(jLabel5);
         jLabel5.setBounds(20, 380, 70, 17);
         panelOpaco.add(tfPuntos);
         tfPuntos.setBounds(160, 380, 200, 20);
 
-        jLabel2.setText("EQUIPO");
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("EQUIPO");
         panelOpaco.add(jLabel2);
-        jLabel2.setBounds(70, 150, 340, 140);
+        jLabel2.setBounds(100, 150, 340, 140);
 
-        bLimpiar.setText("Limpiar");
-        bLimpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bLimpiarActionPerformed(evt);
-            }
-        });
-        panelOpaco.add(bLimpiar);
-        bLimpiar.setBounds(20, 440, 90, 23);
-
+        bInsertar.setBackground(new java.awt.Color(0, 40, 135));
+        bInsertar.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
+        bInsertar.setForeground(new java.awt.Color(255, 255, 255));
         bInsertar.setText("ACEPTAR");
+        bInsertar.setBorder(null);
         bInsertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bInsertarActionPerformed(evt);
             }
         });
         panelOpaco.add(bInsertar);
-        bInsertar.setBounds(261, 440, 100, 23);
-
-        bVolver.setText("Volver");
-        bVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bVolverActionPerformed(evt);
-            }
-        });
-        panelOpaco.add(bVolver);
-        bVolver.setBounds(213, 970, 130, 23);
+        bInsertar.setBounds(260, 440, 100, 30);
 
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, -140, 400, 1310);
@@ -134,12 +125,22 @@ public class VentanaEquipos extends javax.swing.JFrame {
         getContentPane().add(lFondo);
         lFondo.setBounds(-380, -170, 2350, 1400);
 
+        miVolver.setText("Volver");
+        miVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                miVolverMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(miVolver);
+
+        setJMenuBar(jMenuBar1);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
    public void mostrarOocultarfields(){
        
        if(operacion.equals("baja")){
-           bVolver.setEnabled(true);
+           
            tfNombre.setEnabled(false);
            tfPresupuesto.setEnabled(false);
            tfPuntos.setEnabled(false);
@@ -192,18 +193,6 @@ public class VentanaEquipos extends javax.swing.JFrame {
     }
 
     
-    private void bLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimpiarActionPerformed
-    /**
-     * Con el bLimpiar borramos todos los datos que se han tecleado en los 
-     * labels de esta ventana, dejandolos asi en blanco.
-     */   
-    //BONTON LIMPIAR
-        tfNombre.setText("");
-        tfPresupuesto.setText("");
-        tfPuntos.setText(""); 
-    
-    }//GEN-LAST:event_bLimpiarActionPerformed
-
     private void bInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInsertarActionPerformed
         
         String nombre = tfNombre.getText();
@@ -262,11 +251,11 @@ public class VentanaEquipos extends javax.swing.JFrame {
         }  
     }//GEN-LAST:event_bInsertarActionPerformed
 
-    private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
+    private void miVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miVolverMouseClicked
         // TODO add your handling code here:
         this.dispose();
         ControladorVista.mostrarVentanaCategoria();
-    }//GEN-LAST:event_bVolverActionPerformed
+    }//GEN-LAST:event_miVolverMouseClicked
 
     /**
      * @param args the command line arguments
@@ -305,13 +294,13 @@ public class VentanaEquipos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bInsertar;
-    private javax.swing.JButton bLimpiar;
-    private javax.swing.JButton bVolver;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lFondo;
+    private javax.swing.JMenu miVolver;
     private javax.swing.JPanel panelOpaco;
     private javax.swing.JTextField tfNombre;
     private javax.swing.JTextField tfPresupuesto;
