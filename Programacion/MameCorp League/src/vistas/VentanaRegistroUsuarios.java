@@ -175,9 +175,9 @@ public class VentanaRegistroUsuarios extends javax.swing.JFrame {
             
         } catch (Exception ex) {
             System.out.println("Excepcion " + ex.getMessage());
-        }
+        }}
     }//GEN-LAST:event_bRegistrarActionPerformed
-    }
+    
     /**
      * @param args the command line arguments
      */
