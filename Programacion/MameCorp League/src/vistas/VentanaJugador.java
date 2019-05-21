@@ -28,6 +28,7 @@ public class VentanaJugador extends javax.swing.JFrame {
   private String posicion;
   private Jugador oJugador;
   private ArrayList<Equipo>listaEquipos;
+  private int respuesta;
 
     /**
      * Creates new form VentanaJugador
@@ -58,6 +59,7 @@ public class VentanaJugador extends javax.swing.JFrame {
         if (operacion.equals("modificar")) {
             tfNombre.setEnabled(false);
             tfApellido.setEnabled(false);
+            cbEquipo.setEnabled(false);
         }
         else if(operacion.equals("baja")){ 
             rbSi.setEnabled(false);
@@ -270,7 +272,7 @@ public class VentanaJugador extends javax.swing.JFrame {
         }
         
         else if (operacion.equals("baja")){
-        int respuesta =  JOptionPane.showConfirmDialog(this, "Estas segur@ que quieres dar de baja a " + tfNick.getText()+ " ?") ;
+        respuesta =  JOptionPane.showConfirmDialog(this, "Estas segur@ que quieres dar de baja a " + tfNick.getText()+ " ?") ;
 
         if (respuesta == 0) {
             try {
@@ -279,47 +281,53 @@ public class VentanaJugador extends javax.swing.JFrame {
                 Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
             }
         } 
+        else if (operacion.equals("modificar")){                   
+                if(rbSi.isSelected()){
+                    titularidad = true;
+                }
+                else {
+                    titularidad = false;
+                }
+            
+        }      
+                switch (cbPosicion.getSelectedIndex()){
+                    case 0:
+                        posicion = "Toplaner";
+                        break;
+                    case 1:
+                        posicion = "Jungler";
+                       break;
+                    case 2:
+                        posicion = "Midlaner";
+                        break;
+                    case 3:
+                        posicion = "Adcarry";
+                        break;
+                    case 4:
+                        posicion = "Support";
+                        break;
+
+              }
+           try {
+               String nickname = JOptionPane.showInputDialog("Escribe el nickname del jugador que quieres modificar"); 
+              oJugador = MainEsports.consultarJugadorAModificar(nickname);
+               if(oJugador == null){
+                   JOptionPane.showMessageDialog(null, "No existe tal jugador");
+               }
+               else {
+                  llenarFields();
+                  MainEsports.modificarJugador(tfNick.getText(),Integer.parseInt(tfSueldo.getText()),titularidad,posicion);
+               }
+ 
+          } catch (Exception ex) {
+               Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
+          }    
+            if (respuesta == 2 || respuesta == 3){
+             tfNick.setText("");
         
-//        else if { 
-//            if (operacion.equals("modificar")){ 
-//           
-//                if(rbSi.isSelected()){
-//                    titularidad = true;
-//                }
-//                else {
-//                    titularidad = false;
-//                }
-//                switch (cbPosicion.getSelectedIndex()){
-//                    case 0:
-//                        posicion = "Toplaner";
-//                        break;
-//                    case 1:
-//                        posicion = "Jungler";
-//                        break;
-//                    case 2:
-//                        posicion = "Midlaner";
-//                        break;
-//                    case 3:
-//                        posicion = "Adcarry";
-//                        break;
-//                    case 4:
-//                        posicion = "Support";
-//                        break;
-//
-//                }
-//           try {
-//               MainEsports.modificarJugador(tfNick.getText(), Integer.parseInt(tfSueldo.getText()),titularidad,posicion);
-//           } catch (Exception ex) {
-//               Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
-//           }
-//       }
-//      }  
-//      } else { if (respuesta == 2 || respuesta == 3){
-//          tfNick.setText("");
-//          JOptionPane.showMessageDialog(this, "Escribe otra vez el nickname del jugador que quieras dar de baja");
-//          }
-   }
-    
+         }
+       }
+   
     }//GEN-LAST:event_bAceptarActionPerformed
 
     private void cbPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPosicionActionPerformed
@@ -345,6 +353,14 @@ public class VentanaJugador extends javax.swing.JFrame {
                     return true;
                 }
        return false; 
+    }
+    private void llenarFields(){
+        tfNombre.setText(oJugador.getNombre());
+        tfApellido.setText(oJugador.getApellido());
+        tfNick.setText(oJugador.getNickname());
+        tfSueldo.setText(oJugador.getPosicion());
+        cbEquipo.setSelectedIndex(oJugador.getoEquipo().getIdEquipo());
+        
     }
     /**
      * @param args the command line arguments
