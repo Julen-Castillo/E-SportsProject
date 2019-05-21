@@ -81,7 +81,12 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
         tfEquipoLocal2 = new javax.swing.JLabel();
         tfEquipoVisitante2 = new javax.swing.JLabel();
         tfEquipoVisitante3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        bWinEquipoVisitante3 = new javax.swing.JButton();
+        bWinEquipoVisitante1 = new javax.swing.JButton();
+        bWinEquipoVisitante2 = new javax.swing.JButton();
+        bWinEquipoLocal1 = new javax.swing.JButton();
+        bWinEquipoLocal2 = new javax.swing.JButton();
+        bWinEquipoLocal3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -158,73 +163,130 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
         tfEquipoVisitante3.setText("jLabel3");
         tfEquipoVisitante3.setOpaque(true);
 
-        jButton1.setText("WINNER");
-        jButton1.setBorder(null);
+        bWinEquipoVisitante3.setBackground(new java.awt.Color(0, 153, 0));
+        bWinEquipoVisitante3.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        bWinEquipoVisitante3.setForeground(new java.awt.Color(255, 255, 255));
+        bWinEquipoVisitante3.setText("WINNER");
+        bWinEquipoVisitante3.setBorder(null);
+
+        bWinEquipoVisitante1.setBackground(new java.awt.Color(0, 153, 0));
+        bWinEquipoVisitante1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        bWinEquipoVisitante1.setForeground(new java.awt.Color(255, 255, 255));
+        bWinEquipoVisitante1.setText("WINNER");
+        bWinEquipoVisitante1.setBorder(null);
+
+        bWinEquipoVisitante2.setBackground(new java.awt.Color(0, 153, 0));
+        bWinEquipoVisitante2.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        bWinEquipoVisitante2.setForeground(new java.awt.Color(255, 255, 255));
+        bWinEquipoVisitante2.setText("WINNER");
+        bWinEquipoVisitante2.setBorder(null);
+
+        bWinEquipoLocal1.setBackground(new java.awt.Color(0, 153, 0));
+        bWinEquipoLocal1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        bWinEquipoLocal1.setForeground(new java.awt.Color(255, 255, 255));
+        bWinEquipoLocal1.setText("WINNER");
+        bWinEquipoLocal1.setBorder(null);
+
+        bWinEquipoLocal2.setBackground(new java.awt.Color(0, 153, 0));
+        bWinEquipoLocal2.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        bWinEquipoLocal2.setForeground(new java.awt.Color(255, 255, 255));
+        bWinEquipoLocal2.setText("WINNER");
+        bWinEquipoLocal2.setBorder(null);
+
+        bWinEquipoLocal3.setBackground(new java.awt.Color(0, 153, 0));
+        bWinEquipoLocal3.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        bWinEquipoLocal3.setForeground(new java.awt.Color(255, 255, 255));
+        bWinEquipoLocal3.setText("WINNER");
+        bWinEquipoLocal3.setBorder(null);
 
         javax.swing.GroupLayout panelOpacoLayout = new javax.swing.GroupLayout(panelOpaco);
         panelOpaco.setLayout(panelOpacoLayout);
         panelOpacoLayout.setHorizontalGroup(
             panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelOpacoLayout.createSequentialGroup()
-                .addContainerGap(225, Short.MAX_VALUE)
+                .addContainerGap(158, Short.MAX_VALUE)
                 .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpacoLayout.createSequentialGroup()
                         .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tfEquipoLocal1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfEquipoLocal3, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfEquipoLocal2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelOpacoLayout.createSequentialGroup()
+                                .addComponent(bWinEquipoLocal1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfEquipoLocal1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelOpacoLayout.createSequentialGroup()
+                                .addComponent(bWinEquipoLocal3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfEquipoLocal3, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelOpacoLayout.createSequentialGroup()
+                                .addComponent(bWinEquipoLocal2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfEquipoLocal2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfEquipoVisitante3, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfEquipoVisitante2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelOpacoLayout.createSequentialGroup()
+                                .addComponent(tfEquipoVisitante2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(bWinEquipoVisitante2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelOpacoLayout.createSequentialGroup()
                                 .addComponent(tfEquipoVisitante1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(bWinEquipoVisitante1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelOpacoLayout.createSequentialGroup()
+                                .addComponent(tfEquipoVisitante3, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(bWinEquipoVisitante3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(94, 94, 94))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpacoLayout.createSequentialGroup()
-                        .addComponent(cbJornada, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(433, 433, 433))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpacoLayout.createSequentialGroup()
                         .addComponent(bVolver)
-                        .addGap(493, 493, 493))))
-            .addGroup(panelOpacoLayout.createSequentialGroup()
-                .addGap(490, 490, 490)
-                .addComponent(bRefrescar)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(464, 464, 464))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpacoLayout.createSequentialGroup()
+                        .addComponent(cbJornada, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(411, 411, 411))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpacoLayout.createSequentialGroup()
+                        .addComponent(bRefrescar)
+                        .addGap(464, 464, 464))))
         );
         panelOpacoLayout.setVerticalGroup(
             panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelOpacoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cbJornada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelOpacoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(cbJornada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bRefrescar)
                         .addGap(4, 4, 4)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelOpacoLayout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(tfEquipoLocal1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(103, 103, 103)
+                        .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfEquipoLocal1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bWinEquipoLocal1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(tfEquipoLocal2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfEquipoLocal2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bWinEquipoLocal2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(tfEquipoLocal3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfEquipoLocal3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bWinEquipoLocal3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelOpacoLayout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(tfEquipoVisitante1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
+                        .addGap(102, 102, 102)
+                        .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfEquipoVisitante1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bWinEquipoVisitante1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(tfEquipoVisitante2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfEquipoVisitante2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bWinEquipoVisitante2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(tfEquipoVisitante3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                        .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfEquipoVisitante3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bWinEquipoVisitante3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bVolver)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         getContentPane().add(panelOpaco);
@@ -237,136 +299,136 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRefrescarActionPerformed
+        switch(cbJornada.getSelectedIndex()){
+            case 0:
+            tfEquipoLocal1.setText(listaJornadas.get(0).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal2.setText(listaJornadas.get(0).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal3.setText(listaJornadas.get(0).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoVisitante1.setText(listaJornadas.get(0).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante2.setText(listaJornadas.get(0).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante3.setText(listaJornadas.get(0).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            break;
+            case 1:
+            tfEquipoLocal1.setText(listaJornadas.get(1).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal2.setText(listaJornadas.get(1).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal3.setText(listaJornadas.get(1).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoVisitante1.setText(listaJornadas.get(1).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante2.setText(listaJornadas.get(1).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante3.setText(listaJornadas.get(1).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            break;
+            case 2:
+            tfEquipoLocal1.setText(listaJornadas.get(2).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal2.setText(listaJornadas.get(2).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal3.setText(listaJornadas.get(2).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoVisitante1.setText(listaJornadas.get(2).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante2.setText(listaJornadas.get(2).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante3.setText(listaJornadas.get(2).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            break;
+            case 3:
+            tfEquipoLocal1.setText(listaJornadas.get(3).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal2.setText(listaJornadas.get(3).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal3.setText(listaJornadas.get(3).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoVisitante1.setText(listaJornadas.get(3).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante2.setText(listaJornadas.get(3).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante3.setText(listaJornadas.get(3).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            break;
+            case 4:
+            tfEquipoLocal1.setText(listaJornadas.get(4).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal2.setText(listaJornadas.get(4).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal3.setText(listaJornadas.get(4).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoVisitante1.setText(listaJornadas.get(4).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante2.setText(listaJornadas.get(4).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante3.setText(listaJornadas.get(4).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            break;
+            case 5:
+            tfEquipoLocal1.setText(listaJornadas.get(5).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal2.setText(listaJornadas.get(5).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal3.setText(listaJornadas.get(5).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoVisitante1.setText(listaJornadas.get(5).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante2.setText(listaJornadas.get(5).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante3.setText(listaJornadas.get(5).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            break;
+            case 6:
+            tfEquipoLocal1.setText(listaJornadas.get(6).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal2.setText(listaJornadas.get(6).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal3.setText(listaJornadas.get(6).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoVisitante1.setText(listaJornadas.get(6).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante2.setText(listaJornadas.get(6).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante3.setText(listaJornadas.get(6).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            break;
+            case 7:
+            tfEquipoLocal1.setText(listaJornadas.get(7).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal2.setText(listaJornadas.get(7).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal3.setText(listaJornadas.get(7).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoVisitante1.setText(listaJornadas.get(7).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante2.setText(listaJornadas.get(7).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante3.setText(listaJornadas.get(7).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            break;
+            case 8:
+            tfEquipoLocal1.setText(listaJornadas.get(8).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal2.setText(listaJornadas.get(8).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal3.setText(listaJornadas.get(8).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoVisitante1.setText(listaJornadas.get(8).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante2.setText(listaJornadas.get(8).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante3.setText(listaJornadas.get(8).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            break;
+            case 9:
+            tfEquipoLocal1.setText(listaJornadas.get(9).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal2.setText(listaJornadas.get(9).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal3.setText(listaJornadas.get(9).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoVisitante1.setText(listaJornadas.get(9).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante2.setText(listaJornadas.get(9).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante3.setText(listaJornadas.get(9).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            break;
+            case 10:
+            tfEquipoLocal1.setText(listaJornadas.get(10).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal2.setText(listaJornadas.get(10).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoLocal3.setText(listaJornadas.get(10).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+            tfEquipoVisitante1.setText(listaJornadas.get(10).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante2.setText(listaJornadas.get(10).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+            tfEquipoVisitante3.setText(listaJornadas.get(10).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            break;
+        }
+    }//GEN-LAST:event_bRefrescarActionPerformed
+
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         ControladorVista.OcultarVentanaVisualizarJornada();
         ControladorVista.mostrarVentanaUsuarios();
     }//GEN-LAST:event_bVolverActionPerformed
-
-    private void bRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRefrescarActionPerformed
-        switch(cbJornada.getSelectedIndex()){
-            case 0:
-                tfEquipoLocal1.setText(listaJornadas.get(0).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal2.setText(listaJornadas.get(0).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal3.setText(listaJornadas.get(0).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoVisitante1.setText(listaJornadas.get(0).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante2.setText(listaJornadas.get(0).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante3.setText(listaJornadas.get(0).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
-            break;
-            case 1:
-                tfEquipoLocal1.setText(listaJornadas.get(1).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal2.setText(listaJornadas.get(1).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal3.setText(listaJornadas.get(1).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoVisitante1.setText(listaJornadas.get(1).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante2.setText(listaJornadas.get(1).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante3.setText(listaJornadas.get(1).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
-            break;
-            case 2:
-                tfEquipoLocal1.setText(listaJornadas.get(2).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal2.setText(listaJornadas.get(2).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal3.setText(listaJornadas.get(2).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoVisitante1.setText(listaJornadas.get(2).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante2.setText(listaJornadas.get(2).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante3.setText(listaJornadas.get(2).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
-            break;
-            case 3:
-                tfEquipoLocal1.setText(listaJornadas.get(3).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal2.setText(listaJornadas.get(3).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal3.setText(listaJornadas.get(3).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoVisitante1.setText(listaJornadas.get(3).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante2.setText(listaJornadas.get(3).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante3.setText(listaJornadas.get(3).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
-            break;
-            case 4:
-                tfEquipoLocal1.setText(listaJornadas.get(4).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal2.setText(listaJornadas.get(4).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal3.setText(listaJornadas.get(4).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoVisitante1.setText(listaJornadas.get(4).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante2.setText(listaJornadas.get(4).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante3.setText(listaJornadas.get(4).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
-            break;
-            case 5:
-                tfEquipoLocal1.setText(listaJornadas.get(5).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal2.setText(listaJornadas.get(5).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal3.setText(listaJornadas.get(5).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoVisitante1.setText(listaJornadas.get(5).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante2.setText(listaJornadas.get(5).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante3.setText(listaJornadas.get(5).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
-            break;
-            case 6:
-                tfEquipoLocal1.setText(listaJornadas.get(6).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal2.setText(listaJornadas.get(6).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal3.setText(listaJornadas.get(6).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoVisitante1.setText(listaJornadas.get(6).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante2.setText(listaJornadas.get(6).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante3.setText(listaJornadas.get(6).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
-            break;
-            case 7:
-                tfEquipoLocal1.setText(listaJornadas.get(7).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal2.setText(listaJornadas.get(7).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal3.setText(listaJornadas.get(7).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoVisitante1.setText(listaJornadas.get(7).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante2.setText(listaJornadas.get(7).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante3.setText(listaJornadas.get(7).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
-            break;
-            case 8:
-                tfEquipoLocal1.setText(listaJornadas.get(8).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal2.setText(listaJornadas.get(8).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal3.setText(listaJornadas.get(8).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoVisitante1.setText(listaJornadas.get(8).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante2.setText(listaJornadas.get(8).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante3.setText(listaJornadas.get(8).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
-            break;
-            case 9:
-                tfEquipoLocal1.setText(listaJornadas.get(9).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal2.setText(listaJornadas.get(9).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal3.setText(listaJornadas.get(9).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoVisitante1.setText(listaJornadas.get(9).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante2.setText(listaJornadas.get(9).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante3.setText(listaJornadas.get(9).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
-            break;
-            case 10:
-                tfEquipoLocal1.setText(listaJornadas.get(10).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal2.setText(listaJornadas.get(10).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoLocal3.setText(listaJornadas.get(10).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
-                tfEquipoVisitante1.setText(listaJornadas.get(10).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante2.setText(listaJornadas.get(10).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
-                tfEquipoVisitante3.setText(listaJornadas.get(10).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
-            break;
-        }
-    }//GEN-LAST:event_bRefrescarActionPerformed
 
     private void cbJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbJornadaActionPerformed
 
     }//GEN-LAST:event_cbJornadaActionPerformed
 
     private void cbJornadaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbJornadaItemStateChanged
-//        System.out.println(listaJornadas.size());
-//        switch(cbJornada.getSelectedIndex()){
-//            case 0:
-//                tfEquipoLocal1.setText(listaJornadas.get(0).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
-//                tfEquipoLocal2.setText(listaJornadas.get(0).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
-//                tfEquipoLocal3.setText(listaJornadas.get(0).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
-//                tfEquipoVisitante1.setText(listaJornadas.get(0).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
-//                tfEquipoVisitante2.setText(listaJornadas.get(0).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
-//                tfEquipoVisitante3.setText(listaJornadas.get(0).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
-//            break;
-//            case 1:
-//                tfEquipoLocal1.setText(listaJornadas.get(1).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
-//                tfEquipoLocal2.setText(listaJornadas.get(1).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
-//                tfEquipoLocal3.setText(listaJornadas.get(1).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
-//                tfEquipoVisitante1.setText(listaJornadas.get(1).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
-//                tfEquipoVisitante2.setText(listaJornadas.get(1).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
-//                tfEquipoVisitante3.setText(listaJornadas.get(1).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
-//            break;
-//            case 2:
-//                tfEquipoLocal1.setText(listaJornadas.get(2).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
-//                tfEquipoLocal2.setText(listaJornadas.get(2).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
-//                tfEquipoLocal3.setText(listaJornadas.get(2).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
-//                tfEquipoVisitante1.setText(listaJornadas.get(2).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
-//                tfEquipoVisitante2.setText(listaJornadas.get(2).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
-//                tfEquipoVisitante3.setText(listaJornadas.get(2).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
-//            break;
-//        }
+        //        System.out.println(listaJornadas.size());
+        //        switch(cbJornada.getSelectedIndex()){
+            //            case 0:
+            //                tfEquipoLocal1.setText(listaJornadas.get(0).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+            //                tfEquipoLocal2.setText(listaJornadas.get(0).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+            //                tfEquipoLocal3.setText(listaJornadas.get(0).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+            //                tfEquipoVisitante1.setText(listaJornadas.get(0).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+            //                tfEquipoVisitante2.setText(listaJornadas.get(0).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+            //                tfEquipoVisitante3.setText(listaJornadas.get(0).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            //            break;
+            //            case 1:
+            //                tfEquipoLocal1.setText(listaJornadas.get(1).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+            //                tfEquipoLocal2.setText(listaJornadas.get(1).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+            //                tfEquipoLocal3.setText(listaJornadas.get(1).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+            //                tfEquipoVisitante1.setText(listaJornadas.get(1).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+            //                tfEquipoVisitante2.setText(listaJornadas.get(1).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+            //                tfEquipoVisitante3.setText(listaJornadas.get(1).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            //            break;
+            //            case 2:
+            //                tfEquipoLocal1.setText(listaJornadas.get(2).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());
+            //                tfEquipoLocal2.setText(listaJornadas.get(2).getListaPartidos().get(1).getEquipoLocal().getNombre().toUpperCase());
+            //                tfEquipoLocal3.setText(listaJornadas.get(2).getListaPartidos().get(2).getEquipoLocal().getNombre().toUpperCase());
+            //                tfEquipoVisitante1.setText(listaJornadas.get(2).getListaPartidos().get(0).getEquipoVisitante().getNombre().toUpperCase());
+            //                tfEquipoVisitante2.setText(listaJornadas.get(2).getListaPartidos().get(1).getEquipoVisitante().getNombre().toUpperCase());
+            //                tfEquipoVisitante3.setText(listaJornadas.get(2).getListaPartidos().get(2).getEquipoVisitante().getNombre().toUpperCase());
+            //            break;
+            //        }
     }//GEN-LAST:event_cbJornadaItemStateChanged
 
     /**
@@ -411,8 +473,13 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bRefrescar;
     private javax.swing.JButton bVolver;
+    private javax.swing.JButton bWinEquipoLocal1;
+    private javax.swing.JButton bWinEquipoLocal2;
+    private javax.swing.JButton bWinEquipoLocal3;
+    private javax.swing.JButton bWinEquipoVisitante1;
+    private javax.swing.JButton bWinEquipoVisitante2;
+    private javax.swing.JButton bWinEquipoVisitante3;
     private javax.swing.JComboBox<String> cbJornada;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel panelOpaco;
