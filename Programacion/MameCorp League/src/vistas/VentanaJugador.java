@@ -39,11 +39,10 @@ public class VentanaJugador extends javax.swing.JFrame {
     }
     public void mostrarOocultarfields() throws Exception{
         if (operacion.equals("modificar")) {
-
             tfNombre.setEnabled(false);
             tfApellido.setEnabled(false);
         }
-    else { if (operacion.equals("baja")){
+        else if(operacion.equals("baja")){ 
         tfSueldo.setEnabled(false);
         rbNo.setEnabled(false);
         rbSi.setEnabled(false);
@@ -51,11 +50,11 @@ public class VentanaJugador extends javax.swing.JFrame {
         tfApellido.setEnabled(false);
         cbPosicion.setEnabled(false);
         MainEsports.darBajaJugador(tfNick.getText());
-        
-    }
+        }
     }
     
-}
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -83,7 +82,7 @@ public class VentanaJugador extends javax.swing.JFrame {
         rbSi = new javax.swing.JRadioButton();
         rbNo = new javax.swing.JRadioButton();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbEquipo = new javax.swing.JComboBox<>();
         lFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -132,7 +131,7 @@ public class VentanaJugador extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 48)); // NOI18N
         jLabel1.setText("JUGADOR");
         panelOpaco.add(jLabel1);
-        jLabel1.setBounds(80, 380, 230, 170);
+        jLabel1.setBounds(80, 380, 260, 170);
 
         bAceptar.setBackground(new java.awt.Color(0, 40, 135));
         bAceptar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -178,8 +177,8 @@ public class VentanaJugador extends javax.swing.JFrame {
         panelOpaco.add(jLabel10);
         jLabel10.setBounds(20, 960, 100, 30);
 
-        panelOpaco.add(jComboBox1);
-        jComboBox1.setBounds(150, 1030, 200, 26);
+        panelOpaco.add(cbEquipo);
+        cbEquipo.setBounds(150, 1030, 200, 26);
 
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, -330, 400, 1430);
@@ -194,45 +193,57 @@ public class VentanaJugador extends javax.swing.JFrame {
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
         
-    if (operacion.equals("baja")){
-      int respuesta =  JOptionPane.showConfirmDialog(this, "Estas segur@ que quieres dar de baja a " + tfNick.getText()+ " ?") ;
-      
-      if (respuesta == 1) {
-       if (operacion.equals("baja")){
-           try {
-               MainEsports.darBajaJugador(tfNick.getText());
-           } catch (Exception ex) {
-               Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
-           }
+        if(rbSi.isSelected()){
+            titularidad = true;
+        }
+        else if(rbNo.isSelected()){
+            titularidad = false;
+        }
         
-        } 
-      
-       else { if (operacion.equals("modificar")){ 
-           
-           if(rbSi.isSelected()){
-               titularidad = true;
-           }
-           else {
-               titularidad = false;
-           }
-           switch (cbPosicion.getSelectedIndex()){
-               case 0:
-                   posicion = "Toplaner";
-                   break;
-               case 1:
-                   posicion = "Jungler";
-                   break;
-               case 2:
-                   posicion = "Midlaner";
-                   break;
-               case 3:
-                   posicion = "Adcarry";
-                   break;
-               case 4:
-                   posicion = "Support";
-                   break;
+        if(operacion.equals("alta")){
+            int insert = MainEsports.insertarJugadores(tfNombre.getText(), tfApellido.getText(), tfNick.getText(), cbPosicion.getSelectedItem().toString(), Integer.parseInt(tfSueldo.getText()), titularidad, cbEquipo.getSelectedItem().toString());
+        }
+        
+        if (operacion.equals("baja")){
+        int respuesta =  JOptionPane.showConfirmDialog(this, "Estas segur@ que quieres dar de baja a " + tfNick.getText()+ " ?") ;
 
-           }
+        if (respuesta == 1) {
+            if (operacion.equals("baja")){
+                try {
+                    MainEsports.darBajaJugador(tfNick.getText());
+                } catch (Exception ex) {
+                    Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+             } 
+      
+       else { 
+            if (operacion.equals("modificar")){ 
+           
+                if(rbSi.isSelected()){
+                    titularidad = true;
+                }
+                else {
+                    titularidad = false;
+                }
+                switch (cbPosicion.getSelectedIndex()){
+                    case 0:
+                        posicion = "Toplaner";
+                        break;
+                    case 1:
+                        posicion = "Jungler";
+                        break;
+                    case 2:
+                        posicion = "Midlaner";
+                        break;
+                    case 3:
+                        posicion = "Adcarry";
+                        break;
+                    case 4:
+                        posicion = "Support";
+                        break;
+
+                }
            try {
                MainEsports.modificarJugador(tfNick.getText(), Integer.parseInt(tfSueldo.getText()),titularidad,posicion);
            } catch (Exception ex) {
@@ -296,9 +307,9 @@ public class VentanaJugador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAceptar;
+    private javax.swing.JComboBox<String> cbEquipo;
     private javax.swing.JComboBox<String> cbPosicion;
     private javax.swing.ButtonGroup gTitularidad;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
