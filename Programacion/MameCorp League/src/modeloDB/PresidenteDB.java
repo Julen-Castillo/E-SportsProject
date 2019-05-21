@@ -8,6 +8,7 @@ package modeloDB;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import modelo.Equipo;
 import modelo.Jugador;
 import modelo.Presidente;
@@ -19,6 +20,8 @@ import modelo.Presidente;
 public class PresidenteDB {
     
      private static ResultSet resultado;
+     private static PreparedStatement sentencieaPre;
+     private static ArrayList<Presidente> listaPresidentes;
      
 
 
@@ -81,4 +84,30 @@ public class PresidenteDB {
 
             return delete;
     }
+    
+    public static ArrayList<Presidente> consultarPresidentesDelEquipo(int idEquipo) throws SQLException, Exception{
+    
+    GenericoDB.conectar();
+    
+    String plantilla = "select * from presidente where equipo_id_equipo = ?";
+    sentencieaPre = GenericoDB.getCon().prepareStatement(plantilla);
+    
+    sentencieaPre.setInt(1, idEquipo);
+    
+    resultado = sentencieaPre.executeQuery();
+    listaPresidentes = new ArrayList<>();
+    while(resultado.next()){
+        
+       Presidente oPresidente = new Presidente();
+        
+        oPresidente.setIdPresidente(resultado.getInt("id_presidente"));
+        oPresidente.setNombre(resultado.getString("nombre"));
+        oPresidente.setApellido(resultado.getString("nombre"));
+
+        listaPresidentes.add(oPresidente);
+    } 
+    GenericoDB.cerrarCon();
+   
+      return listaPresidentes;
+}
 }
