@@ -181,8 +181,12 @@ public class VentanaUsuarios extends javax.swing.JFrame {
 
     private void bEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEquiposActionPerformed
        operacionActiva = "equipo";
-      // this.dispose();
-     //  ControladorVista.mostrarVentanaEquipos();
+       this.dispose();
+        try {
+            ControladorVista.mostrarVentanaVisualizarEquipos();
+        } catch (Exception ex) {
+            Logger.getLogger(VentanaUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_bEquiposActionPerformed
 
     private void miLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miLigaActionPerformed
@@ -203,7 +207,11 @@ public class VentanaUsuarios extends javax.swing.JFrame {
 
     private void bLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLigaActionPerformed
        operacionActiva = "liga";
-       ControladorVista.mostrarVentanaVisualizarLiga();
+        try {
+            ControladorVista.mostrarVentanaVisualizarLiga();
+        } catch (Exception ex) {
+            Logger.getLogger(VentanaUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
        this.dispose();
     }//GEN-LAST:event_bLigaActionPerformed
 

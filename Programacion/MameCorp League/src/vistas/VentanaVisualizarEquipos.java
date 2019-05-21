@@ -8,6 +8,7 @@ package vistas;
 import java.util.ArrayList;
 import main.MainEsports;
 import modelo.Equipo;
+import modelo.Jugador;
 
 /**
  *
@@ -15,6 +16,7 @@ import modelo.Equipo;
  */
 public class VentanaVisualizarEquipos extends javax.swing.JFrame {
      private static ArrayList<Equipo> listaEquipos;
+     private static ArrayList<Jugador> listaJugadores;
     /**
      * Creates new form VentanaVisualizarEquipos
      */
@@ -22,6 +24,9 @@ public class VentanaVisualizarEquipos extends javax.swing.JFrame {
         initComponents();
        listaEquipos = MainEsports.mostrarEquipos();
         llenarFieldsEquipo();
+        //listaJugadores = MainEsports.mostrarJugadores();
+        llenarFieldsJugador();
+        
     }
 
     /**
@@ -57,8 +62,6 @@ public class VentanaVisualizarEquipos extends javax.swing.JFrame {
         tfPresidente2 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         tfNombre3 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -249,9 +252,6 @@ public class VentanaVisualizarEquipos extends javax.swing.JFrame {
         getContentPane().add(jPanel2);
         jPanel2.setBounds(570, 30, 430, 400);
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Jugadores");
-
         tfNombre3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfNombre3ActionPerformed(evt);
@@ -323,33 +323,17 @@ public class VentanaVisualizarEquipos extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(186, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14)))
-                .addGap(148, 148, 148))
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jLabel4)
-                .addContainerGap(315, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3);
@@ -585,15 +569,19 @@ public class VentanaVisualizarEquipos extends javax.swing.JFrame {
     private void tfJugador2_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfJugador2_6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfJugador2_6ActionPerformed
-    public static void llenarFieldsEquipo(){
+    public  void llenarFieldsEquipo(){
         
     
-        
-        for (int x = 0; x < listaEquipos.size(); x++) {
-            
-            
-            
-        }
+        tfNombre1.setText(listaEquipos.get(0).getNombre());
+        tfNombre2.setText(listaEquipos.get(1).getNombre());
+        tfNombre3.setText(listaEquipos.get(2).getNombre());
+        tfNombre4.setText(listaEquipos.get(3).getNombre());
+        tfNombre5.setText(listaEquipos.get(4).getNombre());
+        tfNombre6.setText(listaEquipos.get(5).getNombre());   
+    }
+    
+    public void llenarFieldsJugador(){
+        tfJugador1_1.setText(listaEquipos.get(0).getListaJugadores().get(0).getNickname().toUpperCase());
     }
     /**
      * @param args the command line arguments
@@ -635,7 +623,6 @@ public class VentanaVisualizarEquipos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -648,7 +635,6 @@ public class VentanaVisualizarEquipos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField tfJugador1_1;
     private javax.swing.JTextField tfJugador1_2;
     private javax.swing.JTextField tfJugador1_3;
