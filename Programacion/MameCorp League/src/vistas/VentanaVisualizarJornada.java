@@ -81,6 +81,7 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
         tfEquipoLocal2 = new javax.swing.JLabel();
         tfEquipoVisitante2 = new javax.swing.JLabel();
         tfEquipoVisitante3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -157,12 +158,15 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
         tfEquipoVisitante3.setText("jLabel3");
         tfEquipoVisitante3.setOpaque(true);
 
+        jButton1.setText("WINNER");
+        jButton1.setBorder(null);
+
         javax.swing.GroupLayout panelOpacoLayout = new javax.swing.GroupLayout(panelOpaco);
         panelOpaco.setLayout(panelOpacoLayout);
         panelOpacoLayout.setHorizontalGroup(
             panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelOpacoLayout.createSequentialGroup()
-                .addContainerGap(194, Short.MAX_VALUE)
+                .addContainerGap(225, Short.MAX_VALUE)
                 .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpacoLayout.createSequentialGroup()
                         .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -175,8 +179,11 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
                         .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfEquipoVisitante3, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tfEquipoVisitante2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfEquipoVisitante1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(192, 192, 192))
+                            .addGroup(panelOpacoLayout.createSequentialGroup()
+                                .addComponent(tfEquipoVisitante1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(94, 94, 94))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpacoLayout.createSequentialGroup()
                         .addComponent(cbJornada, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(433, 433, 433))
@@ -208,7 +215,9 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
                         .addComponent(tfEquipoLocal3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelOpacoLayout.createSequentialGroup()
                         .addGap(70, 70, 70)
-                        .addComponent(tfEquipoVisitante1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tfEquipoVisitante1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addComponent(tfEquipoVisitante2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -403,6 +412,7 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
     private javax.swing.JButton bRefrescar;
     private javax.swing.JButton bVolver;
     private javax.swing.JComboBox<String> cbJornada;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel panelOpaco;
