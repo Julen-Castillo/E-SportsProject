@@ -25,11 +25,13 @@ public class GenericoDB {
 
             //Casa
             //String url="jdbc:oracle:thin:@10.10.10.9:1521:db12102";
-            //con = DriverManager.getConnection(url,"eqdaw01","eqdaw01");
+            //con = DriverManager.getConnection(url,"sys","oracle");
+            
 
             //Clase
-            //String url="jdbc:oracle:thin:@SrvOracle:1521:orcl";
-            // //con = DriverManager.getConnection(url,"sys","oracle");
+            String url="jdbc:oracle:thin:@SrvOracle:1521:orcl";
+            con = DriverManager.getConnection(url,"eqdaw01","eqdaw01");
+            
     } catch (Exception e){
         System.out.println("Problemas con la base de datos, no es culpa nuestra, es de egibide");
         System.out.println(e.getClass() + e.getMessage());

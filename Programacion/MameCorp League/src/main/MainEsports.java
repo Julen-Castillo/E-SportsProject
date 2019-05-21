@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.*;
 import modeloDB.*;
+import music.Sonido;
 import vistas.*;
 
 
@@ -47,7 +48,7 @@ public class MainEsports {
     
     
     public static void main(String[] args) throws SQLException, Exception {
-    
+    Sonido reproducir = new Sonido();
         //La linea de abajo está comentada porque todavia no está implementado el login
         // ControladorVista.mostrarVentanaVisualizarLiga();
         GenericoDB.conectar();
@@ -56,9 +57,8 @@ public class MainEsports {
             //crearRoundRobinEmparejamientos();
             ControladorVista.mostrarLogin();
         }
-    }
-    public static void consultarEquipoDelJugador(int equipo_id_equipo) throws SQLException{
-       EquipoDB.consultarEquipoDelJugador(equipo_id_equipo);
+        
+        
         
     }
        
@@ -116,7 +116,24 @@ public class MainEsports {
         return equipoDB.insertarEquipo(e);  
 
     }
+     /**
+     * Aquí buscamos un equipo para las opciones borrar y modificar 
+     */
+    public static Equipo buscarEquipo(String nombreEquipo) throws Exception{
+        oEquipo = EquipoDB.buscarEquipo(nombreEquipo);
+        return oEquipo;
+    }
+    public static int modificarEquipo(String nombre,int presupuesto, int puntos) throws Exception{
+       
+        int update = EquipoDB.modificarEquipo(oEquipo.getIdEquipo(),nombre,presupuesto,puntos);
     
+         return update;
+    }
+    public static int borrarEquipo(String nombre,int presupuesto, int puntos) throws Exception{
+        oEquipo = EquipoDB.buscarEquipo(nombre);
+        return EquipoDB.borrarEquipo(oEquipo.getIdEquipo(),nombre,presupuesto,puntos);
+    
+    }
     public static int insertarAdministrador(String nombre,String password) throws Exception{
     
         oSesion = new Sesion(nombre,password);
@@ -369,5 +386,15 @@ public class MainEsports {
     public static int randomWinner(){
         int range = (1 - 0) + 1; 
         return (int)(Math.random() * range) + 0;
+    }
+
+    public static boolean insertarJugadores(String nombre, String apellido, String nickname, String posicion, int sueldo, boolean titularidad, int posicionEquipo) throws Exception {
+        //Obtenemos la lista de equipos
+        listaEquipos = EquipoDB.consultarTodos();
+        //Seleccionamos el elegido por el usuario
+        oEquipo = listaEquipos.get(posicionEquipo);
+        //Creamos el jugador
+        oJugador = new Jugador(nombre, apellido, nickname, posicion, sueldo, titularidad, oEquipo);
+        return JugadorDB.insertarJugadores(oJugador);
     }
 } 

@@ -12,7 +12,8 @@ public class EquipoDB {
     
     private static ResultSet resultado;
     private static PreparedStatement ps;
-
+    private static Equipo oEquipo;
+    private static Statement st;
 
     public int insertarEquipo(Equipo e) throws Exception{
         
@@ -32,11 +33,11 @@ public class EquipoDB {
        
        return insercion;
     }
-    public void modificarEquipo(int id_equipo,String nombre,int presupuesto,int puntos) throws Exception{
+    public static int modificarEquipo(int id_equipo,String nombre,int presupuesto,int puntos) throws Exception{
     
         GenericoDB.conectar();
         
-        String plantilla = "update equipos set nombre=?,presupuesto=?,puntos=? where id_equipo=?";
+        String plantilla = "update equipo set nombre=?,presupuesto=?,puntos=? where id_equipo=?";
         PreparedStatement sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
         
         sentenciaPre.setString(1, nombre);
@@ -48,12 +49,13 @@ public class EquipoDB {
         System.out.println(update);
         
         GenericoDB.cerrarCon();
+        return update;
     }
-    public void borrarEquipo(String nombre) throws Exception{
+    public static int borrarEquipo(int id_equipo,String nombre,int presupuesto,int puntos) throws Exception{
     
         GenericoDB.conectar();
         
-        String plantilla = "delete from equipos where nombre=?";
+        String plantilla = "delete from equipo where nombre=?";
         PreparedStatement sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
         
         sentenciaPre.setString(1, nombre);
@@ -61,7 +63,28 @@ public class EquipoDB {
         int delete = sentenciaPre.executeUpdate();
         System.out.println(delete);        
     
-        GenericoDB.cerrarCon();   
+        GenericoDB.cerrarCon(); 
+        
+        return delete;
+
+    }
+    public static Equipo buscarEquipo(String nombre) throws Exception{
+        
+        GenericoDB.conectar();
+        
+        String plantilla = "Select * from equipo where nombre=?";
+        ps = GenericoDB.getCon().prepareStatement(plantilla);
+        ps.setString(1, nombre);
+        resultado = ps.executeQuery();
+        
+        oEquipo = new Equipo();
+        if(resultado.next()){
+            oEquipo.setIdEquipo(resultado.getInt("id_equipo"));
+            oEquipo.setNombre(resultado.getString("nombre"));
+            oEquipo.setPresupuesto(resultado.getInt("presupuesto"));
+            oEquipo.setPuntos(resultado.getInt("puntos"));  
+        }
+        return oEquipo;
     }
     
     public static ArrayList<Equipo> consultarTodos() throws Exception{
@@ -170,30 +193,30 @@ public class EquipoDB {
         
         return listaEquipos; 
     }
-    public static Equipo consultarEquipoDelJugador(int equipo_id_equipo) throws SQLException{
-          GenericoDB.conectar(); 
-        
-         Statement sentencia = GenericoDB.getCon().createStatement();
-          String plantilla = "select * from equipo where id_equipo = ?";
-          ps = GenericoDB.getCon().prepareStatement(plantilla);
-          ps.setInt(1,equipo_id_equipo);
-        
-          resultado = ps.executeQuery();
-          Equipo e = new Equipo();
-        
-         if(resultado.next()){
-            
-            e.setIdEquipo(resultado.getInt("id_equipo"));
-            e.setNombre(resultado.getString("nombre"));
-            e.setPresupuesto(resultado.getInt("presupuesto"));
-            e.setPuntos(resultado.getInt("puntos"));
-         
-        return e;
-        
-        
-    }
-         else{
-             return null;
-         }
-}
+//    public static Equipo consultarEquipoDelJugador(int equipo_id_equipo) throws SQLException{
+//          GenericoDB.conectar(); 
+//        
+//          st = GenericoDB.getCon().createStatement();
+//          String plantilla = "select * from equipo where id_equipo = ?";
+//          ps = GenericoDB.getCon().prepareStatement(plantilla);
+//          ps.setInt(1,equipo_id_equipo);
+//        
+//          resultado = ps.executeQuery();
+//          Equipo e = new Equipo();
+//        
+//         if(resultado.next()){
+//            
+//            e.setIdEquipo(resultado.getInt("id_equipo"));
+//            e.setNombre(resultado.getString("nombre"));
+//            e.setPresupuesto(resultado.getInt("presupuesto"));
+//            e.setPuntos(resultado.getInt("puntos"));
+//         
+//        return e;
+//        
+//        
+//    }
+//         else{
+//             return null;
+//         }
+//    }
 }
