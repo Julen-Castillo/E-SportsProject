@@ -232,7 +232,16 @@ public class MainEsports {
         return listaEquipos;
         } else {
         return null;
-    }}
+        }
+    }
+    
+    public static void updateVencedorYpuntosNoSimulados(Partido oPartido, String equipoVencedor) throws Exception{
+        oEquipo = EquipoDB.buscarEquipo(equipoVencedor);
+        boolean updateCorrectoVencedor = PartidoDB.updateVencedorNoSimulados(oPartido, oEquipo);
+        boolean updateCorrectoPuntos = EquipoDB.updatePuntosEquipo(oPartido);
+        System.out.println(updateCorrectoVencedor);
+        System.out.println(updateCorrectoPuntos);
+    }
     
     
     public static void crearRoundRobinEmparejamientos(boolean simular) throws Exception{

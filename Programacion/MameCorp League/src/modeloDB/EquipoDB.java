@@ -138,17 +138,18 @@ public class EquipoDB {
         return listaEquipos; 
     }
      
-    public static void updatePuntosEquipo(Partido oPartido) throws SQLException, Exception{
+    public static boolean updatePuntosEquipo(Partido oPartido) throws SQLException, Exception{
         
-        //GenericoDB.conectar(); //Desactivada por problemas tecnicos
+        GenericoDB.conectar();
         
         String plantilla = "update equipo set puntos = puntos + 3 where id_equipo = ?";
         ps = GenericoDB.getCon().prepareStatement(plantilla);
         
         ps.setInt(1, oPartido.getEquipoVencedor().getIdEquipo());
-        int insercion = ps.executeUpdate();
+        int update = ps.executeUpdate();
         
-        GenericoDB.cerrarCon();   
+        GenericoDB.cerrarCon();
+        return update == 1;
     } 
     public static Equipo consultarEquipoPresidente(String idEquipo) throws SQLException{
         GenericoDB.conectar();
@@ -214,4 +215,6 @@ public class EquipoDB {
         GenericoDB.cerrarCon();
         return oEquipo;
     }
+    
+    
 }

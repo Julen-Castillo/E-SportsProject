@@ -24,13 +24,14 @@ public class PartidoDB {
     
     private static ResultSet resultado;
     private static Statement st;
+    private static PreparedStatement ps;
     
     public static int insertarPartido(Partido oPartido) throws SQLException, Exception{
 
         GenericoDB.conectar();
         
         String plantilla = "insert into partido (equipo_id_equipo, jornada_id_jornada, equipo_visitante, vencedor, fecha_inicio)values (?,?,?,?,?)";
-        PreparedStatement ps = GenericoDB.getCon().prepareStatement(plantilla);
+        ps = GenericoDB.getCon().prepareStatement(plantilla);
         
         ps.setInt(1, oPartido.getEquipoLocal().getIdEquipo());
         ps.setInt(2, oPartido.getoJornada().getIdJornada());
@@ -51,7 +52,7 @@ public class PartidoDB {
         GenericoDB.conectar();
         
         String plantilla = "insert into partido (equipo_id_equipo, jornada_id_jornada, equipo_visitante)values (?,?,?)";
-        PreparedStatement ps = GenericoDB.getCon().prepareStatement(plantilla);
+        ps = GenericoDB.getCon().prepareStatement(plantilla);
         
         ps.setInt(1, oPartido.getEquipoLocal().getIdEquipo());
         ps.setInt(2, oPartido.getoJornada().getIdJornada());
@@ -127,5 +128,23 @@ public class PartidoDB {
         
         GenericoDB.cerrarCon();
         return nPartidos;     
+    }
+     
+    public static boolean updateVencedorNoSimulados(Partido oPartido, Equipo oEquipo) throws SQLException, Exception{
+        
+        GenericoDB.conectar(); 
+        
+        String plantilla = "update partido set vencedor = ? where equipo_id_equipo = ? AND equipo_visitante = ?";
+        ps = GenericoDB.getCon().prepareStatement(plantilla);
+        
+        ps.setInt(1, oEquipo.getIdEquipo()); //Puede sustituirse por el id del oEquipo que recibimos como param
+        ps.setInt(2, oPartido.getEquipoLocal().getIdEquipo());
+        ps.setInt(3, oPartido.getEquipoVisitante().getIdEquipo());
+        
+        int update = ps.executeUpdate();
+        
+        GenericoDB.cerrarCon(); 
+        return update == 1;
+        
     }
 }
