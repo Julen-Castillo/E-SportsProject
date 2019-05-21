@@ -98,7 +98,7 @@ public class ControladorVista {
         vVisualizarEquipos = new VentanaVisualizarEquipos();
         vVisualizarEquipos.setVisible(true);
     }
-    public static void mostrarVentanaVisualizarLiga(){
+    public static void mostrarVentanaVisualizarLiga() throws Exception{
         vVisualizarLiga = new VentanaVisualizarLiga();
         vVisualizarLiga.setVisible(true);
     }

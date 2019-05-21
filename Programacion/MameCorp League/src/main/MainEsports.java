@@ -110,6 +110,8 @@ public class MainEsports {
         return equipoDB.insertarEquipo(e);  
 
     }
+    
+ 
     public static int insertarAdministrador(String nombre,String password) throws Exception{
     
         oSesion = new Sesion(nombre,password);
@@ -326,5 +328,11 @@ public class MainEsports {
     public static int randomWinner(){
         int range = (1 - 0) + 1; 
         return (int)(Math.random() * range) + 0;
+    }
+
+    public static int insertarJugadores(String nombre, String apellido, String nickname, String posicion, int sueldo, boolean titularidad, String equipo) {
+        o
+        oJugador = new Jugador(nombre, apellido, nickname, posicion, sueldo, titularidad, equipo);
+        return JugadorDB.insertarJugadores();
     }
 } 
