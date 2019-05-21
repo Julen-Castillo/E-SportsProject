@@ -7,6 +7,8 @@ package vistas;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import main.MainEsports;
@@ -19,6 +21,7 @@ import modelo.Equipo;
 public class VentanaPresidente extends javax.swing.JFrame {
      private Equipo e;
        private ArrayList<Equipo> listaEquipos;
+       private String operacionActiva;
     
  public VentanaPresidente(String operacionActiva) throws Exception {
         initComponents();
@@ -26,6 +29,7 @@ public class VentanaPresidente extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(180,102,24,190));
         llenarComboBox();
+        this.operacionActiva = operacionActiva;
         
     }
 
@@ -128,11 +132,11 @@ public class VentanaPresidente extends javax.swing.JFrame {
        String posicion = cbEquipoPresidente.getSelectedItem().toString();
        // Equipo e = new Equipo();
        // e.setIdEquipo(cbEquipoPresidente.getSelectedIndex());
-       
+       if (operacionActiva.equals("alta")){
         try {
      
      int insercion =  MainEsports.insertarPresidente(tfNombrePresidente.getText(),tfApellidoPresidente.getText(),posicion);
-            System.out.println("se ha insertado? " + insercion);
+           
       if(insercion > 0){
                 JOptionPane.showMessageDialog(this,"Linea insertada correctamente");
                 tfNombrePresidente.setText("");
@@ -144,7 +148,14 @@ public class VentanaPresidente extends javax.swing.JFrame {
        catch (Exception ex){
            System.out.println(ex.getClass() + ex.getMessage());
        }
-      
+       } else {if (operacionActiva.equals("baja")){
+           try {
+               MainEsports.borrarPresidente(tfNombrePresidente.getText(),tfApellidoPresidente.getText());
+           } catch (Exception ex) {
+               Logger.getLogger(VentanaPresidente.class.getName()).log(Level.SEVERE, null, ex);
+           }
+       }
+       }
     }//GEN-LAST:event_bAceptarActionPerformed
 
     private void cbEquipoPresidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEquipoPresidenteActionPerformed

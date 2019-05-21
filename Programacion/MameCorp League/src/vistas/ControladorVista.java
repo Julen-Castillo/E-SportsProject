@@ -94,11 +94,11 @@ public class ControladorVista {
         vVisualizarJornada = new VentanaVisualizarJornada();
         vVisualizarJornada.setVisible(true);
     }
-    public static void mostrarVentanaVisualizarEquipos(){
+    public static void mostrarVentanaVisualizarEquipos() throws Exception{
         vVisualizarEquipos = new VentanaVisualizarEquipos();
         vVisualizarEquipos.setVisible(true);
     }
-    public static void mostrarVentanaVisualizarLiga(){
+    public static void mostrarVentanaVisualizarLiga() throws Exception{
         vVisualizarLiga = new VentanaVisualizarLiga();
         vVisualizarLiga.setVisible(true);
     }
