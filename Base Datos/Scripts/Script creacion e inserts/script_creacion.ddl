@@ -295,7 +295,7 @@ v_count_jugadores NUMBER(3);
 BEGIN
     SELECT COUNT(*) AS "NUMERO JUGADORES" INTO v_count_jugadores FROM jugador
     WHERE equipo_id_equipo = (PAQUETE_MUTANTE.CODIGOEQUIPO);
-    IF(v_count_jugadores >= v_max_jugadores) THEN
+    IF(v_count_jugadores > v_max_jugadores) THEN
         raise_application_error(-20000, 'El numero de jugadores por equipo no puede ser superior a 6');
     END IF;  
 END MAX_JUGADOR;   

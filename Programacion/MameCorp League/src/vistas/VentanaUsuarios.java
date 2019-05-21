@@ -172,6 +172,11 @@ public class VentanaUsuarios extends javax.swing.JFrame {
                 jMenuSalirMouseClicked(evt);
             }
         });
+        jMenuSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuSalirActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenuSalir);
 
         setJMenuBar(jMenuBar1);
@@ -208,11 +213,13 @@ public class VentanaUsuarios extends javax.swing.JFrame {
     private void bLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLigaActionPerformed
        operacionActiva = "liga";
         try {
-            ControladorVista.mostrarVentanaVisualizarLiga();
+            ControladorVista.mostrarVentanaVisualizarLiga();   
+           
         } catch (Exception ex) {
             Logger.getLogger(VentanaUsuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
-       this.dispose();
+         this.dispose();
+   
     }//GEN-LAST:event_bLigaActionPerformed
 
     private void jMenuVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuVolverMouseClicked
@@ -240,6 +247,10 @@ public class VentanaUsuarios extends javax.swing.JFrame {
         }
         this.dispose();
     }//GEN-LAST:event_bJornadasActionPerformed
+
+    private void jMenuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSalirActionPerformed
+       System.exit(0);
+    }//GEN-LAST:event_jMenuSalirActionPerformed
     
     
     

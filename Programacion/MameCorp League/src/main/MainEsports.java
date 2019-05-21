@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.*;
 import modeloDB.*;
+import music.Sonido;
 import vistas.*;
 
 
@@ -47,7 +48,7 @@ public class MainEsports {
     
     
     public static void main(String[] args) throws SQLException, Exception {
-    
+    Sonido reproducir = new Sonido();
         //La linea de abajo está comentada porque todavia no está implementado el login
         // ControladorVista.mostrarVentanaVisualizarLiga();
         GenericoDB.conectar();
@@ -112,7 +113,24 @@ public class MainEsports {
         return equipoDB.insertarEquipo(e);  
 
     }
+     /**
+     * Aquí buscamos un equipo para las opciones borrar y modificar 
+     */
+    public static Equipo buscarEquipo(String nombreEquipo) throws Exception{
+        oEquipo = EquipoDB.buscarEquipo(nombreEquipo);
+        return oEquipo;
+    }
+    public static int modificarEquipo(String nombre,int presupuesto, int puntos) throws Exception{
+       
+        int update = EquipoDB.modificarEquipo(oEquipo.getIdEquipo(),nombre,presupuesto,puntos);
     
+         return update;
+    }
+    public static int borrarEquipo(String nombre,int presupuesto, int puntos) throws Exception{
+        oEquipo = EquipoDB.buscarEquipo(nombre);
+        return EquipoDB.borrarEquipo(oEquipo.getIdEquipo(),nombre,presupuesto,puntos);
+    
+    }
     public static int insertarAdministrador(String nombre,String password) throws Exception{
     
         oSesion = new Sesion(nombre,password);

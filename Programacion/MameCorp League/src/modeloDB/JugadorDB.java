@@ -124,8 +124,10 @@ public static void darBajaJugador(String nickname) throws SQLException, Exceptio
 //        return null;
 //}
 
-public static ArrayList<Jugador> consultarJugadorDelEquipo(int idEquipo) throws SQLException{
-
+public static ArrayList<Jugador> consultarJugadorDelEquipo(int idEquipo) throws SQLException, Exception{
+    
+    GenericoDB.conectar();
+    
     String plantilla = "select * from jugador where equipo_id_equipo = ?";
     sentenciaPre  = GenericoDB.getCon().prepareStatement(plantilla);
     
@@ -146,7 +148,8 @@ public static ArrayList<Jugador> consultarJugadorDelEquipo(int idEquipo) throws 
         oJugador.setTitularidad(resultado.getBoolean("titularidad")); 
         
         listaJugador.add(oJugador);
-    }
+    } 
+    GenericoDB.cerrarCon();
    
       return listaJugador;
 }
