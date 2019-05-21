@@ -205,21 +205,21 @@ public class VentanaJugador extends javax.swing.JFrame {
         
         if(operacion.equals("alta")){
             try {
-                
-            boolean matchea =  validarFields();
-            
-            if (matchea == true) {   
-                
-                boolean insert = MainEsports.insertarJugadores(tfNombre.getText(), tfApellido.getText(), tfNick.getText(), cbPosicion.getSelectedItem().toString(), Integer.parseInt(tfSueldo.getText()), titularidad, cbEquipo.getSelectedIndex());
-                if(insert){
-                    JOptionPane.showMessageDialog(null, "Insert correcta");
+                boolean matches =  validarFields();
+
+                if (matches == true) {   
+
+                    boolean insert = MainEsports.insertarJugadores(tfNombre.getText(), tfApellido.getText(), tfNick.getText(), cbPosicion.getSelectedItem().toString(), Integer.parseInt(tfSueldo.getText()), titularidad, cbEquipo.getSelectedIndex());
+                    if(insert){
+                        JOptionPane.showMessageDialog(null, "Insert correcta");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Problemas con la insert");
+                    }
                 }
-                else{
-                    JOptionPane.showMessageDialog(null, "Problemas con la insert");
-                }}
-            else {
-                JOptionPane.showMessageDialog(null,"En los campos 'NOMBRE' Y 'APELLIDO' la primera letra debe ser Mayuscula y no se admiten numeros ni caracteres especiales");
-            }
+                else {
+                    JOptionPane.showMessageDialog(null,"En los campos 'NOMBRE' Y 'APELLIDO' la primera letra debe ser Mayuscula y no se admiten numeros ni caracteres especiales");
+                }
             } catch (Exception ex) {
                 Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
             }
