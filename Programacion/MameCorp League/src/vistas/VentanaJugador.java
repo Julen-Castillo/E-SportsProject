@@ -8,9 +8,12 @@ package vistas;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import main.MainEsports;
+
 
 /**
  *
@@ -202,13 +205,21 @@ public class VentanaJugador extends javax.swing.JFrame {
         
         if(operacion.equals("alta")){
             try {
+                
+            boolean matchea =  validarFields();
+            
+            if (matchea == true) {   
+                
                 boolean insert = MainEsports.insertarJugadores(tfNombre.getText(), tfApellido.getText(), tfNick.getText(), cbPosicion.getSelectedItem().toString(), Integer.parseInt(tfSueldo.getText()), titularidad, cbEquipo.getSelectedIndex());
                 if(insert){
                     JOptionPane.showMessageDialog(null, "Insert correcta");
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "Problemas con la insert");
-                }
+                }}
+            else {
+                JOptionPane.showMessageDialog(null,"En los campos 'NOMBRE' Y 'APELLIDO' la primera letra debe ser Mayuscula y no se admiten numeros ni caracteres especiales");
+            }
             } catch (Exception ex) {
                 Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -282,6 +293,16 @@ public class VentanaJugador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbSiActionPerformed
 
+    private boolean validarFields (){
+         Pattern patron = Pattern.compile("^[A-Z][a-z]{15}");
+                Matcher encaja = patron.matcher(tfNombre.getText());
+                Matcher encaja2 = patron.matcher(tfApellido.getText());
+                
+                if (encaja.matches() && encaja2.matches()){
+                    return true;
+                }
+       return false; 
+    }
     /**
      * @param args the command line arguments
      */

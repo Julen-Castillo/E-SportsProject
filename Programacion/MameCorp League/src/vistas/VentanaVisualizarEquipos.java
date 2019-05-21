@@ -22,7 +22,7 @@ public class VentanaVisualizarEquipos extends javax.swing.JFrame {
      * Creates new form VentanaVisualizarEquipos
      */
     public VentanaVisualizarEquipos() throws Exception {
-       setUndecorated(true);
+        setUndecorated(true);
         initComponents();
         setAlwaysOnTop(rootPaneCheckingEnabled);
         setExtendedState(MAXIMIZED_BOTH);
