@@ -193,30 +193,25 @@ public class EquipoDB {
         
         return listaEquipos; 
     }
-//    public static Equipo consultarEquipoDelJugador(int equipo_id_equipo) throws SQLException{
-//          GenericoDB.conectar(); 
-//        
-//          st = GenericoDB.getCon().createStatement();
-//          String plantilla = "select * from equipo where id_equipo = ?";
-//          ps = GenericoDB.getCon().prepareStatement(plantilla);
-//          ps.setInt(1,equipo_id_equipo);
-//        
-//          resultado = ps.executeQuery();
-//          Equipo e = new Equipo();
-//        
-//         if(resultado.next()){
-//            
-//            e.setIdEquipo(resultado.getInt("id_equipo"));
-//            e.setNombre(resultado.getString("nombre"));
-//            e.setPresupuesto(resultado.getInt("presupuesto"));
-//            e.setPuntos(resultado.getInt("puntos"));
-//         
-//        return e;
-//        
-//        
-//    }
-//         else{
-//             return null;
-//         }
-//    }
+    public static Equipo consultarEquipoDelJugador(int equipo_id_equipo) throws SQLException, Exception{
+        GenericoDB.conectar(); 
+
+        st = GenericoDB.getCon().createStatement();
+        String plantilla = "select * from equipo where id_equipo = ?";
+        ps = GenericoDB.getCon().prepareStatement(plantilla);
+        ps.setInt(1,equipo_id_equipo);
+
+        resultado = ps.executeQuery();
+        
+        
+        if(resultado.next()){
+            oEquipo = new Equipo();
+            oEquipo.setIdEquipo(resultado.getInt("id_equipo"));
+            oEquipo.setNombre(resultado.getString("nombre"));
+            oEquipo.setPresupuesto(resultado.getInt("presupuesto"));
+            oEquipo.setPuntos(resultado.getInt("puntos"));
+        }
+        GenericoDB.cerrarCon();
+        return oEquipo;
+    }
 }

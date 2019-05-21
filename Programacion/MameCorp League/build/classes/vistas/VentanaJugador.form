@@ -216,6 +216,9 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="rbSi">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="gTitularidad"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Si"/>
           </Properties>
           <Events>
@@ -229,6 +232,9 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="rbNo">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="gTitularidad"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="No"/>
           </Properties>
           <Constraints>
