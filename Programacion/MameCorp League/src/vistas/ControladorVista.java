@@ -37,6 +37,19 @@ public class ControladorVista {
         width = pantalla.width;
     }
     
+    public static void simulacionCorrecta(){
+        vCategoria.simulacionCorrecta();
+    }
+    
+    public static void simulacionError(){
+        vCategoria.simulacionError();
+    }
+    
+    public static void emparejamientosCorrectos(){
+        vCategoria.emparejamientosCorrectos();
+    }
+    
+    
     /**
      * Ejemplo: con este metodo creamos la ventana vAdmin
      * y mostramos la ventana, para ello la ponemos en visible

@@ -46,6 +46,26 @@ public class PartidoDB {
         return insercion;
     }
     
+    public static int insertarPartidoSinVencedor(Partido oPartido) throws SQLException, Exception{
+
+        GenericoDB.conectar();
+        
+        String plantilla = "insert into partido (equipo_id_equipo, jornada_id_jornada, equipo_visitante)values (?,?,?)";
+        PreparedStatement ps = GenericoDB.getCon().prepareStatement(plantilla);
+        
+        ps.setInt(1, oPartido.getEquipoLocal().getIdEquipo());
+        ps.setInt(2, oPartido.getoJornada().getIdJornada());
+        ps.setInt(3, oPartido.getEquipoVisitante().getIdEquipo());
+         
+        int insercion = ps.executeUpdate();
+        
+        //GenericoDB.cerrarCon(); //Desactivada por problemas tecnicos
+
+        return insercion;
+    }
+    
+    
+    
     public static ArrayList<Partido> consultarPartidos(ArrayList<Jornada> listaJornadas, ArrayList<Equipo> listaEquipos) throws SQLException, Exception{
         
         GenericoDB.conectar(); 
@@ -92,5 +112,20 @@ public class PartidoDB {
 
         GenericoDB.cerrarCon();
         return listaPartidos;      
+    }
+    
+     public static int consultarCountPartidos() throws SQLException, Exception{
+        GenericoDB.conectar(); 
+        
+        st = GenericoDB.getCon().createStatement();
+        resultado = st.executeQuery("select count(*) from partido");
+
+        int nPartidos = 0;
+        if(resultado.next()){
+            nPartidos = resultado.getInt("count(*)");
+        }
+        
+        GenericoDB.cerrarCon();
+        return nPartidos;     
     }
 }
