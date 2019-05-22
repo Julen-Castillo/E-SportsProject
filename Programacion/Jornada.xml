@@ -1,0 +1,1543 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jornadas>
+    <jornada fecha_fin="2019-05-24" fecha_inicio="2019-05-22" id="1">
+        <partidos>
+            <partido id="1">
+                <local>fnatic</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="2">
+                <local>thunderx3 baskonia</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="3">
+                <local>cloud9</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="4">
+                <local>thunderx3 baskonia</local>
+                <visitante>fnatic</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="5">
+                <local>tsm</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="6">
+                <local>sk telecom t1</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="7">
+                <local>fnatic</local>
+                <visitante>tsm</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="8">
+                <local>cloud9</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="9">
+                <local>mamecorp</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="10">
+                <local>cloud9</local>
+                <visitante>fnatic</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="11">
+                <local>sk telecom t1</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="12">
+                <local>thunderx3 baskonia</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="13">
+                <local>fnatic</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="14">
+                <local>mamecorp</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="15">
+                <local>tsm</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="16">
+                <local>mamecorp</local>
+                <visitante>fnatic</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="17">
+                <local>sk telecom t1</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="18">
+                <local>tsm</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="19">
+                <local>fnatic</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="20">
+                <local>mamecorp</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="21">
+                <local>cloud9</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="22">
+                <local>tsm</local>
+                <visitante>fnatic</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="23">
+                <local>thunderx3 baskonia</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="24">
+                <local>sk telecom t1</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="25">
+                <local>fnatic</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="26">
+                <local>tsm</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="27">
+                <local>mamecorp</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="28">
+                <local>sk telecom t1</local>
+                <visitante>fnatic</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="29">
+                <local>cloud9</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="30">
+                <local>thunderx3 baskonia</local>
+                <visitante>tsm</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+        </partidos>
+    </jornada>
+    <jornada fecha_fin="2019-05-31" fecha_inicio="2019-05-29" id="2">
+        <partidos>
+            <partido id="31">
+                <local>fnatic</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="32">
+                <local>thunderx3 baskonia</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="33">
+                <local>cloud9</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="34">
+                <local>thunderx3 baskonia</local>
+                <visitante>fnatic</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="35">
+                <local>tsm</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="36">
+                <local>sk telecom t1</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="37">
+                <local>fnatic</local>
+                <visitante>tsm</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="38">
+                <local>cloud9</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="39">
+                <local>mamecorp</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="40">
+                <local>cloud9</local>
+                <visitante>fnatic</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="41">
+                <local>sk telecom t1</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="42">
+                <local>thunderx3 baskonia</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="43">
+                <local>fnatic</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="44">
+                <local>mamecorp</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="45">
+                <local>tsm</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="46">
+                <local>mamecorp</local>
+                <visitante>fnatic</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="47">
+                <local>sk telecom t1</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="48">
+                <local>tsm</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="49">
+                <local>fnatic</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="50">
+                <local>mamecorp</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="51">
+                <local>cloud9</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="52">
+                <local>tsm</local>
+                <visitante>fnatic</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="53">
+                <local>thunderx3 baskonia</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="54">
+                <local>sk telecom t1</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="55">
+                <local>fnatic</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="56">
+                <local>tsm</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="57">
+                <local>mamecorp</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="58">
+                <local>sk telecom t1</local>
+                <visitante>fnatic</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="59">
+                <local>cloud9</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="60">
+                <local>thunderx3 baskonia</local>
+                <visitante>tsm</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+        </partidos>
+    </jornada>
+    <jornada fecha_fin="2019-06-07" fecha_inicio="2019-06-05" id="3">
+        <partidos>
+            <partido id="61">
+                <local>fnatic</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="62">
+                <local>thunderx3 baskonia</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="63">
+                <local>cloud9</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="64">
+                <local>thunderx3 baskonia</local>
+                <visitante>fnatic</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="65">
+                <local>tsm</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="66">
+                <local>sk telecom t1</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="67">
+                <local>fnatic</local>
+                <visitante>tsm</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="68">
+                <local>cloud9</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="69">
+                <local>mamecorp</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="70">
+                <local>cloud9</local>
+                <visitante>fnatic</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="71">
+                <local>sk telecom t1</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="72">
+                <local>thunderx3 baskonia</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="73">
+                <local>fnatic</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="74">
+                <local>mamecorp</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="75">
+                <local>tsm</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="76">
+                <local>mamecorp</local>
+                <visitante>fnatic</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="77">
+                <local>sk telecom t1</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="78">
+                <local>tsm</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="79">
+                <local>fnatic</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="80">
+                <local>mamecorp</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="81">
+                <local>cloud9</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="82">
+                <local>tsm</local>
+                <visitante>fnatic</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="83">
+                <local>thunderx3 baskonia</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="84">
+                <local>sk telecom t1</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="85">
+                <local>fnatic</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="86">
+                <local>tsm</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="87">
+                <local>mamecorp</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="88">
+                <local>sk telecom t1</local>
+                <visitante>fnatic</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="89">
+                <local>cloud9</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="90">
+                <local>thunderx3 baskonia</local>
+                <visitante>tsm</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+        </partidos>
+    </jornada>
+    <jornada fecha_fin="2019-06-14" fecha_inicio="2019-06-12" id="4">
+        <partidos>
+            <partido id="91">
+                <local>fnatic</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="92">
+                <local>thunderx3 baskonia</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="93">
+                <local>cloud9</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="94">
+                <local>thunderx3 baskonia</local>
+                <visitante>fnatic</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="95">
+                <local>tsm</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="96">
+                <local>sk telecom t1</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="97">
+                <local>fnatic</local>
+                <visitante>tsm</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="98">
+                <local>cloud9</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="99">
+                <local>mamecorp</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="100">
+                <local>cloud9</local>
+                <visitante>fnatic</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="101">
+                <local>sk telecom t1</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="102">
+                <local>thunderx3 baskonia</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="103">
+                <local>fnatic</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="104">
+                <local>mamecorp</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="105">
+                <local>tsm</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="106">
+                <local>mamecorp</local>
+                <visitante>fnatic</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="107">
+                <local>sk telecom t1</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="108">
+                <local>tsm</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="109">
+                <local>fnatic</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="110">
+                <local>mamecorp</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="111">
+                <local>cloud9</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="112">
+                <local>tsm</local>
+                <visitante>fnatic</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="113">
+                <local>thunderx3 baskonia</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="114">
+                <local>sk telecom t1</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="115">
+                <local>fnatic</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="116">
+                <local>tsm</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="117">
+                <local>mamecorp</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="118">
+                <local>sk telecom t1</local>
+                <visitante>fnatic</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="119">
+                <local>cloud9</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="120">
+                <local>thunderx3 baskonia</local>
+                <visitante>tsm</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+        </partidos>
+    </jornada>
+    <jornada fecha_fin="2019-06-21" fecha_inicio="2019-06-19" id="5">
+        <partidos>
+            <partido id="121">
+                <local>fnatic</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="122">
+                <local>thunderx3 baskonia</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="123">
+                <local>cloud9</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="124">
+                <local>thunderx3 baskonia</local>
+                <visitante>fnatic</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="125">
+                <local>tsm</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="126">
+                <local>sk telecom t1</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="127">
+                <local>fnatic</local>
+                <visitante>tsm</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="128">
+                <local>cloud9</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="129">
+                <local>mamecorp</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="130">
+                <local>cloud9</local>
+                <visitante>fnatic</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="131">
+                <local>sk telecom t1</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="132">
+                <local>thunderx3 baskonia</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="133">
+                <local>fnatic</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="134">
+                <local>mamecorp</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="135">
+                <local>tsm</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="136">
+                <local>mamecorp</local>
+                <visitante>fnatic</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="137">
+                <local>sk telecom t1</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="138">
+                <local>tsm</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="139">
+                <local>fnatic</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="140">
+                <local>mamecorp</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="141">
+                <local>cloud9</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="142">
+                <local>tsm</local>
+                <visitante>fnatic</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="143">
+                <local>thunderx3 baskonia</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="144">
+                <local>sk telecom t1</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="145">
+                <local>fnatic</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="146">
+                <local>tsm</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="147">
+                <local>mamecorp</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="148">
+                <local>sk telecom t1</local>
+                <visitante>fnatic</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="149">
+                <local>cloud9</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="150">
+                <local>thunderx3 baskonia</local>
+                <visitante>tsm</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+        </partidos>
+    </jornada>
+    <jornada fecha_fin="2019-06-28" fecha_inicio="2019-06-26" id="6">
+        <partidos>
+            <partido id="151">
+                <local>fnatic</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="152">
+                <local>thunderx3 baskonia</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="153">
+                <local>cloud9</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="154">
+                <local>thunderx3 baskonia</local>
+                <visitante>fnatic</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="155">
+                <local>tsm</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="156">
+                <local>sk telecom t1</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="157">
+                <local>fnatic</local>
+                <visitante>tsm</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="158">
+                <local>cloud9</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="159">
+                <local>mamecorp</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="160">
+                <local>cloud9</local>
+                <visitante>fnatic</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="161">
+                <local>sk telecom t1</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="162">
+                <local>thunderx3 baskonia</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="163">
+                <local>fnatic</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="164">
+                <local>mamecorp</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="165">
+                <local>tsm</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="166">
+                <local>mamecorp</local>
+                <visitante>fnatic</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="167">
+                <local>sk telecom t1</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="168">
+                <local>tsm</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="169">
+                <local>fnatic</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="170">
+                <local>mamecorp</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="171">
+                <local>cloud9</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="172">
+                <local>tsm</local>
+                <visitante>fnatic</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="173">
+                <local>thunderx3 baskonia</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="174">
+                <local>sk telecom t1</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="175">
+                <local>fnatic</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="176">
+                <local>tsm</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="177">
+                <local>mamecorp</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="178">
+                <local>sk telecom t1</local>
+                <visitante>fnatic</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="179">
+                <local>cloud9</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="180">
+                <local>thunderx3 baskonia</local>
+                <visitante>tsm</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+        </partidos>
+    </jornada>
+    <jornada fecha_fin="2019-07-05" fecha_inicio="2019-07-03" id="7">
+        <partidos>
+            <partido id="181">
+                <local>fnatic</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="182">
+                <local>thunderx3 baskonia</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="183">
+                <local>cloud9</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="184">
+                <local>thunderx3 baskonia</local>
+                <visitante>fnatic</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="185">
+                <local>tsm</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="186">
+                <local>sk telecom t1</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="187">
+                <local>fnatic</local>
+                <visitante>tsm</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="188">
+                <local>cloud9</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="189">
+                <local>mamecorp</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="190">
+                <local>cloud9</local>
+                <visitante>fnatic</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="191">
+                <local>sk telecom t1</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="192">
+                <local>thunderx3 baskonia</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="193">
+                <local>fnatic</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="194">
+                <local>mamecorp</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="195">
+                <local>tsm</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="196">
+                <local>mamecorp</local>
+                <visitante>fnatic</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="197">
+                <local>sk telecom t1</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="198">
+                <local>tsm</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="199">
+                <local>fnatic</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="200">
+                <local>mamecorp</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="201">
+                <local>cloud9</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="202">
+                <local>tsm</local>
+                <visitante>fnatic</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="203">
+                <local>thunderx3 baskonia</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="204">
+                <local>sk telecom t1</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="205">
+                <local>fnatic</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="206">
+                <local>tsm</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="207">
+                <local>mamecorp</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="208">
+                <local>sk telecom t1</local>
+                <visitante>fnatic</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="209">
+                <local>cloud9</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="210">
+                <local>thunderx3 baskonia</local>
+                <visitante>tsm</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+        </partidos>
+    </jornada>
+    <jornada fecha_fin="2019-07-12" fecha_inicio="2019-07-10" id="8">
+        <partidos>
+            <partido id="211">
+                <local>fnatic</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="212">
+                <local>thunderx3 baskonia</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="213">
+                <local>cloud9</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="214">
+                <local>thunderx3 baskonia</local>
+                <visitante>fnatic</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="215">
+                <local>tsm</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="216">
+                <local>sk telecom t1</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="217">
+                <local>fnatic</local>
+                <visitante>tsm</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="218">
+                <local>cloud9</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="219">
+                <local>mamecorp</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="220">
+                <local>cloud9</local>
+                <visitante>fnatic</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="221">
+                <local>sk telecom t1</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="222">
+                <local>thunderx3 baskonia</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="223">
+                <local>fnatic</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="224">
+                <local>mamecorp</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="225">
+                <local>tsm</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="226">
+                <local>mamecorp</local>
+                <visitante>fnatic</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="227">
+                <local>sk telecom t1</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="228">
+                <local>tsm</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="229">
+                <local>fnatic</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="230">
+                <local>mamecorp</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="231">
+                <local>cloud9</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="232">
+                <local>tsm</local>
+                <visitante>fnatic</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="233">
+                <local>thunderx3 baskonia</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="234">
+                <local>sk telecom t1</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="235">
+                <local>fnatic</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="236">
+                <local>tsm</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="237">
+                <local>mamecorp</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="238">
+                <local>sk telecom t1</local>
+                <visitante>fnatic</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="239">
+                <local>cloud9</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="240">
+                <local>thunderx3 baskonia</local>
+                <visitante>tsm</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+        </partidos>
+    </jornada>
+    <jornada fecha_fin="2019-07-19" fecha_inicio="2019-07-17" id="9">
+        <partidos>
+            <partido id="241">
+                <local>fnatic</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="242">
+                <local>thunderx3 baskonia</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="243">
+                <local>cloud9</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="244">
+                <local>thunderx3 baskonia</local>
+                <visitante>fnatic</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="245">
+                <local>tsm</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="246">
+                <local>sk telecom t1</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="247">
+                <local>fnatic</local>
+                <visitante>tsm</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="248">
+                <local>cloud9</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="249">
+                <local>mamecorp</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="250">
+                <local>cloud9</local>
+                <visitante>fnatic</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="251">
+                <local>sk telecom t1</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="252">
+                <local>thunderx3 baskonia</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="253">
+                <local>fnatic</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="254">
+                <local>mamecorp</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="255">
+                <local>tsm</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="256">
+                <local>mamecorp</local>
+                <visitante>fnatic</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="257">
+                <local>sk telecom t1</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="258">
+                <local>tsm</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="259">
+                <local>fnatic</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="260">
+                <local>mamecorp</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="261">
+                <local>cloud9</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="262">
+                <local>tsm</local>
+                <visitante>fnatic</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="263">
+                <local>thunderx3 baskonia</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="264">
+                <local>sk telecom t1</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="265">
+                <local>fnatic</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="266">
+                <local>tsm</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="267">
+                <local>mamecorp</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="268">
+                <local>sk telecom t1</local>
+                <visitante>fnatic</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="269">
+                <local>cloud9</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="270">
+                <local>thunderx3 baskonia</local>
+                <visitante>tsm</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+        </partidos>
+    </jornada>
+    <jornada fecha_fin="2019-07-26" fecha_inicio="2019-07-24" id="10">
+        <partidos>
+            <partido id="271">
+                <local>fnatic</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="272">
+                <local>thunderx3 baskonia</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="273">
+                <local>cloud9</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="274">
+                <local>thunderx3 baskonia</local>
+                <visitante>fnatic</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="275">
+                <local>tsm</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="276">
+                <local>sk telecom t1</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="277">
+                <local>fnatic</local>
+                <visitante>tsm</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="278">
+                <local>cloud9</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="279">
+                <local>mamecorp</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="280">
+                <local>cloud9</local>
+                <visitante>fnatic</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="281">
+                <local>sk telecom t1</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="282">
+                <local>thunderx3 baskonia</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="283">
+                <local>fnatic</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="284">
+                <local>mamecorp</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="285">
+                <local>tsm</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="286">
+                <local>mamecorp</local>
+                <visitante>fnatic</visitante>
+                <vencedor>mamecorp</vencedor>
+            </partido>
+            <partido id="287">
+                <local>sk telecom t1</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="288">
+                <local>tsm</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="289">
+                <local>fnatic</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="290">
+                <local>mamecorp</local>
+                <visitante>tsm</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="291">
+                <local>cloud9</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="292">
+                <local>tsm</local>
+                <visitante>fnatic</visitante>
+                <vencedor>tsm</vencedor>
+            </partido>
+            <partido id="293">
+                <local>thunderx3 baskonia</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="294">
+                <local>sk telecom t1</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="295">
+                <local>fnatic</local>
+                <visitante>cloud9</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="296">
+                <local>tsm</local>
+                <visitante>sk telecom t1</visitante>
+                <vencedor>sk telecom t1</vencedor>
+            </partido>
+            <partido id="297">
+                <local>mamecorp</local>
+                <visitante>thunderx3 baskonia</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+            <partido id="298">
+                <local>sk telecom t1</local>
+                <visitante>fnatic</visitante>
+                <vencedor>fnatic</vencedor>
+            </partido>
+            <partido id="299">
+                <local>cloud9</local>
+                <visitante>mamecorp</visitante>
+                <vencedor>cloud9</vencedor>
+            </partido>
+            <partido id="300">
+                <local>thunderx3 baskonia</local>
+                <visitante>tsm</visitante>
+                <vencedor>thunderx3 baskonia</vencedor>
+            </partido>
+        </partidos>
+    </jornada>
+</jornadas>
