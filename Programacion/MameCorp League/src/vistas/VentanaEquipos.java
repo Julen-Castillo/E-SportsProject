@@ -28,9 +28,10 @@ public class VentanaEquipos extends javax.swing.JFrame {
      * Creates new form VentanaEquipos
      */
     public VentanaEquipos(String operacionActiva) throws Exception {
+        setUndecorated(true);
         initComponents();
-        setLocationRelativeTo(null);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setAlwaysOnTop(rootPaneCheckingEnabled);
+        setExtendedState(MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(2,91,136,190));
         operacion = operacionActiva;
         if(operacion.equals("baja")){

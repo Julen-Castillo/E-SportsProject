@@ -21,9 +21,10 @@ public class VentanaLiga extends javax.swing.JFrame {
      * Creates new form VentanaInsertarLiga
      */
     public VentanaLiga(String operacionActiva) {
+        setUndecorated(true);
         initComponents();
-        setLocationRelativeTo(null);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setAlwaysOnTop(rootPaneCheckingEnabled);
+        setExtendedState(MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(39,43,57,190));
         operacion = operacionActiva;
     }
