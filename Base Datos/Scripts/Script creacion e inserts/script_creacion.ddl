@@ -44,7 +44,7 @@ CREATE TABLE jugador (
 ALTER TABLE jugador ADD CONSTRAINT jugador_pk PRIMARY KEY ( id_jugador );
 
 CREATE TABLE liga (
-    id_liga        NUMBER GENERATED ALWAYS AS IDENTITY, 
+    id_liga        NUMBER(2), 
     nombre         VARCHAR2(20 CHAR) NOT NULL,
     fecha_inicio   DATE NOT NULL,
     fecha_fin      DATE,

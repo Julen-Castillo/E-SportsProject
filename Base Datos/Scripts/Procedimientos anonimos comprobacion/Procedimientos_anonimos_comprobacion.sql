@@ -29,6 +29,9 @@ BEGIN
     paquete_mamecorp.generar_calendario();  
 END; 
 
+select * from jornada;
+
+
 --function_count_jug_equipo
 DECLARE 
 v_num_jugadores NUMBER;
@@ -38,4 +41,4 @@ BEGIN
 END; 
 
 
-
+commit;

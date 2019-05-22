@@ -45,6 +45,7 @@ public class MainEsports {
     private static Presidente oPresidente;
     private static boolean simular;
     
+    
 
     
     
@@ -460,4 +461,10 @@ public class MainEsports {
     public static Jugador modificarJugador(String nickname) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-} 
+ 
+    public static void generarCalendario() throws Exception{
+    
+    JornadaDB.generarCalendario();
+
+}
+}

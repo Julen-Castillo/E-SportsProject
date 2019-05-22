@@ -52,6 +52,8 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bNoSimular = new javax.swing.JButton();
         bSimular = new javax.swing.JButton();
         lConfirmacionSimular = new javax.swing.JLabel();
+        bGenerarCalendario = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuCategoria = new javax.swing.JMenu();
@@ -283,7 +285,6 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bNoSimular.setBorderPainted(false);
         bNoSimular.setContentAreaFilled(false);
         bNoSimular.setFocusPainted(false);
-        bNoSimular.setOpaque(false);
         bNoSimular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bNoSimularActionPerformed(evt);
@@ -301,7 +302,6 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bSimular.setBorderPainted(false);
         bSimular.setContentAreaFilled(false);
         bSimular.setFocusPainted(false);
-        bSimular.setOpaque(false);
         bSimular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bSimularActionPerformed(evt);
@@ -316,6 +316,29 @@ public class VentanaCategoria extends javax.swing.JFrame {
         getContentPane().add(lConfirmacionSimular);
         lConfirmacionSimular.setBounds(230, 390, 290, 40);
 
+        bGenerarCalendario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/Jornada.png"))); // NOI18N
+        bGenerarCalendario.setBorderPainted(false);
+        bGenerarCalendario.setContentAreaFilled(false);
+        bGenerarCalendario.setFocusPainted(false);
+        bGenerarCalendario.setOpaque(false);
+        bGenerarCalendario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bGenerarCalendarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bGenerarCalendario);
+        bGenerarCalendario.setBounds(1640, 870, 80, 70);
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("GENERAR CALENDARIO");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(1540, 840, 270, 20);
+
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/FondoCategoria.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(-260, -630, 3500, 2650);
@@ -652,6 +675,15 @@ public class VentanaCategoria extends javax.swing.JFrame {
             Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_bNoSimularActionPerformed
+
+    private void bGenerarCalendarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGenerarCalendarioActionPerformed
+        JOptionPane.showMessageDialog(this, "Calendario creado correctamente");
+        try {
+            MainEsports.generarCalendario();
+        } catch (Exception ex) {
+            Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bGenerarCalendarioActionPerformed
     
     public final void disableCRUD(){
         lConfirmacionSimular.setVisible(false);
@@ -751,6 +783,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
     private javax.swing.JButton bBaja;
     private javax.swing.JButton bConsultar;
     private javax.swing.JButton bEquipos;
+    private javax.swing.JButton bGenerarCalendario;
     private javax.swing.JButton bJornadas;
     private javax.swing.JButton bJugadores;
     private javax.swing.JButton bLiga;
@@ -761,6 +794,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
     private javax.swing.JButton bPresidentes;
     private javax.swing.JButton bSimular;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuBar jMenuBar1;

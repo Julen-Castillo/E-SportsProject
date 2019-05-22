@@ -702,18 +702,19 @@ public class VentanaVisualizarEquipos extends javax.swing.JFrame {
         tfJugador3_6.setText(listaEquipos.get(5).getListaJugadores().get(2).getNickname().toUpperCase());
            if (listaEquipos.get(5).getListaJugadores().size() > 3){
         tfJugador4_6.setText(listaEquipos.get(5).getListaJugadores().get(3).getNickname().toUpperCase());
-        tfJugador5_6.setText(listaEquipos.get(5).getListaJugadores().get(0).getNickname().toUpperCase());
+        tfJugador5_6.setText(listaEquipos.get(5).getListaJugadores().get(4).getNickname().toUpperCase());
         if (listaEquipos.get(5).getListaJugadores().size() == 6){
         tfJugador6_6.setText(listaEquipos.get(5).getListaJugadores().get(5).getNickname().toUpperCase());
     }}}
     
       public void llenarFieldsPresidente(){
+      
         tfPresidente1.setText(listaEquipos.get(0).getListaPresidentes().get(0).getNombre().toUpperCase());
-        tfPresidente1.setText(listaEquipos.get(1).getListaPresidentes().get(1).getNombre().toUpperCase());
-        tfPresidente1.setText(listaEquipos.get(2).getListaPresidentes().get(2).getNombre().toUpperCase());
-        tfPresidente1.setText(listaEquipos.get(3).getListaPresidentes().get(3).getNombre().toUpperCase());
-        tfPresidente1.setText(listaEquipos.get(4).getListaPresidentes().get(4).getNombre().toUpperCase());
-        tfPresidente1.setText(listaEquipos.get(5).getListaPresidentes().get(5).getNombre().toUpperCase());   
+        tfPresidente2.setText(listaEquipos.get(1).getListaPresidentes().get(0).getNombre().toUpperCase());
+        tfPresidente3.setText(listaEquipos.get(2).getListaPresidentes().get(0).getNombre().toUpperCase());
+        tfPresidente4.setText(listaEquipos.get(3).getListaPresidentes().get(0).getNombre().toUpperCase());
+        tfPresidente5.setText(listaEquipos.get(4).getListaPresidentes().get(0).getNombre().toUpperCase());
+        tfPresidente6.setText(listaEquipos.get(5).getListaPresidentes().get(0).getNombre().toUpperCase());   
     }
     
     public void estiloPaneles(){
