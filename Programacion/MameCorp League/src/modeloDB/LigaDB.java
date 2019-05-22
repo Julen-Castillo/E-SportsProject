@@ -17,7 +17,12 @@ import modelo.Liga;
 public class LigaDB {
     
     private static ResultSet resultado;
-    
+    /**
+     * Con este metodo obtenemos el objeto liga
+     * @return retornamos el objeto liga 
+     * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static Liga getObjetoLiga() throws SQLException, Exception{
         
         GenericoDB.conectar(); 

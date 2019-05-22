@@ -18,9 +18,8 @@ import modelo.Jugador;
 public class VentanaVisualizarEquipos extends javax.swing.JFrame {
      private static ArrayList<Equipo> listaEquipos;
      private static ArrayList<Jugador> listaJugadores;
-    /**
-     * Creates new form VentanaVisualizarEquipos
-     */
+    
+
     public VentanaVisualizarEquipos() throws Exception {
         setUndecorated(true);
         initComponents();

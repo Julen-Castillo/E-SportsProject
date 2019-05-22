@@ -11,7 +11,9 @@ import java.sql.*;
 public class GenericoDB {
     
     private static  Connection con;
-
+    /**
+     * Con el metodo conectar nos conectamos a la bd de egibide, las lineas comentadas hacen referencia a otras bd
+     */
     public static void conectar(){
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -39,10 +41,17 @@ public class GenericoDB {
         System.exit(0);
     }
 }
-
+    /**
+     * con este metodo obtenemos la conexion
+     * @return  retornamos la conexion
+     */
     public static Connection getCon(){
         return con;
     }
+    /**
+     * con este metodo cerramos la conexion de la bd
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static void cerrarCon()throws Exception{
         con.close();
     }    

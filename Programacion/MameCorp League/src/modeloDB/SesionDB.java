@@ -18,6 +18,13 @@ public class SesionDB {
        
     }
     
+     /**
+      * con este metodo consultamos un usuario de la bd
+      * @param usuario nombre del usuario(String)
+      * @param password contraseña del usuario(String)
+      * @return retornamos el objeto sesion 
+      * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+      */
     public static Sesion consultarUsuario(String usuario, String password) throws Exception{
        
         GenericoDB.conectar();
@@ -41,6 +48,14 @@ public class SesionDB {
         return null;
 
     }
+    /**
+     * insertamos un usuario administrador
+     * @param nombre nombre del admin(String)
+     * @param password contraseña del admin(String)
+     * @return retornamos el numero de filas afectadas
+     * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static int insertarAdministrador(String nombre,String password) throws SQLException, Exception{
          GenericoDB.conectar();
          
@@ -57,7 +72,14 @@ public class SesionDB {
        
         return insercion;
     }
-    
+    /**
+     * insertamos un usuario
+     * @param nombre nombre del usuario(String)
+     * @param password contraseña del usuario(String)
+     * @return retornamos el numero de filas afectadas
+     * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static int insertarUsuario(String nombre,String password) throws SQLException, Exception{
          GenericoDB.conectar();
          
