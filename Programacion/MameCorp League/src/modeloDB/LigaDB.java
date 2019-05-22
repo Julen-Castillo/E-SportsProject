@@ -17,13 +17,18 @@ import modelo.Liga;
 public class LigaDB {
     
     private static ResultSet resultado;
-    
+    /**
+     * Con este metodo obtenemos el objeto liga
+     * @return retornamos el objeto liga 
+     * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static Liga getObjetoLiga() throws SQLException, Exception{
         
         GenericoDB.conectar(); 
 
         Statement sentencia = GenericoDB.getCon().createStatement();
-        resultado = sentencia.executeQuery("select * from liga where id_liga = 1");
+        resultado = sentencia.executeQuery("select * from liga where id_liga = 01");
         
         if(resultado.next()){
             Liga oLiga = new Liga();

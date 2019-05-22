@@ -10,3 +10,4 @@ drop trigger MAX_JUGADOR;
 drop trigger TRIGGER_LIGA_NO_JUGADORES;
 drop trigger MAX_PRESUPUESTO_EQUIPO;
 drop trigger SALARIO_MIN_JUGADOR;
+

@@ -5,11 +5,14 @@
  */
 package modeloDB;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import modelo.Jornada;
 import modelo.Liga;
 
@@ -21,7 +24,15 @@ public class JornadaDB {
     
     private static ResultSet resultado;
     private static Statement st;
+    private static Connection con;
     
+    /**
+     * Con este metodo obtenemos el objeto de la jornada
+     * @param numeroJornada numero de la jornada(int)
+     * @return retornamos el objeto jornada
+     * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static Jornada getObjetoJornada(int numeroJornada) throws SQLException, Exception{
         
         GenericoDB.conectar(); 
@@ -47,6 +58,13 @@ public class JornadaDB {
         return null;       
     }
     
+    /**
+     * Con este metodo consultamos todas las jornadas
+     * @param oLiga objeto liga
+     * @return retornamos un arraylist con las jorandas
+     * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static ArrayList<Jornada> consultarJornadas(Liga oLiga) throws SQLException, Exception{
         
         GenericoDB.conectar(); 
@@ -71,4 +89,23 @@ public class JornadaDB {
         return listaJornadas;      
     }
     
+        public static void generarCalendario() throws SQLException, Exception{
+           GenericoDB.conectar();
+           CallableStatement cStmt = GenericoDB.getCon().prepareCall("{call paquete_mamecorp.generar_calendario}");
+
+            // Parametros de entrada ´
+            //cStmt. setString (1, "abcdefg");
+            
+            cStmt.execute();
+
+             ResultSet rs = cStmt.getResultSet();
+             
+             
+             
+             
+             
+
+          
+            GenericoDB.cerrarCon();
+     }
 }
