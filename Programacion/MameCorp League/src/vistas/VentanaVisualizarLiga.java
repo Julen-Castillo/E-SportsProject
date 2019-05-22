@@ -83,28 +83,28 @@ public class VentanaVisualizarLiga extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Yu Gothic Medium", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("RANKING");
+        jLabel2.setFont(new java.awt.Font("Yu Gothic Medium", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("POSICION");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("PUNTOS");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("EQUIPO");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
 
-        bVolver.setBackground(new java.awt.Color(255, 255, 255));
         bVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgLiga/icon1.png"))); // NOI18N
+        bVolver.setBackground(new java.awt.Color(255, 255, 255));
         bVolver.setBorderPainted(false);
         bVolver.setContentAreaFilled(false);
         bVolver.setFocusPainted(false);
@@ -115,112 +115,112 @@ public class VentanaVisualizarLiga extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("1");
+        jLabel6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel7.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("2");
+        jLabel7.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel8.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("4");
+        jLabel8.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel9.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("3");
+        jLabel9.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel14.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("5");
+        jLabel14.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel16.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("6");
+        jLabel16.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        lEquipo1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        lEquipo1.setForeground(new java.awt.Color(255, 255, 255));
         lEquipo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lEquipo1.setText("unknown");
+        lEquipo1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lEquipo1.setForeground(new java.awt.Color(255, 255, 255));
         lEquipo1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        lEquipo3.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        lEquipo3.setForeground(new java.awt.Color(255, 255, 255));
         lEquipo3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lEquipo3.setText("unknown");
+        lEquipo3.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lEquipo3.setForeground(new java.awt.Color(255, 255, 255));
         lEquipo3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        lEquipo2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        lEquipo2.setForeground(new java.awt.Color(255, 255, 255));
         lEquipo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lEquipo2.setText("unknown");
+        lEquipo2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lEquipo2.setForeground(new java.awt.Color(255, 255, 255));
         lEquipo2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        lEquipo4.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        lEquipo4.setForeground(new java.awt.Color(255, 255, 255));
         lEquipo4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lEquipo4.setText("unknown");
+        lEquipo4.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lEquipo4.setForeground(new java.awt.Color(255, 255, 255));
         lEquipo4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        lEquipo5.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        lEquipo5.setForeground(new java.awt.Color(255, 255, 255));
         lEquipo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lEquipo5.setText("unknown");
+        lEquipo5.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lEquipo5.setForeground(new java.awt.Color(255, 255, 255));
         lEquipo5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        lEquipo6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        lEquipo6.setForeground(new java.awt.Color(255, 255, 255));
         lEquipo6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lEquipo6.setText("unknown");
+        lEquipo6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lEquipo6.setForeground(new java.awt.Color(255, 255, 255));
         lEquipo6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        lPuntos1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        lPuntos1.setForeground(new java.awt.Color(255, 255, 255));
         lPuntos1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lPuntos1.setText("unknown");
+        lPuntos1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lPuntos1.setForeground(new java.awt.Color(255, 255, 255));
         lPuntos1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        lPuntos2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        lPuntos2.setForeground(new java.awt.Color(255, 255, 255));
         lPuntos2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lPuntos2.setText("unknown");
+        lPuntos2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lPuntos2.setForeground(new java.awt.Color(255, 255, 255));
         lPuntos2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        lPuntos4.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        lPuntos4.setForeground(new java.awt.Color(255, 255, 255));
         lPuntos4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lPuntos4.setText("unknown");
+        lPuntos4.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lPuntos4.setForeground(new java.awt.Color(255, 255, 255));
         lPuntos4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        lPuntos3.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        lPuntos3.setForeground(new java.awt.Color(255, 255, 255));
         lPuntos3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lPuntos3.setText("unknown");
+        lPuntos3.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lPuntos3.setForeground(new java.awt.Color(255, 255, 255));
         lPuntos3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        lPuntos5.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        lPuntos5.setForeground(new java.awt.Color(255, 255, 255));
         lPuntos5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lPuntos5.setText("unknown");
+        lPuntos5.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lPuntos5.setForeground(new java.awt.Color(255, 255, 255));
         lPuntos5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        lPuntos6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        lPuntos6.setForeground(new java.awt.Color(255, 255, 255));
         lPuntos6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lPuntos6.setText("unknown");
+        lPuntos6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lPuntos6.setForeground(new java.awt.Color(255, 255, 255));
         lPuntos6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout panelOpacoLayout = new javax.swing.GroupLayout(panelOpaco);
@@ -302,7 +302,7 @@ public class VentanaVisualizarLiga extends javax.swing.JFrame {
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lEquipo4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lPuntos4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(panelOpacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lEquipo5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -318,11 +318,11 @@ public class VentanaVisualizarLiga extends javax.swing.JFrame {
         );
 
         getContentPane().add(panelOpaco);
-        panelOpaco.setBounds(660, 180, 610, 700);
+        panelOpaco.setBounds(410, 30, 610, 700);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgLiga/FondoClasificacion.png"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 1950, 1080);
+        jLabel1.setBounds(-230, -180, 1950, 1080);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
