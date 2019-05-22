@@ -19,7 +19,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
      * Creates new form VentanaCategoria
      */
     public VentanaCategoria() {
-        setUndecorated(true);
+        //setUndecorated(true);
         initComponents();
         setAlwaysOnTop(rootPaneCheckingEnabled);
         setExtendedState(MAXIMIZED_BOTH);

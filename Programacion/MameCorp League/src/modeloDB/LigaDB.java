@@ -28,7 +28,7 @@ public class LigaDB {
         GenericoDB.conectar(); 
 
         Statement sentencia = GenericoDB.getCon().createStatement();
-        resultado = sentencia.executeQuery("select * from liga where id_liga = 1");
+        resultado = sentencia.executeQuery("select * from liga where id_liga = 01");
         
         if(resultado.next()){
             Liga oLiga = new Liga();
