@@ -27,16 +27,16 @@ public class GenericoDB {
             
             //Conexiones adri
 
-           // String url="jdbc:oracle:thin:@localhost:1521:xe";
-           // con = DriverManager.getConnection(url,"course","myipod12");
+           String url="jdbc:oracle:thin:@localhost:1521:xe";
+           con = DriverManager.getConnection(url,"course","myipod12");
                     
            
             //Casa Casti
-         OracleDataSource ods = new OracleDataSource();
-        ods.setURL("jdbc:oracle:thin:@//localhost:1521/XEPDB1"); // jdbc:oracle:thin@//[hostname]:[port]/[DB service name]
-        ods.setUser("course"); // [username]
-        ods.setPassword("course"); // [password]
-         con = ods.getConnection();
+        // OracleDataSource ods = new OracleDataSource();
+        // ods.setURL("jdbc:oracle:thin:@//localhost:1521/XEPDB1"); // jdbc:oracle:thin@//[hostname]:[port]/[DB service name]
+        // ods.setUser("course"); // [username]
+        // ods.setPassword("course"); // [password]
+        // con = ods.getConnection();
         
           //// con = DriverManager.getConnection(url,"course","course");
                 
