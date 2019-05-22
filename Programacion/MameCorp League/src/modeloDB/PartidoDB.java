@@ -81,8 +81,8 @@ public class PartidoDB {
     
     /**
      * Con este metodo consultamos un partido
-     * @param listaJornadas
-     * @param listaEquipos
+     * @param listaJornadas lista 
+     * @param listaEquipos lista
      * @return retornamos un arraylist de partidos
      * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
      * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
@@ -136,7 +136,7 @@ public class PartidoDB {
     }
     /**
      * Con este metodo contamos los partidos
-     * @returnretornamos el numero de partidos
+     * @return retornamos el numero de partidos
      * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
      * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
      */

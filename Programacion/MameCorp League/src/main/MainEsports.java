@@ -114,10 +114,10 @@ public class MainEsports {
         return listaJornadas;
     }
     /**
-     * Con el  método "consultarPartidosDeCadaJornada()" consultamos todos los partidos
+     * Con el  método consultarPartidosDeCadaJornada consultamos todos los partidos
      * de cada jornada.
      * @return retornamos un ArrayList de jornadas con el resultado
-     * @throws Exception 
+     * @throws Exception  Exception controlamos las excepciones por si hubiese algun tipo de error
      */
     public static ArrayList<Jornada> consultarPartidosDeCadaJornada() throws Exception{
         listaEquipos = EquipoDB.consultarTodos(); //Lo guardamos para reutilizaro en consultar partidos dado que necesitamos los objetos equipo de cada partido.
@@ -160,7 +160,7 @@ public class MainEsports {
     /**
      * Con el  método "buscarEquipo" buscamos un equipo para las opciones borrar y modificar
      * @param nombreEquipo -- Nombre del equipo que queremos borrar o modificar(String)
-     * @return
+     * @return retornamos el equipo
      * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
      */
     public static Equipo buscarEquipo(String nombreEquipo) throws Exception{
@@ -198,8 +198,8 @@ public class MainEsports {
      * Con el método "insertarAdministrador()" insertamos un nuevo usuario administrador
      * @param nombre -- Nombre del administrador a insertar(String)
      * @param password -- Password del administrador a insertar(String)
-     * @return
-     * @throws Exception 
+     * @return retornamos metodo
+     * @throws Exception Exception controlamos las excepciones por si hubiese algun tipo de error
      */
     public static int insertarAdministrador(String nombre,String password) throws Exception{
     
@@ -212,8 +212,8 @@ public class MainEsports {
      * Con el método "insertarUsuario()" insertamos un nuevo usuario 
      * @param nombre -- Nombre del usuario a insertar(String)
      * @param password -- Password del usuario a insertar(String)
-     * @return
-     * @throws Exception 
+     * @return metodo 
+     * @throws Exception Exception controlamos las excepciones por si hubiese algun tipo de error
      */
     public static int insertarUsuario(String nombre,String password) throws Exception{
         oSesion = new Sesion(nombre,password);
@@ -272,7 +272,7 @@ public class MainEsports {
     /**
      *  Con el método "mostrarJugadores" mostramos todos los jugadores
      * @return retornamos un ArrayList con los jugadores
-     * @throws Exception 
+     * @throws Exception  Exception controlamos las excepciones por si hubiese algun tipo de error
      */
     public static ArrayList<Jugador> mostrarJugadores() throws Exception{
         
@@ -590,14 +590,14 @@ public class MainEsports {
     }
     /**
      * Con el método "updatePuntosEquipo()" actualizamos los puntos de un equipo
-     * @throws Exception 
+     * @throws Exception  Exception controlamos las excepciones por si hubiese algun tipo de errors
      */
     public static void updatePuntosEquipo() throws Exception{
         EquipoDB.updatePuntosEquipo(oPartido);
     }
     /**
      * Con el método "randomWinner()" generamos un ganador
-     * @return 
+     * @return numero
      */
     public static int randomWinner(){
         int range = (1 - 0) + 1; 

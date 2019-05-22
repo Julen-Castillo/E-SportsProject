@@ -154,7 +154,7 @@ public static void darBajaJugador(String nickname) throws SQLException, Exceptio
  * Con este metodo consultamos el equipo al que pertenece el jugador
  * @param idEquipo id del equipo
  * @return retornamos un arraylist de jugador 
- * @throws SQLExceptioncontrolamos las excepciones por si hubiese algun tipo de error
+ * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
  * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
  */
 public static ArrayList<Jugador> consultarJugadorDelEquipo(int idEquipo) throws SQLException, Exception{
