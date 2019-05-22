@@ -24,9 +24,10 @@ public class VentanaPresidente extends javax.swing.JFrame {
        private String operacionActiva;
     
  public VentanaPresidente(String operacionActiva) throws Exception {
+        setUndecorated(true);
         initComponents();
-        setLocationRelativeTo(null);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setAlwaysOnTop(rootPaneCheckingEnabled);
+        setExtendedState(MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(39,43,57,190));
         llenarComboBox();
         this.operacionActiva = operacionActiva;

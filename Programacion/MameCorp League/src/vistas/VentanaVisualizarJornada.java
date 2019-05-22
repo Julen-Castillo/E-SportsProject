@@ -28,7 +28,7 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
     
     /**
      * Creates new form VentanaVisualizarJornada
-     * @throws java.lang.Exception
+     * @throws java.lang.Exception Exception controlamos las excepciones por si hubiese algun tipo de error
      */
     public VentanaVisualizarJornada() throws Exception {
         setUndecorated(true);

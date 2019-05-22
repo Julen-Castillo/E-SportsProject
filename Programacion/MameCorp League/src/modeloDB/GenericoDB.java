@@ -11,7 +11,9 @@ import java.sql.*;
 public class GenericoDB {
     
     private static  Connection con;
-
+    /**
+     * Con el metodo conectar nos conectamos a la bd de egibide, las lineas comentadas hacen referencia a otras bd
+     */
     public static void conectar(){
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -22,16 +24,18 @@ public class GenericoDB {
             // con = DriverManager.getConnection(url,"sys","oracle");
             
             //Conexiones adri
+
             String url="jdbc:oracle:thin:@localhost:1521:xe";
             con = DriverManager.getConnection(url,"course","myipod12");
+
             
             //Casa PETO
             //String url="jdbc:oracle:thin:@10.10.10.9:1521:db12102";
             //con = DriverManager.getConnection(url,"eqdaw01","eqdaw01");
 
             //Clase
-            //String url="jdbc:oracle:thin:@SrvOracle:1521:orcl";
-            //con = DriverManager.getConnection(url,"eqdaw01","eqdaw01");
+//            String url="jdbc:oracle:thin:@SrvOracle:1521:orcl";
+//            con = DriverManager.getConnection(url,"eqdaw01","eqdaw01");
             
     } catch (Exception e){
         System.out.println("Problemas con la base de datos, no es culpa nuestra, es de egibide");
@@ -39,10 +43,17 @@ public class GenericoDB {
         System.exit(0);
     }
 }
-
+    /**
+     * con este metodo obtenemos la conexion
+     * @return  retornamos la conexion
+     */
     public static Connection getCon(){
         return con;
     }
+    /**
+     * con este metodo cerramos la conexion de la bd
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static void cerrarCon()throws Exception{
         con.close();
     }    

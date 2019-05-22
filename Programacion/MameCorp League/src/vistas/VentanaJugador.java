@@ -34,9 +34,10 @@ public class VentanaJugador extends javax.swing.JFrame {
      * Creates new form VentanaJugador
      */
     public VentanaJugador(String operacionActiva) throws Exception {
+        setUndecorated(true);
         initComponents();
-        setLocationRelativeTo(null);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setAlwaysOnTop(rootPaneCheckingEnabled);
+        setExtendedState(MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(255,255,255,190));
         operacion = operacionActiva;
         llenarCbEquipos();

@@ -81,7 +81,7 @@ public class GeneradorDOMClasificacion {
         
         
         Element raiz = dom.createElement("clasificacion");
-        raiz.setAttribute("id", siguienteJornada.toString());
+        raiz.setAttribute("fecha_actualizado", siguienteJornada.toString());
         dom.appendChild(raiz);
         
         //<equipos>

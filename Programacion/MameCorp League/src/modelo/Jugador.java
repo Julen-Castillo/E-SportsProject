@@ -1,16 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelo;
 
+
 /**
- *
+ *  Representa a un Jugador 
+ *  Un jugador pertenece a un equipo
  * @author 1gdaw01
  */
 public class Jugador {
-    
+    /**
+     * Un jugador tiene un id,nombre,apellido,nickname,posicion,sueldo y un control de titularidad
+     */
     private int idJugador;
     private String nombre;
     private String apellido;
@@ -21,6 +21,16 @@ public class Jugador {
     
     private Equipo oEquipo;
 
+    /**
+     * En el constructor del jugador controlamos los siguentes parametros
+     * @param nombre nombre del jugador(String)
+     * @param apellido apellido del jugador(String)
+     * @param nickname nickname con el que juega(String)
+     * @param posicion posicion que ocupa en el equipo(String)
+     * @param sueldo sueldo que gana(int)
+     * @param titularidad titularidad del jugador(Boolean)
+     * @param oEquipo equipo al que pertenece(Objeto Equipo)
+     */
     public Jugador(String nombre, String apellido, String nickname, String posicion, int sueldo, boolean titularidad, Equipo oEquipo) {
         this.nombre = nombre;
         this.apellido = apellido;

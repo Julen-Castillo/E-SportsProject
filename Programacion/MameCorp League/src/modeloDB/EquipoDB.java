@@ -9,12 +9,20 @@ import modelo.Equipo;
 import modelo.Partido;
 
 public class EquipoDB {
-    
+    /**
+     * Variables globales para la conexion de la BD
+     */
     private static ResultSet resultado;
     private static PreparedStatement ps;
     private static Equipo oEquipo;
     private static Statement st;
 
+    /**
+     * Con este metodo insertamos un equipo en la BD
+     * @param e recibimos un objeto equipo del controlador
+     * @return retornamos el numero de filas afectadas
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
     public int insertarEquipo(Equipo e) throws Exception{
         
         GenericoDB.conectar();
@@ -33,6 +41,15 @@ public class EquipoDB {
        
        return insercion;
     }
+    /**
+     * Con este metodo modificamos un equipo de la BD
+     * @param id_equipo id de la bd(int)
+     * @param nombre nombre del equipo nuevo(String)
+     * @param presupuesto nuevo presupuesto del equipo(int)
+     * @param puntos puntos del equipo(int)
+     * @return retornamos el numero de filas afectadas
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static int modificarEquipo(int id_equipo,String nombre,int presupuesto,int puntos) throws Exception{
     
         GenericoDB.conectar();
@@ -51,6 +68,15 @@ public class EquipoDB {
         GenericoDB.cerrarCon();
         return update;
     }
+    /**
+     * con este metodo borramos equipos existentes en la bd
+     * @param id_equipo id de la bd(int)
+     * @param nombre nombre del equipo nuevo(String)
+     * @param presupuesto nuevo presupuesto del equipo(int)
+     * @param puntos puntos del equipo(int)
+     * @return retornamos el numero de filas afectadas
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static int borrarEquipo(int id_equipo,String nombre,int presupuesto,int puntos) throws Exception{
     
         GenericoDB.conectar();
@@ -68,6 +94,12 @@ public class EquipoDB {
         return delete;
 
     }
+    /**
+     * Con este metodo buscamos un equipo de la BD
+     * @param nombre nombre del equipo(String)
+     * @return retornamos un objeto 
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static Equipo buscarEquipo(String nombre) throws Exception{
         
         GenericoDB.conectar();
@@ -86,7 +118,11 @@ public class EquipoDB {
         }
         return oEquipo;
     }
-    
+    /**
+     * Con este metodo consultamos todos los equipos de la BD
+     * @return retornamos un ArrayList con todos los equipos
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static ArrayList<Equipo> consultarTodos() throws Exception{
         
         
@@ -112,7 +148,11 @@ public class EquipoDB {
         
         return listaEquipos; 
     }
-    
+    /**
+     * Con este metodo consultamos los equipos que no tienen presidente 
+     * @return retornamos un ArrayList con los equipos encontrados
+     * @throws Exception  controlamos las excepciones por si hubiese algun tipo de error
+     */
      public static ArrayList<Equipo> consultarEquipoSinPresidente() throws Exception{
 
         GenericoDB.conectar(); 
@@ -137,7 +177,13 @@ public class EquipoDB {
         
         return listaEquipos; 
     }
-     
+     /**
+      * Con este metodo actualizamos los puntos de un equipo
+      * @param oPartido paritdo a actualizar
+      * @return retornamos el numero de filas afectadas
+      * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+      * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+      */
     public static boolean updatePuntosEquipo(Partido oPartido) throws SQLException, Exception{
         
         GenericoDB.conectar();
@@ -170,7 +216,12 @@ public class EquipoDB {
         }
         return e;
     }
-    
+    /**
+     * Con este metodo obtenemos la clasificacion
+     * @return retornamos un arraylist
+     * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static ArrayList<Equipo> getClasificacion() throws SQLException, Exception{
         GenericoDB.conectar(); 
         
@@ -194,6 +245,13 @@ public class EquipoDB {
         
         return listaEquipos; 
     }
+    /**
+     * Con este metodo consultamos el equipo
+     * @param equipo_id_equipo id del equipo
+     * @return retornamos el objeto equipo
+     * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static Equipo consultarEquipoDelJugador(int equipo_id_equipo) throws SQLException, Exception{
         GenericoDB.conectar(); 
 

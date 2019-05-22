@@ -15,19 +15,6 @@
 					<ganador> 1 </ganador>
 					<mvp>Rekkles </mvp>
 				</partido>
-
-				<partido id="2">
-					<local> SKT </local>
-					<visitante> G2 </visitante>
-					<encuentro> Liga </encuentro>
-					<fecha>6/5/2019 </fecha>
-					<hora> OO:00 </hora>
-					<ciudad>Madrid </ciudad>
-					<estadio>Palacio Vistalegre</estadio>
-					<resultado> 1-0 </resultado>
-					<ganador> 1 </ganador>
-					<mvp>Faker</mvp>
-				</partido>
 			</partidos>
 		</jornada>
 
