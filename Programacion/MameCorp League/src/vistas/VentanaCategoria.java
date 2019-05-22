@@ -25,7 +25,6 @@ public class VentanaCategoria extends javax.swing.JFrame {
         setExtendedState(MAXIMIZED_BOTH);
         disableCRUD();
         setVisible(true); 
-       
     }
 
     /**
@@ -50,6 +49,9 @@ public class VentanaCategoria extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         bLogOut = new javax.swing.JButton();
+        bNoSimular = new javax.swing.JButton();
+        bSimular = new javax.swing.JButton();
+        lConfirmacionSimular = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuCategoria = new javax.swing.JMenu();
@@ -272,6 +274,48 @@ public class VentanaCategoria extends javax.swing.JFrame {
         getContentPane().add(bLogOut);
         bLogOut.setBounds(1735, 130, 90, 30);
 
+        bNoSimular.setBackground(new java.awt.Color(0, 153, 153));
+        bNoSimular.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        bNoSimular.setForeground(new java.awt.Color(255, 255, 255));
+        bNoSimular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/play.png"))); // NOI18N
+        bNoSimular.setText("  NO SIMULAR");
+        bNoSimular.setBorder(null);
+        bNoSimular.setBorderPainted(false);
+        bNoSimular.setContentAreaFilled(false);
+        bNoSimular.setFocusPainted(false);
+        bNoSimular.setOpaque(false);
+        bNoSimular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bNoSimularActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bNoSimular);
+        bNoSimular.setBounds(380, 220, 200, 70);
+
+        bSimular.setBackground(new java.awt.Color(0, 153, 153));
+        bSimular.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        bSimular.setForeground(new java.awt.Color(255, 255, 255));
+        bSimular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/simular.png"))); // NOI18N
+        bSimular.setText("SIMULAR");
+        bSimular.setBorder(null);
+        bSimular.setBorderPainted(false);
+        bSimular.setContentAreaFilled(false);
+        bSimular.setFocusPainted(false);
+        bSimular.setOpaque(false);
+        bSimular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSimularActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bSimular);
+        bSimular.setBounds(120, 210, 170, 90);
+
+        lConfirmacionSimular.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lConfirmacionSimular.setForeground(new java.awt.Color(255, 255, 255));
+        lConfirmacionSimular.setText("SIMULADA CORRECTAMENTE");
+        getContentPane().add(lConfirmacionSimular);
+        lConfirmacionSimular.setBounds(230, 390, 290, 40);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/FondoCategoria.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(-260, -630, 3500, 2650);
@@ -463,10 +507,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
 
     private void bLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLigaActionPerformed
        operacionActiva = "liga";
-        ocultarBotonesYMostrarCrud();
-       // this.dispose();
-        //ControladorVista.mostrarVentanaLiga();
-        
+        ocultarBotonesYMostrarSimular();        
     }//GEN-LAST:event_bLigaActionPerformed
 
     private void bBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBajaActionPerformed
@@ -595,8 +636,27 @@ public class VentanaCategoria extends javax.swing.JFrame {
         this.dispose();
         ControladorVista.mostrarLogin();
     }//GEN-LAST:event_bLogOutActionPerformed
+
+    private void bSimularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSimularActionPerformed
+        try {
+            MainEsports.crearRoundRobinEmparejamientos(true);
+        } catch (Exception ex) {
+            Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bSimularActionPerformed
+
+    private void bNoSimularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNoSimularActionPerformed
+        try {
+            MainEsports.crearRoundRobinEmparejamientos(false);
+        } catch (Exception ex) {
+            Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bNoSimularActionPerformed
     
     public final void disableCRUD(){
+        lConfirmacionSimular.setVisible(false);
+        bSimular.setVisible(false);
+        bNoSimular.setVisible(false);
         bAlta.setVisible(false);
         bModificar.setVisible(false);
         bBaja.setVisible(false);
@@ -617,6 +677,18 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bPresidentes.setVisible(false);
     }
     
+    public void ocultarBotonesYMostrarSimular(){
+        bSimular.setVisible(true);
+        bNoSimular.setVisible(true);
+        
+        bLiga.setVisible(false);
+        bJornadas.setVisible(false);
+        bPartidos.setVisible(false);
+        bEquipos.setVisible(false);
+        bJugadores.setVisible(false);
+        bPresidentes.setVisible(false);
+    }
+    
     public void showCategorias(){
         bLiga.setVisible(true);
         bJornadas.setVisible(true);
@@ -625,6 +697,20 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bJugadores.setVisible(true);
         bPresidentes.setVisible(true);
     }
+    
+    public void simulacionCorrecta(){
+        lConfirmacionSimular.setText("Successful simulation!");
+        lConfirmacionSimular.setVisible(true);
+    }
+    public void simulacionError(){
+        lConfirmacionSimular.setText("Error en la simulacion");
+        lConfirmacionSimular.setVisible(true);
+    }
+    public void emparejamientosCorrectos(){
+        lConfirmacionSimular.setText("Emparejamientos realizados");
+        lConfirmacionSimular.setVisible(true);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -670,8 +756,10 @@ public class VentanaCategoria extends javax.swing.JFrame {
     private javax.swing.JButton bLiga;
     private javax.swing.JButton bLogOut;
     private javax.swing.JButton bModificar;
+    private javax.swing.JButton bNoSimular;
     private javax.swing.JButton bPartidos;
     private javax.swing.JButton bPresidentes;
+    private javax.swing.JButton bSimular;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
@@ -681,6 +769,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuSalir;
     private javax.swing.JMenu jMenuUsuarios;
     private javax.swing.JMenu jMenuVolver;
+    private javax.swing.JLabel lConfirmacionSimular;
     private javax.swing.JMenuItem miAdministradores;
     private javax.swing.JMenuItem miConsultar;
     private javax.swing.JMenuItem miEliminar;

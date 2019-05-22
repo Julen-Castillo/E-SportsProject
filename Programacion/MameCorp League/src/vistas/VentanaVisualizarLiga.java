@@ -152,73 +152,73 @@ public class VentanaVisualizarLiga extends javax.swing.JFrame {
         lEquipo1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         lEquipo1.setForeground(new java.awt.Color(255, 255, 255));
         lEquipo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lEquipo1.setText("jLabel6");
+        lEquipo1.setText("unknown");
         lEquipo1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         lEquipo3.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         lEquipo3.setForeground(new java.awt.Color(255, 255, 255));
         lEquipo3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lEquipo3.setText("jLabel6");
+        lEquipo3.setText("unknown");
         lEquipo3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         lEquipo2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         lEquipo2.setForeground(new java.awt.Color(255, 255, 255));
         lEquipo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lEquipo2.setText("jLabel6");
+        lEquipo2.setText("unknown");
         lEquipo2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         lEquipo4.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         lEquipo4.setForeground(new java.awt.Color(255, 255, 255));
         lEquipo4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lEquipo4.setText("jLabel6");
+        lEquipo4.setText("unknown");
         lEquipo4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         lEquipo5.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         lEquipo5.setForeground(new java.awt.Color(255, 255, 255));
         lEquipo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lEquipo5.setText("jLabel6");
+        lEquipo5.setText("unknown");
         lEquipo5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         lEquipo6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         lEquipo6.setForeground(new java.awt.Color(255, 255, 255));
         lEquipo6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lEquipo6.setText("jLabel6");
+        lEquipo6.setText("unknown");
         lEquipo6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         lPuntos1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         lPuntos1.setForeground(new java.awt.Color(255, 255, 255));
         lPuntos1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lPuntos1.setText("jLabel6");
+        lPuntos1.setText("unknown");
         lPuntos1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         lPuntos2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         lPuntos2.setForeground(new java.awt.Color(255, 255, 255));
         lPuntos2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lPuntos2.setText("jLabel6");
+        lPuntos2.setText("unknown");
         lPuntos2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         lPuntos4.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         lPuntos4.setForeground(new java.awt.Color(255, 255, 255));
         lPuntos4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lPuntos4.setText("jLabel6");
+        lPuntos4.setText("unknown");
         lPuntos4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         lPuntos3.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         lPuntos3.setForeground(new java.awt.Color(255, 255, 255));
         lPuntos3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lPuntos3.setText("jLabel6");
+        lPuntos3.setText("unknown");
         lPuntos3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         lPuntos5.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         lPuntos5.setForeground(new java.awt.Color(255, 255, 255));
         lPuntos5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lPuntos5.setText("jLabel6");
+        lPuntos5.setText("unknown");
         lPuntos5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         lPuntos6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         lPuntos6.setForeground(new java.awt.Color(255, 255, 255));
         lPuntos6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lPuntos6.setText("jLabel6");
+        lPuntos6.setText("unknown");
         lPuntos6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout panelOpacoLayout = new javax.swing.GroupLayout(panelOpaco);
@@ -332,7 +332,7 @@ public class VentanaVisualizarLiga extends javax.swing.JFrame {
     
     private void getClasificacion() throws Exception{
         listaEquipos = MainEsports.getClasificacion();
-        
+ 
         lEquipo1.setText(listaEquipos.get(0).getNombre().toUpperCase());
         lPuntos1.setText(String.valueOf(listaEquipos.get(0).getPuntos()));
         lEquipo2.setText(listaEquipos.get(1).getNombre().toUpperCase());
@@ -345,6 +345,7 @@ public class VentanaVisualizarLiga extends javax.swing.JFrame {
         lPuntos5.setText(String.valueOf(listaEquipos.get(4).getPuntos()));
         lEquipo6.setText(listaEquipos.get(5).getNombre().toUpperCase());
         lPuntos6.setText(String.valueOf(listaEquipos.get(5).getPuntos()));
+        
     }
     
     /**

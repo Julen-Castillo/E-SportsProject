@@ -41,7 +41,10 @@ public class MainEsports {
     private static ArrayList<Jornada> listaJornadas; //Para mostrar las jornadas en la ventan visualizacion
     private static ArrayList<Partido> listaPartidos;
     private static ArrayList<Jugador> listaJugadores;
+    private static ArrayList<Presidente> listaPresidentes;
     private static Presidente oPresidente;
+    private static boolean simular;
+    
 
     
     
@@ -51,7 +54,7 @@ public class MainEsports {
         GenericoDB.conectar();
         con =  GenericoDB.getCon();
         if(con != null){           
-            //crearRoundRobinEmparejamientos();
+            //crearRoundRobinEmparejamientos(true);
             ControladorVista.mostrarLogin();
         }
     }
@@ -219,7 +222,9 @@ public class MainEsports {
         for(int i = 0; i < listaEquipos.size(); i++){
             int idEquipo = listaEquipos.get(i).getIdEquipo();
             listaJugadores = JugadorDB.consultarJugadorDelEquipo(idEquipo);
-            listaEquipos.get(i).setListaJugadores(listaJugadores);            
+            listaPresidentes = PresidenteDB.consultarPresidentesDelEquipo(idEquipo);
+            listaEquipos.get(i).setListaJugadores(listaJugadores);   
+            listaEquipos.get(i).setListaPresidentes(listaPresidentes);
         }
         
         if(listaEquipos.size()>0){
@@ -227,10 +232,20 @@ public class MainEsports {
         return listaEquipos;
         } else {
         return null;
-    }}
+        }
+    }
+    
+    public static void updateVencedorYpuntosNoSimulados(Partido oPartido, String equipoVencedor) throws Exception{
+        oEquipo = EquipoDB.buscarEquipo(equipoVencedor);
+        boolean updateCorrectoVencedor = PartidoDB.updateVencedorNoSimulados(oPartido, oEquipo);
+        boolean updateCorrectoPuntos = EquipoDB.updatePuntosEquipo(oPartido);
+        System.out.println(updateCorrectoVencedor);
+        System.out.println(updateCorrectoPuntos);
+    }
     
     
-    public static void crearRoundRobinEmparejamientos() throws Exception{
+    public static void crearRoundRobinEmparejamientos(boolean simular) throws Exception{
+        MainEsports.simular = simular;
         //Obtenemos el objeto de la liga para meterlo dentro del objeto jornada posteriormente
         oLiga = LigaDB.getObjetoLiga();
         
@@ -271,6 +286,18 @@ public class MainEsports {
             //Pasamos a la siguiente jornada por lo que actualizamos el numero de jornada en el que nos encontramos.
             System.out.println("FIN DE LA JORNADA NUMERO: " + numeroJornada);
             numeroJornada++;
+        }
+        
+        //comprobamos que se ha simulado correctamente
+        int nPartidos = PartidoDB.consultarCountPartidos();
+        if(nPartidos == 30 && simular == true){
+            ControladorVista.simulacionCorrecta();
+        }
+        else if (nPartidos == 30 && simular == false){
+            ControladorVista.emparejamientosCorrectos();
+        }
+        else{
+            ControladorVista.simulacionError();
         }
     }
     
@@ -323,9 +350,16 @@ public class MainEsports {
             oPartido.setEquipoLocal(partido1.get(1));
             oPartido.setEquipoVisitante(partido1.get(0));   
         }
-        oPartido.setEquipoVencedor(partido1.get(randomWinner()));            
-        insertPartidos();
-        updatePuntosEquipo();
+        
+        //Chequear si vamos a simular el partido o no.
+        if(simular){
+            oPartido.setEquipoVencedor(partido1.get(randomWinner()));
+            insertPartidos();
+            updatePuntosEquipo();
+        }
+        else{
+            insertPartidos();
+        }
 
         
         //PARTIDO 2
@@ -346,9 +380,16 @@ public class MainEsports {
             oPartido.setEquipoLocal(partido2.get(0));
             oPartido.setEquipoVisitante(partido2.get(1));
         }
-        oPartido.setEquipoVencedor(partido2.get(randomWinner()));            
-        insertPartidos();
-        updatePuntosEquipo();
+        
+        //Chequear si vamos a simular el partido o no.
+        if(simular){
+            oPartido.setEquipoVencedor(partido2.get(randomWinner()));
+            insertPartidos();
+            updatePuntosEquipo();
+        }
+        else{
+            insertPartidos();
+        }
         
         //PARTIDO 3
         partido3 = new ArrayList();
@@ -368,9 +409,16 @@ public class MainEsports {
             oPartido.setEquipoLocal(partido3.get(1));
             oPartido.setEquipoVisitante(partido3.get(0));
         }
-        oPartido.setEquipoVencedor(partido1.get(randomWinner()));            
-        insertPartidos();
-        updatePuntosEquipo();
+        
+        //Chequear si vamos a simular el partido o no.
+        if(simular){
+            oPartido.setEquipoVencedor(partido3.get(randomWinner()));
+            insertPartidos();
+            updatePuntosEquipo();
+        }
+        else{
+            insertPartidos();
+        }
     }
     
     
@@ -378,7 +426,13 @@ public class MainEsports {
         oJornada.setoLiga(oLiga);
         oPartido.setoJornada(oJornada);
         //Insert partido
-        PartidoDB.insertarPartido(oPartido);
+        if(simular){
+            PartidoDB.insertarPartido(oPartido);
+        }
+        else{
+            PartidoDB.insertarPartidoSinVencedor(oPartido);
+        }
+        
 
         //Cambiamos el valor del bolean EquipoEstaticoEsLocal. Si esta jornada ha sido local la siguiente será visitante o viceversa. 
         EquipoEstaticoEsLocal = !EquipoEstaticoEsLocal;
