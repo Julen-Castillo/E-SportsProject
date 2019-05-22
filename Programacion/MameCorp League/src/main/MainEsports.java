@@ -659,4 +659,10 @@ public class MainEsports {
     public static ArrayList<Equipo> getRanking(){
         return arrayRanking;
     }
+    
+    public static String llamarProcedureVisualizarEquipos() throws SQLException, Exception{
+       String listaEquipos = EquipoDB.llamarProcedure();
+     
+      return listaEquipos;  
+    }
 }

@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import modelo.Equipo;
 import modelo.Partido;
+import oracle.jdbc.internal.OracleTypes;
 
 public class EquipoDB {
     /**
@@ -16,6 +17,7 @@ public class EquipoDB {
     private static PreparedStatement ps;
     private static Equipo oEquipo;
     private static Statement st;
+    private static String StringEquipos;
 
     /**
      * Con este metodo insertamos un equipo en la BD
@@ -272,6 +274,33 @@ public class EquipoDB {
         }
         GenericoDB.cerrarCon();
         return oEquipo;
+    }
+    
+    public static String llamarProcedure() throws SQLException, Exception{
+      
+        GenericoDB.conectar();
+        
+        CallableStatement cStmt = GenericoDB.getCon().prepareCall("{call  paquete_mamecorp.procedimiento_info_equipo(?)}");
+        cStmt.registerOutParameter(1, OracleTypes.CURSOR);
+        cStmt.executeUpdate();
+      
+                
+        ResultSet rs = (ResultSet)cStmt.getObject(1);
+        
+        while (rs.next()){
+            StringEquipos += (" Id equipo: " + rs.getInt(1));
+            StringEquipos += (" Nombre Equipo: " + rs.getString(2));
+            StringEquipos += (" Presupuesto: ") + rs.getInt(3);
+            StringEquipos += (" Puntos: ") + rs.getInt(4);
+            StringEquipos += (" Codigo Presidente: ") + rs.getInt(5);
+            StringEquipos += ("Nombre Presidente: ") + rs.getString(6) + "\n";                  
+        }
+        rs.close();
+        cStmt.close();
+        GenericoDB.cerrarCon();
+
+        return StringEquipos;
+      
     }
     
     
