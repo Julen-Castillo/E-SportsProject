@@ -26,7 +26,7 @@ public class GenericoDB {
             //Conexiones adri
 
             String url="jdbc:oracle:thin:@localhost:1521:xe";
-            con = DriverManager.getConnection(url,"course","course");
+            con = DriverManager.getConnection(url,"course","myipod12");
 
             
             //Casa PETO
@@ -34,8 +34,8 @@ public class GenericoDB {
             //con = DriverManager.getConnection(url,"eqdaw01","eqdaw01");
 
             //Clase
-            String url="jdbc:oracle:thin:@SrvOracle:1521:orcl";
-            con = DriverManager.getConnection(url,"eqdaw01","eqdaw01");
+//            String url="jdbc:oracle:thin:@SrvOracle:1521:orcl";
+//            con = DriverManager.getConnection(url,"eqdaw01","eqdaw01");
             
     } catch (Exception e){
         System.out.println("Problemas con la base de datos, no es culpa nuestra, es de egibide");

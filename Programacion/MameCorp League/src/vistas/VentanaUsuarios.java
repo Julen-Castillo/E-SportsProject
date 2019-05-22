@@ -118,14 +118,14 @@ public class VentanaUsuarios extends javax.swing.JFrame {
         getContentPane().add(jLabel5);
         jLabel5.setBounds(1638, 40, 110, 24);
 
-        bLogOut.setText("Log Out!");
+        bLogOut.setText("Log Out");
         bLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bLogOutActionPerformed(evt);
             }
         });
         getContentPane().add(bLogOut);
-        bLogOut.setBounds(1750, 130, 75, 23);
+        bLogOut.setBounds(1717, 130, 110, 32);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/FondoCategoria.png"))); // NOI18N
         getContentPane().add(jLabel1);

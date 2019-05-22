@@ -20,9 +20,10 @@ public class VentanaRegistroUsuarios extends javax.swing.JFrame {
      * Creates new form VentanaRegistroUsuarios
      */
     public VentanaRegistroUsuarios() {
+        setUndecorated(true);
         initComponents();
-        setLocationRelativeTo(null);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setAlwaysOnTop(rootPaneCheckingEnabled);
+        setExtendedState(MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(5,0,25,190));
     }
 
