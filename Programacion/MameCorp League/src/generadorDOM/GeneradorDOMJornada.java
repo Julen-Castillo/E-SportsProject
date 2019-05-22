@@ -1,7 +1,6 @@
 package generadorDOM;
 
 import java.io.File;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
@@ -16,8 +15,9 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import main.MainEsports;
-import modelo.Equipo;
 import modelo.Jornada;
+import modelo.Partido;
+import oracle.net.aso.i;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Text;
@@ -30,11 +30,12 @@ public class GeneradorDOMJornada {
     
 private List<Jornada> listaJornadas;
     private Document dom;
-    private int idPartido;
+    private int idJornada = 1;
+    private int idPartido = 1;
     
     public static void main(String args[]) throws Exception {
         System.out.println("--- DOM (escritura) ---\n");
-        new GeneradorDOMClasificacion().run();
+        new GeneradorDOMJornada().run();
     }
     
     //Constructor
@@ -90,7 +91,7 @@ private List<Jornada> listaJornadas;
         for (Jornada oJornada : listaJornadas) {
             Element elementoJornada = crearElementoJornada(oJornada);
             raiz.appendChild(elementoJornada);
-            idPartido++;
+            idJornada++;
         }
     }
 
@@ -99,53 +100,67 @@ private List<Jornada> listaJornadas;
         
         // <jornada>
         Element elementoJornada = dom.createElement("jornada");
-        elementoJornada.setAttribute("id", String.valueOf(idPartido));
+        elementoJornada.setAttribute("id", String.valueOf(idJornada));
         elementoJornada.setAttribute("fecha_inicio", oJornada.getFechaInicio().toString());
         elementoJornada.setAttribute("fecha_fin", oJornada.getFechaFin().toString());
 
         // <partidos>
         Element elementoPartidos = dom.createElement("partidos");
 
-        // #PCDATA text nombre
-//        Text textoNombre = dom.createTextNode(oEquipo.getNombre());
-//        elementoNombre.appendChild(textoNombre);
-
        // 
        for(int i = 0; i < listaJornadas.size(); i++){
-           for(int x = 0; i < listaJornadas.get(i).getListaPartidos().size()){
-           
+           for(int x = 0; x < listaJornadas.get(i).getListaPartidos().size(); x++){
+                Element elementoPartido = crearElementoPartido(listaJornadas.get(i).getListaPartidos().get(x));
+                elementoPartidos.appendChild(elementoPartido);
+                idPartido++;
            }
-           Element elementoPartido = crearElementoPartido(listaJornadas.get(i).getListaPartidos().get(i));
-           elementoPartidos.appendChild(elementoPartido);
        }
-       
-       
-       Element elementoJornada = crearElementoJornada(oJornada);
-        for (Partido oPartido : listaJornadas.get(i)listaPartidos) {
-            Element elementoJornada = crearElementoJornada(oJornada);
-            raiz.appendChild(elementoJornada);
-            idPartido++;
-        }
-        
-        elementoPartido.appendChild(elementoPartidos);
 
-        // </partidos>
+        // </jornadas>
         elementoJornada.appendChild(elementoPartidos);
 
-        // <puntos>
-        Element elementoPuntos = dom.createElement("puntos");
+        
+        return elementoJornada;
+
+        
+    }
+    
+    private Element crearElementoPartido(Partido oPartido){
+        // <partido>
+        Element elementoPartido = dom.createElement("partido");
+        elementoPartido.setAttribute("id", String.valueOf(idPartido));
+
+        // <local>
+        Element elementoLocal = dom.createElement("local");
 
         // #PCDATA text puntos
-        Text textoPuntos = dom.createTextNode(String.valueOf(oEquipo.getPuntos()));
-        elementoPuntos.appendChild(textoPuntos);
+        Text textoLocal = dom.createTextNode(oPartido.getEquipoLocal().getNombre());
+        elementoLocal.appendChild(textoLocal);
 
-        // </puntos>
-        elementoEquipo.appendChild(elementoPuntos);
-
+        // </local>
+        elementoPartido.appendChild(elementoLocal);
         
-        return elementoEquipo;
+        // <Visitante>
+        Element elementoVisitante = dom.createElement("visitante");
 
+        // #PCDATA text puntos
+        Text textoVisitante = dom.createTextNode(oPartido.getEquipoVisitante().getNombre());
+        elementoVisitante.appendChild(textoVisitante);
+
+        // </Visitante>
+        elementoPartido.appendChild(elementoVisitante);
         
+        // <Vencedor>
+        Element elementoVencedor = dom.createElement("vencedor");
+
+        // #PCDATA text puntos
+        Text textoVencedor = dom.createTextNode(oPartido.getEquipoVencedor().getNombre());
+        elementoVencedor.appendChild(textoVencedor);
+
+        // </Vencedor>
+        elementoPartido.appendChild(elementoVencedor);
+   
+        return elementoPartido;
     }
 
     private void exportarFichero() {
@@ -161,7 +176,7 @@ private List<Jornada> listaJornadas;
 
             transformer.setOutputProperty(OutputKeys.STANDALONE, "yes");
 
-            Result output = new StreamResult(new File("../clasificacion.xml"));
+            Result output = new StreamResult(new File("../Jornada.xml"));
             Source input = new DOMSource(dom);
 
             transformer.transform(input, output);

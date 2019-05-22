@@ -3,12 +3,15 @@ package main;
  * @author Mamecorp
  * 
  */
+import generadorDOM.GeneradorDOMClasificacion;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.*;
 import modeloDB.*;
+import parserDOM.ParserDomClasificacion;
 import vistas.*;
 
 
@@ -57,6 +60,8 @@ public class MainEsports {
     private static ArrayList<Presidente> listaPresidentes;
     private static Presidente oPresidente;
     private static boolean simular;
+    private static LocalDate fechaActualizadoXML;
+    private static ArrayList<Equipo> arrayRanking; //Aqui vamos a almacenar el ranking tras leer el xml
     
     
 
@@ -68,6 +73,7 @@ public class MainEsports {
         con =  GenericoDB.getCon();
         if(con != null){           
             //crearRoundRobinEmparejamientos(true);
+            verificarActualizarXMLClasificacion();
             ControladorVista.mostrarLogin();
         }
     }
@@ -367,6 +373,31 @@ public class MainEsports {
         return null;
         }
     }
+     /**
+     * Con el método "insertarJugadores()"
+     * @param nombre -- Nombre del jugador(String)
+     * @param apellido -- Apellid del jugador(String)
+     * @param nickname -- Nickname del jugador(String)
+     * @param posicion --Posicion del jugador(String)
+     * @param sueldo -- Sueldo del jugador(int)
+     * @param titularidad -- Titularidad del jugador(Boolean)
+     * @param posicionEquipo --
+     * @return retornamos el método JugadorDB.insertarJugadores(oJugador);
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
+    public static boolean insertarJugadores(String nombre, String apellido, String nickname, String posicion, int sueldo, boolean titularidad, int posicionEquipo) throws Exception {
+        //Obtenemos la lista de equipos
+        listaEquipos = EquipoDB.consultarTodos();
+        //Seleccionamos el elegido por el usuario
+        oEquipo = listaEquipos.get(posicionEquipo);
+        //Creamos el jugador
+        oJugador = new Jugador(nombre, apellido, nickname, posicion, sueldo, titularidad, oEquipo);
+        return JugadorDB.insertarJugadores(oJugador);
+    }
+
+    public static Jugador modificarJugador(String nickname) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     /**
      * Con el método "updateVencedorYpuntosNoSimulados()"
      * @param oPartido --
@@ -584,7 +615,6 @@ public class MainEsports {
         else{
             PartidoDB.insertarPartidoSinVencedor(oPartido);
         }
-        
 
         //Cambiamos el valor del bolean EquipoEstaticoEsLocal. Si esta jornada ha sido local la siguiente será visitante o viceversa. 
         EquipoEstaticoEsLocal = !EquipoEstaticoEsLocal;
@@ -604,35 +634,29 @@ public class MainEsports {
         int range = (1 - 0) + 1; 
         return (int)(Math.random() * range) + 0;
     }
-    /**
-     * Con el método "insertarJugadores()"
-     * @param nombre -- Nombre del jugador(String)
-     * @param apellido -- Apellid del jugador(String)
-     * @param nickname -- Nickname del jugador(String)
-     * @param posicion --Posicion del jugador(String)
-     * @param sueldo -- Sueldo del jugador(int)
-     * @param titularidad -- Titularidad del jugador(Boolean)
-     * @param posicionEquipo --
-     * @return retornamos el método JugadorDB.insertarJugadores(oJugador);
-     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
-     */
-    public static boolean insertarJugadores(String nombre, String apellido, String nickname, String posicion, int sueldo, boolean titularidad, int posicionEquipo) throws Exception {
-        //Obtenemos la lista de equipos
-        listaEquipos = EquipoDB.consultarTodos();
-        //Seleccionamos el elegido por el usuario
-        oEquipo = listaEquipos.get(posicionEquipo);
-        //Creamos el jugador
-        oJugador = new Jugador(nombre, apellido, nickname, posicion, sueldo, titularidad, oEquipo);
-        return JugadorDB.insertarJugadores(oJugador);
-    }
-
-    public static Jugador modificarJugador(String nickname) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
  
     public static void generarCalendario() throws Exception{
     
     JornadaDB.generarCalendario();
 
-}
+    }
+    
+    public static void verificarActualizarXMLClasificacion() throws Exception{
+        //Leemos el xml
+        ParserDomClasificacion.run();
+        //Obtenemos la fecha de ultimo actualizdo de la clasificacion desde el xml
+        fechaActualizadoXML = ParserDomClasificacion.getFechaActualizado();
+        //Si la ultima fecha de actualizacion es de hace mas de 7 dias lo volvemos a actualizar con una consulta a la base de datos.
+        if(LocalDate.now().isAfter(fechaActualizadoXML.plusDays(7))){
+            GeneradorDOMClasificacion.main(null);
+        }
+        
+        //Almacenamos el ranking en un array
+        arrayRanking = ParserDomClasificacion.getListaEquipos();      
+    }
+    
+    public static ArrayList<Equipo> getRanking(){
+        return arrayRanking;
+    }
 }

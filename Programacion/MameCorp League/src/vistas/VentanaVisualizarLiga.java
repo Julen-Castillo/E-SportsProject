@@ -6,11 +6,13 @@
 package vistas;
 
 import java.awt.Color;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import main.MainEsports;
 import modelo.Equipo;
+import parserDOM.ParserDomClasificacion;
 
 /**
  *
@@ -331,8 +333,10 @@ public class VentanaVisualizarLiga extends javax.swing.JFrame {
     }//GEN-LAST:event_bVolverActionPerformed
     
     private void getClasificacion() throws Exception{
-        listaEquipos = MainEsports.getClasificacion();
- 
+        //listaEquipos = MainEsports.getClasificacion();
+        
+        listaEquipos = MainEsports.getRanking();
+                
         lEquipo1.setText(listaEquipos.get(0).getNombre().toUpperCase());
         lPuntos1.setText(String.valueOf(listaEquipos.get(0).getPuntos()));
         lEquipo2.setText(listaEquipos.get(1).getNombre().toUpperCase());
