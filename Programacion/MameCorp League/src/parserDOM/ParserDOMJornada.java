@@ -3,7 +3,6 @@ package parserDOM;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
@@ -14,6 +13,7 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 import modelo.Equipo;
+import modelo.Jornada;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -24,10 +24,9 @@ import org.xml.sax.SAXException;
  *
  * @author N3Essential
  */
-public class ParserDomClasificacion {
-    
+public class ParserDOMJornada {
     private static Element elementoRaiz;
-    private static ArrayList<Equipo> equipos;
+    private static ArrayList<Jornada> jornadas;
     
     
     public static void main(String args[]) throws Exception {
@@ -44,7 +43,7 @@ public class ParserDomClasificacion {
 
             //InputSource datos = new InputSource(new StringReader(ReadXML.datosEquipos("../clasificacion.xml")));
             
-            File datos = new File("../clasificacion.xml");
+            File datos = new File("../Jornada.xml");
             
             Document doc = dBuilder.parse(datos);
             doc.getDocumentElement().normalize();
@@ -52,23 +51,20 @@ public class ParserDomClasificacion {
             System.out.println("Elemento raiz: " + doc.getDocumentElement().getNodeName());
             
             elementoRaiz = doc.getDocumentElement();
-            elementoRaiz.getAttribute("fecha_actualizado");
-            System.out.println(elementoRaiz.getAttribute("fecha_actualizado"));
+            NodeList nodos = doc.getElementsByTagName("jornada");
 
-            NodeList nodos = doc.getElementsByTagName("equipo");
-
-            equipos = new ArrayList<>();
+            jornadas = new ArrayList<>();
             for (int i = 0; i < nodos.getLength(); i++) {
-                System.out.println("equipo " + i);
-                //Guardamos en el array de equipos cada objeto equipo
-                equipos.add(getEquipos(nodos.item(i)));
+                System.out.println("jornada " + i);
+                //Guardamos en el array de jornadas cada objeto jornada
+                jornadas.add(getJornadas(nodos.item(i)));
             }
             
-            
-            //Mostramos por consola el array de equipos
-            for (Equipo oEquipo : equipos){
-                System.out.println(oEquipo.getNombre());
-                System.out.println(oEquipo.getPuntos());
+            //Mostramos por consola el array de jornadas
+            for (Jornada oJornada : jornadas){
+                System.out.println(oJornada.getIdJornada());
+                System.out.println(oJornada.getFechaInicio());
+                System.out.println(oJornada.getFechaFin());
             }
 
         } catch (SAXException | ParserConfigurationException | IOException e) {
@@ -78,17 +74,20 @@ public class ParserDomClasificacion {
     
    
 
-    private static Equipo getEquipos(Node nodo) {
+    private static Jornada getJornadas(Node nodo) {
 
-        Equipo oEquipo = new Equipo();
+        Jornada oJornada = new Jornada();
 
         if (nodo.getNodeType() == Node.ELEMENT_NODE) {
 
             Element element = (Element) nodo;
             
-            //nombre, puntos
-            oEquipo.setNombre(obtenerValor("nombre", element));
-            oEquipo.setPuntos(Integer.parseInt(obtenerValor("puntos", element)));
+            //Atributos de jornada -> id, fecha inicio, fecha fin
+            oJornada.setIdJornada(Integer.parseInt(element.getAttribute("id")));
+            oJornada.setFechaInicio(LocalDate.parse(element.getAttribute("fecha_inicio")));
+            oJornada.setFechaFin(LocalDate.parse(element.getAttribute("fecha_fin")));
+            
+            //set ArrayList partidos del objeto jornada
         }
 
         return oEquipo;
@@ -162,7 +161,7 @@ public class ParserDomClasificacion {
     }
     
     public static ArrayList<Equipo> getListaEquipos(){
-        return equipos;
+        return listaEquipos;
     }
     
     public static LocalDate getFechaActualizado(){
