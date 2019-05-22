@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.*;
 import modeloDB.*;
+import parserDOM.ParserDOMJornada;
 import parserDOM.ParserDomClasificacion;
 import vistas.*;
 
@@ -643,6 +644,15 @@ public class MainEsports {
     }
     
     public static void verificarActualizarXMLClasificacion() throws Exception{
+        
+//        ArrayList<Jornada> jornadas = new ArrayList();
+//        ParserDOMJornada.run();
+//        jornadas = ParserDOMJornada.getListaJornadas();
+//        System.out.println("JORNADAS " + jornadas.size());
+//        System.out.println(jornadas.get(0).getFechaInicio());
+        
+
+
         //Leemos el xml
         ParserDomClasificacion.run();
         //Obtenemos la fecha de ultimo actualizdo de la clasificacion desde el xml

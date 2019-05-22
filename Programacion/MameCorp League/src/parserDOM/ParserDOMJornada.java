@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -14,6 +13,7 @@ import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 import modelo.Equipo;
 import modelo.Jornada;
+import modelo.Partido;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -27,6 +27,8 @@ import org.xml.sax.SAXException;
 public class ParserDOMJornada {
     private static Element elementoRaiz;
     private static ArrayList<Jornada> jornadas;
+    private static ArrayList<Partido> partidos;
+    private static Document doc;
     
     
     public static void main(String args[]) throws Exception {
@@ -45,19 +47,19 @@ public class ParserDOMJornada {
             
             File datos = new File("../Jornada.xml");
             
-            Document doc = dBuilder.parse(datos);
+            doc = dBuilder.parse(datos);
             doc.getDocumentElement().normalize();
 
             System.out.println("Elemento raiz: " + doc.getDocumentElement().getNodeName());
             
             elementoRaiz = doc.getDocumentElement();
-            NodeList nodos = doc.getElementsByTagName("jornada");
+            NodeList nodosJornada = doc.getElementsByTagName("jornada");
 
             jornadas = new ArrayList<>();
-            for (int i = 0; i < nodos.getLength(); i++) {
+            for (int i = 0; i < nodosJornada.getLength(); i++) {
                 System.out.println("jornada " + i);
                 //Guardamos en el array de jornadas cada objeto jornada
-                jornadas.add(getJornadas(nodos.item(i)));
+                jornadas.add(getJornadas(nodosJornada.item(i)));
             }
             
             //Mostramos por consola el array de jornadas
@@ -86,11 +88,44 @@ public class ParserDOMJornada {
             oJornada.setIdJornada(Integer.parseInt(element.getAttribute("id")));
             oJornada.setFechaInicio(LocalDate.parse(element.getAttribute("fecha_inicio")));
             oJornada.setFechaFin(LocalDate.parse(element.getAttribute("fecha_fin")));
-            
+
             //set ArrayList partidos del objeto jornada
+            NodeList nodosPartido = doc.getElementsByTagName("partido");
+            
+            partidos = new ArrayList<>();
+            for (int i = 0; i < nodosPartido.getLength(); i++) {
+                System.out.println("partido " + i);
+                //Guardamos en el array de jornadas cada objeto jornada
+                partidos.add(getPartidos(nodosPartido.item(i)));
+            }  
         }
 
-        return oEquipo;
+        return oJornada;
+    }
+    
+    private static Partido getPartidos(Node nodo){
+        Partido oPartido = new Partido();
+        
+        if (nodo.getNodeType() == Node.ELEMENT_NODE) {
+
+            Element element = (Element) nodo;
+            
+            //Etiquetas dentro de partido
+            //Creamos un objeto equipo y le asignamos el nombre que leemos del xml. A continuacion lo asignamos al equipo local del partido.
+            Equipo oEquipoLocal = new Equipo();
+            oEquipoLocal.setNombre(obtenerValor("local", element));
+            oPartido.setEquipoLocal(oEquipoLocal);
+            
+            Equipo oEquipoVisitante = new Equipo();
+            oEquipoVisitante.setNombre(obtenerValor("visitante", element));
+            oPartido.setEquipoVisitante(oEquipoVisitante);
+            
+            Equipo oEquipoVencedor = new Equipo();
+            oEquipoVencedor.setNombre(obtenerValor("vencedor", element));
+            oPartido.setEquipoVencedor(oEquipoVencedor);
+        }
+
+        return oPartido;
     }
 
     /**
@@ -160,13 +195,8 @@ public class ParserDOMJornada {
         return valor;
     }
     
-    public static ArrayList<Equipo> getListaEquipos(){
-        return listaEquipos;
+    public static ArrayList<Jornada> getListaJornadas(){
+        return jornadas;
     }
-    
-    public static LocalDate getFechaActualizado(){
-        //DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate fechaActualizado = LocalDate.parse(elementoRaiz.getAttribute("fecha_actualizado"));
-        return fechaActualizado;
-    }
+ 
 }

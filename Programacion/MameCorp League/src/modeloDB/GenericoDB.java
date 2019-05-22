@@ -27,6 +27,7 @@ public class GenericoDB {
             
             //Conexiones adri
 
+
            String url="jdbc:oracle:thin:@localhost:1521:xe";
            con = DriverManager.getConnection(url,"course","myipod12");
                     
@@ -40,6 +41,7 @@ public class GenericoDB {
         
           //// con = DriverManager.getConnection(url,"course","course");
                 
+
 
 
             //Casa PETO

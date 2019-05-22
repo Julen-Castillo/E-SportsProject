@@ -25,6 +25,8 @@ public class Equipo {
 
     public Equipo() {
     }
+    
+    
 
     /**
      * Constructor lleno de equipo
