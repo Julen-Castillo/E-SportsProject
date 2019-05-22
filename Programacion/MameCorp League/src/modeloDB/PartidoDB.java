@@ -26,6 +26,13 @@ public class PartidoDB {
     private static Statement st;
     private static PreparedStatement ps;
     
+    /**
+     * Con este metodo insertamos un partido
+     * @param oPartido objeto partido
+     * @return retornamos el numero de filas afectadas
+     * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static int insertarPartido(Partido oPartido) throws SQLException, Exception{
 
         GenericoDB.conectar();
@@ -46,7 +53,13 @@ public class PartidoDB {
 
         return insercion;
     }
-    
+    /**
+     * con este metodo insertamos partidos sin vencedor
+     * @param oPartido recibimos un partido
+     * @return retornamos el numero de filas afectadas
+     * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static int insertarPartidoSinVencedor(Partido oPartido) throws SQLException, Exception{
 
         GenericoDB.conectar();
@@ -66,7 +79,14 @@ public class PartidoDB {
     }
     
     
-    
+    /**
+     * Con este metodo consultamos un partido
+     * @param listaJornadas
+     * @param listaEquipos
+     * @return retornamos un arraylist de partidos
+     * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static ArrayList<Partido> consultarPartidos(ArrayList<Jornada> listaJornadas, ArrayList<Equipo> listaEquipos) throws SQLException, Exception{
         
         GenericoDB.conectar(); 
@@ -114,7 +134,12 @@ public class PartidoDB {
         GenericoDB.cerrarCon();
         return listaPartidos;      
     }
-    
+    /**
+     * Con este metodo contamos los partidos
+     * @returnretornamos el numero de partidos
+     * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
      public static int consultarCountPartidos() throws SQLException, Exception{
         GenericoDB.conectar(); 
         
@@ -129,7 +154,14 @@ public class PartidoDB {
         GenericoDB.cerrarCon();
         return nPartidos;     
     }
-     
+     /**
+      * con este metodo updateamos los vencedores no simulador
+      * @param oPartido
+      * @param oEquipo
+      * @return retornamos un boolean
+      * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+      * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+      */
     public static boolean updateVencedorNoSimulados(Partido oPartido, Equipo oEquipo) throws SQLException, Exception{
         
         GenericoDB.conectar(); 

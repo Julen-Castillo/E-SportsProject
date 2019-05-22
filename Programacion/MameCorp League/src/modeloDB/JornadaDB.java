@@ -22,6 +22,13 @@ public class JornadaDB {
     private static ResultSet resultado;
     private static Statement st;
     
+    /**
+     * Con este metodo obtenemos el objeto de la jornada
+     * @param numeroJornada numero de la jornada(int)
+     * @return retornamos el objeto jornada
+     * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static Jornada getObjetoJornada(int numeroJornada) throws SQLException, Exception{
         
         GenericoDB.conectar(); 
@@ -47,6 +54,13 @@ public class JornadaDB {
         return null;       
     }
     
+    /**
+     * Con este metodo consultamos todas las jornadas
+     * @param oLiga objeto liga
+     * @return retornamos un arraylist con las jorandas
+     * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static ArrayList<Jornada> consultarJornadas(Liga oLiga) throws SQLException, Exception{
         
         GenericoDB.conectar(); 

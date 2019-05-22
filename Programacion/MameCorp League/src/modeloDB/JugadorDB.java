@@ -25,7 +25,12 @@ public class JugadorDB {
     private static ArrayList<Jugador> listaJugador;
     private static Equipo oEquipo;
     
-
+    /**
+     * con este metodo insertamos un jugador en la bd
+     * @param oJugador objeto jugador 
+     * @return retornamos un boolean para controlar la insert
+     * @throws SQLException  controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static boolean insertarJugadores(Jugador oJugador) throws SQLException{
         String plantilla = "Insert into jugador(nombre, apellido, nickname, posicion, sueldo, titularidad, equipo_id_equipo) values(?,?,?,?,?,?,?)";
         sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
@@ -47,7 +52,13 @@ public class JugadorDB {
         
         return insercion == 1;
     }
-
+    /**
+     * Con este metodo consultamos un jugador
+     * @param nick nickname del jugador a buscar(String)
+     * @return retornamos un objeto del jugador
+     * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static Jugador consultarJugador(String nick) throws SQLException, Exception{
  
         GenericoDB.conectar();
@@ -76,7 +87,15 @@ public class JugadorDB {
          GenericoDB.cerrarCon();
          return oJugador;
     }
-    
+    /**
+     * Con este metodo actualizamos los datos de un jugaor
+     * @param nickname nickname del jugador(String)
+     * @param sueldo nuevo sueldo(int)
+     * @param titularidad nueva posicion(boolean)
+     * @param posicion nueva posicion(String)
+     * @return retornamos el objeto
+     * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+     */
     public static Jugador modificarJugador(String nickname,int sueldo, boolean titularidad,String posicion) throws SQLException{
         GenericoDB.conectar();
         String plantilla = "update jugador set NICKNAME = ?, SUELDO = ?, TITULARIDAD = ?, POSICION = ? ";
@@ -92,6 +111,12 @@ public class JugadorDB {
           
     return null; //cambiar
 }
+    /**
+     * con este metodo damos de baja un jugador
+     * @param nickname nickname del jugador a borrar(String)
+     * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
 public static void darBajaJugador(String nickname) throws SQLException, Exception{
     
     GenericoDB.conectar();
@@ -125,7 +150,13 @@ public static void darBajaJugador(String nickname) throws SQLException, Exceptio
 //}
 //        return null;
 //}
-
+/**
+ * Con este metodo consultamos el equipo al que pertenece el jugador
+ * @param idEquipo id del equipo
+ * @return retornamos un arraylist de jugador 
+ * @throws SQLExceptioncontrolamos las excepciones por si hubiese algun tipo de error
+ * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+ */
 public static ArrayList<Jugador> consultarJugadorDelEquipo(int idEquipo) throws SQLException, Exception{
     
     GenericoDB.conectar();
