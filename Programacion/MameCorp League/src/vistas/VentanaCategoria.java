@@ -25,6 +25,8 @@ public class VentanaCategoria extends javax.swing.JFrame {
         setExtendedState(MAXIMIZED_BOTH);
         disableCRUD();
         setVisible(true); 
+        panelTA.setVisible(false);
+       
     }
 
     /**
@@ -54,6 +56,8 @@ public class VentanaCategoria extends javax.swing.JFrame {
         lConfirmacionSimular = new javax.swing.JLabel();
         bGenerarCalendario = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        panelTA = new javax.swing.JScrollPane();
+        taMostrarEquipos = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuCategoria = new javax.swing.JMenu();
@@ -320,7 +324,6 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bGenerarCalendario.setBorderPainted(false);
         bGenerarCalendario.setContentAreaFilled(false);
         bGenerarCalendario.setFocusPainted(false);
-        bGenerarCalendario.setOpaque(false);
         bGenerarCalendario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bGenerarCalendarioActionPerformed(evt);
@@ -336,6 +339,13 @@ public class VentanaCategoria extends javax.swing.JFrame {
         jLabel2.setText("GENERAR CALENDARIO");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(1540, 840, 270, 20);
+
+        taMostrarEquipos.setColumns(20);
+        taMostrarEquipos.setRows(5);
+        panelTA.setViewportView(taMostrarEquipos);
+
+        getContentPane().add(panelTA);
+        panelTA.setBounds(650, 250, 690, 150);
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
@@ -571,7 +581,18 @@ public class VentanaCategoria extends javax.swing.JFrame {
     }//GEN-LAST:event_bBajaActionPerformed
 
     private void bConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConsultarActionPerformed
-        // TODO add your handling code here:
+        try {
+          
+            String listaEquipos = MainEsports.llamarProcedureVisualizarEquipos();
+             
+             taMostrarEquipos.setText(listaEquipos);
+             taMostrarEquipos.setEditable(false);
+             panelTA.setVisible(true);
+             
+            
+        } catch (Exception ex) {
+            Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_bConsultarActionPerformed
 
     private void bAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAltaActionPerformed
@@ -813,5 +834,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
     private javax.swing.JMenuItem miLiga;
     private javax.swing.JMenuItem miPartidos;
     private javax.swing.JMenuItem miPresidentes;
+    private javax.swing.JScrollPane panelTA;
+    private javax.swing.JTextArea taMostrarEquipos;
     // End of variables declaration//GEN-END:variables
 }
