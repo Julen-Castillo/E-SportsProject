@@ -54,7 +54,7 @@ public class VentanaAdministradores extends javax.swing.JFrame {
         jMenuSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         panelOpaco.setLayout(null);
 
@@ -66,16 +66,19 @@ public class VentanaAdministradores extends javax.swing.JFrame {
         panelOpaco.add(tfPassword);
         tfPassword.setBounds(151, 445, 178, 25);
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("NOMBRE");
         panelOpaco.add(jLabel2);
-        jLabel2.setBounds(57, 319, 42, 14);
+        jLabel2.setBounds(57, 319, 80, 14);
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("PASSWORD");
         panelOpaco.add(jLabel3);
-        jLabel3.setBounds(57, 450, 57, 14);
+        jLabel3.setBounds(57, 450, 80, 14);
 
-        jLabel4.setText("ADMINISTRADOR");
         jLabel4.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("ADMINISTRADOR");
         panelOpaco.add(jLabel4);
         jLabel4.setBounds(108, 102, 206, 75);
 
@@ -94,12 +97,14 @@ public class VentanaAdministradores extends javax.swing.JFrame {
             }
         });
         panelOpaco.add(bAceptar);
-        bAceptar.setBounds(199, 986, 179, 55);
+        bAceptar.setBounds(160, 540, 170, 50);
 
-        getContentPane().add(panelOpaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 1110));
+        getContentPane().add(panelOpaco);
+        panelOpaco.setBounds(0, 0, 400, 1110);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgVentanaAdministradores/admin.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2030, 1080));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 2030, 1080);
 
         jMenuVolver.setText("Volver");
         jMenuBar1.add(jMenuVolver);

@@ -5,12 +5,10 @@
  */
 package vistas;
 
-import java.awt.Color;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import main.MainEsports;
 import modelo.Sesion;
+import java.applet.AudioClip;
 
 /**
  *
@@ -22,10 +20,15 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     private static Sesion oSesion;
-    
+    private static AudioClip sonido;
     public Login() {
         initComponents();
         setLocationRelativeTo(null);
+        
+        
+        sonido = java.applet.Applet.newAudioClip(getClass().getResource("/music/bso.wav"));
+        sonido.play();
+
     }
 
     /**
@@ -44,23 +47,30 @@ public class Login extends javax.swing.JFrame {
         tfNombre = new javax.swing.JTextField();
         bEntrar = new javax.swing.JButton();
         bRegistrarUsuario = new javax.swing.JButton();
+        bMusic = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         pFondoLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgLogin/Mamecorp White.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 250, 210));
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel1.setFocusable(false);
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(50, 20, 250, 210);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre de usuario:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(70, 250, 137, 17);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Contraseña:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, -1, -1));
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(70, 340, 85, 17);
 
         tfPassword.setBorder(null);
         tfPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +78,8 @@ public class Login extends javax.swing.JFrame {
                 tfPasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(tfPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 210, 30));
+        getContentPane().add(tfPassword);
+        tfPassword.setBounds(70, 370, 210, 30);
 
         tfNombre.setBorder(null);
         tfNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -76,15 +87,17 @@ public class Login extends javax.swing.JFrame {
                 tfNombreActionPerformed(evt);
             }
         });
-        getContentPane().add(tfNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 210, 30));
+        getContentPane().add(tfNombre);
+        tfNombre.setBounds(70, 280, 210, 30);
 
-        bEntrar.setText("Entrar");
+        bEntrar.setText("ENTRAR");
         bEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bEntrarActionPerformed(evt);
             }
         });
-        getContentPane().add(bEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, -1, -1));
+        getContentPane().add(bEntrar);
+        bEntrar.setBounds(200, 430, 80, 23);
 
         bRegistrarUsuario.setBackground(new java.awt.Color(0, 0, 0));
         bRegistrarUsuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -94,12 +107,29 @@ public class Login extends javax.swing.JFrame {
                 bRegistrarUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(bRegistrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 490, -1, -1));
+        getContentPane().add(bRegistrarUsuario);
+        bRegistrarUsuario.setBounds(70, 510, 210, 23);
+
+        bMusic.setBackground(new java.awt.Color(0, 0, 0));
+        bMusic.setOpaque(false);
+        bMusic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bMusicActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bMusic);
+        bMusic.setBounds(1080, 540, 33, 30);
+
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Silenciar");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(1020, 546, 70, 20);
 
         pFondoLogin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         pFondoLogin.setForeground(new java.awt.Color(255, 255, 255));
         pFondoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgLogin/fondologin (2).jpg"))); // NOI18N
-        getContentPane().add(pFondoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 1340, 580));
+        getContentPane().add(pFondoLogin);
+        pFondoLogin.setBounds(-220, -70, 1350, 670);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -146,6 +176,12 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfPasswordActionPerformed
 
+    private void bMusicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMusicActionPerformed
+        // TODO add your handling code here:
+        sonido.stop();
+
+    }//GEN-LAST:event_bMusicActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -183,10 +219,12 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bEntrar;
+    private javax.swing.JButton bMusic;
     private javax.swing.JButton bRegistrarUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel pFondoLogin;
     private javax.swing.JTextField tfNombre;
     private javax.swing.JPasswordField tfPassword;

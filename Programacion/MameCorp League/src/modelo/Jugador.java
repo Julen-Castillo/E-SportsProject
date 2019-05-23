@@ -21,8 +21,7 @@ public class Jugador {
     
     private Equipo oEquipo;
 
-    public Jugador(int idJugador, String nombre, String apellido, String nickname, String posicion, int sueldo, boolean titularidad, Equipo oEquipo) {
-        this.idJugador = idJugador;
+    public Jugador(String nombre, String apellido, String nickname, String posicion, int sueldo, boolean titularidad, Equipo oEquipo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.nickname = nickname;
@@ -31,6 +30,8 @@ public class Jugador {
         this.titularidad = titularidad;
         this.oEquipo = oEquipo;
     }
+
+    
 
     
     

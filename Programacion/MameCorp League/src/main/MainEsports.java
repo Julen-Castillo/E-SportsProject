@@ -2,7 +2,6 @@ package main;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.*;
@@ -39,31 +38,39 @@ public class MainEsports {
     private static Jornada oJornada;
     private static Liga oLiga;
     private static Equipo oEquipo;
+    private static ArrayList<Jornada> listaJornadas; //Para mostrar las jornadas en la ventan visualizacion
+    private static ArrayList<Partido> listaPartidos;
+    private static ArrayList<Jugador> listaJugadores;
+    private static ArrayList<Presidente> listaPresidentes;
     private static Presidente oPresidente;
+    private static boolean simular;
+    
 
     
     
     public static void main(String[] args) throws SQLException, Exception {
-    
         //La linea de abajo está comentada porque todavia no está implementado el login
         // ControladorVista.mostrarVentanaVisualizarLiga();
         GenericoDB.conectar();
         con =  GenericoDB.getCon();
         if(con != null){           
-            //crearRoundRobinEmparejamientos();
+            //crearRoundRobinEmparejamientos(true);
             ControladorVista.mostrarLogin();
         }
     }
+       
     
-    public static void consultarEquipos() throws Exception{
+    
+    public static ArrayList<Equipo> consultarEquipos() throws Exception{
 
         listaEquipos = EquipoDB.consultarTodos();
 
         for(int x=0; x < listaEquipos.size() ;x++){
             Equipo e = listaEquipos.get(x);
-            
             System.out.println("nombre " + e.getNombre() + " presupuesto " + e.getPresupuesto()+ " puntos " + e.getPuntos() + "\n");
-        }   
+        }
+        
+        return listaEquipos;
     }
     
     public static ArrayList consultarEquipoSinPresidente() throws Exception{
@@ -76,11 +83,26 @@ public class MainEsports {
     
     public static ArrayList<Jornada> consultarJornadas() throws SQLException, Exception{
         oLiga = LigaDB.getObjetoLiga();
-        return JornadaDB.consultarJornadas(oLiga);
+        listaJornadas = JornadaDB.consultarJornadas(oLiga); //Lo guardamos para reutilizarlo en consultar partidos dado que necesitamos los objetos jornada de cada partido.
+        return listaJornadas;
     }
     
-    public static ArrayList<Partido> consultarPartidos() throws Exception{
-        return PartidoDB.consultarPartidos(oLiga);
+    public static ArrayList<Jornada> consultarPartidosDeCadaJornada() throws Exception{
+        listaEquipos = EquipoDB.consultarTodos(); //Lo guardamos para reutilizaro en consultar partidos dado que necesitamos los objetos equipo de cada partido.
+        listaPartidos = PartidoDB.consultarPartidos(listaJornadas, listaEquipos);
+        int nPartido = 0; //llevamos el count de partidos asignados para a cada jornada asignarle los partidos 1, 2, 3 // 4, 5, 6.... en lugar de 1,2,3 // 1,2,3......
+        //Vamos a guardar la lista de partidos en cada objeto jornada.
+        for(int i = 0; i < listaJornadas.size(); i++){
+            for(int x = 0; x < 3; x++){ //3, dado que hay 3 partidos por jornada                 
+                listaJornadas.get(i).getListaPartidos().add(listaPartidos.get(nPartido));
+                nPartido++;
+            }
+        }
+        return listaJornadas;
+    }
+    
+    public static ArrayList<Equipo> getClasificacion() throws Exception{
+        return EquipoDB.getClasificacion();
     }
 
 
@@ -92,15 +114,41 @@ public class MainEsports {
         return equipoDB.insertarEquipo(e);  
 
     }
+     /**
+     * Aquí buscamos un equipo para las opciones borrar y modificar 
+     */
+    public static Equipo buscarEquipo(String nombreEquipo) throws Exception{
+        oEquipo = EquipoDB.buscarEquipo(nombreEquipo);
+        return oEquipo;
+    }
+    
+    public static int modificarEquipo(String nombre,int presupuesto, int puntos) throws Exception{
+       
+        int update = EquipoDB.modificarEquipo(oEquipo.getIdEquipo(),nombre,presupuesto,puntos);
+    
+         return update;
+    }
+    public static int borrarEquipo(String nombre,int presupuesto, int puntos) throws Exception{
+        oEquipo = EquipoDB.buscarEquipo(nombre);
+        return EquipoDB.borrarEquipo(oEquipo.getIdEquipo(),nombre,presupuesto,puntos);
+    
+    }
     public static int insertarAdministrador(String nombre,String password) throws Exception{
     
         oSesion = new Sesion(nombre,password);
         SesionDB sesionDB = new SesionDB();
         
         return SesionDB.insertarAdministrador(nombre,password);
-    
     }
-     public static int insertarPresidente(String nombrePresidente, String apellidoPresidente,int idEquipo) throws Exception {
+    public static int insertarUsuario(String nombre,String password) throws Exception{
+    
+        oSesion = new Sesion(nombre,password);
+        SesionDB sesionDB = new SesionDB();
+        
+        return SesionDB.insertarUsuario(nombre,password);
+    }
+    
+    public static int insertarPresidente(String nombrePresidente, String apellidoPresidente,String idEquipo) throws Exception {
          
        oEquipo = EquipoDB.consultarEquipoPresidente(idEquipo);
        oPresidente = new Presidente(nombrePresidente,apellidoPresidente,oEquipo);
@@ -109,12 +157,34 @@ public class MainEsports {
         return PresidenteDB.insertarPresi(oPresidente);
   
     }
-      
+     
+    public static void borrarPresidente(String nombre,String apellido) throws Exception{
+        oPresidente = PresidenteDB.consultarPresidente(nombre,apellido);
+        if (oPresidente == null) {
+
+
+        }
+        else {
+         int delete = PresidenteDB.borrarPresi(nombre,apellido);
+
+         if (delete > 0){
+             JOptionPane.showMessageDialog(null, delete + " filas eliminadas");
+         }
+
+        }
+    }
+     
+     
 
     public static Sesion comprobarLogin(String nombre,String password) throws Exception{
         return SesionDB.consultarUsuario(nombre,password);
     }
-    
+    public static ArrayList<Jugador> mostrarJugadores() throws Exception{
+        
+       // listaJugadores = JugadorDB.consultarJugador();
+        return listaJugadores;
+    } 
+            
     public static Jugador darBajaJugador(String nick) throws Exception{
        oJugador = JugadorDB.consultarJugador(nick);
        if (oJugador == null){
@@ -128,18 +198,54 @@ public class MainEsports {
        
        return oJugador;    
     }
-    public static Jugador modificarJugador(String nick,int sueldo,boolean titularidad, String posicion) throws Exception{
+    public static Jugador consultarJugadorABorrar(String nick) throws Exception{
+       return JugadorDB.consultarJugador(nick); 
+    }
+    public static Jugador consultarJugadorAModificar (String nick) throws Exception{
+        return JugadorDB.consultarJugador(nick);
+    }
+    public static Equipo buscarEquipoDelJugador(int equipoIdEquipo) throws SQLException, Exception{
+        return EquipoDB.consultarEquipoDelJugador(equipoIdEquipo);
+    }
+    public static void modificarJugador(String nick,int sueldo,boolean titularidad, String posicion) throws Exception{
         
         oJugador = JugadorDB.modificarJugador(nick,sueldo,titularidad,posicion);
         if (oJugador == null){
-        JOptionPane.showMessageDialog(null, "Este jugador no exisate");
-            return null;
+        JOptionPane.showMessageDialog(null, "Este jugador no existe");
+            
         }
+        
+    }
+    public static ArrayList<Equipo> mostrarEquipos() throws Exception{
+        
+        listaEquipos = EquipoDB.consultarTodos();
+        for(int i = 0; i < listaEquipos.size(); i++){
+            int idEquipo = listaEquipos.get(i).getIdEquipo();
+            listaJugadores = JugadorDB.consultarJugadorDelEquipo(idEquipo);
+            listaPresidentes = PresidenteDB.consultarPresidentesDelEquipo(idEquipo);
+            listaEquipos.get(i).setListaJugadores(listaJugadores);   
+            listaEquipos.get(i).setListaPresidentes(listaPresidentes);
+        }
+        
+        if(listaEquipos.size()>0){
+        
+        return listaEquipos;
+        } else {
         return null;
+        }
+    }
+    
+    public static void updateVencedorYpuntosNoSimulados(Partido oPartido, String equipoVencedor) throws Exception{
+        oEquipo = EquipoDB.buscarEquipo(equipoVencedor);
+        boolean updateCorrectoVencedor = PartidoDB.updateVencedorNoSimulados(oPartido, oEquipo);
+        boolean updateCorrectoPuntos = EquipoDB.updatePuntosEquipo(oPartido);
+        System.out.println(updateCorrectoVencedor);
+        System.out.println(updateCorrectoPuntos);
     }
     
     
-    public static void crearRoundRobinEmparejamientos() throws Exception{
+    public static void crearRoundRobinEmparejamientos(boolean simular) throws Exception{
+        MainEsports.simular = simular;
         //Obtenemos el objeto de la liga para meterlo dentro del objeto jornada posteriormente
         oLiga = LigaDB.getObjetoLiga();
         
@@ -180,6 +286,18 @@ public class MainEsports {
             //Pasamos a la siguiente jornada por lo que actualizamos el numero de jornada en el que nos encontramos.
             System.out.println("FIN DE LA JORNADA NUMERO: " + numeroJornada);
             numeroJornada++;
+        }
+        
+        //comprobamos que se ha simulado correctamente
+        int nPartidos = PartidoDB.consultarCountPartidos();
+        if(nPartidos == 30 && simular == true){
+            ControladorVista.simulacionCorrecta();
+        }
+        else if (nPartidos == 30 && simular == false){
+            ControladorVista.emparejamientosCorrectos();
+        }
+        else{
+            ControladorVista.simulacionError();
         }
     }
     
@@ -232,9 +350,16 @@ public class MainEsports {
             oPartido.setEquipoLocal(partido1.get(1));
             oPartido.setEquipoVisitante(partido1.get(0));   
         }
-        oPartido.setEquipoVencedor(partido1.get(randomWinner()));            
-        insertPartidos();
-        updatePuntosEquipo();
+        
+        //Chequear si vamos a simular el partido o no.
+        if(simular){
+            oPartido.setEquipoVencedor(partido1.get(randomWinner()));
+            insertPartidos();
+            updatePuntosEquipo();
+        }
+        else{
+            insertPartidos();
+        }
 
         
         //PARTIDO 2
@@ -255,9 +380,16 @@ public class MainEsports {
             oPartido.setEquipoLocal(partido2.get(0));
             oPartido.setEquipoVisitante(partido2.get(1));
         }
-        oPartido.setEquipoVencedor(partido2.get(randomWinner()));            
-        insertPartidos();
-        updatePuntosEquipo();
+        
+        //Chequear si vamos a simular el partido o no.
+        if(simular){
+            oPartido.setEquipoVencedor(partido2.get(randomWinner()));
+            insertPartidos();
+            updatePuntosEquipo();
+        }
+        else{
+            insertPartidos();
+        }
         
         //PARTIDO 3
         partido3 = new ArrayList();
@@ -277,9 +409,16 @@ public class MainEsports {
             oPartido.setEquipoLocal(partido3.get(1));
             oPartido.setEquipoVisitante(partido3.get(0));
         }
-        oPartido.setEquipoVencedor(partido1.get(randomWinner()));            
-        insertPartidos();
-        updatePuntosEquipo();
+        
+        //Chequear si vamos a simular el partido o no.
+        if(simular){
+            oPartido.setEquipoVencedor(partido3.get(randomWinner()));
+            insertPartidos();
+            updatePuntosEquipo();
+        }
+        else{
+            insertPartidos();
+        }
     }
     
     
@@ -287,7 +426,13 @@ public class MainEsports {
         oJornada.setoLiga(oLiga);
         oPartido.setoJornada(oJornada);
         //Insert partido
-        PartidoDB.insertarPartido(oPartido);
+        if(simular){
+            PartidoDB.insertarPartido(oPartido);
+        }
+        else{
+            PartidoDB.insertarPartidoSinVencedor(oPartido);
+        }
+        
 
         //Cambiamos el valor del bolean EquipoEstaticoEsLocal. Si esta jornada ha sido local la siguiente será visitante o viceversa. 
         EquipoEstaticoEsLocal = !EquipoEstaticoEsLocal;
@@ -300,5 +445,19 @@ public class MainEsports {
     public static int randomWinner(){
         int range = (1 - 0) + 1; 
         return (int)(Math.random() * range) + 0;
+    }
+
+    public static boolean insertarJugadores(String nombre, String apellido, String nickname, String posicion, int sueldo, boolean titularidad, int posicionEquipo) throws Exception {
+        //Obtenemos la lista de equipos
+        listaEquipos = EquipoDB.consultarTodos();
+        //Seleccionamos el elegido por el usuario
+        oEquipo = listaEquipos.get(posicionEquipo);
+        //Creamos el jugador
+        oJugador = new Jugador(nombre, apellido, nickname, posicion, sueldo, titularidad, oEquipo);
+        return JugadorDB.insertarJugadores(oJugador);
+    }
+
+    public static Jugador modificarJugador(String nickname) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 } 
