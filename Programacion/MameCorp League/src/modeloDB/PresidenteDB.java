@@ -7,7 +7,10 @@ package modeloDB;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import modelo.Equipo;
+import modelo.Jugador;
 import modelo.Presidente;
 
 /**
@@ -17,14 +20,20 @@ import modelo.Presidente;
 public class PresidenteDB {
     
      private static ResultSet resultado;
+     private static PreparedStatement sentencieaPre;
+     private static ArrayList<Presidente> listaPresidentes;
+     
 
+/**
+ * Con este metodo insertamos un presidente
+ * @param oPresidente recibimos un objeto
+ * @return retornamos el numero de filas afectadas
+ * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+ */
+    public static int insertarPresi(Presidente oPresidente)throws Exception{
+        GenericoDB.conectar();
 
-          public static int insertarPresi(Presidente oPresidente)throws Exception{
-
-
-   GenericoDB.conectar();
-
-        String plantilla = "insert into presidente values (?,?,?)";
+        String plantilla = "insert into presidente (nombre,apellido,equipo_id_equipo) values (?,?,?)";
         PreparedStatement sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
         
         sentenciaPre.setString(1, oPresidente.getNombre());
@@ -38,4 +47,91 @@ public class PresidenteDB {
       
        return insercion;
 } 
+  /**
+   * con este metodo cosultamos un presidente
+   * @param nombre nombre del presidente(String)
+   * @param apellido apellido del presidente(String)
+   * @return retornamos el objeto
+   * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+   * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+   */        
+    public static Presidente consultarPresidente(String nombre,String apellido) throws SQLException, Exception{
+ 
+        GenericoDB.conectar();
+    
+        String plantilla = "select NOMBRE from presidente where NOMBRE = ? and APELLIDO = ?";
+        PreparedStatement sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
+         
+          sentenciaPre.setString(1,nombre);
+          sentenciaPre.setString(2, apellido);
+          Presidente oPresidente = new Presidente();
+          resultado = sentenciaPre.executeQuery();
+          if(resultado.next()){
+              oPresidente.setNombre(resultado.getString("NOMBRE"));
+
+              PresidenteDB OPresidenteDB = new PresidenteDB();
+            //  Equipo oEquipo = oEquipoDB.consultarTodos()
+            //  oJugador.setoEquipo(resultado.getObject("EQUIPO"));
+              
+            GenericoDB.cerrarCon();
+            return oPresidente;
+          }
+          GenericoDB.cerrarCon();
+          return null;
+    }
+    /**
+     * con este metodo borramos un presidente
+     * @param nombre nombre del presidente a borrar(String)
+     * @param apellido apellido del presidente a boorar(String)
+     * @return retornamos el numero de finas afectadas
+     * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
+    public static int borrarPresi(String nombre, String apellido) throws SQLException, Exception{
+
+            GenericoDB.conectar();
+            String plantilla = "delete from presidente where nombre = ? and apellido = ?";
+            PreparedStatement sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
+            sentenciaPre.setString(1, nombre);
+            sentenciaPre.setString(2, apellido);
+
+            int delete = sentenciaPre.executeUpdate();
+            System.out.println(delete);        
+
+             GenericoDB.cerrarCon();   
+
+            return delete;
+    }
+    /**
+     * consultamos el presidente del equipo
+     * @param idEquipo id del equipo a buscar(int)
+     * @return retornamos un arraylist de presidenet
+     * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
+     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
+     */
+    public static ArrayList<Presidente> consultarPresidentesDelEquipo(int idEquipo) throws SQLException, Exception{
+    
+    GenericoDB.conectar();
+    
+    String plantilla = "select * from presidente where equipo_id_equipo = ?";
+    sentencieaPre = GenericoDB.getCon().prepareStatement(plantilla);
+    
+    sentencieaPre.setInt(1, idEquipo);
+    
+    resultado = sentencieaPre.executeQuery();
+    listaPresidentes = new ArrayList<>();
+    while(resultado.next()){
+        
+       Presidente oPresidente = new Presidente();
+        
+        oPresidente.setIdPresidente(resultado.getInt("id_presidente"));
+        oPresidente.setNombre(resultado.getString("nombre"));
+        oPresidente.setApellido(resultado.getString("nombre"));
+
+        listaPresidentes.add(oPresidente);
+    } 
+    GenericoDB.cerrarCon();
+   
+      return listaPresidentes;
+}
 }

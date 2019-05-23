@@ -1,18 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelo;
 
 import java.time.LocalDate;
 
 /**
- *
+ *  Representa un partido 
+ *  Un partido es disputado por dos equipos
+ *  Un equipo puede jugar varios partidos
+ *  Una jornada tiene varios partidos
+ *  Un partido pertenece a una sola jornada
  * @author 1gdaw01
  */
 public class Partido {
-    
+    /**
+     * Un partido contiene los equipos que lo disputan,el numero de jornada,el equipo vencedor, el tipo de partido que es, la fehca en la que se ha disputado
+     * las kills de ambos equipos 
+     * el oro ganado de ambos equipos
+     */
     private Equipo equipoLocal;
     private Equipo equipoVisitante;
     private Jornada oJornada;
@@ -25,6 +29,20 @@ public class Partido {
     private int oroEquipoLocal;
     private int oroEquipoVisitante;
 
+    /**
+     * El constructor lleno de Partido..
+     * @param equipoLocal equipo locar
+     * @param equipoVisitante equipo visitante
+     * @param oJornada numero de jornada
+     * @param equipoVencedor equipo vencedor de partido
+     * @param tipoPartido tipo de partido(liga/amistoso)
+     * @param fechaInicio fecha en la que se ha disputado
+     * @param fechaFin fecha en la que ha acabado(la resta de las dos fechas da la duracion del encuentro)
+     * @param killsEquipoLocal kills del equipo local
+     * @param killsEquipoVisitante kills del equipo visitante
+     * @param oroEquipoLocal oro obtenido por el equipo local
+     * @param oroEquipoVisitante  oro obtenido por el equipo visitante
+     */
     public Partido(Equipo equipoLocal, Equipo equipoVisitante, Jornada oJornada, Equipo equipoVencedor, String tipoPartido, LocalDate fechaInicio, LocalDate fechaFin, int killsEquipoLocal, int killsEquipoVisitante, int oroEquipoLocal, int oroEquipoVisitante) {
         this.equipoLocal = equipoLocal;
         this.equipoVisitante = equipoVisitante;

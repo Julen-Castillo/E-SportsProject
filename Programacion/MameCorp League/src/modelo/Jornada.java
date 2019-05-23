@@ -1,31 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelo;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
- *
+ *  Representa una jornada de una liga en la cual hay varios partidos
+ *  Una jornada está compuesta por varios partidos
  * @author 1gdaw01
  */
 public class Jornada {
-    
+    /**
+     * En una jornada controlamos el numero de jornada,la fecha de inicio y la fecha de finalización de la misma
+     */
     private int idJornada;
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
     
-    private ArrayList<Partido> listaPartidos;
+    private ArrayList<Partido> listaPartidos = new ArrayList();
     private Liga oLiga;
-
+    
+    /**
+     * Constructor jornada con los parametros 
+     * @param fechaInicio fecha de inicio de la jornada(LocaDate)
+     * @param fechaFin  fecha de finalización de la jornada(LocaDate)
+     */
     public Jornada(LocalDate fechaInicio, LocalDate fechaFin) {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
     }
 
+    /**
+     * Constructor vacio de Jornada
+     */
     public Jornada() {
     }
 

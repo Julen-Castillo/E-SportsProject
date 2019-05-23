@@ -3,6 +3,8 @@ package vistas;
 import java.awt.ComponentOrientation;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import main.MainEsports;
 
 /**
  *
@@ -23,6 +25,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         setExtendedState(MAXIMIZED_BOTH);
         disableCRUD();
         setVisible(true); 
+        panelTA.setVisible(false);
        
     }
 
@@ -48,6 +51,13 @@ public class VentanaCategoria extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         bLogOut = new javax.swing.JButton();
+        bNoSimular = new javax.swing.JButton();
+        bSimular = new javax.swing.JButton();
+        lConfirmacionSimular = new javax.swing.JLabel();
+        bGenerarCalendario = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        panelTA = new javax.swing.JScrollPane();
+        taMostrarEquipos = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuCategoria = new javax.swing.JMenu();
@@ -66,7 +76,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         jMenuSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         bJornadas.setBackground(new java.awt.Color(0, 102, 102));
         bJornadas.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -83,7 +93,8 @@ public class VentanaCategoria extends javax.swing.JFrame {
                 bJornadasActionPerformed(evt);
             }
         });
-        getContentPane().add(bJornadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 230, 50));
+        getContentPane().add(bJornadas);
+        bJornadas.setBounds(180, 160, 230, 50);
 
         bEquipos.setBackground(new java.awt.Color(0, 102, 102));
         bEquipos.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -99,7 +110,8 @@ public class VentanaCategoria extends javax.swing.JFrame {
                 bEquiposActionPerformed(evt);
             }
         });
-        getContentPane().add(bEquipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 260, 70));
+        getContentPane().add(bEquipos);
+        bEquipos.setBounds(160, 320, 260, 70);
 
         bJugadores.setBackground(new java.awt.Color(0, 102, 102));
         bJugadores.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -115,7 +127,8 @@ public class VentanaCategoria extends javax.swing.JFrame {
                 bJugadoresActionPerformed(evt);
             }
         });
-        getContentPane().add(bJugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, 260, 50));
+        getContentPane().add(bJugadores);
+        bJugadores.setBounds(170, 420, 260, 50);
 
         bPartidos.setBackground(new java.awt.Color(0, 102, 102));
         bPartidos.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -131,7 +144,8 @@ public class VentanaCategoria extends javax.swing.JFrame {
                 bPartidosActionPerformed(evt);
             }
         });
-        getContentPane().add(bPartidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 230, 60));
+        getContentPane().add(bPartidos);
+        bPartidos.setBounds(180, 240, 230, 60);
 
         bPresidentes.setBackground(new java.awt.Color(0, 102, 102));
         bPresidentes.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -147,7 +161,8 @@ public class VentanaCategoria extends javax.swing.JFrame {
                 bPresidentesActionPerformed(evt);
             }
         });
-        getContentPane().add(bPresidentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 500, 290, 70));
+        getContentPane().add(bPresidentes);
+        bPresidentes.setBounds(160, 500, 290, 70);
 
         bLiga.setBackground(new java.awt.Color(255, 255, 255));
         bLiga.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -168,7 +183,8 @@ public class VentanaCategoria extends javax.swing.JFrame {
                 bLigaActionPerformed(evt);
             }
         });
-        getContentPane().add(bLiga, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 190, 60));
+        getContentPane().add(bLiga);
+        bLiga.setBounds(180, 70, 190, 60);
 
         bAlta.setBackground(new java.awt.Color(255, 255, 255));
         bAlta.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -184,7 +200,8 @@ public class VentanaCategoria extends javax.swing.JFrame {
                 bAltaActionPerformed(evt);
             }
         });
-        getContentPane().add(bAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 250, 60));
+        getContentPane().add(bAlta);
+        bAlta.setBounds(160, 160, 250, 60);
 
         bModificar.setBackground(new java.awt.Color(255, 255, 255));
         bModificar.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -200,7 +217,8 @@ public class VentanaCategoria extends javax.swing.JFrame {
                 bModificarActionPerformed(evt);
             }
         });
-        getContentPane().add(bModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 240, 60));
+        getContentPane().add(bModificar);
+        bModificar.setBounds(180, 260, 240, 60);
 
         bBaja.setBackground(new java.awt.Color(255, 255, 255));
         bBaja.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -216,7 +234,8 @@ public class VentanaCategoria extends javax.swing.JFrame {
                 bBajaActionPerformed(evt);
             }
         });
-        getContentPane().add(bBaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 270, 60));
+        getContentPane().add(bBaja);
+        bBaja.setBounds(150, 350, 270, 60);
 
         bConsultar.setBackground(new java.awt.Color(255, 255, 255));
         bConsultar.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -232,28 +251,107 @@ public class VentanaCategoria extends javax.swing.JFrame {
                 bConsultarActionPerformed(evt);
             }
         });
-        getContentPane().add(bConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 440, 230, 60));
+        getContentPane().add(bConsultar);
+        bConsultar.setBounds(170, 440, 270, 60);
 
         jLabel3.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1760, 40, 100, -1));
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(1760, 40, 100, 24);
 
         jLabel5.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("jLabel3:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1638, 40, 110, -1));
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(1638, 40, 110, 24);
 
+        bLogOut.setBackground(new java.awt.Color(255, 0, 0));
+        bLogOut.setForeground(new java.awt.Color(255, 255, 255));
         bLogOut.setText("Log Out!");
+        bLogOut.setBorder(null);
+        bLogOut.setBorderPainted(false);
+        bLogOut.setFocusPainted(false);
         bLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bLogOutActionPerformed(evt);
             }
         });
-        getContentPane().add(bLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1750, 130, -1, -1));
+        getContentPane().add(bLogOut);
+        bLogOut.setBounds(1735, 130, 90, 30);
 
+        bNoSimular.setBackground(new java.awt.Color(0, 153, 153));
+        bNoSimular.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        bNoSimular.setForeground(new java.awt.Color(255, 255, 255));
+        bNoSimular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/play.png"))); // NOI18N
+        bNoSimular.setText("  NO SIMULAR");
+        bNoSimular.setBorder(null);
+        bNoSimular.setBorderPainted(false);
+        bNoSimular.setContentAreaFilled(false);
+        bNoSimular.setFocusPainted(false);
+        bNoSimular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bNoSimularActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bNoSimular);
+        bNoSimular.setBounds(380, 220, 200, 70);
+
+        bSimular.setBackground(new java.awt.Color(0, 153, 153));
+        bSimular.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        bSimular.setForeground(new java.awt.Color(255, 255, 255));
+        bSimular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/simular.png"))); // NOI18N
+        bSimular.setText("SIMULAR");
+        bSimular.setBorder(null);
+        bSimular.setBorderPainted(false);
+        bSimular.setContentAreaFilled(false);
+        bSimular.setFocusPainted(false);
+        bSimular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSimularActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bSimular);
+        bSimular.setBounds(120, 210, 170, 90);
+
+        lConfirmacionSimular.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lConfirmacionSimular.setForeground(new java.awt.Color(255, 255, 255));
+        lConfirmacionSimular.setText("SIMULADA CORRECTAMENTE");
+        getContentPane().add(lConfirmacionSimular);
+        lConfirmacionSimular.setBounds(230, 390, 290, 40);
+
+        bGenerarCalendario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/Jornada.png"))); // NOI18N
+        bGenerarCalendario.setBorderPainted(false);
+        bGenerarCalendario.setContentAreaFilled(false);
+        bGenerarCalendario.setFocusPainted(false);
+        bGenerarCalendario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bGenerarCalendarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bGenerarCalendario);
+        bGenerarCalendario.setBounds(1640, 870, 80, 70);
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("GENERAR CALENDARIO");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(1540, 840, 270, 20);
+
+        taMostrarEquipos.setColumns(20);
+        taMostrarEquipos.setRows(5);
+        panelTA.setViewportView(taMostrarEquipos);
+
+        getContentPane().add(panelTA);
+        panelTA.setBounds(650, 250, 690, 150);
+
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/FondoCategoria.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-260, -630, 3500, 2650));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(-260, -630, 3500, 2650);
 
         jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -414,7 +512,11 @@ public class VentanaCategoria extends javax.swing.JFrame {
                }
                else {
                  if  (operacionActiva.equals("equipo")){
+                    try {
                     ControladorVista.mostrarVentanaEquipos("modificar");
+                    }catch (Exception ex) {
+                         Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+                    }                 
                }
                }
            }
@@ -438,37 +540,40 @@ public class VentanaCategoria extends javax.swing.JFrame {
 
     private void bLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLigaActionPerformed
        operacionActiva = "liga";
-        ocultarBotonesYMostrarCrud();
-       // this.dispose();
-        //ControladorVista.mostrarVentanaLiga();
-        
+        ocultarBotonesYMostrarSimular();        
     }//GEN-LAST:event_bLigaActionPerformed
 
     private void bBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBajaActionPerformed
            this.dispose();
-       if (operacionActiva.equals("liga")){
-            ControladorVista.mostrarVentanaLiga("baja");   
-       }
-       else {
-           if (operacionActiva.equals("jugador")){
-               try {
-                   ControladorVista.mostrarVentanaJugador("baja");
-               } catch (Exception ex) {
-                   Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
-               }
-           }
-           else {
-               if (operacionActiva.equals("presidente")){
-                   try {
-                       ControladorVista.mostrarVentanaPresidente("baja");
-                   } catch (Exception ex) {
-                       Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
-                   }
-               }
-               else {
-                 if  (operacionActiva.equals("equipo")){
-                    ControladorVista.mostrarVentanaEquipos("baja");
-               }
+        if (operacionActiva.equals("liga")){
+             ControladorVista.mostrarVentanaLiga("baja");   
+        }
+        else {
+            if (operacionActiva.equals("jugador")){
+                try {
+                    ControladorVista.mostrarVentanaJugador("baja");
+                } catch (Exception ex) {
+                    Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        else {
+            if (operacionActiva.equals("presidente")){
+                try {
+                    ControladorVista.mostrarVentanaPresidente("baja");
+                } catch (Exception ex) {
+                    Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        else {
+          if  (operacionActiva.equals("equipo")){
+              try {
+                  ControladorVista.mostrarVentanaEquipos("baja");
+                  
+              } catch (Exception ex) {
+                  Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+              }
+
+        }
                }
            }
        }
@@ -476,7 +581,18 @@ public class VentanaCategoria extends javax.swing.JFrame {
     }//GEN-LAST:event_bBajaActionPerformed
 
     private void bConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConsultarActionPerformed
-        // TODO add your handling code here:
+        try {
+          
+            String listaEquipos = MainEsports.llamarProcedureVisualizarEquipos();
+             
+             taMostrarEquipos.setText(listaEquipos);
+             taMostrarEquipos.setEditable(false);
+             panelTA.setVisible(true);
+             
+            
+        } catch (Exception ex) {
+            Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_bConsultarActionPerformed
 
     private void bAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAltaActionPerformed
@@ -503,7 +619,11 @@ public class VentanaCategoria extends javax.swing.JFrame {
                }
                else {
                  if  (operacionActiva.equals("equipo")){
-                    ControladorVista.mostrarVentanaEquipos("alta");
+                     try {
+                         ControladorVista.mostrarVentanaEquipos("alta");
+                     } catch (Exception ex) {
+                         Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+                     }
                }
                  else {
                      if (operacionActiva.equals("jornada")){
@@ -560,8 +680,36 @@ public class VentanaCategoria extends javax.swing.JFrame {
         this.dispose();
         ControladorVista.mostrarLogin();
     }//GEN-LAST:event_bLogOutActionPerformed
+
+    private void bSimularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSimularActionPerformed
+        try {
+            MainEsports.crearRoundRobinEmparejamientos(true);
+        } catch (Exception ex) {
+            Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bSimularActionPerformed
+
+    private void bNoSimularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNoSimularActionPerformed
+        try {
+            MainEsports.crearRoundRobinEmparejamientos(false);
+        } catch (Exception ex) {
+            Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bNoSimularActionPerformed
+
+    private void bGenerarCalendarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGenerarCalendarioActionPerformed
+        JOptionPane.showMessageDialog(this, "Calendario creado correctamente");
+        try {
+            MainEsports.generarCalendario();
+        } catch (Exception ex) {
+            Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bGenerarCalendarioActionPerformed
     
     public final void disableCRUD(){
+        lConfirmacionSimular.setVisible(false);
+        bSimular.setVisible(false);
+        bNoSimular.setVisible(false);
         bAlta.setVisible(false);
         bModificar.setVisible(false);
         bBaja.setVisible(false);
@@ -582,6 +730,18 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bPresidentes.setVisible(false);
     }
     
+    public void ocultarBotonesYMostrarSimular(){
+        bSimular.setVisible(true);
+        bNoSimular.setVisible(true);
+        
+        bLiga.setVisible(false);
+        bJornadas.setVisible(false);
+        bPartidos.setVisible(false);
+        bEquipos.setVisible(false);
+        bJugadores.setVisible(false);
+        bPresidentes.setVisible(false);
+    }
+    
     public void showCategorias(){
         bLiga.setVisible(true);
         bJornadas.setVisible(true);
@@ -590,6 +750,20 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bJugadores.setVisible(true);
         bPresidentes.setVisible(true);
     }
+    
+    public void simulacionCorrecta(){
+        lConfirmacionSimular.setText("Successful simulation!");
+        lConfirmacionSimular.setVisible(true);
+    }
+    public void simulacionError(){
+        lConfirmacionSimular.setText("Error en la simulacion");
+        lConfirmacionSimular.setVisible(true);
+    }
+    public void emparejamientosCorrectos(){
+        lConfirmacionSimular.setText("Emparejamientos realizados");
+        lConfirmacionSimular.setVisible(true);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -630,14 +804,18 @@ public class VentanaCategoria extends javax.swing.JFrame {
     private javax.swing.JButton bBaja;
     private javax.swing.JButton bConsultar;
     private javax.swing.JButton bEquipos;
+    private javax.swing.JButton bGenerarCalendario;
     private javax.swing.JButton bJornadas;
     private javax.swing.JButton bJugadores;
     private javax.swing.JButton bLiga;
     private javax.swing.JButton bLogOut;
     private javax.swing.JButton bModificar;
+    private javax.swing.JButton bNoSimular;
     private javax.swing.JButton bPartidos;
     private javax.swing.JButton bPresidentes;
+    private javax.swing.JButton bSimular;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuBar jMenuBar1;
@@ -646,6 +824,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuSalir;
     private javax.swing.JMenu jMenuUsuarios;
     private javax.swing.JMenu jMenuVolver;
+    private javax.swing.JLabel lConfirmacionSimular;
     private javax.swing.JMenuItem miAdministradores;
     private javax.swing.JMenuItem miConsultar;
     private javax.swing.JMenuItem miEliminar;
@@ -655,5 +834,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
     private javax.swing.JMenuItem miLiga;
     private javax.swing.JMenuItem miPartidos;
     private javax.swing.JMenuItem miPresidentes;
+    private javax.swing.JScrollPane panelTA;
+    private javax.swing.JTextArea taMostrarEquipos;
     // End of variables declaration//GEN-END:variables
 }

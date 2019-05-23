@@ -36,25 +36,24 @@ public class VentanaModUsuarios extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenuVolver = new javax.swing.JMenu();
-        jMenuSalir = new javax.swing.JMenu();
+        miVolver = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         jLabel2.setText("NOMBRE");
 
         jLabel4.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel4.setText("USUARIO");
 
-        bAceptar.setText("VOLVER");
         bAceptar.setBackground(new java.awt.Color(83, 175, 226));
+        bAceptar.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        bAceptar.setForeground(new java.awt.Color(255, 255, 255));
+        bAceptar.setText("VOLVER");
         bAceptar.setBorder(null);
         bAceptar.setContentAreaFilled(false);
         bAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bAceptar.setFocusPainted(false);
-        bAceptar.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        bAceptar.setForeground(new java.awt.Color(255, 255, 255));
         bAceptar.setOpaque(true);
         bAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,34 +98,35 @@ public class VentanaModUsuarios extends javax.swing.JFrame {
                 .addGap(69, 69, 69))
         );
 
-        getContentPane().add(panelOpaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 1110));
+        getContentPane().add(panelOpaco);
+        panelOpaco.setBounds(0, 0, 400, 1110);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgVentanaAdministradores/admin.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2030, 1080));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 2030, 1080);
 
-        jMenuVolver.setText("Volver");
-        jMenuBar1.add(jMenuVolver);
-
-        jMenuSalir.setText("Salir");
-        jMenuSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+        miVolver.setText("Volver");
+        miVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuSalirMouseClicked(evt);
+                miVolverMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenuSalir);
+        jMenuBar1.add(miVolver);
 
         setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSalirMouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_jMenuSalirMouseClicked
-
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
 
     }//GEN-LAST:event_bAceptarActionPerformed
+
+    private void miVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miVolverMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        ControladorVista.mostrarVentanaCategoria();
+    }//GEN-LAST:event_miVolverMouseClicked
 
     /**
      * @param args the command line arguments
@@ -173,8 +173,7 @@ public class VentanaModUsuarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenu jMenuSalir;
-    private javax.swing.JMenu jMenuVolver;
+    private javax.swing.JMenu miVolver;
     private javax.swing.JPanel panelOpaco;
     // End of variables declaration//GEN-END:variables
 }

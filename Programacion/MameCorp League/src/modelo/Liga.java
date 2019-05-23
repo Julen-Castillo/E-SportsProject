@@ -9,11 +9,15 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
- *
+ *  Representa a una Liga 
+ *  Una liga esta compuesta por varias jornadas
+ *  Las jornadas son disputadas por distintos equipos
  * @author 1gdaw01
  */
 public class Liga {
-    
+    /**
+     * La liga se identifica por un id, el nombre, la fecha de inicio y la fecha de fin y un controlador para saber si esstá en curso o no
+     */
     private int idLiga;
     private String nombre;
     private LocalDate fechaInicio;
@@ -22,6 +26,14 @@ public class Liga {
 
     private ArrayList<Jornada> listaJornadas;
 
+    /**
+     * Constructor con parametros de Liga
+     * @param nombre nombre de la liga(String)
+     * @param fechaInicio fecha en la que se inicia la liga(LocalDate)
+     * @param fechaFin fecha en la que finaliza la liga(LocalDate)
+     * @param enCurso controlador para saber si la liga está en curso o está parada(Boolean)
+     * @param listaJornadas  una lista con las jornadas que componen la liga(ArrayList)
+     */
     public Liga(String nombre, LocalDate fechaInicio, LocalDate fechaFin, boolean enCurso, ArrayList<Jornada> listaJornadas) {
         this.nombre = nombre;
         this.fechaInicio = fechaInicio;

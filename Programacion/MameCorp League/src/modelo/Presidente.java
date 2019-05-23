@@ -6,17 +6,27 @@
 package modelo;
 
 /**
- *
+ *  Representa un presidente de un equipo 
+ *  Un equipo tiene un unico presidente
+ *  Un presidente representa a un solo equipo
  * @author 1gdaw01
  */
 public class Presidente {
-    
+    /**
+     * Un presidente tine una id, un nombre y un apellido
+     */
     private int idPresidente;
     private String nombre;
     private String apellido;
    
     private Equipo oEquipo;
 
+    /**
+     * El constructor lleno de presidente contiene los siguentes parametros
+     * @param nombre nombre del presidente(String)
+     * @param apellido Apellido del presidente(String)
+     * @param oEquipo Equipo al que representta como presidente(Equipo)
+     */
     public Presidente(String nombre, String apellido, Equipo oEquipo) {
         this.nombre = nombre;
         this.apellido = apellido;
