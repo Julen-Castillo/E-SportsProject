@@ -29,21 +29,26 @@ public class VentanaJugador extends javax.swing.JFrame {
   private Jugador oJugador;
   private ArrayList<Equipo>listaEquipos;
   private int respuesta;
+  private Equipo oEquipo;
+  private String nickname;
 
     /**
      * Creates new form VentanaJugador
      */
     public VentanaJugador(String operacionActiva) throws Exception {
-        setUndecorated(true);
+        //setUndecorated(true);
         initComponents();
         setAlwaysOnTop(rootPaneCheckingEnabled);
         setExtendedState(MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(255,255,255,190));
         operacion = operacionActiva;
-        llenarCbEquipos();
+        if(operacion.equals("modificar")){
+            llenarCbEquipoModJugador();
+        }
+        else{
+            llenarCbEquipos();
+        }
         mostrarOocultarfields();
-        
-      
     }
    
     public VentanaJugador() {
@@ -61,6 +66,20 @@ public class VentanaJugador extends javax.swing.JFrame {
             tfNombre.setEnabled(false);
             tfApellido.setEnabled(false);
             cbEquipo.setEnabled(false);
+
+            oJugador = MainEsports.consultarJugadorAModificar(nickname);
+            tfNombre.setText(oJugador.getNombre());
+            tfApellido.setText(oJugador.getApellido());
+            tfNick.setText(oJugador.getNickname());
+            tfSueldo.setText(String.valueOf(oJugador.getSueldo()));
+            if(oJugador.isTitularidad()){
+                rbSi.setSelected(true);
+            }
+            else{
+                rbNo.setSelected(true);
+            }
+            cbPosicion.setSelectedItem(oJugador.getPosicion().toLowerCase());
+            
         }
         else if(operacion.equals("baja")){ 
             rbSi.setEnabled(false);
@@ -71,7 +90,7 @@ public class VentanaJugador extends javax.swing.JFrame {
             tfApellido.setEnabled(false);
             cbPosicion.setEnabled(false);
             cbEquipo.setEnabled(false);
-            String nickAEliminar = JOptionPane.showInputDialog(null, "Introduce el nickname del jugador a eliminar");
+            String nickAEliminar = JOptionPane.showInputDialog(this, "Introduce el nickname del jugador a eliminar");
             oJugador = MainEsports.consultarJugadorABorrar(nickAEliminar);
 
             tfNombre.setText(oJugador.getNombre());
@@ -90,7 +109,11 @@ public class VentanaJugador extends javax.swing.JFrame {
     }
     
     
-
+    public void llenarCbEquipoModJugador() throws Exception{
+        nickname = JOptionPane.showInputDialog(this, "Introduce el nickname del jugador a modifcar");
+        oEquipo = MainEsports.llenarCbEquipoModJugador(nickname);
+        cbEquipo.addItem(oEquipo.getNombre());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -188,7 +211,7 @@ public class VentanaJugador extends javax.swing.JFrame {
         panelOpaco.add(bAceptar);
         bAceptar.setBounds(220, 1100, 140, 40);
 
-        cbPosicion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toplaner", "Jungler", "Midlaner", "Ad Carry", "Support" }));
+        cbPosicion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toplaner", "Jungler", "Midlaner", "adcarry", "Support" }));
         cbPosicion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbPosicionActionPerformed(evt);
@@ -258,14 +281,14 @@ public class VentanaJugador extends javax.swing.JFrame {
 
                     boolean insert = MainEsports.insertarJugadores(tfNombre.getText(), tfApellido.getText(), tfNick.getText(), cbPosicion.getSelectedItem().toString(), Integer.parseInt(tfSueldo.getText()), titularidad, cbEquipo.getSelectedIndex());
                     if(insert){
-                        JOptionPane.showMessageDialog(null, "Insert correcta");
+                        JOptionPane.showMessageDialog(this, "Insert correcta");
                     }
                     else{
-                        JOptionPane.showMessageDialog(null, "Problemas con la insert");
+                        JOptionPane.showMessageDialog(this, "Problemas con la insert");
                     }
                 }
                 else {
-                    JOptionPane.showMessageDialog(null,"En los campos 'NOMBRE' Y 'APELLIDO' la primera letra debe ser Mayuscula y no se admiten numeros ni caracteres especiales");
+                    JOptionPane.showMessageDialog(this,"En los campos 'NOMBRE' Y 'APELLIDO' la primera letra debe ser Mayuscula y no se admiten numeros ni caracteres especiales");
                 }
             } catch (Exception ex) {
                 Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
@@ -275,13 +298,16 @@ public class VentanaJugador extends javax.swing.JFrame {
         else if (operacion.equals("baja")){
         respuesta =  JOptionPane.showConfirmDialog(this, "Estas segur@ que quieres dar de baja a " + tfNick.getText()+ " ?") ;
 
-        if (respuesta == 0) {
-            try {
-                MainEsports.darBajaJugador(tfNick.getText());
-            } catch (Exception ex) {
-                Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } 
+            if (respuesta == 0) {
+                try {
+                    MainEsports.darBajaJugador(tfNick.getText());
+                    this.dispose();
+                    ControladorVista.mostrarVentanaCategoria();
+                } catch (Exception ex) {
+                    Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } 
+        }
         else if (operacion.equals("modificar")){                   
                 if(rbSi.isSelected()){
                     titularidad = true;
@@ -289,8 +315,7 @@ public class VentanaJugador extends javax.swing.JFrame {
                 else {
                     titularidad = false;
                 }
-            
-        }
+        
                 switch (cbPosicion.getSelectedIndex()){
                     case 0:
                         posicion = "Toplaner";
@@ -310,15 +335,20 @@ public class VentanaJugador extends javax.swing.JFrame {
               }
         
            try { //if(operacion.equals("modificar")){
-               String nickname = JOptionPane.showInputDialog("Escribe el nickname del jugador que quieres modificar"); 
-              oJugador = MainEsports.consultarJugadorAModificar(nickname);
+               
           // }
                if(oJugador == null){
-                   JOptionPane.showMessageDialog(null, "No existe tal jugador");
+                   JOptionPane.showMessageDialog(this, "No existe tal jugador");
                }
                else {
-                  llenarFields();
-                  MainEsports.modificarJugador(tfNick.getText(),Integer.parseInt(tfSueldo.getText()),titularidad,posicion);
+                   
+                   boolean updateCorrecto = MainEsports.modificarJugador(tfNick.getText(),Integer.parseInt(tfSueldo.getText()),titularidad,posicion, oJugador.getNickname());
+                   if(updateCorrecto){
+                       JOptionPane.showMessageDialog(this, "Nice, jugador modificado");
+                   } 
+                   else{
+                       JOptionPane.showMessageDialog(this, "Errores en el update");
+                   }
                }
  
           } catch (Exception ex) {
@@ -328,7 +358,7 @@ public class VentanaJugador extends javax.swing.JFrame {
              tfNick.setText("");
         
          }
-       }
+    }
    
     }//GEN-LAST:event_bAceptarActionPerformed
 
@@ -347,7 +377,7 @@ public class VentanaJugador extends javax.swing.JFrame {
     }//GEN-LAST:event_miVolverMouseClicked
 
     private boolean validarFields (){
-         Pattern patron = Pattern.compile("^[A-Z][a-z]{15}");
+         Pattern patron = Pattern.compile("^[A-Z][a-z]{1,}");
                 Matcher encaja = patron.matcher(tfNombre.getText());
                 Matcher encaja2 = patron.matcher(tfApellido.getText());
                 

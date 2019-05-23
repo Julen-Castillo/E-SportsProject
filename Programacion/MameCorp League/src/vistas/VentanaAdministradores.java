@@ -107,6 +107,11 @@ public class VentanaAdministradores extends javax.swing.JFrame {
         jLabel1.setBounds(0, 0, 2030, 1080);
 
         jMenuVolver.setText("Volver");
+        jMenuVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuVolverActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenuVolver);
 
         jMenuSalir.setText("Salir");
@@ -146,6 +151,11 @@ public class VentanaAdministradores extends javax.swing.JFrame {
         
     
     }//GEN-LAST:event_bAceptarActionPerformed
+
+    private void jMenuVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuVolverActionPerformed
+        this.dispose();
+        ControladorVista.mostrarVentanaCategoria();
+    }//GEN-LAST:event_jMenuVolverActionPerformed
     public  void mostrarOcultarFields(){
         
         switch (opcionActiva){

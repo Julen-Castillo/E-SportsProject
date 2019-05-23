@@ -2,6 +2,7 @@ package vistas;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import main.MainEsports;
 
 /**
  *
@@ -20,6 +21,10 @@ public class VentanaUsuarios extends javax.swing.JFrame {
         initComponents();
         setAlwaysOnTop(rootPaneCheckingEnabled);
         setExtendedState(MAXIMIZED_BOTH);
+        
+        String hola = MainEsports.getNombreUser();
+        lUser.setText(hola);
+        lTipo.setText("Usuario :");
     }
 
     /**
@@ -34,8 +39,8 @@ public class VentanaUsuarios extends javax.swing.JFrame {
         bJornadas = new javax.swing.JButton();
         bEquipos = new javax.swing.JButton();
         bLiga = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lTipo = new javax.swing.JLabel();
+        lUser = new javax.swing.JLabel();
         bLogOut = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -106,18 +111,18 @@ public class VentanaUsuarios extends javax.swing.JFrame {
         getContentPane().add(bLiga);
         bLiga.setBounds(320, 150, 190, 60);
 
-        jLabel3.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(1760, 40, 100, 24);
+        lTipo.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
+        lTipo.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lTipo);
+        lTipo.setBounds(1490, 40, 150, 30);
 
-        jLabel5.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("jLabel3:");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(1638, 40, 110, 24);
+        lUser.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
+        lUser.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lUser);
+        lUser.setBounds(1620, 40, 130, 30);
 
+        bLogOut.setBackground(new java.awt.Color(255, 51, 51));
+        bLogOut.setForeground(new java.awt.Color(255, 255, 255));
         bLogOut.setText("Log Out");
         bLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +130,7 @@ public class VentanaUsuarios extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bLogOut);
-        bLogOut.setBounds(1717, 130, 110, 32);
+        bLogOut.setBounds(1717, 130, 110, 23);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/imgVentanaCategoria/FondoCategoria.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -308,12 +313,12 @@ public class VentanaUsuarios extends javax.swing.JFrame {
     private javax.swing.JButton bLiga;
     private javax.swing.JButton bLogOut;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCategoria;
     private javax.swing.JMenu jMenuSalir;
     private javax.swing.JMenu jMenuVolver;
+    private javax.swing.JLabel lTipo;
+    private javax.swing.JLabel lUser;
     private javax.swing.JMenuItem miEquipos;
     private javax.swing.JMenuItem miJornadas;
     private javax.swing.JMenuItem miLiga;

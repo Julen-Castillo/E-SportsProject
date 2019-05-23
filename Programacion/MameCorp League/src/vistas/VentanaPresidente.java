@@ -9,10 +9,10 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import main.MainEsports;
 import modelo.Equipo;
+import modelo.Presidente;
 
 /**
  *
@@ -22,6 +22,8 @@ public class VentanaPresidente extends javax.swing.JFrame {
      private Equipo e;
        private ArrayList<Equipo> listaEquipos;
        private String operacionActiva;
+       private Presidente oPresidente;
+       private Equipo oEquipo;
     
  public VentanaPresidente(String operacionActiva) throws Exception {
         setUndecorated(true);
@@ -29,7 +31,15 @@ public class VentanaPresidente extends javax.swing.JFrame {
         setAlwaysOnTop(rootPaneCheckingEnabled);
         setExtendedState(MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(39,43,57,190));
-        llenarComboBox();
+        if(operacionActiva.equals("alta")){
+            llenarComboBoxInsert();
+        }
+        else if(operacionActiva.equals("baja")){
+            String presidenteBaja = JOptionPane.showInputDialog(this, "Introduce el presidente a dar de baja");
+            oEquipo = MainEsports.consultarEquipoDelPresidente(presidenteBaja);
+            llenarComboBoxPresiBaja();
+        }
+        
         this.operacionActiva = operacionActiva;
         
     }
@@ -38,6 +48,18 @@ public class VentanaPresidente extends javax.swing.JFrame {
         initComponents();
        
     }
+      
+      public void llenarComboBoxPresiBaja(){
+          System.out.println(oEquipo.getNombre());
+          tfNombrePresidente.setText(oEquipo.getListaPresidentes().get(0).getNombre());
+          tfApellidoPresidente.setText(oEquipo.getListaPresidentes().get(0).getApellido());
+          cbEquipoPresidente.addItem(oEquipo.getNombre());
+          cbEquipoPresidente.setSelectedItem(oEquipo.getNombre());
+          
+          tfNombrePresidente.setEditable(false);
+          tfApellidoPresidente.setEditable(false);
+          cbEquipoPresidente.setEditable(false);
+      }
 
     
      
@@ -245,7 +267,10 @@ public class VentanaPresidente extends javax.swing.JFrame {
        }
        } else {if (operacionActiva.equals("baja")){
            try {
-               MainEsports.borrarPresidente(tfNombrePresidente.getText(),tfApellidoPresidente.getText());
+               boolean delete = MainEsports.borrarPresidente(tfNombrePresidente.getText(),tfApellidoPresidente.getText());
+               JOptionPane.showMessageDialog(this, "presidente eliminado");
+               this.dispose();
+               ControladorVista.mostrarVentanaCategoria();
            } catch (Exception ex) {
                Logger.getLogger(VentanaPresidente.class.getName()).log(Level.SEVERE, null, ex);
            }
@@ -274,10 +299,11 @@ public class VentanaPresidente extends javax.swing.JFrame {
         this.dispose();
         ControladorVista.mostrarVentanaCategoria();
     }//GEN-LAST:event_miVolverMouseClicked
- public  void llenarComboBox() throws Exception{
+ public  void llenarComboBoxInsert() throws Exception{
         listaEquipos = new ArrayList();
         
        listaEquipos = MainEsports.consultarEquipoSinPresidente();
+       System.out.println(listaEquipos.size());
         for (int x = 0; x < listaEquipos.size(); x++) {
             
             cbEquipoPresidente.addItem(listaEquipos.get(x).getNombre());
