@@ -164,11 +164,9 @@ public class VentanaEquipos extends javax.swing.JFrame {
     *  preguntamos al usuario que equipo quiere borrar y recogemos los datos
     */
         try{
-            while(oEquipo == null){
-                nombreEquipo = JOptionPane.showInputDialog(this, "¿Qué EQUIPO quieres BORRAR?");
-                oEquipo = MainEsports.buscarEquipo(nombreEquipo);
-            }
-            
+            nombreEquipo = JOptionPane.showInputDialog(this, "¿Qué EQUIPO quieres BORRAR?");
+            oEquipo = MainEsports.buscarEquipo(nombreEquipo);
+
             ControladorVista.mostrarVentanaEquipos();
             mostrarOocultarfields();
             }catch(Exception E){
@@ -245,6 +243,7 @@ public class VentanaEquipos extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "OOOPSS... Algo salió mal al borrar");
                 }
             } catch (Exception ex) {
+               JOptionPane.showMessageDialog(this, "Para borrar el equipo antes debes de borrar los jugadores y el presidente del mismo");
                System.out.println("Excepcion " + ex.getClass() + ex.getMessage());;
             }
 

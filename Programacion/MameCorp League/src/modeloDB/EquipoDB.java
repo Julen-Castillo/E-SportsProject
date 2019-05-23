@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import modelo.Equipo;
 import modelo.Partido;
+import modelo.Presidente;
 import oracle.jdbc.internal.OracleTypes;
 
 public class EquipoDB {
@@ -95,6 +96,22 @@ public class EquipoDB {
         
         return delete;
 
+    }
+    
+    public static Equipo llenarCbEquipoModJugador(String nickname) throws SQLException, Exception{
+        GenericoDB.conectar();
+        
+        String plantilla = "select e.nombre from equipo e, jugador j where e.id_equipo = j.equipo_id_equipo and j.nickname = ?";
+        ps = GenericoDB.getCon().prepareStatement(plantilla);
+        
+        ps.setString(1, nickname);
+        resultado = ps.executeQuery();
+        Equipo oEquipo = new Equipo();
+        if(resultado.next()){
+            oEquipo.setNombre(resultado.getString("nombre"));
+        }
+        GenericoDB.cerrarCon();
+        return oEquipo;
     }
     /**
      * Con este metodo buscamos un equipo de la BD
@@ -301,6 +318,32 @@ public class EquipoDB {
 
         return StringEquipos;
       
+    }
+    
+    public static Equipo consultarEquipoDelPresidente(String presidenteBaja) throws SQLException, Exception{
+        
+        GenericoDB.conectar();
+        
+        String plantilla = "select e.nombre as nombreequipo, p.nombre as nombrepresidente, p.apellido from equipo e, presidente p where e.id_equipo = p.equipo_id_equipo and p.nombre = ?";
+        ps = GenericoDB.getCon().prepareStatement(plantilla);
+        
+        ps.setString(1, presidenteBaja);
+        
+        resultado = ps.executeQuery();
+        
+        ArrayList<Presidente> listaPresidente = new ArrayList();
+        Equipo oEquipo = new Equipo();
+        if(resultado.next()){
+            oEquipo.setNombre(resultado.getString("nombreequipo"));
+            Presidente oPresidente = new Presidente();
+            oPresidente.setNombre(resultado.getString("nombrepresidente"));
+            oPresidente.setApellido(resultado.getString("apellido"));
+            oEquipo.setListaPresidentes(listaPresidente);
+            oEquipo.getListaPresidentes().add(oPresidente);
+        }
+        
+        GenericoDB.cerrarCon();
+        return oEquipo;
     }
     
     

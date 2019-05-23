@@ -87,7 +87,7 @@ public class PresidenteDB {
      * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
      * @throws Exception controlamos las excepciones por si hubiese algun tipo de error
      */
-    public static int borrarPresi(String nombre, String apellido) throws SQLException, Exception{
+    public static boolean borrarPresi(String nombre, String apellido) throws SQLException, Exception{
 
             GenericoDB.conectar();
             String plantilla = "delete from presidente where nombre = ? and apellido = ?";
@@ -100,7 +100,7 @@ public class PresidenteDB {
 
              GenericoDB.cerrarCon();   
 
-            return delete;
+            return delete == 1;
     }
     /**
      * consultamos el presidente del equipo

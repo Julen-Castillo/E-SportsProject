@@ -30,7 +30,7 @@ public class ParserDomClasificacion {
     private static ArrayList<Equipo> equipos;
     
     
-    public static void main(String args[]) throws Exception {
+    public static void main(String args[]) throws Exception { 
         run();
     }
 
@@ -56,7 +56,7 @@ public class ParserDomClasificacion {
             System.out.println(elementoRaiz.getAttribute("fecha_actualizado"));
 
             NodeList nodos = doc.getElementsByTagName("equipo");
-
+                            
             equipos = new ArrayList<>();
             for (int i = 0; i < nodos.getLength(); i++) {
                 System.out.println("equipo " + i);
@@ -162,6 +162,7 @@ public class ParserDomClasificacion {
     }
     
     public static ArrayList<Equipo> getListaEquipos(){
+        System.out.println("estoy en el dom " + equipos.size());
         return equipos;
     }
     

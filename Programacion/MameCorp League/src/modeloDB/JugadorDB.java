@@ -31,7 +31,10 @@ public class JugadorDB {
      * @return retornamos un boolean para controlar la insert
      * @throws SQLException  controlamos las excepciones por si hubiese algun tipo de error
      */
-    public static boolean insertarJugadores(Jugador oJugador) throws SQLException{
+    public static boolean insertarJugadores(Jugador oJugador) throws SQLException, Exception{
+        
+        GenericoDB.conectar();
+        
         String plantilla = "Insert into jugador(nombre, apellido, nickname, posicion, sueldo, titularidad, equipo_id_equipo) values(?,?,?,?,?,?,?)";
         sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
         
@@ -50,6 +53,7 @@ public class JugadorDB {
         
         int insercion = sentenciaPre.executeUpdate();
         
+        GenericoDB.cerrarCon();
         return insercion == 1;
     }
     /**
@@ -96,20 +100,21 @@ public class JugadorDB {
      * @return retornamos el objeto
      * @throws SQLException controlamos las excepciones por si hubiese algun tipo de error
      */
-    public static Jugador modificarJugador(String nickname,int sueldo, boolean titularidad,String posicion) throws SQLException{
+    public static boolean modificarJugador(String nickname,int sueldo, boolean titularidad,String posicion, String nicknameAntiguo) throws SQLException, Exception{
         GenericoDB.conectar();
-        String plantilla = "update jugador set NICKNAME = ?, SUELDO = ?, TITULARIDAD = ?, POSICION = ? ";
+        String plantilla = "update jugador set NICKNAME = ?, SUELDO = ?, TITULARIDAD = ?, POSICION = ? where nickname = ?";
         sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
         sentenciaPre.setString(1, nickname);
         sentenciaPre.setInt(2, sueldo);
         sentenciaPre.setBoolean(3, titularidad);
         sentenciaPre.setString(4, posicion);
+        sentenciaPre.setString(5, nicknameAntiguo);
 
         Jugador oJugador = new Jugador();
-        resultado = sentenciaPre.executeQuery();
-        // duda de que hacer ahora
-          
-    return null; //cambiar
+        int update = sentenciaPre.executeUpdate();
+        GenericoDB.cerrarCon();
+        
+        return update == 1;  
 }
     /**
      * con este metodo damos de baja un jugador

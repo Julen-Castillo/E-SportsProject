@@ -152,9 +152,10 @@ public class Login extends javax.swing.JFrame {
              * Si el usuario hace click en este botón  el programa comprueba que
              * el usuario y la contraseña tecleadas existen en la base de datos.
              */
+          
             
             oSesion = MainEsports.comprobarLogin(tfNombre.getText(),String.valueOf(tfPassword.getPassword()));
-           
+              MainEsports.cogerUser(oSesion.getNombreUsuario(),oSesion.getTipoUsuario());
             if(oSesion == null){
                 JOptionPane.showMessageDialog(this,"Usuario o contraseña incorrectos");
             }else{
