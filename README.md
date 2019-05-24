@@ -37,3 +37,6 @@ La primera vez que ejecutes el programa tendrás que seguir una serie de instruc
 4.- Después de seguir los pasos anteriores podrás moverte por el programa como quieras, ya sea dando
  de baja o modificando tanto equipos, jugadores y presidentes, también tenemos implementadas opciones
  de dar de alta administradores del programa y registrar usuarios.
+
+![alt text](https://i.imgur.com/K145N11.png)
+
