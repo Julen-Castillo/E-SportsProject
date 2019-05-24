@@ -205,7 +205,7 @@ public class EquipoDB {
       */
     public static boolean updatePuntosEquipo(Partido oPartido) throws SQLException, Exception{
         
-        GenericoDB.conectar();
+        //GenericoDB.conectar(); //No activar
         
         String plantilla = "update equipo set puntos = puntos + 3 where id_equipo = ?";
         ps = GenericoDB.getCon().prepareStatement(plantilla);

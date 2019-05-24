@@ -12,7 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import modelo.Jornada;
 import modelo.Liga;
 
@@ -89,16 +88,31 @@ public class JornadaDB {
         return listaJornadas;      
     }
     
-        public static void generarCalendario() throws SQLException, Exception{
-            System.out.println("estoy intentnado generarlo");
-           GenericoDB.conectar();
-           CallableStatement cStmt = GenericoDB.getCon().prepareCall("{call paquete_mamecorp.generar_calendario}");
-            System.out.println("ya he hecho el callabe");
-            // Parametros de entrada ´
-            //cStmt. setString (1, "abcdefg");
-            
-            cStmt.execute();
-            ResultSet rs = cStmt.getResultSet();
-            GenericoDB.cerrarCon();
+    public static void generarCalendario() throws SQLException, Exception{
+        System.out.println("estoy intentnado generarlo");
+       GenericoDB.conectar();
+       CallableStatement cStmt = GenericoDB.getCon().prepareCall("{call paquete_mamecorp.generar_calendario}");
+        System.out.println("ya he hecho el callabe");
+        // Parametros de entrada ´
+        //cStmt. setString (1, "abcdefg");
+
+        cStmt.execute();
+        ResultSet rs = cStmt.getResultSet();
+        GenericoDB.cerrarCon();
      }
+        
+    public static int countJornadas() throws SQLException, Exception{
+        GenericoDB.conectar(); 
+        
+        st = GenericoDB.getCon().createStatement();
+        resultado = st.executeQuery("select count(*) as contador from jornada");
+        
+        int countJornada = 0;
+        if(resultado.next()){
+            countJornada = resultado.getInt("contador");
+        }
+
+        GenericoDB.cerrarCon();
+        return countJornada;
+    }
 }
