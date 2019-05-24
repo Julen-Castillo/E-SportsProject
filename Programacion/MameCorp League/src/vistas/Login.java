@@ -9,6 +9,8 @@ import javax.swing.JOptionPane;
 import main.MainEsports;
 import modelo.Sesion;
 import java.applet.AudioClip;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,10 +23,10 @@ public class Login extends javax.swing.JFrame {
      */
     private static Sesion oSesion;
     private static AudioClip sonido;
-    public Login() {
+    public Login() throws Exception {
         initComponents();
         setLocationRelativeTo(null);
-        
+        MainEsports.verificarActualizarXMLClasificacion();
         
         sonido = java.applet.Applet.newAudioClip(getClass().getResource("/music/bso.wav"));
         sonido.play();
@@ -213,7 +215,11 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                try {
+                    new Login().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<clasificacion fecha_actualizado="2018-05-31">
+<clasificacion fecha_actualizado="2019-05-31">
     <equipos>
         <equipo ranking="1">
-            <nombre>sk telecom t1</nombre>
-            <puntos>30</puntos>
+            <nombre>cloud9</nombre>
+            <puntos>21</puntos>
         </equipo>
         <equipo ranking="2">
-            <nombre>cloud9</nombre>
-            <puntos>15</puntos>
+            <nombre>sk telecom t1</nombre>
+            <puntos>21</puntos>
         </equipo>
         <equipo ranking="3">
-            <nombre>tsm</nombre>
-            <puntos>12</puntos>
+            <nombre>fnatic</nombre>
+            <puntos>18</puntos>
         </equipo>
         <equipo ranking="4">
-            <nombre>mamecorp</nombre>
-            <puntos>17</puntos>
+            <nombre>thunderx3 baskonia</nombre>
+            <puntos>12</puntos>
         </equipo>
         <equipo ranking="5">
-            <nombre>thunderx3 baskonia</nombre>
+            <nombre>tsm</nombre>
             <puntos>9</puntos>
         </equipo>
         <equipo ranking="6">
-            <nombre>fnatic</nombre>
-            <puntos>9</puntos>
+            <nombre>mamecorp</nombre>
+            <puntos>14</puntos>
         </equipo>
     </equipos>
 </clasificacion>
