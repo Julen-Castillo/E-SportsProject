@@ -76,7 +76,6 @@ public class MainEsports {
         con =  GenericoDB.getCon();
         if(con != null){           
             //crearRoundRobinEmparejamientos(true);
-            verificarActualizarXMLClasificacion();
             ControladorVista.mostrarLogin();
         }
     }
@@ -430,6 +429,9 @@ public class MainEsports {
         System.out.println(updateCorrectoPuntos);
     }
     
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    
     /**
      * Con el método crearRoundRobinEmparejamientos()
      * @param simular --
@@ -659,14 +661,12 @@ public class MainEsports {
 
     }
     
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////   
+    
     public static void verificarActualizarXMLClasificacion() throws Exception{
-        //Obtener los datos del xml jornadas
-        /*ArrayList<Jornada> jornadas = new ArrayList();
-        ParserDOMJornada.run();
-        jornadas = ParserDOMJornada.getListaJornadas();
-        System.out.println("JORNADAS " + jornadas.size());
-        System.out.println(jornadas.get(0).getFechaInicio());*/
+        
         if(JornadaDB.countJornadas() != 0){
+            System.out.println("las jornadas existenNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN!");
         //Leemos el xml
         ParserDomClasificacion.run();
         //Obtenemos la fecha de ultimo actualizdo de la clasificacion desde el xml
@@ -681,13 +681,20 @@ public class MainEsports {
         }
     }
     
-        public static ArrayList<Equipo> getRanking(){
-            return arrayRanking;
-        }
-
-        public static String llamarProcedureVisualizarEquipos() throws SQLException, Exception{
-           String listaEquipos = EquipoDB.llamarProcedure();
-
-          return listaEquipos;  
-        }   
+    public static ArrayList<Equipo> getRanking(){
+        return arrayRanking;
     }
+
+    public static String llamarProcedureVisualizarEquipos() throws SQLException, Exception{
+        String listaEquipos = EquipoDB.llamarProcedure();
+
+        return listaEquipos;  
+    }   
+}
+
+    //Obtener los datos del xml jornadas
+    /*ArrayList<Jornada> jornadas = new ArrayList();
+    ParserDOMJornada.run();
+    jornadas = ParserDOMJornada.getListaJornadas();
+    System.out.println("JORNADAS " + jornadas.size());
+    System.out.println(jornadas.get(0).getFechaInicio());*/
