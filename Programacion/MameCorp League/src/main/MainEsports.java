@@ -63,6 +63,8 @@ public class MainEsports {
     private static boolean simular;
     private static LocalDate fechaActualizadoXML;
     private static ArrayList<Equipo> arrayRanking; //Aqui vamos a almacenar el ranking tras leer el xml
+    private static String nombreUser;
+    private static String tipoUser;
     
     
 
@@ -147,6 +149,10 @@ public class MainEsports {
      */
     public static ArrayList<Equipo> getClasificacion() throws Exception{
         return EquipoDB.getClasificacion();
+    }
+    
+    public static Equipo consultarEquipoDelPresidente(String presidenteBaja) throws Exception{
+        return EquipoDB.consultarEquipoDelPresidente(presidenteBaja);
     }
 
     /**
@@ -250,20 +256,11 @@ public class MainEsports {
      * @param apellido -- Apellido del presidente(String)
     * @throws Exception controlamos las excepciones por si hubiese algun tipo de error 
     */  
-    public static void borrarPresidente(String nombre,String apellido) throws Exception{
+    public static boolean borrarPresidente(String nombre,String apellido) throws Exception{
         oPresidente = PresidenteDB.consultarPresidente(nombre,apellido);
-        if (oPresidente == null) {
 
+         return PresidenteDB.borrarPresi(nombre,apellido);
 
-        }
-        else {
-         int delete = PresidenteDB.borrarPresi(nombre,apellido);
-
-         if (delete > 0){
-             JOptionPane.showMessageDialog(null, delete + " filas eliminadas");
-         }
-
-        }
     }
      
      
@@ -277,6 +274,25 @@ public class MainEsports {
     public static Sesion comprobarLogin(String nombre,String password) throws Exception{
         return SesionDB.consultarUsuario(nombre,password);
     }
+    public static void cogerUser(String nombre, String tipo){
+        
+    nombreUser = nombre;
+    tipoUser = tipo;
+        System.out.println(nombreUser);
+    
+    }
+    public static String getNombreUser() {
+        System.out.println(nombreUser);
+        return nombreUser;
+    }
+
+    public static String getTipoUser() {
+        return tipoUser;
+    }
+    
+    
+    
+
     /**
      *  Con el método "mostrarJugadores" mostramos todos los jugadores
      * @return retornamos un ArrayList con los jugadores
@@ -342,13 +358,9 @@ public class MainEsports {
      * @param posicion -- Posición nueva del jugador(String)
      * @throws Exception controlamos las excepciones por si hubiese algun tipo de error 
      */
-    public static void modificarJugador(String nick,int sueldo,boolean titularidad, String posicion) throws Exception{
+    public static boolean modificarJugador(String nick,int sueldo,boolean titularidad, String posicion, String nicknameAntiguo) throws Exception{
         
-        oJugador = JugadorDB.modificarJugador(nick,sueldo,titularidad,posicion);
-        if (oJugador == null){
-        JOptionPane.showMessageDialog(null, "Este jugador no existe");
-            
-        }
+        return JugadorDB.modificarJugador(nick,sueldo,titularidad,posicion,nicknameAntiguo);
         
     }
     /**
@@ -394,6 +406,10 @@ public class MainEsports {
         //Creamos el jugador
         oJugador = new Jugador(nombre, apellido, nickname, posicion, sueldo, titularidad, oEquipo);
         return JugadorDB.insertarJugadores(oJugador);
+    }
+    
+    public static Equipo llenarCbEquipoModJugador(String nickname) throws Exception{
+        return EquipoDB.llenarCbEquipoModJugador(nickname);
     }
 
     public static Jugador modificarJugador(String nickname) {
@@ -660,10 +676,12 @@ public class MainEsports {
         //Si la ultima fecha de actualizacion es de hace mas de 7 dias lo volvemos a actualizar con una consulta a la base de datos.
         if(LocalDate.now().isAfter(fechaActualizadoXML.plusDays(7))){
             GeneradorDOMClasificacion.main(null);
+            ParserDomClasificacion.run();
         }
         
         //Almacenamos el ranking en un array
-        arrayRanking = ParserDomClasificacion.getListaEquipos();      
+        arrayRanking = ParserDomClasificacion.getListaEquipos(); 
+        
     }
     
     public static ArrayList<Equipo> getRanking(){
@@ -674,5 +692,5 @@ public class MainEsports {
        String listaEquipos = EquipoDB.llamarProcedure();
      
       return listaEquipos;  
+    }   
     }
-}

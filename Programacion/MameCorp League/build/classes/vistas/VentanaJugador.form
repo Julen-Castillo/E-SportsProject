@@ -210,7 +210,7 @@
                 <StringItem index="0" value="Toplaner"/>
                 <StringItem index="1" value="Jungler"/>
                 <StringItem index="2" value="Midlaner"/>
-                <StringItem index="3" value="Ad Carry"/>
+                <StringItem index="3" value="adcarry"/>
                 <StringItem index="4" value="Support"/>
               </StringArray>
             </Property>

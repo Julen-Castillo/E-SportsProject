@@ -165,10 +165,9 @@ public class VentanaRegistroUsuarios extends javax.swing.JFrame {
             
             
             if(insercion > 0){
-                JOptionPane.showMessageDialog(this,"Linea insertada correctamente");
-                tfNombre.setText("");
-                tfPassword.setText(""); 
-                tfRepeatPassword.setText("");
+                JOptionPane.showMessageDialog(this,"Usuario registrado correctamente");
+                this.dispose();
+                ControladorVista.mostrarLogin();
             }else{
                 JOptionPane.showMessageDialog(this,"ERROR AL INSERTAR");
             }

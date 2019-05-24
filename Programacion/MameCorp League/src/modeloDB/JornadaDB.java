@@ -90,22 +90,15 @@ public class JornadaDB {
     }
     
         public static void generarCalendario() throws SQLException, Exception{
+            System.out.println("estoy intentnado generarlo");
            GenericoDB.conectar();
            CallableStatement cStmt = GenericoDB.getCon().prepareCall("{call paquete_mamecorp.generar_calendario}");
-
+            System.out.println("ya he hecho el callabe");
             // Parametros de entrada ´
             //cStmt. setString (1, "abcdefg");
             
             cStmt.execute();
-
-             ResultSet rs = cStmt.getResultSet();
-             
-             
-             
-             
-             
-
-          
+            ResultSet rs = cStmt.getResultSet();
             GenericoDB.cerrarCon();
      }
 }

@@ -113,6 +113,7 @@ public class VentanaVisualizarEquipos extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
+        mVolver = new javax.swing.JMenu();
         mSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -583,6 +584,14 @@ public class VentanaVisualizarEquipos extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1970, 1090);
 
+        mVolver.setText("Volver");
+        mVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mVolverMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(mVolver);
+
         mSalir.setText("Salir");
         mSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -628,6 +637,12 @@ public class VentanaVisualizarEquipos extends javax.swing.JFrame {
     private void mSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mSalirMouseClicked
         System.exit(0);
     }//GEN-LAST:event_mSalirMouseClicked
+
+    private void mVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mVolverMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        ControladorVista.mostrarVentanaUsuarios();
+    }//GEN-LAST:event_mVolverMouseClicked
     public  void llenarFieldsEquipo(){
         
     
@@ -774,6 +789,7 @@ public class VentanaVisualizarEquipos extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JMenu mSalir;
+    private javax.swing.JMenu mVolver;
     private javax.swing.JPanel panelOpaco1;
     private javax.swing.JPanel panelOpaco2;
     private javax.swing.JPanel panelOpaco3;
