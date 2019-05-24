@@ -5,7 +5,7 @@ INSERT INTO EQUIPO (nombre,presupuesto,puntos)  VALUES ('sk telecom t1',180000,0
 INSERT INTO EQUIPO (nombre,presupuesto,puntos)  VALUES ('cloud9',160000,0);
 INSERT INTO EQUIPO (nombre,presupuesto,puntos)  VALUES ('tsm',150000,0);
 INSERT INTO EQUIPO (nombre,presupuesto,puntos)  VALUES ('thunderx3 baskonia',50000,0);
-INSERT INTO EQUIPO (nombre,presupuesto,puntos)  VALUES ('mamecorp',100000,5);
+INSERT INTO EQUIPO (nombre,presupuesto,puntos)  VALUES ('mamecorp',100000,0);
 
 COMMIT;
 

@@ -59,7 +59,7 @@ public class SesionDB {
     public static int insertarAdministrador(String nombre,String password) throws SQLException, Exception{
          GenericoDB.conectar();
          
-         String plantilla = "insert into usuario (nombre,password,tipo) values(?,?,'administrador')";
+         String plantilla = "insert into usuario (nombre,password,tipo) values(?,?,'admin')";
          sentenciaPre = GenericoDB.getCon().prepareStatement(plantilla);
         
           sentenciaPre.setString(1,nombre);
@@ -96,4 +96,5 @@ public class SesionDB {
        
         return insercion;
     }
+
 }

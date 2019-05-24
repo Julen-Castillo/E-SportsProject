@@ -28,8 +28,8 @@ public class GenericoDB {
             //Conexiones adri
 
 
-           String url="jdbc:oracle:thin:@localhost:1521:xe";
-           con = DriverManager.getConnection(url,"course","myipod12");
+//           String url="jdbc:oracle:thin:@localhost:1521:xe";
+//           con = DriverManager.getConnection(url,"course","myipod12");
                     
            
             //Casa Casti
@@ -40,13 +40,10 @@ public class GenericoDB {
         // con = ods.getConnection();
         
           //// con = DriverManager.getConnection(url,"course","course");
-                
-
-
-
+          
             //Casa PETO
-            //String url="jdbc:oracle:thin:@10.10.10.9:1521:db12102";
-            //con = DriverManager.getConnection(url,"eqdaw01","eqdaw01");
+            String url="jdbc:oracle:thin:@10.10.10.9:1521:db12102";
+            con = DriverManager.getConnection(url,"eqdaw01","eqdaw01");
 
             //Clase
 //            String url="jdbc:oracle:thin:@SrvOracle:1521:orcl";

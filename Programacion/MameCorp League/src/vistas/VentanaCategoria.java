@@ -1,10 +1,12 @@
 package vistas;
 
-import java.awt.ComponentOrientation;
+import java.applet.AudioClip;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import main.MainEsports;
+import modelo.Jornada;
 
 /**
  *
@@ -14,6 +16,8 @@ public class VentanaCategoria extends javax.swing.JFrame {
         
     private String operacionActiva;
     private String opcionActiva;
+    private ArrayList<Jornada> listaJornadas;
+    private static AudioClip sonido;
     
     /**
      * Creates new form VentanaCategoria
@@ -26,6 +30,10 @@ public class VentanaCategoria extends javax.swing.JFrame {
         disableCRUD();
         setVisible(true); 
         panelTA.setVisible(false);
+      String hola = MainEsports.getNombreUser();
+      
+        lUser.setText(hola);
+        lTipo.setText("Administrador:");
        
     }
 
@@ -48,8 +56,8 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bModificar = new javax.swing.JButton();
         bBaja = new javax.swing.JButton();
         bConsultar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lTipo = new javax.swing.JLabel();
+        lUser = new javax.swing.JLabel();
         bLogOut = new javax.swing.JButton();
         bNoSimular = new javax.swing.JButton();
         bSimular = new javax.swing.JButton();
@@ -69,9 +77,6 @@ public class VentanaCategoria extends javax.swing.JFrame {
         miPresidentes = new javax.swing.JMenuItem();
         jMenuCuentas = new javax.swing.JMenu();
         miAdministradores = new javax.swing.JMenuItem();
-        jMenuUsuarios = new javax.swing.JMenu();
-        miConsultar = new javax.swing.JMenuItem();
-        miEliminar = new javax.swing.JMenuItem();
         jMenuVolver = new javax.swing.JMenu();
         jMenuSalir = new javax.swing.JMenu();
 
@@ -88,11 +93,6 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bJornadas.setContentAreaFilled(false);
         bJornadas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bJornadas.setFocusPainted(false);
-        bJornadas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bJornadasActionPerformed(evt);
-            }
-        });
         getContentPane().add(bJornadas);
         bJornadas.setBounds(180, 160, 230, 50);
 
@@ -139,11 +139,6 @@ public class VentanaCategoria extends javax.swing.JFrame {
         bPartidos.setContentAreaFilled(false);
         bPartidos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bPartidos.setFocusPainted(false);
-        bPartidos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bPartidosActionPerformed(evt);
-            }
-        });
         getContentPane().add(bPartidos);
         bPartidos.setBounds(180, 240, 230, 60);
 
@@ -254,17 +249,15 @@ public class VentanaCategoria extends javax.swing.JFrame {
         getContentPane().add(bConsultar);
         bConsultar.setBounds(170, 440, 270, 60);
 
-        jLabel3.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(1760, 40, 100, 24);
+        lTipo.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
+        lTipo.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lTipo);
+        lTipo.setBounds(1470, 40, 150, 30);
 
-        jLabel5.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("jLabel3:");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(1638, 40, 110, 24);
+        lUser.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
+        lUser.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lUser);
+        lUser.setBounds(1640, 40, 160, 30);
 
         bLogOut.setBackground(new java.awt.Color(255, 0, 0));
         bLogOut.setForeground(new java.awt.Color(255, 255, 255));
@@ -316,7 +309,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
 
         lConfirmacionSimular.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         lConfirmacionSimular.setForeground(new java.awt.Color(255, 255, 255));
-        lConfirmacionSimular.setText("SIMULADA CORRECTAMENTE");
+        lConfirmacionSimular.setText("PEPITO EL ALGORITMO");
         getContentPane().add(lConfirmacionSimular);
         lConfirmacionSimular.setBounds(230, 390, 290, 40);
 
@@ -417,16 +410,6 @@ public class VentanaCategoria extends javax.swing.JFrame {
         });
         jMenuCuentas.add(miAdministradores);
 
-        jMenuUsuarios.setText("Usuarios");
-
-        miConsultar.setText("Consultar");
-        jMenuUsuarios.add(miConsultar);
-
-        miEliminar.setText("Eliminar");
-        jMenuUsuarios.add(miEliminar);
-
-        jMenuCuentas.add(jMenuUsuarios);
-
         jMenuBar1.add(jMenuCuentas);
 
         jMenuVolver.setText("Volver");
@@ -454,18 +437,6 @@ public class VentanaCategoria extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bJornadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJornadasActionPerformed
-        operacionActiva = "jornada";
-        ocultarBotonesYMostrarCrud();
-        //this.dispose();
-        
-    }//GEN-LAST:event_bJornadasActionPerformed
-
-    private void bPartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPartidosActionPerformed
-        operacionActiva = "partido";
-        ocultarBotonesYMostrarCrud();
-    }//GEN-LAST:event_bPartidosActionPerformed
-
     private void bEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEquiposActionPerformed
        operacionActiva = "equipo";
         ocultarBotonesYMostrarCrud();
@@ -490,14 +461,16 @@ public class VentanaCategoria extends javax.swing.JFrame {
     }//GEN-LAST:event_miJornadasActionPerformed
 
     private void bModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bModificarActionPerformed
-            this.dispose();
+            //this.dispose();
        if (operacionActiva.equals("liga")){
             ControladorVista.mostrarVentanaLiga("modificar");   
+            this.dispose();
        }
        else {
            if (operacionActiva.equals("jugador")){
                try {
                    ControladorVista.mostrarVentanaJugador("modificar");
+                   this.dispose();
                } catch (Exception ex) {
                    Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
                }
@@ -505,7 +478,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
            else {
                if (operacionActiva.equals("presidente")){
                    try {
-                       ControladorVista.mostrarVentanaPresidente("modificar");
+                       JOptionPane.showMessageDialog(this, "En mantenimiento hasta despues de los examenes");
                    } catch (Exception ex) {
                        Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
                    }
@@ -514,6 +487,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
                  if  (operacionActiva.equals("equipo")){
                     try {
                     ControladorVista.mostrarVentanaEquipos("modificar");
+                    this.dispose();
                     }catch (Exception ex) {
                          Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
                     }                 
@@ -544,14 +518,16 @@ public class VentanaCategoria extends javax.swing.JFrame {
     }//GEN-LAST:event_bLigaActionPerformed
 
     private void bBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBajaActionPerformed
-           this.dispose();
+           //this.dispose();
         if (operacionActiva.equals("liga")){
-             ControladorVista.mostrarVentanaLiga("baja");   
+             ControladorVista.mostrarVentanaLiga("baja");
+             this.dispose();
         }
         else {
             if (operacionActiva.equals("jugador")){
                 try {
                     ControladorVista.mostrarVentanaJugador("baja");
+                    this.dispose();
                 } catch (Exception ex) {
                     Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -560,6 +536,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
             if (operacionActiva.equals("presidente")){
                 try {
                     ControladorVista.mostrarVentanaPresidente("baja");
+                    this.dispose();
                 } catch (Exception ex) {
                     Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -568,6 +545,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
           if  (operacionActiva.equals("equipo")){
               try {
                   ControladorVista.mostrarVentanaEquipos("baja");
+                  this.dispose();
                   
               } catch (Exception ex) {
                   Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
@@ -649,6 +627,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
     private void jMenuVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuVolverMouseClicked
         disableCRUD();
         showCategorias();
+        panelTA.setVisible(false);
     }//GEN-LAST:event_jMenuVolverMouseClicked
 
     private void miPartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miPartidosActionPerformed
@@ -666,6 +645,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
     private void miAdministradoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAdministradoresActionPerformed
         ocultarBotonesYMostrarCrud();
         opcionActiva = "alta";
+        this.dispose();
         ControladorVista.mostrarVentanaAdministradores(opcionActiva);
     }//GEN-LAST:event_miAdministradoresActionPerformed
 
@@ -698,12 +678,20 @@ public class VentanaCategoria extends javax.swing.JFrame {
     }//GEN-LAST:event_bNoSimularActionPerformed
 
     private void bGenerarCalendarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGenerarCalendarioActionPerformed
-        JOptionPane.showMessageDialog(this, "Calendario creado correctamente");
+
         try {
+            sonido = java.applet.Applet.newAudioClip(getClass().getResource("/music/letsgo.wav"));
+            sonido.play();
+            
+            listaJornadas = MainEsports.consultarJornadas();
+            
+            JOptionPane.showMessageDialog(this, "Calendario creado correctamente");
+       
             MainEsports.generarCalendario();
         } catch (Exception ex) {
             Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }//GEN-LAST:event_bGenerarCalendarioActionPerformed
     
     public final void disableCRUD(){
@@ -764,6 +752,7 @@ public class VentanaCategoria extends javax.swing.JFrame {
         lConfirmacionSimular.setVisible(true);
     }
     
+    
     /**
      * @param args the command line arguments
      */
@@ -816,18 +805,15 @@ public class VentanaCategoria extends javax.swing.JFrame {
     private javax.swing.JButton bSimular;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCategoria;
     private javax.swing.JMenu jMenuCuentas;
     private javax.swing.JMenu jMenuSalir;
-    private javax.swing.JMenu jMenuUsuarios;
     private javax.swing.JMenu jMenuVolver;
     private javax.swing.JLabel lConfirmacionSimular;
+    private javax.swing.JLabel lTipo;
+    private javax.swing.JLabel lUser;
     private javax.swing.JMenuItem miAdministradores;
-    private javax.swing.JMenuItem miConsultar;
-    private javax.swing.JMenuItem miEliminar;
     private javax.swing.JMenuItem miEquipos;
     private javax.swing.JMenuItem miJornadas;
     private javax.swing.JMenuItem miJugadores;
