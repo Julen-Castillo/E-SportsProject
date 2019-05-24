@@ -162,7 +162,7 @@ public class ControladorVista {
     public static void OcultarVentanaVisualizarJornada(){
         vVisualizarJornada.dispose();
     }
-    public static void mostrarLogin(){
+    public static void mostrarLogin() throws Exception{
         vLogin = new Login();
         vLogin.setVisible(true);
         vLogin.setResizable(false);

@@ -35,7 +35,7 @@ public class ParserDomClasificacion {
     }
 
     public static void run() {
-        System.out.println("--- DOM (lectura) ---\n");
+        System.out.println("--- DOM clasificacion(lectura) ---\n");
 
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();

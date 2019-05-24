@@ -6,6 +6,8 @@
 package vistas;
 
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import main.MainEsports;
@@ -145,11 +147,15 @@ public class VentanaRegistroUsuarios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
-        /**
-         * Si el usuario pulsa este botón se le devuelve a la pagina de LogIn
-         */
-        this.dispose();
-        ControladorVista.mostrarLogin();
+        try {
+            /**
+             * Si el usuario pulsa este botón se le devuelve a la pagina de LogIn
+             */
+            this.dispose();
+            ControladorVista.mostrarLogin();
+        } catch (Exception ex) {
+            Logger.getLogger(VentanaRegistroUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_bVolverActionPerformed
 
     private void bRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarActionPerformed

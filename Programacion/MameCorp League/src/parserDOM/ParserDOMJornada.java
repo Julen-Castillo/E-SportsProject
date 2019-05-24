@@ -36,7 +36,7 @@ public class ParserDOMJornada {
     }
 
     public static void run() {
-        System.out.println("--- DOM (lectura) ---\n");
+        System.out.println("--- DOM Jornada (lectura) ---\n");
 
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -57,16 +57,15 @@ public class ParserDOMJornada {
 
             jornadas = new ArrayList<>();
             for (int i = 0; i < nodosJornada.getLength(); i++) {
-                System.out.println("jornada " + i);
                 //Guardamos en el array de jornadas cada objeto jornada
                 jornadas.add(getJornadas(nodosJornada.item(i)));
             }
             
             //Mostramos por consola el array de jornadas
             for (Jornada oJornada : jornadas){
-                System.out.println(oJornada.getIdJornada());
-                System.out.println(oJornada.getFechaInicio());
-                System.out.println(oJornada.getFechaFin());
+//                System.out.println(oJornada.getIdJornada());
+//                System.out.println(oJornada.getFechaInicio());
+//                System.out.println(oJornada.getFechaFin());
             }
 
         } catch (SAXException | ParserConfigurationException | IOException e) {
@@ -88,26 +87,33 @@ public class ParserDOMJornada {
             oJornada.setIdJornada(Integer.parseInt(element.getAttribute("id")));
             oJornada.setFechaInicio(LocalDate.parse(element.getAttribute("fecha_inicio")));
             oJornada.setFechaFin(LocalDate.parse(element.getAttribute("fecha_fin")));
+            
+            NodeList nodosPartidos = element.getElementsByTagName("partidos");
+            System.out.println(element.getAttribute("id"));
+            System.out.println(nodosPartidos.getLength()); //1
+            //Conversion a element
+            Element elementoPartidos = (Element)nodosPartidos.item(0);//<partidos>
+            NodeList nodosPartido = elementoPartidos.getElementsByTagName("partido");
+            System.out.println(nodosPartido.getLength());
 
             //set ArrayList partidos del objeto jornada
-            NodeList nodosPartido = doc.getElementsByTagName("partido");
-            
             partidos = new ArrayList<>();
-            for (int i = 0; i < nodosPartido.getLength(); i++) {
-                System.out.println("partido " + i);
-                //Guardamos en el array de jornadas cada objeto jornada
-                partidos.add(getPartidos(nodosPartido.item(i)));
-            }  
+            for(int j=0; j<nodosPartido.getLength();j++) {
+                partidos.add(getPartidos(nodosPartido.item(j)));
+            }
+
+            oJornada.setListaPartidos(partidos);
         }
 
         return oJornada;
     }
     
     private static Partido getPartidos(Node nodo){
+        
         Partido oPartido = new Partido();
         
         if (nodo.getNodeType() == Node.ELEMENT_NODE) {
-
+            System.out.println("entroooo == ELEMENTNODE");
             Element element = (Element) nodo;
             
             //Etiquetas dentro de partido
@@ -144,7 +150,7 @@ public class ParserDOMJornada {
         try{
             NodeList nodos = element.getElementsByTagName(tag).item(0).getChildNodes();
             nodo = nodos.item(0);
-            System.out.println(tag);
+            //System.out.println(tag);
         }
         catch(Exception e){
             System.out.println("NO EXISTE ESA ETIQUETA");
