@@ -1,37 +1,49 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelo;
 
 import java.util.ArrayList;
 
 /**
- *
+ *  Representa un Equipo que participa en la liga
+ *  Un equipo está compuesto por jugadores
+ *  Un eqipo tiene un presidente
+ *  Un equipo juega varios partidos
  * @author 1gdaw01
  */
 public class Equipo {
-    
+    /**
+     * Un equipo está compuesto por un id, un nombre, un presupuesto y la cantidad de puntos conseguidos
+     */
     private int idEquipo;
     private String nombre;
     private int presupuesto;
     private int puntos;
-    
+
     private ArrayList<Jugador> listaJugadores;
     private ArrayList<Presidente> listaPresidentes;
     private ArrayList<Partido> listaPartidos;
 
     public Equipo() {
     }
+    
+    
 
+    /**
+     * Constructor lleno de equipo
+     * @param nombre nombre del equipo(String)
+     * @param presupuesto presupuesto del equipo(int)
+     * @param puntos puntos conseguidos por el equipo(int)
+     */
     public Equipo(String nombre, int presupuesto, int puntos) {
         this.nombre = nombre;
         this.presupuesto = presupuesto;
         this.puntos = puntos;
     }
     
-
+    /**
+     * 
+     * @return devuelve el idEquipo
+     */
     public int getIdEquipo() {
         return idEquipo;
     }

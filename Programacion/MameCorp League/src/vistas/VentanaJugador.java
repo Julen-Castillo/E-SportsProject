@@ -6,25 +6,114 @@
 package vistas;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import main.MainEsports;
+import modelo.Equipo;
+import modelo.Jugador;
+
 
 /**
  *
  * @author PETO
  */
 public class VentanaJugador extends javax.swing.JFrame {
+  private String operacion;
+  private boolean titularidad;
+  private String posicion;
+  private Jugador oJugador;
+  private ArrayList<Equipo>listaEquipos;
+  private int respuesta;
+  private Equipo oEquipo;
+  private String nickname;
 
     /**
      * Creates new form VentanaJugador
      */
+    public VentanaJugador(String operacionActiva) throws Exception {
+        //setUndecorated(true);
+        initComponents();
+        setAlwaysOnTop(rootPaneCheckingEnabled);
+        setExtendedState(MAXIMIZED_BOTH);
+        panelOpaco.setBackground(new Color(255,255,255,190));
+        operacion = operacionActiva;
+        if(operacion.equals("modificar")){
+            llenarCbEquipoModJugador();
+        }
+        else{
+            llenarCbEquipos();
+        }
+        mostrarOocultarfields();
+    }
+   
     public VentanaJugador() {
         initComponents();
-        setLocationRelativeTo(null);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
-        panelOpaco.setBackground(new Color(255,255,255,190));
     }
+    public void llenarCbEquipos() throws Exception{
+        listaEquipos = MainEsports.consultarEquipos();
+        for(int i = 0; i < listaEquipos.size(); i++){
+            cbEquipo.addItem(listaEquipos.get(i).getNombre());
+        }
+        
+    }
+    public void mostrarOocultarfields() throws Exception{
+        if (operacion.equals("modificar")) {
+            tfNombre.setEnabled(false);
+            tfApellido.setEnabled(false);
+            cbEquipo.setEnabled(false);
 
+            oJugador = MainEsports.consultarJugadorAModificar(nickname);
+            tfNombre.setText(oJugador.getNombre());
+            tfApellido.setText(oJugador.getApellido());
+            tfNick.setText(oJugador.getNickname());
+            tfSueldo.setText(String.valueOf(oJugador.getSueldo()));
+            if(oJugador.isTitularidad()){
+                rbSi.setSelected(true);
+            }
+            else{
+                rbNo.setSelected(true);
+            }
+            cbPosicion.setSelectedItem(oJugador.getPosicion().toLowerCase());
+            
+        }
+        else if(operacion.equals("baja")){ 
+            rbSi.setEnabled(false);
+            rbNo.setEnabled(false);
+            tfNick.setEnabled(titularidad);
+            tfSueldo.setEnabled(false);
+            tfNombre.setEnabled(false);
+            tfApellido.setEnabled(false);
+            cbPosicion.setEnabled(false);
+            cbEquipo.setEnabled(false);
+            String nickAEliminar = JOptionPane.showInputDialog(this, "Introduce el nickname del jugador a eliminar");
+            oJugador = MainEsports.consultarJugadorABorrar(nickAEliminar);
+
+            tfNombre.setText(oJugador.getNombre());
+            tfApellido.setText(oJugador.getApellido());
+            tfNick.setText(oJugador.getNickname());
+            cbPosicion.setSelectedItem(oJugador.getPosicion());
+            tfSueldo.setText(String.valueOf(oJugador.getSueldo()));
+            if(oJugador.isTitularidad()){
+                rbSi.setSelected(true); 
+            }
+            else{
+                rbNo.setSelected(true);
+            }
+            cbEquipo.setSelectedItem(oJugador.getoEquipo().getNombre());
+        }
+    }
+    
+    
+    public void llenarCbEquipoModJugador() throws Exception{
+        nickname = JOptionPane.showInputDialog(this, "Introduce el nickname del jugador a modifcar");
+        oEquipo = MainEsports.llenarCbEquipoModJugador(nickname);
+        cbEquipo.addItem(oEquipo.getNombre());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,11 +123,11 @@ public class VentanaJugador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        gTitularidad = new javax.swing.ButtonGroup();
         panelOpaco = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         tfSueldo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        tfTitularidad = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         tfNombre = new javax.swing.JTextField();
@@ -48,8 +137,14 @@ public class VentanaJugador extends javax.swing.JFrame {
         tfNick = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         bAceptar = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbPosicion = new javax.swing.JComboBox<>();
+        rbSi = new javax.swing.JRadioButton();
+        rbNo = new javax.swing.JRadioButton();
+        jLabel10 = new javax.swing.JLabel();
+        cbEquipo = new javax.swing.JComboBox<>();
         lFondo = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        miVolver = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -59,47 +154,45 @@ public class VentanaJugador extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("NOMBRE");
         panelOpaco.add(jLabel3);
-        jLabel3.setBounds(20, 670, 100, 20);
+        jLabel3.setBounds(30, 610, 100, 20);
         panelOpaco.add(tfSueldo);
-        tfSueldo.setBounds(150, 950, 200, 24);
+        tfSueldo.setBounds(150, 890, 200, 20);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("APELLIDO");
         panelOpaco.add(jLabel4);
-        jLabel4.setBounds(20, 740, 130, 17);
-        panelOpaco.add(tfTitularidad);
-        tfTitularidad.setBounds(150, 1020, 200, 24);
+        jLabel4.setBounds(20, 680, 130, 30);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("NICKNAME");
         panelOpaco.add(jLabel5);
-        jLabel5.setBounds(20, 810, 90, 17);
+        jLabel5.setBounds(20, 750, 90, 30);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("POSICION");
         panelOpaco.add(jLabel7);
-        jLabel7.setBounds(20, 890, 80, 17);
+        jLabel7.setBounds(20, 817, 80, 30);
         panelOpaco.add(tfNombre);
-        tfNombre.setBounds(150, 670, 200, 24);
+        tfNombre.setBounds(150, 610, 200, 20);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("SUELDO");
         panelOpaco.add(jLabel8);
-        jLabel8.setBounds(30, 960, 80, 17);
+        jLabel8.setBounds(30, 890, 80, 30);
         panelOpaco.add(tfApellido);
-        tfApellido.setBounds(150, 740, 200, 24);
+        tfApellido.setBounds(150, 680, 200, 20);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel9.setText("TITULARIDAD");
+        jLabel9.setText("EQUIPO");
         panelOpaco.add(jLabel9);
-        jLabel9.setBounds(20, 1020, 100, 30);
+        jLabel9.setBounds(30, 1030, 70, 30);
         panelOpaco.add(tfNick);
-        tfNick.setBounds(150, 810, 200, 24);
+        tfNick.setBounds(150, 750, 200, 20);
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 48)); // NOI18N
         jLabel1.setText("JUGADOR");
         panelOpaco.add(jLabel1);
-        jLabel1.setBounds(80, 420, 220, 170);
+        jLabel1.setBounds(80, 380, 260, 170);
 
         bAceptar.setBackground(new java.awt.Color(0, 40, 135));
         bAceptar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -107,7 +200,7 @@ public class VentanaJugador extends javax.swing.JFrame {
         bAceptar.setText("ACEPTAR");
         bAceptar.setBorder(null);
         bAceptar.setContentAreaFilled(false);
-        bAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bAceptar.setFocusPainted(false);
         bAceptar.setOpaque(true);
         bAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -116,11 +209,39 @@ public class VentanaJugador extends javax.swing.JFrame {
             }
         });
         panelOpaco.add(bAceptar);
-        bAceptar.setBounds(210, 1120, 160, 50);
+        bAceptar.setBounds(220, 1100, 140, 40);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toplaner", "Jungler", "Midlaner", "Ad Carry", "Support" }));
-        panelOpaco.add(jComboBox1);
-        jComboBox1.setBounds(150, 880, 200, 26);
+        cbPosicion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toplaner", "Jungler", "Midlaner", "adcarry", "Support" }));
+        cbPosicion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbPosicionActionPerformed(evt);
+            }
+        });
+        panelOpaco.add(cbPosicion);
+        cbPosicion.setBounds(150, 820, 200, 20);
+
+        gTitularidad.add(rbSi);
+        rbSi.setText("Si");
+        rbSi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbSiActionPerformed(evt);
+            }
+        });
+        panelOpaco.add(rbSi);
+        rbSi.setBounds(160, 960, 70, 23);
+
+        gTitularidad.add(rbNo);
+        rbNo.setText("No");
+        panelOpaco.add(rbNo);
+        rbNo.setBounds(260, 960, 70, 23);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel10.setText("TITULARIDAD");
+        panelOpaco.add(jLabel10);
+        jLabel10.setBounds(20, 960, 100, 30);
+
+        panelOpaco.add(cbEquipo);
+        cbEquipo.setBounds(150, 1030, 200, 20);
 
         getContentPane().add(panelOpaco);
         panelOpaco.setBounds(0, -330, 400, 1430);
@@ -130,13 +251,149 @@ public class VentanaJugador extends javax.swing.JFrame {
         getContentPane().add(lFondo);
         lFondo.setBounds(-130, -10, 2050, 1140);
 
+        miVolver.setText("Volver");
+        miVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                miVolverMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(miVolver);
+
+        setJMenuBar(jMenuBar1);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-        MainEsports.insertarJugadores();
+        
+        if(rbSi.isSelected()){
+            titularidad = true;
+        }
+        else if(rbNo.isSelected()){
+            titularidad = false;
+        }
+        
+        if(operacion.equals("alta")){
+            try {
+                boolean matches =  validarFields();
+
+                if (matches == true) {   
+
+                    boolean insert = MainEsports.insertarJugadores(tfNombre.getText(), tfApellido.getText(), tfNick.getText(), cbPosicion.getSelectedItem().toString(), Integer.parseInt(tfSueldo.getText()), titularidad, cbEquipo.getSelectedIndex());
+                    if(insert){
+                        JOptionPane.showMessageDialog(this, "Insert correcta");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(this, "Problemas con la insert");
+                    }
+                }
+                else {
+                    JOptionPane.showMessageDialog(this,"En los campos 'NOMBRE' Y 'APELLIDO' la primera letra debe ser Mayuscula y no se admiten numeros ni caracteres especiales");
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        else if (operacion.equals("baja")){
+        respuesta =  JOptionPane.showConfirmDialog(this, "Estas segur@ que quieres dar de baja a " + tfNick.getText()+ " ?") ;
+
+            if (respuesta == 0) {
+                try {
+                    MainEsports.darBajaJugador(tfNick.getText());
+                    this.dispose();
+                    ControladorVista.mostrarVentanaCategoria();
+                } catch (Exception ex) {
+                    Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } 
+        }
+        else if (operacion.equals("modificar")){                   
+                if(rbSi.isSelected()){
+                    titularidad = true;
+                }
+                else {
+                    titularidad = false;
+                }
+        
+                switch (cbPosicion.getSelectedIndex()){
+                    case 0:
+                        posicion = "Toplaner";
+                        break;
+                    case 1:
+                        posicion = "Jungler";
+                       break;
+                    case 2:
+                        posicion = "Midlaner";
+                        break;
+                    case 3:
+                        posicion = "Adcarry";
+                        break;
+                    case 4:
+                        posicion = "Support";
+                        break;
+              }
+        
+           try { //if(operacion.equals("modificar")){
+               
+          // }
+               if(oJugador == null){
+                   JOptionPane.showMessageDialog(this, "No existe tal jugador");
+               }
+               else {
+                   
+                   boolean updateCorrecto = MainEsports.modificarJugador(tfNick.getText(),Integer.parseInt(tfSueldo.getText()),titularidad,posicion, oJugador.getNickname());
+                   if(updateCorrecto){
+                       JOptionPane.showMessageDialog(this, "Nice, jugador modificado");
+                   } 
+                   else{
+                       JOptionPane.showMessageDialog(this, "Errores en el update");
+                   }
+               }
+ 
+          } catch (Exception ex) {
+               Logger.getLogger(VentanaJugador.class.getName()).log(Level.SEVERE, null, ex);
+          }    
+            if (respuesta == 2 || respuesta == 3){
+             tfNick.setText("");
+        
+         }
+    }
+   
     }//GEN-LAST:event_bAceptarActionPerformed
 
+    private void cbPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPosicionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbPosicionActionPerformed
+
+    private void rbSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbSiActionPerformed
+
+    private void miVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miVolverMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        ControladorVista.mostrarVentanaCategoria();
+    }//GEN-LAST:event_miVolverMouseClicked
+
+    private boolean validarFields (){
+         Pattern patron = Pattern.compile("^[A-Z][a-z]{1,}");
+                Matcher encaja = patron.matcher(tfNombre.getText());
+                Matcher encaja2 = patron.matcher(tfApellido.getText());
+                
+                if (encaja.matches() && encaja2.matches()){
+                    return true;
+                }
+       return false; 
+    }
+    private void llenarFields(){
+        tfNombre.setText(oJugador.getNombre());
+        tfApellido.setText(oJugador.getApellido());
+        tfNick.setText(oJugador.getNickname());
+        tfSueldo.setText(oJugador.getPosicion());
+        cbEquipo.setSelectedIndex(oJugador.getoEquipo().getIdEquipo());
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -165,29 +422,33 @@ public class VentanaJugador extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaJugador().setVisible(true);
-            }
-        });
+       
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAceptar;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cbEquipo;
+    private javax.swing.JComboBox<String> cbPosicion;
+    private javax.swing.ButtonGroup gTitularidad;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lFondo;
+    private javax.swing.JMenu miVolver;
     private javax.swing.JPanel panelOpaco;
+    private javax.swing.JRadioButton rbNo;
+    private javax.swing.JRadioButton rbSi;
     private javax.swing.JTextField tfApellido;
     private javax.swing.JTextField tfNick;
     private javax.swing.JTextField tfNombre;
     private javax.swing.JTextField tfSueldo;
-    private javax.swing.JTextField tfTitularidad;
     // End of variables declaration//GEN-END:variables
 }

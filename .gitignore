@@ -10,3 +10,5 @@ nbactions.xml
 nb-configuration.xml
 nbproject/private/private.xml
 private.xml
+*.class
+.class 

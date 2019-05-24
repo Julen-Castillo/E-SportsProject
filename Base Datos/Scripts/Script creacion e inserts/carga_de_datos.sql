@@ -5,7 +5,7 @@ INSERT INTO EQUIPO (nombre,presupuesto,puntos)  VALUES ('sk telecom t1',180000,0
 INSERT INTO EQUIPO (nombre,presupuesto,puntos)  VALUES ('cloud9',160000,0);
 INSERT INTO EQUIPO (nombre,presupuesto,puntos)  VALUES ('tsm',150000,0);
 INSERT INTO EQUIPO (nombre,presupuesto,puntos)  VALUES ('thunderx3 baskonia',50000,0);
-INSERT INTO EQUIPO (nombre,presupuesto,puntos)  VALUES ('mamecorp',200000,5);
+INSERT INTO EQUIPO (nombre,presupuesto,puntos)  VALUES ('mamecorp',100000,0);
 
 COMMIT;
 
@@ -18,6 +18,7 @@ INSERT INTO JUGADOR(nombre,apellido,nickname,posicion,sueldo,titularidad,equipo_
 INSERT INTO JUGADOR(nombre,apellido,nickname,posicion,sueldo,titularidad,equipo_id_equipo) VALUES ('mads','brok-pedersen','broxah','jungler',1000,1,1);
 INSERT INTO JUGADOR(nombre,apellido,nickname,posicion,sueldo,titularidad,equipo_id_equipo) VALUES ('zdravets','galabov','hylissang','support',1000,1,1);
 INSERT INTO JUGADOR(nombre,apellido,nickname,posicion,sueldo,titularidad,equipo_id_equipo)VALUES ('martin','larsson','rekkles','adcarry',1000,1,1);
+
 
 --INSERTS JUGADORES SK TELECOM T1 2
 INSERT INTO JUGADOR(nombre,apellido,nickname,posicion,sueldo,titularidad,equipo_id_equipo) VALUES ('lee','sang-hyeok','faker','midlane',1000,1,2);
@@ -68,14 +69,14 @@ INSERT INTO PRESIDENTE (nombre,apellido,equipo_id_equipo)VALUES('eric','con c',6
 COMMIT;
 
 --INSERT LIGA
-INSERT INTO LIGA (nombre,fecha_inicio,fecha_fin,en_curso) VALUES ('MameCorp league', SYSDATE,SYSDATE,1);
+--INSERT INTO LIGA (nombre,fecha_inicio,fecha_fin,en_curso) VALUES ('MameCorp league', SYSDATE,SYSDATE,1);
 
-COMMIT;
+--COMMIT;
 
 --INSERT JORNADA 
-INSERT INTO JORNADA (FECHA_INICIO,FECHA_FIN,LIGA_ID_LIGA) VALUES (SYSDATE,SYSDATE+7,1);
+--INSERT INTO JORNADA (FECHA_INICIO,FECHA_FIN,LIGA_ID_LIGA) VALUES (SYSDATE,SYSDATE+7,1);
 
-COMMIT;
+--COMMIT;
 
 --INSERT USUARIOS
 

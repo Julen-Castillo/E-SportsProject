@@ -1,24 +1,36 @@
 package vistas;
 
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import main.MainEsports;
 
 /**
  *
  * @author N3Essential
  */
 public class VentanaAdministradores extends javax.swing.JFrame {
+    
+    private static String opcionActiva;
 
     /**
      * Creates new form VentanaAdministradores
      */
-    public VentanaAdministradores() {
+    public VentanaAdministradores(String opcion) {
         setUndecorated(true);
         initComponents();
         setAlwaysOnTop(rootPaneCheckingEnabled);
         setExtendedState(MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(4,20,57,190));
         setVisible(true);
+        opcionActiva = opcion;
+        mostrarOcultarFields();
+        
+        
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,8 +42,8 @@ public class VentanaAdministradores extends javax.swing.JFrame {
     private void initComponents() {
 
         panelOpaco = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        tfNombre = new javax.swing.JTextField();
+        tfPassword = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -42,28 +54,31 @@ public class VentanaAdministradores extends javax.swing.JFrame {
         jMenuSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         panelOpaco.setLayout(null);
 
-        jTextField1.setBorder(null);
-        panelOpaco.add(jTextField1);
-        jTextField1.setBounds(151, 313, 178, 26);
+        tfNombre.setBorder(null);
+        panelOpaco.add(tfNombre);
+        tfNombre.setBounds(151, 313, 178, 26);
 
-        jPasswordField1.setBorder(null);
-        panelOpaco.add(jPasswordField1);
-        jPasswordField1.setBounds(151, 445, 178, 25);
+        tfPassword.setBorder(null);
+        panelOpaco.add(tfPassword);
+        tfPassword.setBounds(151, 445, 178, 25);
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("NOMBRE");
         panelOpaco.add(jLabel2);
-        jLabel2.setBounds(57, 319, 42, 14);
+        jLabel2.setBounds(57, 319, 80, 14);
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("PASSWORD");
         panelOpaco.add(jLabel3);
-        jLabel3.setBounds(57, 450, 57, 14);
+        jLabel3.setBounds(57, 450, 80, 14);
 
-        jLabel4.setText("ADMINISTRADOR");
         jLabel4.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("ADMINISTRADOR");
         panelOpaco.add(jLabel4);
         jLabel4.setBounds(108, 102, 206, 75);
 
@@ -73,7 +88,7 @@ public class VentanaAdministradores extends javax.swing.JFrame {
         bAceptar.setText("ACEPTAR");
         bAceptar.setBorder(null);
         bAceptar.setContentAreaFilled(false);
-        bAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bAceptar.setFocusPainted(false);
         bAceptar.setOpaque(true);
         bAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -82,14 +97,21 @@ public class VentanaAdministradores extends javax.swing.JFrame {
             }
         });
         panelOpaco.add(bAceptar);
-        bAceptar.setBounds(199, 986, 179, 55);
+        bAceptar.setBounds(160, 540, 170, 50);
 
-        getContentPane().add(panelOpaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 1110));
+        getContentPane().add(panelOpaco);
+        panelOpaco.setBounds(0, 0, 400, 1110);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/Imgs/ImgVentanaAdministradores/admin.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2030, 1080));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 2030, 1080);
 
         jMenuVolver.setText("Volver");
+        jMenuVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuVolverActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenuVolver);
 
         jMenuSalir.setText("Salir");
@@ -110,9 +132,48 @@ public class VentanaAdministradores extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuSalirMouseClicked
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-
+        try {
+            int insercion = MainEsports.insertarAdministrador(tfNombre.getText(),String.valueOf(tfPassword.getPassword()));
+            
+            
+            if(insercion > 0){
+                JOptionPane.showMessageDialog(this,"Linea insertada correctamente");
+                tfNombre.setText("");
+                tfPassword.setText(""); 
+            }else{
+                JOptionPane.showMessageDialog(this,"ERROR AL INSERTAR");
+            }
+            
+            
+        } catch (Exception ex) {
+            System.out.println("Excepcion " + ex.getMessage());
+        }
+        
+    
     }//GEN-LAST:event_bAceptarActionPerformed
 
+    private void jMenuVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuVolverActionPerformed
+        this.dispose();
+        ControladorVista.mostrarVentanaCategoria();
+    }//GEN-LAST:event_jMenuVolverActionPerformed
+    public  void mostrarOcultarFields(){
+        
+        switch (opcionActiva){
+            
+            case "alta":
+                //implementar label cambiante
+                break;
+            case "baja":
+                String nombreAdminBaja = JOptionPane.showInputDialog(this,"Escribe el nombre del usuario que quieras dar de baja");
+                tfPassword.setEnabled(false);
+                break;
+            case "modificar":
+               String nombreAdminModificar = JOptionPane.showInputDialog(this,"Escribe el nombre del usuario que quieras modificar");
+          
+                
+        }
+            
+        }
     /**
      * @param args the command line arguments
      */
@@ -140,12 +201,8 @@ public class VentanaAdministradores extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaAdministradores().setVisible(true);
-            }
-        });
+  
+      
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -157,8 +214,8 @@ public class VentanaAdministradores extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuSalir;
     private javax.swing.JMenu jMenuVolver;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelOpaco;
+    private javax.swing.JTextField tfNombre;
+    private javax.swing.JPasswordField tfPassword;
     // End of variables declaration//GEN-END:variables
 }

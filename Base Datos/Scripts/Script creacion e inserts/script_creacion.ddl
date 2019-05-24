@@ -44,7 +44,7 @@ CREATE TABLE jugador (
 ALTER TABLE jugador ADD CONSTRAINT jugador_pk PRIMARY KEY ( id_jugador );
 
 CREATE TABLE liga (
-    id_liga        NUMBER GENERATED ALWAYS AS IDENTITY, 
+    id_liga        NUMBER(2), 
     nombre         VARCHAR2(20 CHAR) NOT NULL,
     fecha_inicio   DATE NOT NULL,
     fecha_fin      DATE,
@@ -57,9 +57,9 @@ CREATE TABLE partido (
     equipo_id_equipo         INTEGER NOT NULL,
     jornada_id_jornada       INTEGER NOT NULL,
     equipo_visitante         INTEGER NOT NULL,
-    vencedor                 INTEGER NOT NULL,
+    vencedor                 INTEGER,
     tipo                     CHAR(1),
-    fecha_inicio             DATE NOT NULL,
+    fecha_inicio             DATE,
     fecha_fin                DATE,
     kills_equipo_local       INTEGER,
     kills_equipo_visitante   INTEGER,
@@ -206,7 +206,7 @@ END TRIGGER_PRES_EQ_MEN_SAL_JUG;
 /
 
 CREATE OR REPLACE TRIGGER BLOQUEO_CRUD_EQUIPO
-BEFORE INSERT OR UPDATE OR DELETE ON EQUIPO
+BEFORE INSERT OR UPDATE OF ID_EQUIPO, NOMBRE, PRESUPUESTO OR DELETE ON EQUIPO
 DECLARE
 v_num_jornadas NUMBER(2);
 BEGIN
@@ -220,7 +220,7 @@ END BLOQUEO_CRUD_EQUIPO;
 /
 
 CREATE OR REPLACE TRIGGER BLOQUEO_CRUD_JUGADOR
-BEFORE INSERT OR UPDATE OR DELETE ON JUGADOR
+BEFORE INSERT OR UPDATE OF ID_JUGADOR, NOMBRE, APELLIDO, NICKNAME, SUELDO, EQUIPO_ID_EQUIPO OR DELETE ON JUGADOR
 DECLARE
 v_num_jornadas NUMBER(2);
 BEGIN
@@ -247,14 +247,14 @@ IF (v_num_jornada = 0) THEN --Dado que vamos a crear todas las jornadas a la vez
                             --Una vez insertada la primera los requisitos de jugadores por equipo se van a cumplir por lo que no hace falta volver a disparar el trigger.
     SELECT COUNT(*) INTO v_num_equipos  --Select para coger la cantidad de equipos
     FROM equipo;
-    LOOP --loop para saber cuantos jugadores hay por cada equipo y aplicar la restriccion
+    WHILE v_id_equipo <= v_num_equipos LOOP --loop para saber cuantos jugadores hay por cada equipo y aplicar la restriccion
         SELECT COUNT(*) INTO v_count_jugador  
         FROM jugador
         WHERE equipo_id_equipo = (v_id_equipo); -- Select para coger la cantidad de jugadores por cada equipo
-        v_id_equipo := v_id_equipo + 1;
         IF (v_count_jugador < 2) THEN 
         RAISE_APPLICATION_ERROR(-20003,'Los equipos tienen que tener minimo dos jugadores');
         END IF; 
+        v_id_equipo := v_id_equipo + 1;
     END LOOP;
 END IF;
 END;
@@ -273,7 +273,7 @@ BEGIN
     SELECT en_curso INTO v_estado_liga FROM liga; --Almacenamos el estado de la liga (boolean en_curso)
     IF(v_estado_liga = 0) THEN --Si la liga no ha comenzado ejecutamos lo siguiente
         SELECT COUNT(*) INTO v_count_equipos FROM EQUIPO; --Almacenamos los equipos que hay
-        LOOP --Iteramos a través de todos los equipos para determinar si algun equipo está vacío.
+        WHILE v_id_equipo <= v_count_equipos LOOP --Iteramos a través de todos los equipos para determinar si algun equipo está vacío.
             SELECT COUNT(*) INTO v_count_jugadores --Almacenamos el numero de jugadores de cada equipo
             FROM JUGADOR 
             WHERE equipo_id_equipo = v_id_equipo; 
@@ -295,7 +295,7 @@ v_count_jugadores NUMBER(3);
 BEGIN
     SELECT COUNT(*) AS "NUMERO JUGADORES" INTO v_count_jugadores FROM jugador
     WHERE equipo_id_equipo = (PAQUETE_MUTANTE.CODIGOEQUIPO);
-    IF(v_count_jugadores >= v_max_jugadores) THEN
+    IF(v_count_jugadores > v_max_jugadores) THEN
         raise_application_error(-20000, 'El numero de jugadores por equipo no puede ser superior a 6');
     END IF;  
 END MAX_JUGADOR;   
@@ -303,8 +303,7 @@ END MAX_JUGADOR;
 /
 
 CREATE OR REPLACE TRIGGER MAX_PRESUPUESTO_EQUIPO
-BEFORE INSERT OR UPDATE ON EQUIPO
-FOR EACH ROW
+AFTER INSERT OR UPDATE ON EQUIPO
 DECLARE
 v_max_presupuesto NUMBER(6) := 200000;
 BEGIN
