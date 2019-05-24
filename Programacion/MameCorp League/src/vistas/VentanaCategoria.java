@@ -658,7 +658,11 @@ public class VentanaCategoria extends javax.swing.JFrame {
          * El botón de LogOut devuelve al usuario a la ventana de LogIn
          */
         this.dispose();
-        ControladorVista.mostrarLogin();
+        try {
+            ControladorVista.mostrarLogin();
+        } catch (Exception ex) {
+            Logger.getLogger(VentanaCategoria.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_bLogOutActionPerformed
 
     private void bSimularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSimularActionPerformed

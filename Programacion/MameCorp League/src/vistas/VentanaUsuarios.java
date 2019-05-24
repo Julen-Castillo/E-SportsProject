@@ -243,11 +243,15 @@ public class VentanaUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuSalirMouseClicked
 
     private void bLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLogOutActionPerformed
-        /**
-         * El botón de LogOut devuelve al usuario a la ventana de LogIn
-         */
-        this.dispose();
-        ControladorVista.mostrarLogin();
+        try {
+            /**
+             * El botón de LogOut devuelve al usuario a la ventana de LogIn
+             */
+            this.dispose();
+            ControladorVista.mostrarLogin();
+        } catch (Exception ex) {
+            Logger.getLogger(VentanaUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_bLogOutActionPerformed
 
     private void bJornadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJornadasActionPerformed

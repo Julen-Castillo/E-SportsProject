@@ -36,14 +36,15 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
         setAlwaysOnTop(rootPaneCheckingEnabled);
         setExtendedState(MAXIMIZED_BOTH);
         panelOpaco.setBackground(new Color(39, 118, 173,150));
+        listaJornadas = MainEsports.jornadasXML();
         llenarComboBoxJornadas();
-        consultarPartidosDeCadaJornada();
+        //consultarPartidosDeCadaJornada();
         setDatosPrimeraJornada();
         ready = true;
     }
     
     public final void llenarComboBoxJornadas() throws Exception{
-        listaJornadas = MainEsports.consultarJornadas(); 
+        //listaJornadas = MainEsports.consultarJornadas(); 
                 
         //Llenamos la combo box
         for(int i = 0; i < listaJornadas.size(); i++){
@@ -51,9 +52,9 @@ public class VentanaVisualizarJornada extends javax.swing.JFrame {
         }
     }
     
-    public final void consultarPartidosDeCadaJornada() throws Exception{
-        listaJornadas = MainEsports.consultarPartidosDeCadaJornada();
-    }
+//    public final void consultarPartidosDeCadaJornada() throws Exception{
+//        listaJornadas = MainEsports.consultarPartidosDeCadaJornada();
+//    }
     
     public final void setDatosPrimeraJornada() throws Exception{
         tfEquipoLocal1.setText(listaJornadas.get(0).getListaPartidos().get(0).getEquipoLocal().getNombre().toUpperCase());

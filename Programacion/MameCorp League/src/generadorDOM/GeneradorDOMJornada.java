@@ -17,7 +17,6 @@ import javax.xml.transform.stream.StreamResult;
 import main.MainEsports;
 import modelo.Jornada;
 import modelo.Partido;
-import oracle.net.aso.i;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Text;
@@ -34,13 +33,13 @@ private List<Jornada> listaJornadas;
     private int idPartido = 1;
     
     public static void main(String args[]) throws Exception {
-        System.out.println("--- DOM (escritura) ---\n");
+        System.out.println("--- DOM Jornada (escritura) ---\n");
         new GeneradorDOMJornada().run();
     }
     
     //Constructor
     public GeneradorDOMJornada() throws Exception {
-
+ 
         // Lista para almacenar los objetos
         listaJornadas = new ArrayList<>();
 
@@ -88,14 +87,14 @@ private List<Jornada> listaJornadas;
         dom.appendChild(raiz);
         
         //<jornada>        
-        for (Jornada oJornada : listaJornadas) {
-            Element elementoJornada = crearElementoJornada(oJornada);
+        for (int i = 0; i < listaJornadas.size(); i++) {
+            Element elementoJornada = crearElementoJornada(listaJornadas.get(i), i);
             raiz.appendChild(elementoJornada);
             idJornada++;
         }
     }
 
-    private Element crearElementoJornada(Jornada oJornada) {
+    private Element crearElementoJornada(Jornada oJornada, int i) {
         
         
         // <jornada>
@@ -107,14 +106,12 @@ private List<Jornada> listaJornadas;
         // <partidos>
         Element elementoPartidos = dom.createElement("partidos");
 
-       // 
-       for(int i = 0; i < listaJornadas.size(); i++){
-           for(int x = 0; x < listaJornadas.get(i).getListaPartidos().size(); x++){
-                Element elementoPartido = crearElementoPartido(listaJornadas.get(i).getListaPartidos().get(x));
-                elementoPartidos.appendChild(elementoPartido);
-                idPartido++;
-           }
-       }
+       //obtenemos los 3 partidos de cada jornada
+        for(int x = 0; x < listaJornadas.get(0).getListaPartidos().size(); x++){
+            Element elementoPartido = crearElementoPartido(listaJornadas.get(i).getListaPartidos().get(x));
+            elementoPartidos.appendChild(elementoPartido);
+            idPartido++;
+        }
 
         // </jornadas>
         elementoJornada.appendChild(elementoPartidos);
